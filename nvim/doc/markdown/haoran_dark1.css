@@ -1,0 +1,563 @@
+/* -------------------------------------------------------------------------------------------------------------- */
+/** 
+  *by haoran
+  *20.04.20.21:00
+  */
+/* -------------------------------------------------------------------------------------------------------------- */
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Roboto'),url('./roboto/roboto.woff') format('woff');
+}
+/* -------------------------------------------------------------------------------------------------------------- */
+/* 主题色黑 选中色深灰 字体偏蓝  */
+:root {
+  /* 文件树右键框 */
+--bg-color: #303335;
+/* 文件树全背景色,设置背景色 */
+--side-bar-bg-color: #0C0C0C;
+/* 文件树字体颜色 */
+--text-color: #777777;
+/* 所有的链接字体颜色，包括目录 */
+--link-color: #4183C4;
+/* --link-color: #0066ff; */
+/* 文件树中被选择的文件背景 */
+--active-file-bg-color: #000000;
+/* 右键默认分割线处背景颜色 */
+--item-hover-bg-color: #0C0C0C;
+/* 标题与正文 */
+--font-color: #B0B7C3;
+/* 好像是文件数上下两行...不，就是 */
+--window-border: 1px solid #0C0C0C;
+/* 被选择字体背景色 */
+--select-text-bg-color: #88939C;
+/* hover LaTeX */
+--rawblock-edit-panel-bd: #0c0c0c;
+
+/* 被选择字体色 */
+/* --select-text-font-color: white; */
+/* 流程图，时序图填充色 */
+/* --bg-color: #263238; */
+/* 所有的标题颜色 */
+/* --header-color: #ecedef; */
+/* 代码块前的行号颜色 */
+/* --accented-background-color: #575C61; */
+/* 好像是文件数上下两行... */
+/* --window-border: 1px solid rgba(0,0,0,.07); */
+}
+
+/* ---------------------------------------------------------------------------------------------------------------- */
+html, body {
+/* 主题背景色,对源代码模式也有效 */
+/* background: #24292E; */
+/* background: #121212; */
+background: #0C0C0C;
+/* background: #1E2022; */
+/* background: #1E1E1E; */
+/* background: #282C34; */
+/* background: #202020; */
+}
+body {
+/* 字体选择,对文件树有效,对源代码模式无效 */
+/* 更纱字体 */
+/* font-family: "Inter Medium"; */
+/* font-family: Roboto,Helvetica,Arial; */
+/* 字体颜色,对选中的文件名有效,文件树中未选中的无效 */
+/* color: #8f93a2; */
+color: var(--font-color);
+/* 每行字两端对齐 */
+text-align: justify;
+}
+#write {
+/* 行宽仅对默认模式有效,对源代码模式无效 */
+/* 当没有此行时，很宽 */
+/* max-width: 100ch; */
+/* 行高仅对默认模式有效,对源代码模式无效 */
+line-height: 1.45;
+}
+/* ---------------------------------------------------------------------------------------------------------------- */
+.file-node-icon.fa.fa-folder:before {
+/* 文件树文件夹图标颜色 */
+/* color: #ECEDEF; */
+color: #777777;
+}
+#file-library-search-input {
+  background: var(--side-bar-bg-color);
+}
+#file-library-list-children {
+  background: var(--side-bar-bg-color);
+}
+/* ---------------------------------------------------------------------------------------------------------------- */
+h1 {
+  font-size: 1.75em;
+}
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: 1.15em;
+}
+
+h2:before {
+  content: "[2]  ";
+}
+
+h3:before,
+h3.md-focus:before {
+  content: "[3]  ";
+}
+
+h4:before,
+h4.md-focus:before {
+  content: "[4] ";
+}
+
+h5:before,
+h5.md-focus:before {
+  content: "[5]  ";
+}
+
+h6:before,
+h6.md-focus:before {
+  content: "[6]  ";
+}
+
+h3.md-focus:before,
+h4.md-focus:before,
+h5.md-focus:before,
+h6.md-focus:before {
+  color: inherit;
+  border: inherit;
+  border-radius: inherit;
+  position: inherit;
+  left: initial;
+  float: none;
+  top: initial;
+  font-size: inherit;
+  padding-left: inherit;
+  padding-right: inherit;
+  vertical-align: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+}
+
+/* before */
+/* h2:before {
+  content: " <2> ";
+}
+h3:before {
+  content: "  <3> ";
+}
+h4:before {
+  content: "   <4> ";
+}
+h5:before {
+  content: "    <5> ";
+}
+h6:before {
+  content: "     <6> ";
+} */
+
+/* after */
+/* h2:after {
+  content: "<2> ";
+}
+h3:after {
+  content: "<3> ";
+}
+h4:after {
+  content: "<4> ";
+}
+h5:after {
+  content: "<5> ";
+}
+h6:after {
+  content: "<6> ";
+} */
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6 {
+  /* 标题颜色 */
+  /* 原始，刺眼 */
+  /* color: #1F0909; */
+color: var(--font-color);
+}
+/* ---------------------------------------------------------------------------------------------------------------- */
+blockquote {
+/* 引用树左侧的间隔 */
+margin-left: 1.2em;
+/* 引用字体与引用树左侧的间隔 */
+padding-left: 0.5em;
+/* 引用左侧宽度与颜色 */
+border-left: 5px solid #3D5266;
+}
+/* ---------------------------------------------------------------------------------------------------------------- */
+/* YAML */
+#write pre.md-meta-block {
+background-color: #6E757A;
+}
+/* ---------------------------------------------------------------------------------------------------------------- */
+code,
+pre {
+font-family: "Consolas", "Menlo", "Monaco", monospace, serif;
+/* 行代码块高度 */
+font-size: .99em;
+/* 行代码块背景 */
+background: #6E757A;
+color: #DDDDDD;
+border-radius: 3px;
+padding: 4px 5px 4px 5px;/*上 左 下 右*/
+margin: 0px 6px 0px 6px;
+}
+/* 篱笆 */
+.md-fences{
+/* 所有的代码块包括流程图...整体缩进 */
+margin-left: 1em;
+/* 代码框，好像又不能改颜色，删了又导致没有代码框 */
+border: 1px solid #3C3C3C;
+/* 代码框中最后第一行距底部距离 */
+padding-bottom: 6px;
+/* 代码框中第一行距顶部距离 */
+padding-top: 4px;
+/* 代码块底部空行，没有会显得紧凑 */
+margin-bottom: 1em;
+}
+
+.cm-s-inner.CodeMirror {
+  background-color: #0C0C0C;
+}
+.md-fences.md-focus .cm-s-inner .CodeMirror-activeline-background {
+  /* 代码块hover状态背景 */
+  background: #303848;
+}
+.cm-s-inner .CodeMirror-cursor {
+  /* 光标 */
+    border-left: solid thin #f8f8f2 !important;
+}
+/* -----------------------------------------------------------*/
+/* C++ 变量，部分关键字cout NULL…… */
+.cm-s-inner span.cm-variable, .cm-s-inner span.cm-variable-2 {
+  color: #50fa7b;
+}
+/* 变量定义关键字int…… */
+.cm-s-inner span.cm-variable-3, .cm-s-inner span.cm-type {
+  color: #ffb86c;
+}
+/* 函数名，std */
+.cm-s-inner span.cm-def {
+  color: white;
+}
+.cm-s-inner span.cm-comment {
+  color: #6272a4;
+}
+
+.cm-s-inner span.cm-string, .cm-s-inner span.cm-string-2 {
+  color: #f1fa8c;
+}
+
+.cm-s-inner span.cm-number {
+  color: #bd93f9;
+}
+
+.cm-s-inner span.cm-variable, .cm-s-inner span.cm-variable-2 {
+  color: #50fa7b;
+}
+
+.cm-s-inner span.cm-def {
+  color: white;
+}
+
+.cm-s-inner span.cm-operator {
+  color: #ff79c6;
+}
+/* 关键字 */
+.cm-s-inner span.cm-keyword {
+  color: #ff79c6;
+}
+
+.cm-s-inner span.cm-atom {
+  color: #bd93f9;
+}
+
+.cm-s-inner span.cm-meta {
+  color: #f8f8f2;
+}
+
+.cm-s-inner span.cm-tag {
+  color: #ff79c6;
+}
+
+.cm-s-inner span.cm-attribute {
+  color: #50fa7b;
+}
+
+.cm-s-inner span.cm-qualifier {
+  color: #50fa7b;
+}
+
+.cm-s-inner span.cm-property {
+  color: #66d9ef;
+}
+
+.cm-s-inner span.cm-builtin {
+  color: #50fa7b;
+}
+
+.cm-s-inner span.cm-variable-3, .cm-s-inner span.cm-type {
+  color: #ffb86c;
+}
+
+.md-fences.md-focus .cm-s-inner .CodeMirror-activeline-background {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.cm-s-inner .CodeMirror-matchingbracket {
+  color: white !important;
+  text-decoration: underline;
+}
+
+.cm-s-inner .CodeMirror-selected, .cm-s-inner .CodeMirror-selectedtext {
+  background: #3b4254 !important;
+  color: inherit;
+  text-shadow: none;
+}
+/* -----------------------------------------------------------*/
+/* Python print */
+.cm-s-inner span.cm-builtin {
+  color: #50fa7b;
+}
+/* ---------------------------------------------------------------------------------------------------------------- */
+/* 链接 */
+a {
+/* 字体颜色 */
+color: #4183C4;
+}
+/* 目录位置 */
+/* .md-toc-item {
+position: relative;
+} */
+/* .md-toc-inner {
+目录宽度
+width: 100%;
+display: inline-block;
+} */
+a.md-toc-inner {
+/* 目录字体颜色 */
+color: #ffffff;
+}
+.md-toc {
+  /* margin-top: 8px; */
+  background-color: #363B40;/*haoran*/
+  /* padding-bottom: 0.5px; */
+  border-radius: 1px;
+  padding: 0px 0px 0px 0px;
+  margin: 0px 0px 0px 0px;
+  /* box-shadow: 0px 0px 10px rgba(0, 0, 0, .2); */
+  /* box-shadow: 0px 0px 10px #ddd; *//*it is great*/
+}
+/* #write a:hover { */
+/* hover状态下背景颜色 */
+/* background-color: #aaaaaa; */
+/* hover状态下字体颜色 */
+/* color: white; */
+/* hover状态下不显示下划线 */
+/* text-decoration: none;
+} */
+/* toc上编辑栏 */
+#write div.md-toc-tooltip {
+	background-color: #0C0C0C;
+}
+/* 以下保证hover状态下背景长度 */
+/* .md-toc-h2 .md-toc-inner {
+padding-left: 2em;
+margin-left: 0;
+}
+.md-toc-h3 .md-toc-inner {
+padding-left: 4em;
+margin-left: 0;
+}
+.md-toc-h4 .md-toc-inner {
+padding-left: 6em;
+margin-left: 0;
+}
+.md-toc-h5 .md-toc-inner {
+padding-left: 8em;
+margin-left: 0;
+}
+.md-toc-h6 .md-toc-inner {
+padding-left: 10em;
+margin-left: 0;
+} */
+/* ---------------------------------------------------------------------------------------------------------------- */
+hr {
+/* 分割线颜色及粗细程度 */
+border-top: solid 1px #ddd;
+}
+/* monospace */
+/* hr:after {
+content: "--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------";
+position: absolute;
+top: 0;
+left: 0;
+font-size: 14px;
+line-height: 20px;
+width: 100%;
+word-wrap: break-word;
+} */
+/* ---------------------------------------------------------------------------------------------------------------- */
+mark {
+/* 高亮背景 */
+background: #FFFDCC;
+/* background: #F8F7E9; */
+/* 高亮下下划线宽度，颜色 */
+/* border-bottom: 1px solid #ffedce; */
+border-bottom: 1px solid #666666;
+/* 高亮高度 */
+padding: 4px;
+/* 高亮左右间距 */
+margin: 0 5px;
+}
+/* ---------------------------------------------------------------------------------------------------------------- */
+/* 表格第一行参数 */
+th {
+/* 粗体 */
+font-weight: bold;
+/* 第一行宽度？ */
+padding-top: 7px;
+background: #575c61;
+/* 第一行边框颜色 */
+border-color: #333;
+/* 第一行字体颜色 */
+color: #f3f3f3;
+}
+td, th {
+/* 表格线条 */
+border: 1px solid #333;
+/* 表格中字与左侧边框距离 */
+padding-left: 1ch;
+/* 表格中字与右侧边框距离 */
+padding-right: 1ch;
+/* 填充 */
+padding: 7px 13px
+}
+.ty-table-edit {
+/* 点击表格时上面出现的编辑框颜色 */
+background: #0c0c0c;
+/* 编辑框上面的的高度 */
+padding-top: 0;
+}
+/* 偶数行背景 */
+.md-table tr:nth-child(2n) {
+background-color: #32373d
+}
+/* ---------------------------------------------------------------------------------------------------------------- */
+/* 编辑时无边框 */
+.md-diagram-panel {
+border: none !important;
+}
+/* -----------------------------------------------------------*/
+#write .md-fences {
+/* 边框颜色 */
+border: 1px solid #0c0c0c;
+/* mermaid等背景 */
+background-color: #0c0c0c !important;
+/* 背景弧度 */
+border-radius: 2px;
+/* font-family: ; */
+}
+/* mermaid,对每个框框还有要求，菱形就不行 */
+/* .md-fences[lang=mermaid] .md-diagram-panel-preview rect {
+填充颜色
+fill: #FFFFFF;
+边框颜色
+stroke: #ECECFF;
+} */
+.node rect,
+.node circle,
+.node ellipse,
+.node polygon {
+/* 填充色 */
+  fill: #FFFFFF;
+  /* 美人鱼边框 */
+  stroke: #1F0909;
+  stroke-width: 2px;
+}
+.cluster rect {
+/* 子流程图背景，与文件树图标颜色相同 */
+fill: #DDDDDD !important;
+/* 子流程图背景边框 */
+stroke: rgba(255, 255, 255, 0.25) !important;
+/* 子流程图背景边框宽度 */
+stroke-width: 0.6px !important;
+}
+/* -----------------------------------------------------------*/
+/* gfm */
+.actor {
+/* 大框边框颜色 */
+stroke: rgba(255, 255, 255, 0.25);
+/* 大框填充颜色 */
+fill: #DDDDDD;
+}
+.labelBox {
+/* 小框边框颜色 */
+stroke: rgba(255, 255, 255, 0.25);
+/* 小框填充颜色 */
+fill: #DDDDDD;
+}
+/* ---------------------------------------------------------------------------------------------------------------- */
+#typora-source,
+.typora-sourceview-on  {
+/* 源代码背景色 */
+background: #0c0c0c;
+}
+/* 当前行背景色 */
+.cm-s-typora-default .CodeMirror-activeline-background {
+  background: #303335;
+}
+#typora-source {
+/* 源代码下字体,默认的字体很不错 */
+/* font-family: Georgia-Italic, STSongti-SC-Light, serif; */
+/* 源代码下文本字体颜色 */
+  /* color: var(--font-color); */
+/* color: #FFFFFF; */
+color: #DAE3EA;
+}
+/* 保证一级标题字体大小 */
+/* .md-meta, */
+.md-content {
+display: inline;
+}
+#typora-source .cm-header {
+/* 源代码标题粗体 */
+font-weight: bold;
+/* 源代码标题字体大小 */
+font-size: 1.23rem;
+/* 标题行高 */
+line-height: 2rem;
+}
+/* 源代码编程语言字体，注释颜色 */
+#typora-source .cm-comment {
+  color: #8AA1E1;
+}
+#typora-source .CodeMirror-lines {
+max-width: 1500px;
+/* padding-left: 50px;
+padding-right: 30px; */
+}
+.cm-s-typora-default .cm-link {
+/* 源代码下链接颜色 */
+color: #5EAEED;
+}
+/* 源代码下标题颜色 */
+.cm-s-typora-default .cm-header, 
+.CodeMirror.cm-s-typora-default div.CodeMirror-cursor {
+/* color: #428bca; */
+color: #DD6E73;
+}
+/* 源代码中引用 */
+.cm-s-typora-default .cm-atom, .cm-s-typora-default .cm-number {
+/* 字体颜色 */
+/* color: #777777; */
+color: #FFFFFF;
+}
+/* ---------------------------------------------------------------------------------------------------------------- */
