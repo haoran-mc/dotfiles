@@ -1,0 +1,438 @@
+/* -------------------------------------------------------------------------------------------------------------- */
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Roboto'),url('./roboto/roboto.woff') format('woff');
+}
+/* -------------------------------------------------------------------------------------------------------------- */
+:root {
+--bg-color: #24292E;
+--side-bar-bg-color: #24292E;
+--text-color: #D6D8DA;
+--link-color: #D6D8DA;
+--select-text-bg-color: #31353A;
+--select-text-font-color: white;
+--rawblock-edit-panel-bd: var(--select-text-bg-color);
+--active-file-bg-color: black;
+--window-border: 1px solid #24292E;
+--item-hover-bg-color: #090B10;
+}
+/* ---------------------------------------------------------------------------------------------------------------- */
+html, body {
+background: #31363F;
+/*英文*/
+/* font-size: 14.7px; */
+/* 中文 */
+font-size: 12.65px;
+}
+body {
+font-family: Roboto,Helvetica,Arial;
+color: #9DA5B4;
+text-align: justify;
+}
+#write {
+max-width: 1050px;
+line-height: 1.5;
+}
+/* ---------------------------------------------------------------------------------------------------------------- */
+.file-node-icon.fa.fa-folder:before {
+color: #9DA5B4;
+}
+#file-library-search-input {
+  background: var(--side-bar-bg-color);
+}
+/* ---------------------------------------------------------------------------------------------------------------- */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    line-height: 1.4;
+    cursor: text;
+}
+h1:hover a.anchor,
+h2:hover a.anchor,
+h3:hover a.anchor,
+h4:hover a.anchor,
+h5:hover a.anchor,
+h6:hover a.anchor {
+    text-decoration: none;
+}
+h1 tt,
+h1 code {
+    font-size: inherit;
+}
+h2 tt,
+h2 code {
+    font-size: inherit;
+}
+h3 tt,
+h3 code {
+    font-size: inherit;
+}
+h4 tt,
+h4 code {
+    font-size: inherit;
+}
+h5 tt,
+h5 code {
+    font-size: inherit;
+}
+h6 tt,
+h6 code {
+    font-size: inherit;
+}
+h1 {
+    padding-bottom: .3em;
+    font-size: 2em;
+    line-height: 1.2;
+    border-bottom: 1px solid #555555;
+}
+h2 {
+   padding-bottom: .3em;
+    font-size: 1.45em;
+    line-height: 1.225;
+    border-bottom: 1px solid #181A1F;
+}
+h3 {
+    font-size: 1.3em;
+    line-height: 1.43;
+}
+h4 {
+    font-size: 1.2em;
+}
+h5 {
+    font-size: 1em;
+}
+h6 {
+   font-size: 1em;
+    color: #777;
+}
+#write h1, 
+#write h2, 
+#write h3, 
+#write h4, 
+#write h5, 
+#write h6 {
+color: #9DA5B4;
+}
+/* ---------------------------------------------------------------------------------------------------------------- */
+blockquote {
+margin-left: 1em;
+padding-left: 0.6em;
+border-left: 3.75px solid #181A1F;
+color: #6A737D;
+}
+/* ---------------------------------------------------------------------------------------------------------------- */
+/* YAML */
+#write pre.md-meta-block {
+  background-color: #6E757A;
+  }
+/* ---------------------------------------------------------------------------------------------------------------- */
+code,
+pre {
+font-family: "Consolas", "Menlo", "Monaco", monospace, serif;
+font-size: .9em;
+background: #1B1D23;
+color: #DDDDDD;
+border-radius: 3px;
+padding: 4px 5px 4px 5px;/*上 左 下 右*/
+margin: 0px 6px 0px 6px;
+}
+.md-fences{
+margin-left: 1em;
+border: 1px solid #e1e7e8;
+padding-bottom: 6px;
+padding-top: 4px;
+margin-bottom: 1em;
+}
+.md-fences.md-focus .cm-s-inner .CodeMirror-activeline-background {
+  background: #303848;
+}
+.cm-s-inner .CodeMirror-cursor {
+    border-left: solid thin #f8f8f2 !important;
+}
+/* -----------------------------------------------------------*/
+/* C++ 变量，部分关键字cout NULL…… */
+.cm-s-inner span.cm-variable, .cm-s-inner span.cm-variable-2 {
+  color: #50fa7b;
+}
+/* 变量定义关键字int…… */
+.cm-s-inner span.cm-variable-3, .cm-s-inner span.cm-type {
+  color: #ffb86c;
+}
+/* 函数名，std */
+.cm-s-inner span.cm-def {
+  color: white;
+}
+.cm-s-inner span.cm-comment {
+  color: #6272a4;
+}
+
+.cm-s-inner span.cm-string, .cm-s-inner span.cm-string-2 {
+  color: #f1fa8c;
+}
+
+.cm-s-inner span.cm-number {
+  color: #bd93f9;
+}
+
+.cm-s-inner span.cm-variable, .cm-s-inner span.cm-variable-2 {
+  color: #50fa7b;
+}
+
+.cm-s-inner span.cm-def {
+  color: white;
+}
+
+.cm-s-inner span.cm-operator {
+  color: #ff79c6;
+}
+/* 关键字 */
+.cm-s-inner span.cm-keyword {
+  color: #ff79c6;
+}
+
+.cm-s-inner span.cm-atom {
+  color: #bd93f9;
+}
+
+.cm-s-inner span.cm-meta {
+  color: #f8f8f2;
+}
+
+.cm-s-inner span.cm-tag {
+  color: #ff79c6;
+}
+
+.cm-s-inner span.cm-attribute {
+  color: #50fa7b;
+}
+
+.cm-s-inner span.cm-qualifier {
+  color: #50fa7b;
+}
+
+.cm-s-inner span.cm-property {
+  color: #66d9ef;
+}
+
+.cm-s-inner span.cm-builtin {
+  color: #50fa7b;
+}
+
+.cm-s-inner span.cm-variable-3, .cm-s-inner span.cm-type {
+  color: #ffb86c;
+}
+
+.md-fences.md-focus .cm-s-inner .CodeMirror-activeline-background {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.cm-s-inner .CodeMirror-matchingbracket {
+  color: white !important;
+  text-decoration: underline;
+}
+
+.cm-s-inner .CodeMirror-selected, .cm-s-inner .CodeMirror-selectedtext {
+  background: #3b4254 !important;
+  color: inherit;
+  text-shadow: none;
+}
+.cm-s-inner span.cm-builtin {
+  color: #50fa7b;
+}
+/* ---------------------------------------------------------------------------------------------------------------- */
+a {
+color: #D6D8DA;
+}
+.md-toc-item {
+position: relative;
+}
+/* .md-toc-inner {
+width: 100%;
+} */
+a.md-toc-inner {
+color: #D6D8DA;
+}
+/* #write a:hover {
+background-color: #aaaaaa;
+color: white;
+text-decoration: none;
+}
+.md-toc-h2 .md-toc-inner {
+padding-left: 2em;
+margin-left: 0;
+}
+.md-toc-h3 .md-toc-inner {
+padding-left: 4em;
+margin-left: 0;
+}
+.md-toc-h4 .md-toc-inner {
+padding-left: 6em;
+margin-left: 0;
+}
+.md-toc-h5 .md-toc-inner {
+padding-left: 8em;
+margin-left: 0;
+}
+.md-toc-h6 .md-toc-inner {
+padding-left: 10em;
+margin-left: 0;
+} */
+/* ---------------------------------------------------------------------------------------------------------------- */
+hr {
+border-top: solid 4.6px #181A1F;
+}
+/* monospace */
+/* hr:after {
+content: "--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------";
+position: absolute;
+top: 0;
+left: 0;
+font-size: 14px;
+line-height: 20px;
+width: 100%;
+word-wrap: break-word;
+} */
+/* ---------------------------------------------------------------------------------------------------------------- */
+mark {
+background: #FFFDCC;
+border-bottom: 1px solid #666666;
+padding: 2.8px;
+margin: 0 5px;
+}
+/* ---------------------------------------------------------------------------------------------------------------- */
+table {
+  padding: 0;
+  word-break: initial
+}
+table.md-table tr:nth-child(2n) {
+  background-color: #090705
+}
+table.md-table tr:nth-child(2n-1) {
+  background-color: #222222
+}
+table th {
+font-weight: bold;
+padding-top: 2px;
+background: #222222;
+color: #9DA5B4;
+}
+td, th {
+font-size: 14.5px;
+border: 1px solid #181A1F;
+text-align: left;
+padding-left: 1ch;
+padding-right: 1ch;
+padding: 7px 12.5px
+}
+.ty-table-edit {
+background: #31363F;
+padding-top: 0;
+}
+/* ---------------------------------------------------------------------------------------------------------------- */
+/* .task-list-item input:before {
+content: '[ ]';
+display: inline-block;
+margin-left: -2ch;
+width: 4ch;
+position: absolute;
+top: -1px;
+vertical-align: middle;
+text-align: center;
+background-color: #222;
+color: #4fac4f;
+}
+.task-list-item input:checked:before {
+content: '[x]';
+}
+.task-list-item input:checked ~ * {
+text-decoration: line-through;
+} */
+/* ---------------------------------------------------------------------------------------------------------------- */
+.md-diagram-panel {
+border: none !important;
+}
+/* -----------------------------------------------------------*/
+#write .md-fences {
+border: 1px solid #1B1D23;
+background-color: #1B1D23 !important;
+border-radius: 2px;
+}
+.node rect,
+.node circle,
+.node ellipse,
+.node polygon {
+  fill: #31363F;
+  stroke: #1F0909;
+  stroke-width: 2px;
+}
+.cluster rect {
+fill: #DDDDDD !important;
+stroke: rgba(255, 255, 255, 0.25) !important;
+stroke-width: 0.6px !important;
+}
+/*线条,字体颜色*/
+.label {
+  color: #b8bfc6;
+}
+/* -----------------------------------------------------------*/
+.actor {
+stroke: rgba(255, 255, 255, 0.25);
+fill: #DDDDDD;
+}
+.labelBox {
+stroke: rgba(255, 255, 255, 0.25);
+fill: #DDDDDD;
+}
+/* ---------------------------------------------------------------------------------------------------------------- */
+textarea {
+margin-bottom: -10.5px;
+}
+/* ---------------------------------------------------------------------------------------------------------------- */
+#typora-source,
+.typora-sourceview-on  {
+background: #1B1D23;
+}
+.cm-s-typora-default .cm-s-inner.CodeMirror-line {
+border: 0 !important;
+}
+.md-content {
+display: inline;
+}
+#typora-source .cm-header {
+font-weight: bold;
+font-size: 1.28rem;
+line-height: 2rem;
+}
+#typora-source .cm-comment {
+  color: #8AA1E1;
+}
+#typora-source {
+  color: #9DA5B4;
+}
+#typora-source .CodeMirror-lines {
+max-width: 980px;
+padding-left: 50px;
+padding-right: 30px;
+}
+.cm-s-typora-default .cm-link {
+/* color: #11987d; */
+color: #D6D8DA;
+}
+.cm-s-typora-default .cm-header, 
+.cm-s-typora-default .cm-property,
+.CodeMirror.cm-s-typora-default div.CodeMirror-cursor {
+color: #CEBCCA;
+}
+.cm-s-typora-default .cm-atom, .cm-s-typora-default .cm-number {
+color: #6A737D;
+}
+/* ---------------------------------------------------------------------------------------------------------------- */

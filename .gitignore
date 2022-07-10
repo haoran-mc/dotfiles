@@ -5,8 +5,8 @@
 !.gitignore
 
 # 不忽略 /nvim/ 文件夹
-!./nvim/
+!/nvim/
 # 不忽略 /ranger/ 文件夹
-!./ranger/
+!/ranger/
 # 不忽略 /zsh/ 文件夹
-!./zsh/
+!/zsh/
