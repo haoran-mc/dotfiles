@@ -10,3 +10,4 @@
 !/ranger/
 # 不忽略 /zsh/ 文件夹
 !/zsh/
+!/fonts/
