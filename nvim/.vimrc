@@ -85,8 +85,6 @@ set formatoptions-=tc
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 主题
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" color distinguished
-" color frost
 if has("gui_running")
     " color murphy
     color paramount
@@ -96,8 +94,7 @@ if has("gui_running")
     winpos 1080 150
     set lines=23 columns=75
 else
-    color frost
-    " color slate
+    color slate
     " color def8ult
     " let g:FrostTransparent = 0
     " let g:SnazzyTransparent = 1
@@ -281,9 +278,10 @@ call plug#begin('~/.nvim/plugged')
 Plug 'preservim/nerdtree'
 Plug 'preservim/nerdcommenter'
 Plug 'Chiel92/vim-autoformat'
-" Plug 'dhruvasagar/vim-table-mode', { 'on': 'TableModeToggle' }
-" Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+Plug 'dhruvasagar/vim-table-mode', { 'on': 'TableModeToggle' }
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 Plug 'fatih/vim-go', { 'tag': '*' }
+Plug 'RRethy/vim-hexokinase'
 call plug#end()
 
 
