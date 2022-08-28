@@ -1,13 +1,11 @@
 # 忽略根目录下所有文件
 /*
 
-# 不忽略 .gitignore 问价
 !.gitignore
 
-# 不忽略 /nvim/ 文件夹
 !/nvim/
-# 不忽略 /ranger/ 文件夹
 !/ranger/
-# 不忽略 /zsh/ 文件夹
 !/zsh/
 !/fonts/
+
+!README.md
