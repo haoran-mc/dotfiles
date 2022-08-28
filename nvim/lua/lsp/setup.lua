@@ -10,16 +10,17 @@ local lspconfig = require("lspconfig")
 -- key 必须为下列网址列出的 server name，不可以随便写
 -- https://github.com/williamboman/nvim-lsp-installer#available-lsps
 local servers = {
-  sumneko_lua = require("lsp.config.lua"), -- lua/lsp/config/lua.lua
-  bashls = require("lsp.config.bash"),
-  pyright = require("lsp.config.pyright"),
-  html = require("lsp.config.html"),
-  cssls = require("lsp.config.css"),
-  emmet_ls = require("lsp.config.emmet"),
-  jsonls = require("lsp.config.json"),
-  tsserver = require("lsp.config.ts"),
-  rust_analyzer = require("lsp.config.rust"),
-  yamlls = require("lsp.config.yamlls"),
+  sumneko_lua = require("lsp.lang.lua"),
+  bashls = require("lsp.lang.bash"),
+  pyright = require("lsp.lang.pyright"),
+  html = require("lsp.lang.html"),
+  cssls = require("lsp.lang.css"),
+  emmet_ls = require("lsp.lang.emmet"),
+  jsonls = require("lsp.lang.json"),
+  tsserver = require("lsp.lang.ts"),
+  rust_analyzer = require("lsp.lang.rust"),
+  yamlls = require("lsp.lang.yamlls"),
+  -- gopls = require("lsp.lang.go"),
   -- remark_ls = require("lsp.config.markdown"),
 }
 

@@ -98,10 +98,11 @@ local pluginKeys = {}
 
 -- nvim-tree
 map("n", "<leader>ft", ":NvimTreeToggle<CR>", opt)
+map("n", "<A-0>", ":NvimTreeFocus<CR>", opt)
 pluginKeys.nvimTreeList = { -- 打开文件或文件夹
   -- open
-  { key = { "<CR>", "<2-LeftMouse>", "<TAB>" }, action = "edit" },
-  { key = "o", action = "edit" },
+  { key = { "o", "<2-LeftMouse>", "<TAB>" }, action = "edit" },
+  { key = "<CR>", action = "edit_no_picker" },
   { key = "s", action = "split" },
   { key = "v", action = "vsplit" },
   { key = "x", action = "system_open" },
@@ -109,18 +110,17 @@ pluginKeys.nvimTreeList = { -- 打开文件或文件夹
   { key = "i", action = "toggle_ignored" },
   -- Hide (dotfiles)
   { key = ".", action = "toggle_dotfiles" },
-  { key = "gr", action = "refresh" },
+  { key = "R", action = "refresh" },
   -- file operation
   { key = "a", action = "create" },
   { key = "d", action = "remove" },
-  { key = "R", action = "rename" },
+  { key = "r", action = "rename" },
   { key = "x", action = "cut" },
   { key = "c", action = "copy" },
   { key = "p", action = "paste" },
   { key = "y", action = "copy_name" },
   { key = "Y", action = "copy_path" },
   { key = "gy", action = "copy_absolute_path" },
-  { key = "I", action = "toggle_file_info" },
   { key = "n", action = "tabnew" },
   -- 进入下一级
   { key = { "]" }, action = "cd" },
@@ -216,7 +216,7 @@ pluginKeys.mapLSP = function(mapbuf)
   mapbuf("n", "gp", "<cmd>Lspsaga show_line_diagnostics<CR>", opt)
   mapbuf("n", "gj", "<cmd>Lspsaga diagnostic_jump_next<cr>", opt)
   mapbuf("n", "gk", "<cmd>Lspsaga diagnostic_jump_prev<cr>", opt)
-  mapbuf("n", "<leader>f", "<cmd>lua vim.lsp.buf.formatting()<CR>", opt)
+  -- mapbuf("n", "<leader>ui", "<cmd>lua vim.lsp.buf.formatting()<CR>", opt)
   -- 未用
   -- mapbuf("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opt)
   -- mapbuf("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opt)
@@ -227,6 +227,8 @@ pluginKeys.mapLSP = function(mapbuf)
   -- mapbuf('n', '<space>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opt)
   -- mapbuf('n', '<space>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opt)
 end
+
+  map("n", "<leader>ui", ":Format<CR>", opt)
 
 -- typescript 快捷键
 pluginKeys.mapTsLSP = function(mapbuf)
@@ -293,9 +295,9 @@ pluginKeys.cmp = function(cmp)
 
   return {
     -- 上一个
-    ["<C-k>"] = cmp.mapping.select_prev_item(),
+    ["<C-p>"] = cmp.mapping.select_prev_item(),
     -- 下一个
-    ["<C-j>"] = cmp.mapping.select_next_item(),
+    ["<C-n>"] = cmp.mapping.select_next_item(),
     -- 出现补全
     ["<A-.>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
     -- 取消

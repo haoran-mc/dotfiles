@@ -17,14 +17,14 @@ autocmd("BufEnter", {
 
 -- 自动切换输入法，需要安装 im-select
 -- https://github.com/daipeihust/im-select
-autocmd("InsertLeave", {
-  group = myAutoGroup,
-  callback = require("utils.im-select").macInsertLeave,
-})
-autocmd("InsertEnter", {
-  group = myAutoGroup,
-  callback = require("utils.im-select").macInsertEnter,
-})
+-- autocmd("InsertLeave", {
+--   group = myAutoGroup,
+--   callback = require("utils.im-select").macInsertLeave,
+-- })
+-- autocmd("InsertEnter", {
+--   group = myAutoGroup,
+--   callback = require("utils.im-select").macInsertEnter,
+-- })
 
 -- 进入Terminal 自动进入插入模式
 autocmd("TermOpen", {
@@ -35,21 +35,21 @@ autocmd("TermOpen", {
 -- 保存时自动格式化
 autocmd("BufWritePre", {
   group = myAutoGroup,
-  pattern = { "*.lua", "*.py", "*.sh" },
+  pattern = { "*.lua", "*.py", "*.sh", "*go" },
   callback = vim.lsp.buf.formatting_sync,
 })
 
 -- 修改lua/plugins.lua 自动更新插件
-autocmd("BufWritePost", {
-  group = myAutoGroup,
-  -- autocmd BufWritePost plugins.lua source <afile> | PackerSync
-  callback = function()
-    if vim.fn.expand("<afile>") == "lua/plugins.lua" then
-      vim.api.nvim_command("source lua/plugins.lua")
-      vim.api.nvim_command("PackerSync")
-    end
-  end,
-})
+-- autocmd("BufWritePost", {
+--   group = myAutoGroup,
+--   -- autocmd BufWritePost plugins.lua source <afile> | PackerSync
+--   callback = function()
+--     if vim.fn.expand("<afile>") == "lua/plugins.lua" then
+--       vim.api.nvim_command("source lua/plugins.lua")
+--       vim.api.nvim_command("PackerSync")
+--     end
+--   end,
+-- })
 
 -- Highlight on yank
 autocmd("TextYankPost", {
