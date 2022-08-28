@@ -1,11 +1,19 @@
 local status, formatter = pcall(require, "formatter")
 if not status then
-  vim.notify("没有找到 formatter")
+  vim.notify("not find formatter")
   return
 end
 
 formatter.setup({
   filetype = {
+    go = {
+      function()
+        return {
+          exe = "gofmt",
+          stdin = true,
+        }
+      end,
+    },
     lua = {
       function()
         return {
@@ -46,10 +54,10 @@ formatter.setup({
 -- format on save
 vim.api.nvim_exec(
   [[
-augroup FormatAutogroup
-  autocmd!
-  autocmd BufWritePost *.js,*.rs,*.lua FormatWrite
-augroup END
-]],
+     augroup FormatAutogroup
+       autocmd!
+       autocmd BufWritePost *.js,*.rs,*.lua FormatWrite
+     augroup END
+  ]],
   true
 )
