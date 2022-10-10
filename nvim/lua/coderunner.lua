@@ -16,8 +16,8 @@ M.run_term = function(command, ...)
     vim.cmd('set nonumber')
     vim.cmd('set norelativenumber')
     local terminal_id = eval('b:terminal_job_id')
-    vim.api.nvim_chan_send(terminal_id, string.format(command .. '\n\r', ...))
-    vim.cmd('set guicursor=v-c-sm:block,n-i-ci-ve:ver25,r-cr-o:hor20')
+    vim.api.nvim_chan_send(terminal_id, string.format(command .. '\n', ...))
+    -- vim.cmd('set guicursor=v-c-sm:block,n-i-ci-ve:ver25,r-cr-o:hor20')
     vim.cmd('start')
     -- vim.cmd('stopinsert')
 end
@@ -54,6 +54,9 @@ M.exec = function()
         vim.cmd("silent exec '!" .. string.format(command, file, output,
                         output,output) .. "'")
         vim.cmd("e data.out")
+    elseif ft == 'go' then
+      vim.cmd('sp')
+      M.run_term('go run %s', vim.fn.expand('%'))
     end
 end
 
