@@ -148,9 +148,9 @@ pluginKeys.telescopeList = {
 
 -- coderunner
 local runner = "require('coderunner')"
-map("n", ",r", "<cmd>lua " .. runner ..".exec()<cr>", opt)
-map("n", ",d", "<cmd>lua " .. runner ..".debug()<cr>", opt)
-map("n", "<leader>d", ":vsplit<CR>:e data.in<CR>ggdG", opt)
+map("n", "<f9>", "<cmd>lua " .. runner ..".exec()<cr>", opt)
+map("n", "<f10>", "<cmd>lua " .. runner ..".debug()<cr>", opt)
+map("n", "<leader>od", ":vsplit<CR>:e data.in<CR>ggdG", opt)
 
 -- 代码注释插件
 -- see ./lua/plugin-config/comment.lua
