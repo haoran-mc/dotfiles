@@ -63,47 +63,11 @@ packer.startup({
     use("nvim-telescope/telescope-ui-select.nvim")
     -- dashboard-nvim
     use("glepnir/dashboard-nvim")
-    -- project
-    use("ahmedkhalf/project.nvim")
-    -- treesitter
-    use({
-      "nvim-treesitter/nvim-treesitter",
-      run = ":tsupdate",
-    })
     use("p00f/nvim-ts-rainbow")
     -- indent-blankline
     use("lukas-reineke/indent-blankline.nvim")
-    --------------------- lsp --------------------
-    -- use({ "williamboman/nvim-lsp-installer", commit = "36b44679f7cc73968dbb3b09246798a19f7c14e0" })
-    use({ "williamboman/nvim-lsp-installer" }) -- LspInstallInfo
-    use({ "neovim/nvim-lspconfig" })
-    -- 补全引擎
-    use("hrsh7th/nvim-cmp")
-    -- snippet 引擎
-    use("hrsh7th/vim-vsnip")
-    -- 补全源
-    use("hrsh7th/cmp-vsnip")
-    use("hrsh7th/cmp-nvim-lsp") -- { name = nvim_lsp }
-    use("hrsh7th/cmp-buffer") -- { name = 'buffer' },
-    use("hrsh7th/cmp-path") -- { name = 'path' }
-    -- use("hrsh7th/cmp-cmdline") -- { name = 'cmdline' }
-    use("hrsh7th/cmp-nvim-lsp-signature-help") -- { name = 'nvim_lsp_signature_help' }
-    -- 常见编程语言代码段
-    use("rafamadriz/friendly-snippets")
-    -- ui 增强
-    use("onsails/lspkind-nvim")
-    use("tami5/lspsaga.nvim")
     -- 代码格式化
     use("mhartington/formatter.nvim")
-    use({ "jose-elias-alvarez/null-ls.nvim", requires = "nvim-lua/plenary.nvim" })
-    -- typescript 增强
-    use({ "jose-elias-alvarez/nvim-lsp-ts-utils", requires = "nvim-lua/plenary.nvim" })
-    -- lua 增强
-    use("folke/lua-dev.nvim")
-    -- json 增强
-    use("b0o/schemastore.nvim")
-    -- rust 增强
-    use("simrat39/rust-tools.nvim")
     --------------------- colorschemes --------------------
     use("folke/tokyonight.nvim")
     use("mhartington/oceanic-next")
@@ -116,20 +80,10 @@ packer.startup({
     use("edeneast/nightfox.nvim")
     use 'Mofiqul/dracula.nvim'
     --------------------- tools --------------------
-    use({ "akinsho/toggleterm.nvim" })
     use("ur4ltz/surround.nvim")
     use("numtostr/comment.nvim")
     use("windwp/nvim-autopairs")
-    use({ "lewis6991/gitsigns.nvim" })
-    use("puremourning/vimspector")
-    ----------------------------------------------
-    use("mfussenegger/nvim-dap")
-    use("thehamsta/nvim-dap-virtual-text")
-    use("rcarriga/nvim-dap-ui")
-    -- use("pocco81/dapinstall.nvim")
-    -- use("jbyuki/one-small-step-for-vimkind")
 
-    use("j-hui/fidget.nvim")
     if paccker_bootstrap then
       packer.sync()
     end
