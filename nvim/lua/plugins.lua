@@ -11,7 +11,6 @@ if fn.empty(fn.glob(install_path)) > 0 then
     "--depth",
     "1",
     "https://github.com/wbthomason/packer.nvim",
-    -- "https://gitcode.net/mirrors/wbthomason/packer.nvim",
     install_path,
   })
 
@@ -59,15 +58,16 @@ packer.startup({
     -- telescope extensions
     -- sudo add-apt-repository ppa:x4121/ripgrep && sudo apt-get update && sudo apt install ripgrep
     -- install fd from  
-    use("linarcx/telescope-env.nvim")
-    use("nvim-telescope/telescope-ui-select.nvim")
+    -- use("linarcx/telescope-env.nvim")
+    -- use("nvim-telescope/telescope-ui-select.nvim")
     -- dashboard-nvim
     use("glepnir/dashboard-nvim")
     use("p00f/nvim-ts-rainbow")
     -- indent-blankline
     use("lukas-reineke/indent-blankline.nvim")
     -- 代码格式化
-    use("mhartington/formatter.nvim")
+    -- use("mhartington/formatter.nvim")
+    use("glepnir/template.nvim")
     --------------------- colorschemes --------------------
     use("folke/tokyonight.nvim")
     use("mhartington/oceanic-next")
@@ -88,38 +88,4 @@ packer.startup({
       packer.sync()
     end
   end,
-  config = {
-    -- 锁定插件版本在snapshots目录
-    snapshot_path = require("packer.util").join_paths(vim.fn.stdpath("config"), "snapshots"),
-    -- 这里锁定插件版本在v1，不会继续更新插件
-    snapshot = "v1",
-
-    -- 最大并发数
-    max_jobs = 16,
-    -- 自定义源
-    git = {
-      -- default_url_format = "https://hub.fastgit.xyz/%s",
-      -- default_url_format = "https://mirror.ghproxy.com/https://github.com/%s",
-      -- default_url_format = "https://gitcode.net/mirrors/%s",
-      -- default_url_format = "https://gitclone.com/github.com/%s",
-    },
-    -- display = {
-    -- 使用浮动窗口显示
-    --   open_fn = function()
-    --     return require("packer.util").float({ border = "single" })
-    --   end,
-    -- },
-  },
 })
-
--- 每次保存 plugins.lua 自动安装插件
--- move to autocmds.lua
--- pcall(
---   vim.cmd,
---   [[
---      augroup packer_user_config
---      autocmd!
---      autocmd BufWritePost plugins.lua source <afile> | PackerSync
---      augroup end
---    ]]
--- )
