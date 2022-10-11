@@ -28,7 +28,8 @@ telescope.setup({
   },
 })
 
-pcall(telescope.load_extension, "env")
+-- pcall(telescope.load_extension, "env")
 -- To get ui-select loaded and working with telescope, you need to call
 -- load_extension, somewhere after setup function:
-pcall(telescope.load_extension, "ui-select")
+-- pcall(telescope.load_extension, "ui-select")
+-- pcall(telescope.load_extension, "find_template")
