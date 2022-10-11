@@ -18,25 +18,9 @@ local opt = {
 -- 本地变量
 local map = vim.api.nvim_set_keymap
 
--- $跳到行尾不带空格 (交换$ 和 g_)
-map("v", "$", "g_", opt)
-map("v", "g_", "$", opt)
-map("n", "$", "g_", opt)
-map("n", "g_", "$", opt)
-
 -- fix :set wrap
 vim.keymap.set("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 vim.keymap.set("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
-
--- 上下滚动浏览
-map("n", "<C-j>", "5j", opt)
-map("n", "<C-k>", "5k", opt)
-map("v", "<C-j>", "5j", opt)
-map("v", "<C-k>", "5k", opt)
-map("n", "<C-J>", "10j", opt)
-map("n", "<C-K>", "10k", opt)
-map("v", "<C-J>", "10j", opt)
-map("v", "<C-K>", "10k", opt)
 
 -- magic search
 map("n", "/", "/\\v", { noremap = true, silent = false })
@@ -73,7 +57,6 @@ map("n", "<leader>wS", ":sp<cr>", opt)
 map("n", "<leader>ws", ":sp<cr>", opt)
 map("n", "<leader>wc", ":q<cr>", opt)
 map("n", "<leader>wo", ":only<cr>", opt)
--- map("n", "<leader><tab>", ":bp<cr>", opt)
 
 -- Esc 回 Normal 模式
 map("t", "<Esc>", "<C-\\><C-n>", opt)
@@ -81,6 +64,8 @@ map("t", "<leader>h", [[ <C-\><C-N><C-w>h ]], opt)
 map("t", "<leader>j", [[ <C-\><C-N><C-w>j ]], opt)
 map("t", "<leader>k", [[ <C-\><C-N><C-w>k ]], opt)
 map("t", "<leader>l", [[ <C-\><C-N><C-w>l ]], opt)
+
+map("n", "<leader>ut", ":Template algorithm<cr>", opt)
 
 ------------------------------------------------------------------
 -- commen files

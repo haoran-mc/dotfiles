@@ -1,5 +1,4 @@
 require("basic")        -- 基础配置
-require("funcs")        -- 函数
 require("keybindings")  -- 按键绑定
 require("plugins")      -- 插件管理
 require("colorscheme")  -- 主题
@@ -15,4 +14,5 @@ require("plugin-config.dashboard")   -- 启动页面
 require("plugin-config.surround")
 require("plugin-config.comment")
 require("plugin-config.nvim-autopairs")
-require("plugin-config.formatter")
+require("plugin-config.template")
+-- require("plugin-config.formatter")
