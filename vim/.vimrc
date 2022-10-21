@@ -159,16 +159,15 @@ autocmd Filetype markdown nnoremap k gk
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 函数
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-autocmd filetype cpp nmap <leader><tab>h :call CppSetTitle()<CR>
+autocmd filetype cpp nmap <leader>tc :call CppSetTitle()<CR>
 func CppSetTitle()
-    call setline(1,          "/*----------------------------------------------------------------")
-    call append(line("."),   " *   ")
-    call append(line(".")+1, " *   创建日期：".strftime("%Y年%m月%d日 %A %H时%M分%S秒"))
-    call append(line(".")+2, " *   题目来源：<++>")
-    call append(line(".")+3, " *   算    法：<++>")
-    call append(line(".")+4, " *   描    述：<++>")
-    call append(line(".")+5, " *")
-    call append(line(".")+6, " ----------------------------------------------------------------*/")
+    call setline(1,          "//    filename: ")
+    call append(line("."),   "//      author: Haoran Liu")
+    call append(line(".")+1, "//       email: haoran.mc@outlook.com")
+    call append(line(".")+2, "//    datetime: %Y-%m-%d %H:%M:%S %A")
+    call append(line(".")+3, "//      source：")
+    call append(line(".")+4, "//   algorithm：")
+    call append(line(".")+5, "// description：")
     call append(line(".")+7, "")
 endfunc
 
