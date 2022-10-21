@@ -1,9 +1,8 @@
-//    filename: {{_file_name_}}
+//     problem: 
+//      source：
 //      author: {{_author_}}
 //       email: {{_email_}}
 //    datetime: {{_date_}}
-//      source：
 //   algorithm：
 // description：
 
-{{_cursor_}}
