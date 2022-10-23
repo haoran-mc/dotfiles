@@ -41,3 +41,6 @@ alias df='df -Th'
 
 # 查看内存、swap使用情况，-h同上
 alias free='free -h'
+
+# 快速退出
+alias q="exit"
