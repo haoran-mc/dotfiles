@@ -4,6 +4,14 @@
 
 # ls加颜色，通过颜色可辨别文件类型
 alias ls='ls --color=auto'
+# ll为人们约定俗成的全信息列举别名
+alias ll='ls -lh'
+alias l='ls -all'
+# 外加列出隐藏目录
+alias la='ls -lAh'
+# 过滤当前目录文件
+alias lg='ls -A |grep -i'
+
 
 # grep高亮，便于马上找到要找的字符串
 alias grep='grep --color=auto' 
@@ -16,13 +24,6 @@ alias publicip='curl ipinfo.io'
 # 检查有没有网（不用可怜百度
 alias netcheck='ping www.baidu.com'
 
-# ll为人们约定俗成的全信息列举别名
-alias ll='ls -lh'
-alias l='ls -all'
-
-# 外加列出隐藏目录
-alias la='ls -lAh'
-
 # 切换到上级目录，超实用
 alias ..='cd ../'
 alias ...='cd ../../'
@@ -32,9 +33,6 @@ alias pg='ps aux |grep -i'
 
 # 过滤历史
 alias hg='history |grep -i'
-
-# 过滤当前目录文件
-alias lg='ls -A |grep -i'
 
 # 查看磁盘使用情况，主要是不加-h选项的话很不舒服，所以就设了个别名
 alias df='df -Th'
