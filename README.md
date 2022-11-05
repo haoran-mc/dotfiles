@@ -4,3 +4,7 @@
 
 - [neovim](./nvim/README.md)
 - [zsh](./zsh/README.md)
+
+```
+git clone --depth 1 git@github.com:haoran-mc/dotfiles.git
+```
