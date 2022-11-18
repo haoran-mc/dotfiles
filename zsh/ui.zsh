@@ -1,6 +1,6 @@
-ZSH_THEME="robbyrussell"
+# ZSH_THEME="robbyrussell"
 # ZSH_THEME="jonathan"
-# ZSH_THEME="powerlevel10k/powerlevel10k"
+ZSH_THEME="powerlevel10k/powerlevel10k"
 # ZSH_THEME="fino-time"
 # ZSH_THEME="mikeh"
 # ZSH_THEME="muse"
@@ -24,3 +24,7 @@ ZSH_THEME="robbyrussell"
 # ZSH_THEME="sonicradish"
 # ZSH_THEME="xiong-chiamiov"
 
+
+# brew install pfetch
+# brew install neofetch
+# curl zh-cn.wttr.in/beijing
