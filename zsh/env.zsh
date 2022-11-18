@@ -3,7 +3,9 @@ export GOROOT=/usr/local/go
 export GOPATH=$HOME/go
 export GOBIN=$GOPATH/bin
 export PATH=$PATH:$GOBIN:$GOROOT/bin
-export GOPROXY=https://goproxy.io,direct
+export GO111MODULE=on
+# export GOPROXY=https://goproxy.io,direct
+export GOPROXY=https://goproxy.cn
 
 # python
 export PYTHONPATH=/usr/bin/python3
