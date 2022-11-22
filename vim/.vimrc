@@ -272,7 +272,7 @@ endfunction
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 插件
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-source ~/.config/nvim/autoload/plug.vim
+source ~/.config/vim/plug.vim
 call plug#begin('~/.nvim/plugged')
 Plug 'preservim/nerdtree'
 Plug 'preservim/nerdcommenter'
