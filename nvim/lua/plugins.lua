@@ -51,10 +51,10 @@ packer.startup({
     })
     use("arkav/lualine-lsp-progress")
     -- telescope
-    use({
-      "nvim-telescope/telescope.nvim",
-      requires = { "nvim-lua/plenary.nvim" },
-    })
+    -- use({
+    --   "nvim-telescope/telescope.nvim",
+    --   requires = { "nvim-lua/plenary.nvim" },
+    -- })
     -- telescope extensions
     -- sudo add-apt-repository ppa:x4121/ripgrep && sudo apt-get update && sudo apt install ripgrep
     -- install fd from  
@@ -82,7 +82,7 @@ packer.startup({
     --------------------- tools --------------------
     use("ur4ltz/surround.nvim")
     use("numtostr/comment.nvim")
-    use("windwp/nvim-autopairs")
+    -- use("windwp/nvim-autopairs")
 
     if paccker_bootstrap then
       packer.sync()
