@@ -5,12 +5,12 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-source ~/.config/zsh/ui.zsh
-source ~/.config/zsh/default.zsh
-source ~/.config/zsh/aliases.zsh
-source ~/.config/zsh/env.zsh
-source ~/.config/zsh/funcs.zsh
-source ~/.config/zsh/plugins.zsh
+source ~/dotfiles/zsh/ui.zsh
+source ~/dotfiles/zsh/default.zsh
+source ~/dotfiles/zsh/aliases.zsh
+source ~/dotfiles/zsh/env.zsh
+source ~/dotfiles/zsh/funcs.zsh
+source ~/dotfiles/zsh/plugins.zsh
 
 # Generated for envman. Do not edit.
 [ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
