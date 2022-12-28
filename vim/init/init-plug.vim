@@ -1,7 +1,7 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 插件
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-source ~/dotfiles/vim/plug.vim
+source ~/dotfiles/vim/autoload/plug.vim
 call plug#begin('~/.nvim/plugged')
 " Plug 'preservim/nerdtree'
 Plug 'preservim/nerdcommenter'
