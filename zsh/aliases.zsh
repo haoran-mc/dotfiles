@@ -13,3 +13,4 @@ alias q='exit'
 alias t='tree'
 alias nnn='source ~/haoran/Code/Editor/Git/push.sh'
 alias NEXTLINE='echo ""'
+alias gm="go run main.go"
