@@ -25,6 +25,11 @@ set statusline+=\ ::
 set statusline+=\ %p
 set statusline+=\ ››\ %*
 
+
+" set transparency=10     " 透明
+
+
+
 hi TabLineSel term=inverse
 hi TabLineSel ctermfg=red ctermbg=Black
 hi TabLineSel gui=none guifg=red guibg=Black
@@ -50,4 +55,6 @@ function ShortTabLabel(n)
     let filename = fnamemodify (label, ':t')
     return filename
 endfunction
+
+
 
