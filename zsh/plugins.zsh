@@ -1,5 +1,12 @@
 # brew install autojump
-[[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
+
+if [ "$(uname)" "==" "Darwin" ]
+then
+    [[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
+elif [ "$(uname)" "==" "Linux" ]
+then
+    [[ -s /home/haoran/.autojump/etc/profile.d/autojump.sh ]] && source /home/haoran/.autojump/etc/profile.d/autojump.sh
+fi
 
 # git clone git://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions
 # plugins=(git zsh-autosuggestions)
