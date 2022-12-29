@@ -7,6 +7,5 @@ nnoremap <leader>rc :e ~/dotfiles/vim/.vimrc<cr>
 nnoremap <leader><cr> :nohlsearch<cr>
 nnoremap <leader><leader> <esc>/<++><cr>:nohlsearch<cr>c4l
 
-nnoremap <leader>ft :NERDTreeToggle<cr>
+nnoremap <leader>ft :Vex<cr>
 nnoremap <leader>of :Autoformat<cr>
-
