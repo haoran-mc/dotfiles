@@ -22,38 +22,37 @@ curl -s 'https://raw.githubusercontent.com/jlevy/the-art-of-command-line/master/
 * 前言
 涵盖范围：
 
-- 这篇文章不仅能帮助刚接触命令行的新手，而且对具有经验的人也大有裨益。本文致力于做到 **覆盖面广** （涉及所有重要的内容）， **具体** （给出具体的最常用的例子），以及 **简洁** （避免冗余的内容，或是可以在其他地方轻松查到的细枝末节）。在特定应用场景下，本文的内容属于基本功或者能帮助您节约大量的时间。
+- 这篇文章不仅能帮助刚接触命令行的新手，而且对具有经验的人也大有裨益。本文致力于做到 *覆盖面广* （涉及所有重要的内容）， *具体* （给出具体的最常用的例子），以及 *简洁* （避免冗余的内容，或是可以在其他地方轻松查到的细枝末节）。在特定应用场景下，本文的内容属于基本功或者能帮助您节约大量的时间。
 - 本文主要为 Linux 所写，但在「仅限 OS X 系统章节」和 「仅限 Windows 系统章节」中也包含有对应操作系统的内容。除去这两个章节外，其它的内容大部分均可在其他类 Unix 系统或 OS X，甚至 Cygwin 中得到应用。
 - 本文主要关注于交互式 Bash，但也有很多技巧可以应用于其他 shell 和 Bash 脚本当中。
 - 除去“标准的”Unix 命令，本文还包括了一些依赖于特定软件包的命令（前提是它们具有足够的价值）。
 
 注意事项：
 
-- 为了能在一页内展示尽量多的东西，一些具体的信息可以在引用的页面中找到。我们相信机智的你知道如何使用 Google 或者其他搜索引擎来查阅到更多的详细信息。文中部分命令需要您使用 ~apt-get~ ， ~yum~ ， ~dnf~ ， ~pacman~ ，
-~pip~ 或 ~brew~ （以及其它合适的包管理器）来安装依赖的程序。
+- 为了能在一页内展示尽量多的东西，一些具体的信息可以在引用的页面中找到。我们相信机智的你知道如何使用 Google 或者其他搜索引擎来查阅到更多的详细信息。文中部分命令需要您使用 ~apt-get~ ， ~yum~ ， ~dnf~ ， ~pacman~ ， ~pip~ 或 ~brew~ （以及其它合适的包管理器）来安装依赖的程序。
 - 遇到问题的话，请尝试使用 [[http://explainshell.com/][Explainshell]] 去获取相关命令、参数、管道等内容的解释。
 * 基础
-- ❎ 学习 Bash 的基础知识。具体地，在命令行中输入 ~man bash~ 并至少全文浏览一遍; 它理解起来很简单并且不冗长。其他的 shell 可能很好用，但 Bash 的功能已经足够强大并且到几乎总是可用的（ 如果你 **只** 学习 zsh，fish 或其他的 shell 的话，在你自己的设备上会显得很方便，但过度依赖这些功能会给您带来不便，例如当你需要在服务器上工作时）。
+- ❎ 学习 Bash 的基础知识。具体地，在命令行中输入 ~man bash~ 并至少全文浏览一遍; 它理解起来很简单并且不冗长。其他的 shell 可能很好用，但 Bash 的功能已经足够强大并且到几乎总是可用的（ 如果你 *只* 学习 zsh，fish 或其他的 shell 的话，在你自己的设备上会显得很方便，但过度依赖这些功能会给您带来不便，例如当你需要在服务器上工作时）。
 - ✅ 熟悉至少一个基于文本的编辑器。通常而言 Vim（ ~vi~ ）会是你最好的选择，毕竟在终端中编辑文本时 Vim 是最好用的工具（甚至大部分情况下 Vim 要比 Emacs、大型 IDE 或是炫酷的编辑器更好用）。
 - ✅ 学会如何使用 ~man~ 命令去阅读文档。学会使用 ~apropos~ 去查找文档。知道有些命令并不对应可执行文件，而是在 Bash 内置好的，此时可以使用 ~help~ 和 ~help -d~ 命令获取帮助信息。你可以用 ~type 命令~ 来判断这个命令到底是可执行文件、shell 内置命令还是别名。
 - ✅ 学会使用 ~>~ 和 ~<~ 来重定向输出和输入，学会使用 ~|~ 来重定向管道。明白 ~>~ 会覆盖了输出文件而 ~>>~ 是在文件末添加。了解标准输出 stdout 和标准错误 stderr。
-- 学会使用通配符 ~*~ （或许再算上 ~?~ 和 ~[`...`]~ ） 和引用以及引用中 ~'~ 和 ~"~ 的区别（后文中有一些具体的例子）。
-- 熟悉 Bash 中的任务管理工具：~&~ ， **ctrl-z** ， **ctrl-c** ， ~jobs~ ， ~fg~ ， ~bg~ ， ~kill~ 等。
+- 学会使用通配符 ~*~ （或许再算上 ~?~ 和 ~[~ ... ~]~ ） 和引用以及引用中 ~'~ 和 ~"~ 的区别（后文中有一些具体的例子）。
+- 熟悉 Bash 中的任务管理工具： ~&~ ， *ctrl-z* ， *ctrl-c* ， ~jobs~ ， ~fg~ ， ~bg~ ， ~kill~ 等。
 - 学会使用 ~ssh~ 进行远程命令行登录，最好知道如何使用 ~ssh-agent~ ， ~ssh-add~ 等命令来实现基础的无密码认证登录。
 - 学会基本的文件管理工具： ~ls~ 和 ~ls -l~ （了解 ~ls -l~ 中每一列代表的意义）， ~less~ ， ~head~ ， ~tail~ 和 ~tail -f~ （甚至 ~less +F~ ）， ~ln~ 和 ~ln -s~ （了解硬链接与软链接的区别）， ~chown~ ， ~chmod~ ， ~du~ （硬盘使用情况概述： ~du -hs *~ ）。 关于文件系统的管理，学习 ~df~ ， ~mount~ ， ~fdisk~ ， ~mkfs~ ， ~lsblk~ 。知道 inode 是什么（与 ~ls -i~ 和 ~df -i~ 等命令相关）。
 - 学习基本的网络管理工具： ~ip~ 或 ~ifconfig~ ， ~dig~ 。
 - 学习并使用一种版本控制管理系统，例如 ~git~ 。
 - 熟悉正则表达式，学会使用 ~grep~ ／ ~egrep~ ，它们的参数中 ~-i~ ， ~-o~ ， ~-v~ ， ~-A~ ， ~-B~ 和 ~-C~ 这些是很常用并值得认真学习的。
-- 学会使用 ~apt-get~，~yum~，~dnf~ 或 ~pacman~ （具体使用哪个取决于你使用的 Linux 发行版）来查找和安装软件包。并确保你的环境中有 ~pip~ 来安装基于 Python 的命令行工具 （接下来提到的部分程序使用 ~pip~ 来安装会很方便）。
+- 学会使用 ~apt-get~ ， ~yum~ ， ~dnf~ 或 ~pacman~ （具体使用哪个取决于你使用的 Linux 发行版）来查找和安装软件包。并确保你的环境中有 ~pip~ 来安装基于 Python 的命令行工具 （接下来提到的部分程序使用 ~pip~ 来安装会很方便）。
 * 日常使用
-- 在 Bash 中，可以通过按 **Tab** 键实现自动补全参数，使用 **ctrl-r** 搜索命令行历史记录（按下按键之后，输入关键字便可以搜索，重复按下 **ctrl-r** 会向后查找匹配项，按下 **Enter** 键会执行当前匹配的命令，而按下右方向键会将匹配项放入当前行中，不会直接执行，以便做出修改）。
-- 在 Bash 中，可以按下 **ctrl-w** 删除你键入的最后一个单词，**ctrl-u** 可以删除行内光标所在位置之前的内容，**alt-b** 和 **alt-f** 可以以单词为单位移动光标，**ctrl-a** 可以将光标移至行首，**ctrl-e** 可以将光标移至行尾，**ctrl-k** 可以删除光标至行尾的所有内容，**ctrl-l** 可以清屏。键入 `man readline` 可以查看 Bash 中的默认快捷键。内容有很多，例如 **alt-.** 循环地移向前一个参数，而 **alt-*** 可以展开通配符。
+- 在 Bash 中，可以通过按 *Tab* 键实现自动补全参数，使用 *ctrl-r* 搜索命令行历史记录（按下按键之后，输入关键字便可以搜索，重复按下 *ctrl-r* 会向后查找匹配项，按下 *Enter* 键会执行当前匹配的命令，而按下右方向键会将匹配项放入当前行中，不会直接执行，以便做出修改）。
+- 在 Bash 中，可以按下 *ctrl-w* 删除你键入的最后一个单词， *ctrl-u* 可以删除行内光标所在位置之前的内容， *alt-b* 和 *alt-f* 可以以单词为单位移动光标， *ctrl-a* 可以将光标移至行首， *ctrl-e* 可以将光标移至行尾， *ctrl-k* 可以删除光标至行尾的所有内容， *ctrl-l* 可以清屏。键入 ~man readline~ 可以查看 Bash 中的默认快捷键。内容有很多，例如 *alt-.* 循环地移向前一个参数，而 *alt-** 可以展开通配符。
 - 你喜欢的话，可以执行 ~set -o vi~ 来使用 vi 风格的快捷键，而执行 ~set -o emacs~ 可以把它改回来。
-- 为了便于编辑长命令，在设置你的默认编辑器后（例如 ~export EDITOR=vim~ ）， **ctrl-x** **ctrl-e** 会打开一个编辑器来编辑当前输入的命令。在 vi 风格下快捷键则是 **escape-v**。
-- 键入 ~history~ 查看命令行历史记录，再用 ~!n~ （ ~n~ 是命令编号）就可以再次执行。其中有许多缩写，最有用的大概就是 ~!$~ ， 它用于指代上次键入的参数，而 ~!!~ 可以指代上次键入的命令了（参考 man 页面中的“HISTORY EXPANSION”）。不过这些功能，你也可以通过快捷键 **ctrl-r** 和 **alt-.** 来实现。
+- 为了便于编辑长命令，在设置你的默认编辑器后（例如 ~export EDITOR=vim~ ）， *ctrl-x* *ctrl-e* 会打开一个编辑器来编辑当前输入的命令。在 vi 风格下快捷键则是 *escape-v* 。
+- 键入 ~history~ 查看命令行历史记录，再用 ~!n~ （ ~n~ 是命令编号）就可以再次执行。其中有许多缩写，最有用的大概就是 ~!$~ ， 它用于指代上次键入的参数，而 ~!!~ 可以指代上次键入的命令了（参考 man 页面中的“HISTORY EXPANSION”）。不过这些功能，你也可以通过快捷键 *ctrl-r* 和 *alt-.* 来实现。
 - ~cd~ 命令可以切换工作路径，输入 =cd \~= 可以进入 home 目录。要访问你的 home 目录中的文件，可以使用前缀 ~~~ （例如 =~/.bashrc= ）。在 ~sh~ 脚本里则用环境变量 ~$HOME~ 指代 home 目录的路径。
 - 回到前一个工作路径： ~cd -~ 。
-- 如果你输入命令的时候中途改了主意，按下 **alt-#** 在行首添加 ~#~ 把它当做注释再按下回车执行（或者依次按下 **ctrl-a** ，  **#** ，  **enter** ）。这样做的话，之后借助命令行历史记录，你可以很方便恢复你刚才输入到一半的命令。
+- 如果你输入命令的时候中途改了主意，按下 *alt-#* 在行首添加 ~#~ 把它当做注释再按下回车执行（或者依次按下 *ctrl-a* ，  *#* ，  *enter* ）。这样做的话，之后借助命令行历史记录，你可以很方便恢复你刚才输入到一半的命令。
 - 使用 ~xargs~ （ 或 ~parallel~ ）。他们非常给力。注意到你可以控制每行参数个数（ ~-L~ ）和最大并行数（ ~-P~ ）。如果你不确定它们是否会按你想的那样工作，先使用 ~xargs echo~ 查看一下。此外，使用 ~-I{}~ 会很方便。例如：
 
   #+begin_src bash
@@ -88,8 +87,8 @@ curl -s 'https://raw.githubusercontent.com/jlevy/the-art-of-command-line/master/
     # continue in original dir
   #+end_src
 
-- 在 Bash 中，变量有许多的扩展方式。 ~${name:?error message}~ 用于检查变量是否存在。此外，当 Bash 脚本只需要一个参数时，可以使用这样的代码 ~input_file=${1:?usage: $0 input_file}~ 。在变量为空时使用默认值： ~${name:-default}~ 。如果你要在之前的例子中再加一个（可选的）参数，可以使用类似这样的代码 ~output_file=${2:-logfile}~ ，如果省略了 $2，它的值就为空，于是 ~output_file~ 就会被设为 ~logfile~ 。数学表达式： ~i=$(( (i + 1) % 5 ))~ 。序列： ~{1..10}~ 。截断字符串： ~${var%suffix}~ 和 ~${var#prefix}~ 。例如，假设 ~var=foo.pdf~ ，那么 ~echo ${var%.pdf}.txt~ 将输出 ~foo.txt~ 。
-- 使用括号扩展（ ~{`...`}~ ）来减少输入相似文本，并自动化文本组合。这在某些情况下会很有用，例如 ~mv foo.{txt,pdf} some-dir~ （同时移动两个文件）， ~cp somefile{,.bak}~ （会被扩展成 ~cp somefile somefile.bak~ ）或者 ~mkdir -p test-{a,b,c}/subtest-{1,2,3}~ （会被扩展成所有可能的组合，并创建一个目录树）。
+- 在 Bash 中，变量有许多的扩展方式。 ~${name:?error message}~ 用于检查变量是否存在。此外，当 Bash 脚本只需要一个参数时，可以使用这样的代码 ~input_file=${1:?usage: $0 input_file}~ 。在变量为空时使用默认值： ~${name:-default}~ 。如果你要在之前的例子中再加一个（可选的）参数，可以使用类似这样的代码 ~output_file=${2:-logfile}~ ，如果省略了 ~$2~ ，它的值就为空，于是 ~output_file~ 就会被设为 ~logfile~ 。数学表达式： ~i=$(( (i + 1) % 5 ))~ 。序列： ~{1..10}~ 。截断字符串： ~${var%suffix}~ 和 ~${var#prefix}~ 。例如，假设 ~var=foo.pdf~ ，那么 ~echo ${var%.pdf}.txt~ 将输出 ~foo.txt~ 。
+- 使用括号扩展（ ~{~ ... ~}~ ）来减少输入相似文本，并自动化文本组合。这在某些情况下会很有用，例如 ~mv foo.{txt,pdf} some-dir~ （同时移动两个文件）， ~cp somefile{,.bak}~ （会被扩展成 ~cp somefile somefile.bak~ ）或者 ~mkdir -p test-{a,b,c}/subtest-{1,2,3}~ （会被扩展成所有可能的组合，并创建一个目录树）。
 - 通过使用 ~<(some command)~ 可以将输出视为文件。例如，对比本地文件 ~/etc/hosts~ 和一个远程文件：
 
   #+begin_src bash
@@ -185,7 +184,7 @@ curl -s 'https://raw.githubusercontent.com/jlevy/the-art-of-command-line/master/
 - 若要在复制文件时获取当前进度，可使用 ~pv~ ，[[https://github.com/dmerejkowsky/pycp][pycp]] ，[[https://github.com/Xfennec/progress][progress]] ， ~rsync --progress~ 。若所执行的复制为 block 块拷贝，可以使用 ~dd status=progress~ 。
 - 使用 ~shuf~ 可以以行为单位来打乱文件的内容或从一个文件中随机选取多行。
 - 了解 ~sort~ 的参数。显示数字时，使用 ~-n~ 或者 ~-h~ 来显示更易读的数（例如 ~du -h~ 的输出）。明白排序时关键字的工作原理（ ~-t~ 和 ~-k~ ）。例如，注意到你需要 ~-k1，1~ 来仅按第一个域来排序，而 ~-k1~ 意味着按整行排序。稳定排序（ ~sort -s~ ）在某些情况下很有用。例如，以第二个域为主关键字，第一个域为次关键字进行排序，你可以使用 ~sort -k1，1 | sort -s -k2，2~ 。
-- 如果你想在 Bash 命令行中写 tab 制表符，按下 **ctrl-v** **[Tab]** 或键入 ~$'\t'~ （后者可能更好，因为你可以复制粘贴它）。
+- 如果你想在 Bash 命令行中写 tab 制表符，按下 *ctrl-v* *[Tab]* 或键入 ~$'\t'~ （后者可能更好，因为你可以复制粘贴它）。
 - 标准的源代码对比及合并工具是 ~diff~ 和 ~patch~。使用 ~diffstat~ 查看变更总览数据。注意到 ~diff -r~ 对整个文件夹有效。使用 ~diff -r tree1 tree2 | diffstat~ 查看变更的统计数据。 ~vimdiff~ 用于比对并编辑文件。
 - 对于二进制文件，使用 ~hd~，~hexdump~ 或者 ~xxd~ 使其以十六进制显示，使用 ~bvi~，~hexedit~ 或者 ~biew~ 来进行二进制编辑。
 - 同样对于二进制文件， ~strings~（包括 ~grep~ 等工具）可以帮助在二进制文件中查找特定比特。
@@ -208,7 +207,7 @@ curl -s 'https://raw.githubusercontent.com/jlevy/the-art-of-command-line/master/
   #+end_src
 
 - 为了高效地创建空文件，请使用 ~truncate~ （创建 [[https://zh.wikipedia.org/wiki/稀疏文件][稀疏文件]] ）， ~fallocate~ （用于 ext4，xfs，btrf 和 ocfs2 文件系统）， ~xfs_mkfile~ （适用于几乎所有的文件系统，包含在 xfsprogs 包中）， ~mkfile~ （用于类 Unix 操作系统，比如 Solaris 和 Mac OS）。
-** 系统调试
+* 系统调试
 - ~curl~ 和 ~curl -I~ 可以被轻松地应用于 web 调试中，它们的好兄弟 ~wget~ 也是如此，或者也可以试试更潮的 [[https://github.com/jkbrzt/httpie][httpie]] 。
 - 获取 CPU 和硬盘的使用状态，通常使用使用 ~top~ （ ~htop~ 更佳）， ~iostat~ 和 ~iotop~。而 ~iostat -mxz 15~ 可以让你获悉 CPU 和每个硬盘分区的基本信息和性能表现。
 - 使用 ~netstat~ 和 ~ss~ 查看网络连接的细节。
@@ -232,7 +231,7 @@ curl -s 'https://raw.githubusercontent.com/jlevy/the-art-of-command-line/master/
 * 单行脚本
 一些命令组合的例子：
 
-- 当你需要对文本文件做集合交、并、差运算时，~sort~ 和 ~uniq~ 会是你的好帮手。具体例子请参照代码后面的，此处假设 ~a~ 与 ~b~ 是两内容不同的文件。这种方式效率很高，并且在小文件和上 G 的文件上都能运用（注意尽管在 ~/tmp~ 在一个小的根分区上时你可能需要 ~-T~ 参数，但是实际上 ~sort~ 并不被内存大小约束），参阅前文中关于 ~LC_ALL~ 和 ~sort~ 的 ~-u~ 参数的部分。
+- 当你需要对文本文件做集合交、并、差运算时， ~sort~ 和 ~uniq~ 会是你的好帮手。具体例子请参照代码后面的，此处假设 ~a~ 与 ~b~ 是两内容不同的文件。这种方式效率很高，并且在小文件和上 G 的文件上都能运用（注意尽管在 ~/tmp~ 在一个小的根分区上时你可能需要 ~-T~ 参数，但是实际上 ~sort~ 并不被内存大小约束），参阅前文中关于 ~LC_ALL~ 和 ~sort~ 的 ~-u~ 参数的部分。
 
   #+begin_src bash
     sort a b | uniq > c   # c 是 a 并 b
@@ -351,14 +350,14 @@ curl -s 'https://raw.githubusercontent.com/jlevy/the-art-of-command-line/master/
 
 - 用 ~brew~ （Homebrew）或者 ~port~ （MacPorts）进行包管理。这些可以用来在 OS X 系统上安装以上的大多数命令。
 - 用 ~pbcopy~ 复制任何命令的输出到桌面应用，用 ~pbpaste~ 粘贴输入。
-- 若要在 OS X 终端中将 Option 键视为 alt 键（例如在上面介绍的 **alt-b** 、 **alt-f** 等命令中用到），打开 偏好设置 -> 描述文件 -> 键盘 并勾选“使用 Option 键作为 Meta 键”。
+- 若要在 OS X 终端中将 Option 键视为 alt 键（例如在上面介绍的 *alt-b* 、 *alt-f* 等命令中用到），打开 偏好设置 -> 描述文件 -> 键盘 并勾选“使用 Option 键作为 Meta 键”。
 - 用 ~open~ 或者 ~open -a /Applications/Whatever.app~ 使用桌面应用打开文件。
 - Spotlight：用 ~mdfind~ 搜索文件，用 ~mdls~ 列出元数据（例如照片的 EXIF 信息）。
 - 注意 OS X 系统是基于 BSD UNIX 的，许多命令（例如 ~ps~ ， ~ls~ ， ~tail~ ， ~awk~ ， ~sed~ ）都和 Linux 中有微妙的不同（ Linux 很大程度上受到了 System V-style Unix 和 GNU 工具影响）。你可以通过标题为 "BSD General Commands Manual" 的 man 页面发现这些不同。在有些情况下 GNU 版本的命令也可能被安装（例如 ~gawk~ 和 ~gsed~ 对应 GNU 中的 awk 和 sed ）。如果要写跨平台的 Bash 脚本，避免使用这些命令（例如，考虑 Python 或者 ~perl~ ）或者经过仔细的测试。
 - 用 ~sw_vers~ 获取 OS X 的版本信息。
 * 仅限 Windows 系统
 
-以下是*仅限于* Windows 系统的技巧。
+以下是 *仅限于* Windows 系统的技巧。
 
 ** 在 Winodws 下获取 Unix 工具
 - 可以安装 [[https://cygwin.com/][Cygwin]] 允许你在 Microsoft Windows 中体验 Unix shell 的威力。这样的话，本文中介绍的大多数内容都将适用。
