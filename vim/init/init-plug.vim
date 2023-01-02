@@ -3,7 +3,6 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 source ~/dotfiles/vim/autoload/plug.vim
 call plug#begin('~/.nvim/plugged')
-" Plug 'preservim/nerdtree'
 Plug 'preservim/nerdcommenter'
 Plug 'Chiel92/vim-autoformat'
 Plug 'dhruvasagar/vim-table-mode', { 'on': 'TableModeToggle' }
@@ -11,11 +10,6 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': 
 Plug 'fatih/vim-go', { 'tag': '*' }
 " Plug 'RRethy/vim-hexokinase'
 call plug#end()
-
-
-" NERDTree
-let NERDTreeQuitOnOpen = 1
-let NERDTreeIgnore=['\.o$', '^\.git$', 'o-o', '_exe', '.vscode', '\.ogmc', '\.exe']
 
 
 " nerdcommenter
