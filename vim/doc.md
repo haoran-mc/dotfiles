@@ -21,3 +21,20 @@
 - gh 隐藏 dot 开头的文件
 - - 返回上级目录
 - % 新建文件
+
+# :s
+
+```
+" 把当前行第一个匹配的 str1 替换成 str2
+:s/str1/str2/
+" 把当前行所有的 str1 替换成 str2
+:s/str1/str2/g
+" 把第 x1 行至 x2 行中，每一行第一个匹配的 str1 替换成 str2
+:x1,x2 s/str1/str2/
+" 把第 x1 行至 x2 行中所有的 str1 替换成 str2
+:x1,x2 s/str1/str2/g
+" 把所有行第一个匹配的 str1 替换成 str2
+:%s/str1/str2/
+" 把全文件所有的 str1 替换成 str2
+:%s/str1/str2/g
+```
