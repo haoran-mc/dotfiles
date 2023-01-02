@@ -4,3 +4,11 @@ source ~/dotfiles/vim/init/init-code.vim
 source ~/dotfiles/vim/init/init-plug.vim
 source ~/dotfiles/vim/init/init-keys.vim
 source ~/dotfiles/vim/init/init-extend.vim
+
+
+" source C:\Users\haora\dotfiles\vim\init\init-base.vim
+" source C:\Users\haora\dotfiles\vim\init\init-ui.vim
+" source C:\Users\haora\dotfiles\vim\init\init-code.vim
+" source C:\Users\haora\dotfiles\vim\init\init-plug.vim
+" source C:\Users\haora\dotfiles\vim\init\init-keys.vim
+" source C:\Users\haora\dotfiles\vim\init\init-extend.vim

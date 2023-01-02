@@ -7,12 +7,20 @@ set nocompatible
 syntax enable
 syntax on
 
+set bg=dark
+set noeb
+set visualbell t_vb=
 set guifont=Consolas:h9.6
 winpos 1080 150
 set lines=23 columns=75
 set guioptions-=m
 set guioptions-=T
+set guioptions-=L
+set guioptions-=r
+set guioptions-=b
 set shortmess=atI
+let g:netrw_banner = 0
+let g:netrw_altv = 1
 color slate
 
 :ab NNN NEXTLINE
@@ -25,9 +33,16 @@ color slate
 :ab piii PIII
 :ab mod MOD
 
-
 inoremap {<cr> {<cr>}<esc>O
 nnoremap <leader>0 i<Space><C-c>la<Space><C-c>h
+nnoremap <leader>c :Vex C:\Users\haora\haoran\algo<cr>
+" nnoremap <leader>rc :e C:\Users\haora\.vimrc<cr>
+
+
+autocmd BufReadPost *
+    \ if line("'\"")>0&&line("'\"")<=line("$") |
+    \   exe "normal g'\"" |
+    \ endif
 
 
 autocmd filetype cpp nmap <leader>tc :call CppSetTitle()<CR>

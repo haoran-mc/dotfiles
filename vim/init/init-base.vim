@@ -121,10 +121,12 @@ autocmd FileType ruby,javascript,html,css,xml :set tabstop=2 shiftwidth=2 softta
 " 主题
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 if has("gui_running")
-    source ~/dotfiles/vim/theme/jellybeans.vim
+    " source ~/dotfiles/vim/theme/jellybeans.vim
+    color slate
     set guifont=Consolas:h9.6
     winpos 1080 150
-    set lines=23 columns=75
+    " set lines=23 columns=75
+    set lines=40 columns=110
 else
     color slate
 endif
