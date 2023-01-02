@@ -1,0 +1,23 @@
+[url "git@github.com:"]
+	insteadOf = https://github.com/
+[user]
+	name = haoran
+	email = haoran.mc@outlook.com
+[core]
+	editor = vim
+	excludesfile = /Users/haoran/.gitignore_global
+	quotepath = false
+[init]
+	defaultBranch = main
+[status]
+	short = false
+[alias]
+	br = branch
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[commit]
+	template = /Users/haoran/.stCommitMsg
