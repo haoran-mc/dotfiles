@@ -7,5 +7,7 @@ nnoremap <leader>rc :e ~/dotfiles/vim/init/init-base.vim<cr>
 nnoremap <leader><cr> :nohlsearch<cr>
 nnoremap <leader><leader> <esc>/<++><cr>:nohlsearch<cr>c4l
 
-nnoremap <leader>ft :Vex<cr>
+" nnoremap <leader>ft :Vex<cr>
+nnoremap <leader>ft :NERDTree<cr>
+nnoremap <leader>c :NERDTree ~/haoran/algo<cr>
 nnoremap <leader>of :Autoformat<cr>
