@@ -1,9 +1,10 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 通用设置
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set title titlestring=Algorithm    " 设置窗口title"
+set title titlestring=vim    " 设置窗口title"
 let mapleader = " "      " 定义<leader>键
 set nocompatible         " 设置不兼容原始vi模式
+set shortmess=atI        " 关闭欢迎页面
 filetype on              " 设置开启文件类型侦测
 filetype plugin on       " 设置加载对应文件类型的插件
 set noeb                 " 关闭错误的提示(响铃)
@@ -17,6 +18,8 @@ set nocursorline         " 高亮显示当前行
 set scrolloff=5          " 光标距底行最小距离
 set wildmenu             " vim自身命名行模式智能补全
 set clipboard=unnamed
+set listchars=tab:»■,trail:■  " 显示行尾空格
+set list
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 代码缩进和排版
@@ -47,9 +50,14 @@ exec "nohlsearch"
 set nobackup            " 设置不备份
 set nowritebackup       " 设置不备份
 set noswapfile          " 禁止生成临时文件
+set undofile            " 重新打开一个文件，可以撤销上一次编辑的操作
+set autowrite           " 自动保存
 set autoread            " 文件在vim之外修改过，自动重新读入
 set splitright          " 在右侧分屏
 set splitbelow          " 在下面分屏
+set backupdir=~/.vim/.backup//  " 结尾的//表示生成的文件名带有绝对路径，路径中用%替换目录分隔符，这样可以防止文件重名。  
+set directory=~/.vim/.swp//
+set undodir=~/.vim/.undo// 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 编码设置
@@ -70,22 +78,53 @@ set foldenable
 set formatoptions-=tc
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" vim的文件管理器
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:netrw_hide = 1                  " 隐藏 dotfile
+let g:netrw_liststyle = 1             " 增加时间戳等详细信息
+let g:netrw_banner = 0                " 不显示默认的“横幅”显示
+" 控制打开文件的窗口位置
+" 0 - 覆盖目录
+" 1 - 水平分裂
+" 2 - 垂直分裂
+" 3 - 新 tab 中打开
+" 4 - 新开窗口覆盖原先窗口
+let g:netrw_browse_split = 4
+let g:netrw_winsize = 24              " netrw 的宽度
+let g:netrw_altv = 1                  " 默认右侧分裂窗口显示
+let g:netrw_chgwin = 2
+let g:netrw_list_hide = '.*\.swp$'    " 隐藏文件
+let g:netrw_localrmdir = 'rm -rf'     " 使用 rm -rf 执行 vim 中 D 的删除
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" 文件配置
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+filetype on          " 开启文件识别
+filetype indent on   " 自适应不同语言的智能缩进
+filetype plugin on   " 设置加载对应文件类型的插件
+autocmd BufReadPost *          " 自动记住上次位置
+    \ if line("'\"")>0&&line("'\"")<=line("$") |
+    \   exe "normal g'\"" |
+    \ endif
+autocmd Filetype markdown set wrap
+autocmd Filetype markdown nnoremap j gj
+autocmd Filetype markdown nnoremap k gk
+autocmd BufNewFile,BufRead *.define setf define
+autocmd FileType go :set tabstop=4 noexpandtab " Do not use spaces instead of tabs
+autocmd FileType c,cpp :set shiftwidth=4 expandtab
+autocmd FileType lua :set shiftwidth=4
+autocmd FileType sh :set shiftwidth=2 expandtab
+autocmd FileType python :set tabstop=4 shiftwidth=4 expandtab ai
+autocmd FileType ruby,javascript,html,css,xml :set tabstop=2 shiftwidth=2 softtabstop=2 expandtab ai
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 主题
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 if has("gui_running")
-    " color murphy
-    color paramount
-    " color iceberg
-    " color jellybeans
+    source ~/dotfiles/vim/theme/jellybeans.vim
     set guifont=Consolas:h9.6
     winpos 1080 150
     set lines=23 columns=75
 else
     color slate
-    " color def8ult
-    " let g:FrostTransparent = 0
-    " let g:SnazzyTransparent = 1
-    " hi Normal ctermfg=252 ctermbg=none
 endif
-
-
