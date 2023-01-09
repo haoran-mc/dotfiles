@@ -9,8 +9,14 @@ Plug 'Chiel92/vim-autoformat'
 Plug 'dhruvasagar/vim-table-mode', { 'on': 'TableModeToggle' }
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 Plug 'fatih/vim-go', { 'tag': '*' }
+
 " Plug 'RRethy/vim-hexokinase'
 call plug#end()
+
+" 插件简要使用
+" :PlugInstall     - 安装插件
+" :PlugClean       - 移除插件
+" :plugStatus      - 插件状态
 
 
 " NERDTree
