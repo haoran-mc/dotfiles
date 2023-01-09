@@ -38,3 +38,7 @@
 " 把全文件所有的 str1 替换成 str2
 :%s/str1/str2/g
 ```
+
+# colors
+
+cp -r ~/dotfiles/vim/colors ~/.vim/colors
