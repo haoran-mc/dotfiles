@@ -5,21 +5,35 @@ set title titlestring=vim    " 设置窗口title"
 let mapleader = " "      " 定义<leader>键
 set nocompatible         " 设置不兼容原始vi模式
 set shortmess=atI        " 关闭欢迎页面
-filetype on              " 设置开启文件类型侦测
-filetype plugin on       " 设置加载对应文件类型的插件
-set noeb                 " 关闭错误的提示(响铃)
-set visualbell t_vb=     " 关闭错误的提示(闪烁)
+set noeb                 " 关闭错误的提示（响铃）
+set visualbell t_vb=     " 关闭错误的提示（闪烁）
 set nowrap               " 禁止折行
-syntax enable            " 开启语法高亮功能
-syntax on                " 自动语法高亮
 set laststatus=1         " 仅当窗口多于一个时显示状态栏
 set number               " 开启行号显示
 set nocursorline         " 高亮显示当前行
 set scrolloff=5          " 光标距底行最小距离
 set wildmenu             " vim自身命名行模式智能补全
-set clipboard=unnamed
+set mouse-=a             " 禁止使用鼠标
+set clipboard=unnamed    " vim 剪切板
 set listchars=tab:»■,trail:■  " 显示行尾空格
-set list
+set list                 " 显示非可见字符 ^I
+set shell=bash           " 使用 bash 作为默认 shell 环境
+set history=1000         " 保存历史命令行数
+set ttyfast              " 快速滚动
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" 代码编辑
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+syntax enable            " 开启语法高亮功能
+syntax on                " 自动语法高亮
+" 文本格式化选项
+" t：根据 textwidth 自动折行
+" c：在（程序源代码中的）注释中自动折行，插入合适的注释起始字符
+" r：插入模式下在注释中键入回车时，插入合适的注释起始字符
+" q：允许使用“gq”命令对注释进行格式化
+" o: 如果当前有注释，用O，o时自动插入注释
+" w: 尾部白色空格代表下一行继续，非白色表示一个段落的结尾
+set formatoptions+=tcroqw
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 代码缩进和排版
@@ -58,6 +72,7 @@ set splitbelow          " 在下面分屏
 set backupdir=~/.vim/.backup//  " 结尾的//表示生成的文件名带有绝对路径，路径中用%替换目录分隔符，这样可以防止文件重名。  
 set directory=~/.vim/.swp//
 set undodir=~/.vim/.undo// 
+set hidden              " 切换 buffer 时，前一个编辑的文件保留在后台
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 编码设置
@@ -65,7 +80,7 @@ set undodir=~/.vim/.undo//
 set encoding=utf8            " 设置Vim内部使用的字符编码
 set fileencodings=utf8,ucs-bom,gbk,cp936,gb2312,gb18030  " 设置一个字符编码的列表，表示 Vim 自动检测文件编码时的备选字符编码列表
 set termencoding=utf-8       " 设置终端使用的编码方式
-set fileformats=unix,dos,mac " 设置参与自动检测换行符格式类型的备选列表
+set fileformats=unix,dos,mac " 文本格式优先选择 unix
 set langmenu=zh_CN.UTF-8
 set helplang=cn
 
@@ -118,15 +133,15 @@ autocmd FileType python :set tabstop=4 shiftwidth=4 expandtab ai
 autocmd FileType ruby,javascript,html,css,xml :set tabstop=2 shiftwidth=2 softtabstop=2 expandtab ai
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" 主题
+" 主题、GUI
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 if has("gui_running")
-    " source ~/dotfiles/vim/theme/jellybeans.vim
-    color slate
-    set guifont=Consolas:h9.6
-    winpos 1080 150
-    " set lines=23 columns=75
-    set lines=40 columns=110
+    set background=dark
+    color iceberg
+    " color slate
+    " set guifont=Consolas:h9.6
+    " winpos 1080 150
+    " set lines=40 columns=110
 else
     color slate
 endif
