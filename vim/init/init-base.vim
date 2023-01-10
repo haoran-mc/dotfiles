@@ -8,7 +8,8 @@ set shortmess=atI        " 关闭欢迎页面
 set noeb                 " 关闭错误的提示（响铃）
 set visualbell t_vb=     " 关闭错误的提示（闪烁）
 set nowrap               " 禁止折行
-set laststatus=1         " 仅当窗口多于一个时显示状态栏
+set laststatus=2         " 仅当窗口多于一个时显示状态栏
+set cmdheight=1          " 命令行的高度
 set number               " 开启行号显示
 set nocursorline         " 高亮显示当前行
 set scrolloff=5          " 光标距底行最小距离
@@ -137,11 +138,11 @@ autocmd FileType ruby,javascript,html,css,xml :set tabstop=2 shiftwidth=2 softta
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 if has("gui_running")
     set background=dark
-    color iceberg
-    " color slate
+    color one
     " set guifont=Consolas:h9.6
     " winpos 1080 150
     " set lines=40 columns=110
 else
+    " color elflord
     color slate
 endif

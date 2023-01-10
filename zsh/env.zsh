@@ -18,5 +18,5 @@ export PATH=$JAVA_HOME/bin:$PATH
 # servicewall
 # export GOPRIVATE=github.com/servicewall
 export GOPRIVATE=*.corp.example.com,github.com/servicewall/*
-export GOARCH="amd64"
+# export GOARCH="amd64"
 # export GOHOSTARCH="amd64"
