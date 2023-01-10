@@ -1,4 +1,4 @@
-nnoremap ta :call DeleteHiddenBuffers()<cr>
+nnoremap <leader>ta :call DeleteHiddenBuffers()<cr>
 function DeleteHiddenBuffers()
     NERDTreeClose
     NERDTreeToggle
