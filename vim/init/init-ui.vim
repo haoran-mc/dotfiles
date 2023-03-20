@@ -23,30 +23,21 @@ set statusline+=\ %f\ %*
 set statusline+=\ ››
 set statusline+=%=
 set statusline+=\ ‹‹
-set statusline+=\ %{strftime('%R',\ getftime(expand('%')))}
+set statusline+=\ %l:%c
 set statusline+=\ ::
-set statusline+=\ %p
+set statusline+=\ %{strftime('%R',\ getftime(expand('%')))}
 set statusline+=\ ››\ %*
 
 
-" set transparency=10     " 透明
+if has("gui_running")
+    set transparency=20
+endif
 
 
-" Set cursor shape and color
-"" INSERT mode
-"let &t_SI = "\<Esc>[6 q" . "\<Esc>]12;blue\x7"
-"" REPLACE mode
-"let &t_SR = "\<Esc>[3 q" . "\<Esc>]12;black\x7"
-"" NORMAL mode
-"let &t_EI = "\<Esc>[2 q" . "\<Esc>]12;green\x7"
-" 1 -> blinking block  闪烁的方块
-" 2 -> solid block  不闪烁的方块
-" 3 -> blinking underscore  闪烁的下划线
-" 4 -> solid underscore  不闪烁的下划线
-" 5 -> blinking vertical bar  闪烁的竖线
-" 6 -> solid vertical bar  不闪烁的竖线
 
-
+set guicursor=n:block-blinkoff0,i:block-iCursor-blinkoff0,v:block-blinkoff0
+" highlight Cursor guifg=white guibg=black
+highlight iCursor guifg=white guibg=steelblue
 
 
 
@@ -75,6 +66,5 @@ function ShortTabLabel(n)
     let filename = fnamemodify (label, ':t')
     return filename
 endfunction
-
 
 
