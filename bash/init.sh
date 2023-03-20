@@ -1,5 +1,5 @@
-source ~/.config/bash/default.sh
-source ~/.config/bash/alias.sh
-source ~/.config/bash/env.sh
-source ~/.config/bash/funcs.sh
-source ~/.config/bash/ui.sh
+source ~/dotfiles/bash/default.sh
+source ~/dotfiles/bash/alias.sh
+source ~/dotfiles/bash/env.sh
+source ~/dotfiles/bash/funcs.sh
+source ~/dotfiles/bash/ui.sh

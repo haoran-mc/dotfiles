@@ -29,10 +29,10 @@ alias ..='cd ../'
 alias ...='cd ../../'
 
 # 过滤进程
-alias pg='ps aux |grep -i'
+alias pg='ps aux | grep -i'
 
 # 过滤历史
-alias hg='history |grep -i'
+alias hg='history | grep -i'
 
 # 查看磁盘使用情况，主要是不加-h选项的话很不舒服，所以就设了个别名
 alias df='df -Th'
