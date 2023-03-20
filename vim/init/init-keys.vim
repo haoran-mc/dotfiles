@@ -1,12 +1,13 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 键映射
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-inoremap {<cr> {<cr>}<esc>O
-nnoremap <leader>0 i<Space><C-c>la<Space><C-c>h
-nnoremap <leader>rc :e ~/dotfiles/vim/init/init-base.vim<cr>
-nnoremap <leader><cr> :nohlsearch<cr>
-" nnoremap <leader><leader> <esc>/<++><cr>:nohlsearch<cr>c4l
-" nnoremap <leader>ft :Vex<cr>
+imap {<cr> {<cr>}<esc>O
+nmap <leader>0 i<Space><C-c>la<Space><C-c>h
+nmap <leader>rc :e ~/dotfiles/vim/init/init-base.vim<cr>
+nmap <leader>1 :nohlsearch<cr>
+nmap <leader><tab> :e#<cr>
+" nmap <leader><leader> <esc>/<++><cr>:nohlsearch<cr>c4l
+" nmap <leader>ft :Vex<cr>
 
 nmap <leader>wc :q<cr>
 nmap <leader>wv :vsp<cr>
@@ -15,14 +16,58 @@ nmap <leader>wh <c-w><c-h>
 nmap <leader>wj <c-w><c-j>
 nmap <leader>wk <c-w><c-k>
 nmap <leader>wl <c-w><c-l>
+nmap <leader>wx <c-w><c-x>
+nmap <leader>w= <c-w>=
 
-nmap <leader><tab> :ls<cr>
+nmap <leader><tab> :e#<cr>
 
-imap <c-g> <c-c>
-nmap <c-g> <c-c>
-vmap <c-g> <c-c>
-cmap <c-g> <c-c>
+
+nmap <c-h> :vertical resize -2<cr>
+nmap <c-l> :vertical resize +2<cr>
+nmap <c-j> :resize +2<cr>
+nmap <c-k> :resize -2<cr>
 
 
 " 修复 ctags ctrl+] 无效问题
-" nmap <c-]> g<c-]>
+nmap <c-]> g<c-]>
+
+
+
+
+
+" <leader> a  app
+" <leader> b  buffer
+"     bb Buffers
+" <leader> c  code
+"     cf code format
+" <leader> f  find, file, filetree
+"     fa
+"     fh
+"     fj
+"     fk
+"     fl
+"     fm bookmark
+"     fo focus
+"     ft filetree
+"     fw
+" <leader> g  go
+"     gi goimports
+" <leader> o  open
+" <leader> p  project
+"     pl Files
+"     pf GFiles
+"     psr Lines
+" <leader> t  tab template
+"     ta delete buffers
+"     tb TagbarToggle
+"     ti TemplateInit
+"     tr r template
+" <leader> u  user
+"     uf Ydc
+" <leader> w  window
+
+" <leader><tab>
+" <leader>0
+" <leader>1
+
+

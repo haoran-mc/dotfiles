@@ -42,3 +42,8 @@
 # colors
 
 cp -r ~/dotfiles/vim/colors ~/.vim/colors
+
+# nerdtree 的书签 bookmark
+
+- :NERDTreeFromBookmark algo 前往 {algo} 书签
+- :Bookmark {name} 在 nerdtree 栏中使用，将当前文件夹设为书签，可以设置书签名

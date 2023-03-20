@@ -12,10 +12,7 @@ endfunction
 
 
 
-
-" 设置折叠的快捷键
-" 我这里就是 ,zz
-" 第一次 ,zz 折叠，再一次就展开
+" 设置折叠的快捷键，第一次折叠，再一次展开
 let g:FoldMethod = 0
 map <leader>zz :call ToggleFold()<CR>
 fun! ToggleFold()
@@ -29,4 +26,16 @@ fun! ToggleFold()
 endfun
 
 
-cmap w!! %!sudo tee > /dev/null %   " 用 sudo 权限保存文件
+" 用 sudo 权限保存文件
+cmap w!! %!sudo tee > /dev/null %   
+
+
+
+" WSL yank support
+let s:clip = '/mnt/c/Windows/System32/clip.exe' 
+if executable(s:clip)
+    augroup WSLYank
+        autocmd!
+        autocmd TextYankPost * if v:event.operator ==# 'y' | call system(s:clip, @0) | endif
+    augroup END
+endif
