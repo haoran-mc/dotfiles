@@ -15,12 +15,9 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'tibabit/vim-templates'
 Plug 'preservim/tagbar'
+" --- coc
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
-" Plug 'fatih/vim-go', { 'tag': '*' }
-" vim-clap, leaderF alternative
-" Plug 'kien/ctrlp.vim'
-" Plug 'RRethy/vim-hexokinase'
-
 
 " :PlugInstall     - 安装插件
 " :PlugClean       - 移除插件
@@ -32,9 +29,15 @@ nmap <leader>uf :Ydc<cr>
 nmap <leader>ft  :NERDTreeToggle<cr>
 nmap <leader>fo  :NERDTreeFind<cr>
 nmap <leader>fm  :NERDTreeFromBookmark 
-let NERDTreeIgnore=['\.o$', '^\.git$', '_exe', '.vscode', '\.exe', '.DS_Store', '_exe']
+let NERDTreeIgnore=['\.o$', '^\.git$', '_exe', '.vscode', '\.exe', '.DS_Store', '_exe', '\.orig', 'input.txt', 'output.txt' ]
 let g:NERDTreeMinimalMenu=1
 let g:NERDTreeShowHidden=1
+let NERDTreeMapUpdirKeepOpen='-'  " dir up
+let NERDTreeMapCWD='C'            " change dir
+let NERDTreeMapOpenVSplit='v'     " vsplit
+let NERDTreeMapPreviewVSplit='gv' " vsplit
+let NERDTreeMapOpenSplit='s'      " split
+let NERDTreeMapPreviewSplit='s'   " split
 
 
 " nerdcommenter

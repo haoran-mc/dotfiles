@@ -81,6 +81,7 @@ set autochdir                         " 自动确定文件夹
 let g:netrw_hide = 1                  " 隐藏 dotfile
 let g:netrw_liststyle = 1             " 增加时间戳等详细信息
 let g:netrw_banner = 0                " 不显示默认的“横幅”显示
+let g:netrw_liststyle=3               " 使用树状模式
 " 控制打开文件的窗口位置
 " 0 - 覆盖目录
 " 1 - 水平分裂
@@ -106,7 +107,8 @@ syntax on                " 自动语法高亮
 " q：允许使用“gq”命令对注释进行格式化
 " o: 如果当前有注释，用O，o时自动插入注释
 " w: 尾部白色空格代表下一行继续，非白色表示一个段落的结尾
-set formatoptions+=tcroqw
+set formatoptions+=tcrqw
+set formatoptions-=o
 filetype on          " 开启文件识别
 filetype indent on   " 自适应不同语言的智能缩进
 filetype plugin on   " 设置加载对应文件类型的插件
@@ -131,5 +133,5 @@ if has("gui_running")
     " set lines=40 columns=110
 else
     " color elflord
-    color slate
+    color snazzy
 endif

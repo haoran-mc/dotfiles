@@ -17,7 +17,7 @@
 " 运行代码
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-nmap <F9> :call RunInTerm()<CR>
+nmap <F9> <leader>cf:call RunInTerm()<CR>
 
 func! RunInTerm()
 	if &filetype == 'c'

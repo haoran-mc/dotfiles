@@ -4,6 +4,8 @@
 imap {<cr> {<cr>}<esc>O
 nmap <leader>0 i<Space><C-c>la<Space><C-c>h
 nmap <leader>rc :e ~/dotfiles/vim/init/init-base.vim<cr>
+nmap <leader>ut :e ~/haoran/tr/vim/test.go<cr>
+nmap <leader>us :so ~/.vimrc<cr>
 nmap <leader>1 :nohlsearch<cr>
 nmap <leader><tab> :e#<cr>
 " nmap <leader><leader> <esc>/<++><cr>:nohlsearch<cr>c4l
@@ -18,6 +20,8 @@ nmap <leader>wk <c-w><c-k>
 nmap <leader>wl <c-w><c-l>
 nmap <leader>wx <c-w><c-x>
 nmap <leader>w= <c-w>=
+
+nmap <leader>tn :tabnew<cr>
 
 nmap <leader><tab> :e#<cr>
 
