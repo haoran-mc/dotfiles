@@ -37,7 +37,7 @@ endif
 
 set guicursor=n:block-blinkoff0,i:block-iCursor-blinkoff0,v:block-blinkoff0
 " highlight Cursor guifg=white guibg=black
-highlight iCursor guifg=white guibg=steelblue
+highlight iCursor guifg=white guibg=red
 
 
 
