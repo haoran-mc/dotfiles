@@ -42,3 +42,10 @@ alias free='free -h'
 
 # 快速退出
 alias q="exit"
+
+alias c="clear"
+
+
+# golang
+alias gobuild='go build -o _exe -gcflags "-N -l" main.go'
+alias godebug='dlv exec -r stdin:input.txt _exe'
