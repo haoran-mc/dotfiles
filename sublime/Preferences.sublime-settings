@@ -1,0 +1,21 @@
+// Settings in here override those in "Default/Preferences.sublime-settings",
+// and are overridden in turn by syntax-specific settings.
+{
+	"save_on_focus_lost": true,
+	"word_wrap": true,
+	"folder_exclude_patterns": [
+		".svn", ".git", ".hg", "CVS", ".Trash", ".Trash-*",
+		".obsidian"
+	],
+	"file_exclude_patterns": [
+		"*.pyc", "*.pyo", "*.exe", "*.dll", "*.obj",
+		"*.o", "*.a", "*.lib", "*.so", "*.dylib", 
+		"*.ncb", "*.sdf", "*.suo", "*.pdb", "*.idb", 
+		".DS_Store", ".directory", "desktop.ini", "*.class", 
+		"*.psd", "*.db", "*.sublime-workspace"
+	],
+	"ignored_packages":
+	[
+		"Vintage",
+	],
+}
