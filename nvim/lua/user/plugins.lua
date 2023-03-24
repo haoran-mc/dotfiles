@@ -36,10 +36,8 @@ packer.init {
 return packer.startup(function(use)
   use "wbthomason/packer.nvim" -- Packer 可以升级自己
   -------------------------- plugins --------------------------
-  use { 'kyazdani42/nvim-tree.lua', requires = 'kyazdani42/nvim-web-devicons' }
   use { 'nvim-lualine/lualine.nvim', requires = { 'kyazdani42/nvim-web-devicons', opt = true } }
   use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" }
-  use "lewis6991/nvim-treesitter-context" -- show class/function at the top
   use "ianva/vim-youdao-translater"
   use { 'francoiscabrol/ranger.vim', requires = 'rbgrouleff/bclose.vim' }
 
@@ -50,10 +48,6 @@ return packer.startup(function(use)
     requires = { 'nvim-lua/plenary.nvim' }
   }
   use { "nvim-telescope/telescope-fzf-native.nvim", run = "make" }
-  -- use "nvim-telescope/telescope-ui-select.nvim"
-  -- use "nvim-telescope/telescope-live-grep-raw.nvim"
-  use "nvim-telescope/telescope-dap.nvim"
-  use "ahmedkhalf/project.nvim"
 
   --------------------- Toggleterm --------------------
   use "akinsho/toggleterm.nvim" -- toggle terminal
@@ -80,20 +74,8 @@ return packer.startup(function(use)
   use "lfv89/vim-interestingwords" -- 高亮当前变量，可高亮多个
   -- use "mg979/vim-visual-multi"
 
-  --------------------- cmp plugins --------------------
-  -- 补全引擎、补全源、snippet引擎、snippet源
-  use "hrsh7th/nvim-cmp" -- cmp engine
-  use "hrsh7th/cmp-buffer" -- buffer completions
-  use "hrsh7th/cmp-path" -- path completions
-  use "hrsh7th/cmp-cmdline" -- cmdline completions
-  use "hrsh7th/cmp-nvim-lsp" -- lsp completions
-  use "hrsh7th/cmp-nvim-lua" -- nvim lua api completions
-
-  use "saadparwaiz1/cmp_luasnip" -- snippet engine
-  use "L3MON4D3/LuaSnip" -- snippet completions
-  -- use "rafamadriz/friendly-snippets" -- 对snippet的补充，是否使用？
-
-  use "f3fora/cmp-spell" -- spell check
+  --------------------- coc --------------------
+  use {'neoclide/coc.nvim', branch = 'release'}
 
   --------------------- lang --------------------
   use "fatih/vim-go"
@@ -102,23 +84,6 @@ return packer.startup(function(use)
     run = "cd app && npm install",
     setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" },
   })
-  -- use "mattn/emmet-vim"
-
-  -- LSP，悬浮提示，定义跳转，自动诊断，代码补全
-  use "neovim/nvim-lspconfig" -- lsp客户端
-  use "williamboman/mason.nvim" -- 用来下载语言服务器，如果你不嫌麻烦的话，可以go get xxx/gopls ...
-  use "williamboman/mason-lspconfig.nvim" -- 用来补充 nvim-lspconfig 的，使用 mason 就需要这个
-  use "ray-x/lsp_signature.nvim" -- show function signature when typing
-  -- use "stevearc/aerial.nvim" -- 函数名、变量名的导航，lsp.handlers
-
-  -- DAP
-  use "mfussenegger/nvim-dap" -- Debug Adapter Protocol
-  -- use 'Pocco81/dap-buddy.nvim' -- 说是管理 dap 的，但我看不懂
-  use "theHamsta/nvim-dap-virtual-text" -- 显示变量值
-  use "rcarriga/nvim-dap-ui"
-
-  -- lint
-  -- format
 
   --------------------- colorschemes --------------------
   use "projekt0n/github-nvim-theme"

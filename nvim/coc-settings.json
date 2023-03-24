@@ -1,0 +1,57 @@
+{
+  "languageserver": {
+    "golang": {
+      "command": "gopls",
+      "rootPatterns": ["go.mod", ".git/"],
+      "filetypes": ["go"]
+    }
+  },
+ "explorer.keyMappings.global": {
+    "i": false,
+    "<c-o>": "noop",
+    "*": "toggleSelection",
+    "m": "actionMenu",
+    "-": ["wait", "gotoParent"],
+
+    "h":  ["wait", "collapse"],
+    "l":  ["wait", "expandable?", "expand", "open"],
+    "L": ["wait", "expand:recursive"],
+    "H": ["wait", "collapse:recursive"],
+
+    "<cr>": ["wait", "expanded?", "collapse", "expand"],
+    "o": ["open"],
+    "C": ["wait", "cd"],
+    "s": "open:split",
+    "v": "open:vsplit",
+    "t": "open:tab",
+
+    "yp": "copyFilepath",
+    "yn": "copyFilename",
+    "yy": "copyFile",
+    "dd": "cutFile",
+    "p": "pasteFile",
+    "df": "delete",
+    "dF": "deleteForever",
+
+    "a": "addFile",
+    "A": "addDirectory",
+    "r": "rename",
+
+    "I": "toggleHidden",
+    "<dot>": "toggleHidden",
+    "R": "refresh",
+
+    "?": "help",
+    "q": "quit",
+    "<esc>": "esc",
+    "X": "systemExecute",
+
+    "f": "search",
+    "F": "searchRecursive",
+
+    "gf": "gotoSource:file",
+    "gb": "gotoSource:buffer",
+  }
+}
+
+

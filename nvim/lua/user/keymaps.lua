@@ -36,8 +36,8 @@ keymap("i", "<C-a>", "<home>", opts)
 keymap("i", "<C-e>", "<end>", opts)
 keymap("i", "<C-f>", "<right>", opts)
 keymap("i", "<C-b>", "<left>", opts)
-keymap("i", "<C-p>", "<up>", opts)
-keymap("i", "<C-n>", "<down>", opts)
+-- keymap("i", "<C-p>", "<up>", opts)
+-- keymap("i", "<C-n>", "<down>", opts)
 
 -- c-w = ratio windows
 keymap("n", "<leader>wv", ":vsp<cr>", opts)
@@ -56,9 +56,12 @@ keymap("n", "<C-j>", ":resize +2<cr>", opts)
 keymap("n", "<C-k>", ":resize -2<cr>", opts)
 
 -- Find, File
-keymap("n", "<leader>ft", ":NvimTreeToggle<cr>", opts)
 keymap("n", "<leader>fO", ":NvimTreeOpen .<cr>", opts)
 keymap("n", "<leader>fo", ":NvimTreeFindFile<cr>", opts)
+
+keymap("n", "<leader>ft", ":CocCommand explorer<cr>", opts)
+
+
 keymap("n", "<leader>fj", ":HopLine<cr>", opts)
 keymap("n", "<leader>fk", ":HopLine<cr>", opts)
 keymap("n", "<leader>fw", ":HopWord<cr>", opts)    -- all word

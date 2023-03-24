@@ -5,5 +5,4 @@ require "user.colorscheme"
 require "user.autocmd"
 
 require "user.conf"
-require "user.lsp"
-require "user.dap"
+require "user.coc"
