@@ -7,8 +7,6 @@
     }
   },
   "diagnostic.enable": false,
-  "snippets.ultisnips.pythonPrompt": false,
-  "snippets.ultisnips.directories": [
-	"~/dotifles/vim/snippets/"
-  ]
+  "snippets.ultisnips.pythonPrompt": false
 }
+

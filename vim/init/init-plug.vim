@@ -13,9 +13,9 @@ Plug 'preservim/tagbar'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 " --- markdown
-Plug 'dhruvasagar/vim-table-mode', { 'on': 'TableModeToggle' }
-Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
-Plug 'shushcat/vim-minimd'
+Plug 'dhruvasagar/vim-table-mode', { 'for': ['markdown'] }
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug'] }
+Plug 'vimwiki/vimwiki'
 " --- coc
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
@@ -74,12 +74,21 @@ nmap <leader>fr  :FzfHistory<cr>
 " markdown
 nmap <leader>mp :MarkdownPreview<cr>
 nmap <leader>mt :TableModeToggle<cr>
-nmap <leader>mz :<C-u>MiniMDToggleFold<CR>
+
 
 " template
 nmap <leader>ti :TemplateInit<cr>
 nmap <leader>tr :r ~/haoran/co/algo/misc/08-prog/17-leetcode-template.go<cr>
 let g:tmpl_search_paths=['~/dotfiles/vim/templates']
+
+
+
+
+
+
+source ~/dotfiles/vim/plugins/tagbar/tagbar.vim
+source ~/dotfiles/vim/plugins/coc/coc.vim
+source ~/dotfiles/vim/plugins/vimwiki/vimwiki.vim
 
 
 

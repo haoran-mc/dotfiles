@@ -103,3 +103,5 @@ coc 的功能非常齐全，coc 各种复杂的属性、配置、插件，让人
 
 在 vim 中可以对各个内置的功能或者外加的子插件进行配置。就类似 vscode 的配置系统一样。具体可以设置什么内容可以参见仓库的 [wiki](https://github.com/neoclide/coc.nvim/wiki)。
 
+
+
