@@ -54,6 +54,9 @@ set backupdir=~/.vim/.backup//  " 结尾的//表示生成的文件名带有绝�
 set directory=~/.vim/.swp//
 set undodir=~/.vim/.undo// 
 set hidden              " 切换 buffer 时，前一个编辑的文件保留在后台
+" Having longer updatetime (default is 4000 ms = 4s) leads to noticeable
+" delays and poor user experience
+set updatetime=300
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 编码设置
@@ -124,6 +127,7 @@ set cursorline           " 高亮显示当前行
 set listchars=trail:■
 " set listchars=tab:»■,trail:■  " 显示行尾空格
 " set list                 " 显示非可见字符 ^I
+" set signcolumn=yes
 
 if has("gui_running")
     set background=dark
@@ -133,5 +137,5 @@ if has("gui_running")
     " set lines=40 columns=110
 else
     " color elflord
-    color snazzy
+    color molokai
 endif

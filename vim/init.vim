@@ -7,4 +7,8 @@ source ~/dotfiles/vim/init/init-extend.vim
 source ~/dotfiles/vim/init/init-auto.vim
 
 
-source ~/dotfiles/vim/plugin/coc.vim
+source ~/dotfiles/vim/plugins/tagbar/tagbar.vim
+source ~/dotfiles/vim/plugins/coc/coc.vim
+
+
+

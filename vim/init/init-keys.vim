@@ -3,9 +3,10 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 imap {<cr> {<cr>}<esc>O
 nmap <leader>0 i<Space><C-c>la<Space><C-c>h
-nmap <leader>rc :e ~/dotfiles/vim/init/init-base.vim<cr>
+" nmap <leader>rc :e ~/dotfiles/vim/init.vim<cr>
+nmap <leader>rc :FzfFiles ~/dotfiles/vim<cr>
 nmap <leader>ut :e ~/haoran/tr/vim/test.go<cr>
-nmap <leader>us :so ~/.vimrc<cr>
+tmap <leader>us :so ~/.vimrc<cr>
 nmap <leader>1 :nohlsearch<cr>
 nmap <leader><tab> :e#<cr>
 " nmap <leader><leader> <esc>/<++><cr>:nohlsearch<cr>c4l
@@ -40,6 +41,7 @@ nmap <c-]> g<c-]>
 
 
 " <leader> a  app
+"     af Ydc
 " <leader> b  buffer
 "     bb Buffers
 " <leader> c  code
@@ -56,6 +58,9 @@ nmap <c-]> g<c-]>
 "     fw
 " <leader> g  go
 "     gi goimports
+" <leader> m  markdown
+"     mp markdown preview
+"     mt markdown table mode
 " <leader> o  open
 " <leader> p  project
 "     pl Files
@@ -67,7 +72,6 @@ nmap <c-]> g<c-]>
 "     ti TemplateInit
 "     tr r template
 " <leader> u  user
-"     uf Ydc
 " <leader> w  window
 
 " <leader><tab>
