@@ -1,3 +1,5 @@
-```bash
-ln -s ~/dotfiles/git/config ~/.gitconfig
-```
+TODO: auto push script
+
+
+
+

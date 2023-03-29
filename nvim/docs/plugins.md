@@ -21,6 +21,7 @@ toggleterm                 终端
 vim-illuminate             高亮当前变量
 vim-interestingwords       单词高亮
 vim-youdao-translater      翻译
+symbols-outline            显示大纲
 
 markdown-preview           markdown 预览
 vim-table-mode             markdown 表格对齐
