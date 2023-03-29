@@ -14,7 +14,7 @@ endfunction
 
 " 设置折叠的快捷键，第一次折叠，再一次展开
 let g:FoldMethod = 0
-map <leader>zz :call ToggleFold()<CR>
+" map <leader>zz :call ToggleFold()<CR>
 fun! ToggleFold()
     if g:FoldMethod == 0
         exe "normal! zM"

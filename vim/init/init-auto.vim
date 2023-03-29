@@ -17,9 +17,11 @@ autocmd FileType go :set tabstop=4 noexpandtab " Do not use spaces instead of ta
 " go build -o _exe -gcflags "-N -l" main.go
 " gdb -tui _exe
 
+
 " c/cpp
 autocmd FileType c,cpp nmap <leader>cf :silent ! astyle --style=attach --pad-oper --lineend=linux %<cr>
 autocmd FileType c,cpp :set shiftwidth=4 expandtab
+
 
 autocmd FileType lua :set shiftwidth=4
 autocmd FileType sh :set shiftwidth=2 expandtab

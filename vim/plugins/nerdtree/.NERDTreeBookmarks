@@ -1,4 +1,5 @@
 algo ~/haoran/co/algo
 vim ~/dotfiles/vim
 tr ~/haoran/tr/vim
+pkgs ~/haoran/tr/go_pkgs_test
 
