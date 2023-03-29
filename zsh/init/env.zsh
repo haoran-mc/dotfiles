@@ -9,6 +9,7 @@ export GOPROXY=https://goproxy.io,direct
 
 # python
 export PYTHONPATH=/usr/bin/python3
+export PYENV_ROOT=/Users/haoran/.pyenv
 
 # java
 export JAVA_HOME=/usr/local/java/jdk1.8.0_201

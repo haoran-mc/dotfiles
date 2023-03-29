@@ -144,12 +144,6 @@ snippet func "function"
 	}
 	${0}
 
-snippet fum "method"
-	func (${1:receiver} ${2:type}) ${3:funcName}(${4}) ${5:error} {
-		${6}
-	}
-	${0}
-
 snippet fumh "http handler function on receiver"
 	func (${1:receiver} ${2:type}) ${3:funcName}(${4:w} http.ResponseWriter, ${5:r} *http.Request) {
 		${0:${VISUAL}}
@@ -160,6 +154,12 @@ snippet lf "log printf"
 
 snippet lp "log println"
 	log.Println("${1}")
+
+snippet meth "method"
+	func (${1:receiver} ${2:type}) ${3:funcName}(${4}) ${5:error} {
+		${6}
+	}
+	${0}
 
 snippet mk "make"
 	make(${1:[]string}, ${0:0})
