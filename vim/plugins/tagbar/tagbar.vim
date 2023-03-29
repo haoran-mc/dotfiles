@@ -38,6 +38,22 @@ let g:tagbar_type_go = {
 	\ 'ctagsargs' : '-sort -silent'
 \ }
 
+let g:tagbar_type_markdown = {
+        \ 'ctagstype' : 'markdown',
+        \ 'kinds' : [
+                \ 'h:headings',
+        \ ],
+    \ 'sort' : 0
+\ }
+
+
+
+
+
+
+
+
+
 function! UpdateCtags()
     let curdir=getcwd()
     while !filereadable("./tags")
@@ -53,5 +69,5 @@ function! UpdateCtags()
     execute ":cd " . curdir
 endfunction
 
-autocmd BufWritePost *.go,*.c,*.cpp call UpdateCtags()
+autocmd BufWritePost *.go,*.c,*.cpp,*.md call UpdateCtags()
 

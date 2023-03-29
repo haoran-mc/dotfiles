@@ -6,6 +6,14 @@ jstemmer/gotags
 brew install gotags
 ```
 
+
+# vim-minimd
+
+```
+Plug 'shushcat/vim-minimd'
+nmap <leader>mz :<C-u>MiniMDToggleFold<cr>
+```
+
 # vim-auto-popmenu
 
 ```

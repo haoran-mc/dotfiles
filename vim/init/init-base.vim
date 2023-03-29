@@ -137,5 +137,6 @@ if has("gui_running")
     " set lines=40 columns=110
 else
     " color elflord
-    color molokai
+	color snazzy
+	let g:SnazzyTransparent = 1
 endif

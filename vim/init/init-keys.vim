@@ -21,6 +21,8 @@ nmap <leader>wk <c-w><c-k>
 nmap <leader>wl <c-w><c-l>
 nmap <leader>wx <c-w><c-x>
 nmap <leader>w= <c-w>=
+nmap <leader>wH <c-w>H
+nmap <leader>wK <c-w>K
 
 nmap <leader>tn :tabnew<cr>
 
@@ -31,6 +33,8 @@ nmap <c-h> :vertical resize -2<cr>
 nmap <c-l> :vertical resize +2<cr>
 nmap <c-j> :resize +2<cr>
 nmap <c-k> :resize -2<cr>
+
+nmap <leader>ot :term<cr>
 
 
 " 修复 ctags ctrl+] 无效问题
