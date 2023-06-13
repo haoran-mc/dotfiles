@@ -19,9 +19,4 @@ export PATH=$JAVA_HOME/bin:$PATH
 # 安装 emacs 时，需要 pyenv 依赖
 export PATH="${HOME}/.pyenv/shims:$PATH"
 
-# servicewall
-# export GOPRIVATE=github.com/servicewall
-export GOPRIVATE=*.corp.example.com,github.com/servicewall/*
-# export GOARCH="amd64"
-# export GOHOSTARCH="amd64"
-export EXT_REDIS_PASSWORD=Sw@123456
+source ~/servicewall/secret.zsh

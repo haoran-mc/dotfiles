@@ -34,4 +34,12 @@ set shortmess+=c
 " 常用命令：ApcEnable, ApcDisable，是否开启补全
 ```
 
+# vim-multiple-cursors
 
+" 多光标操作(类似sublimetext的多光标选中)
+Plugin 'terryma/vim-multiple-cursors'
+
+#  syntastic
+
+" 语法检查(支持大部分语言）
+Plugin 'vim-syntastic/syntastic'

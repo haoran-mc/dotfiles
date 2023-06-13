@@ -36,6 +36,11 @@ nmap <c-k> :resize -2<cr>
 
 nmap <leader>ot :term<cr>
 
+nnoremap < <<
+nnoremap > >>
+vnoremap < <gv
+vnoremap > >gv
+
 
 " 修复 ctags ctrl+] 无效问题
 nmap <c-]> g<c-]>
@@ -43,43 +48,44 @@ nmap <c-]> g<c-]>
 
 
 
+nmap <leader>af :Ydc<cr>
 
-" <leader> a  app
-"     af Ydc
-" <leader> b  buffer
-"     bb Buffers
-" <leader> c  code
-"     cf code format
-" <leader> f  find, file, filetree
-"     fa
-"     fh
-"     fj
-"     fk
-"     fl
-"     fm bookmark
-"     fo focus
-"     ft filetree
-"     fw
-" <leader> g  go
-"     gi goimports
-" <leader> m  markdown
-"     mp markdown preview
-"     mt markdown table mode
-" <leader> o  open
-" <leader> p  project
-"     pl Files
-"     pf GFiles
-"     psr Lines
-" <leader> t  tab template
-"     ta delete buffers
-"     tb TagbarToggle
-"     ti TemplateInit
-"     tr r template
-" <leader> u  user
-" <leader> w  window
+" NERDTree
+nmap <leader>ft  :NERDTreeToggle<cr>
+nmap <leader>fo  :NERDTreeFind<cr>
+nmap <leader>fm  :NERDTreeFromBookmark 
 
-" <leader><tab>
-" <leader>0
-" <leader>1
+" easymotion
+" bidirectional word
+" pay attention! no chars at the end of map
+nmap <leader>fw <Plug>(easymotion-bd-w)
+nmap <leader>fj <Plug>(easymotion-j)
+nmap <leader>fk <Plug>(easymotion-k)
+nmap <leader>f. <Plug>(easymotion-repeat)
+nmap <leader>fa <Plug>(easymotion-overwin-w)
+" useless: w b e ge, W B E gE
 
+" fzf
+nmap <leader>ff  :FzfFiles<cr>
+nmap <leader>fg  :FzfGFiles<cr>
+nmap <leader>fl  :FzfLines<cr>
+nmap <leader>fb  :FzfBuffers<cr>
+nmap <leader>fr  :FzfHistory<cr>
 
+"markdown
+nmap <leader>mp :MarkdownPreview<cr>
+nmap <leader>mt :TableModeToggle<cr>
+
+"template
+" nmap <leader>ti :TemplateInit<cr>
+nmap <leader>tr :r ~/haoran/co/algo/misc/08-prog/17-leetcode-template.go<cr>
+
+" tagbar
+nmap <leader>tb :TagbarToggle<cr>
+
+" vimwiki
+let g:vimwiki_map_prefix = '<Leader>e'
+nmap <leader>ew  <Plug>VimwikiUISelect
+
+" coc
+nmap <leader>rn <Plug>(coc-rename)

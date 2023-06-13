@@ -57,6 +57,7 @@ set hidden              " 切换 buffer 时，前一个编辑的文件保留在�
 " Having longer updatetime (default is 4000 ms = 4s) leads to noticeable
 " delays and poor user experience
 set updatetime=300
+set timeoutlen=500
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 编码设置
@@ -132,7 +133,7 @@ set listchars=trail:■
 if has("gui_running")
     set background=dark
     color jellybeans
-    " set guifont=Consolas:h9.6
+    " set guifont='Operator\ Mono':h9.6
     " winpos 1080 150
     " set lines=40 columns=110
 else

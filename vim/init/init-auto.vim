@@ -16,6 +16,7 @@ autocmd FileType go nmap <leader>cf :silent ! ~/go/bin/goimports -w %<cr>
 autocmd FileType go :set tabstop=4 noexpandtab " Do not use spaces instead of tabs
 " go build -o _exe -gcflags "-N -l" main.go
 " gdb -tui _exe
+autocmd BufNewFile go :TemplateInit()
 
 
 " c/cpp

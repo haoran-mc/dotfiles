@@ -1,4 +1,4 @@
-nnoremap <leader>ta :call DeleteHiddenBuffers()<cr>
+" nnoremap <leader>ta :call DeleteHiddenBuffers()<cr>
 function DeleteHiddenBuffers()
     NERDTreeClose
     NERDTreeToggle
@@ -39,3 +39,51 @@ if executable(s:clip)
         autocmd TextYankPost * if v:event.operator ==# 'y' | call system(s:clip, @0) | endif
     augroup END
 endif
+
+
+
+
+
+
+
+" Markdown的折叠 「za」
+" https://stackoverflow.com/questions/3828606/vim-markdown-folding
+function! MarkdownLevel()
+    let curline = getline(v:lnum)
+    if curline =~ '^# .*$'
+        return ">1"
+    endif
+    if curline =~ '^## .*$'
+        return ">2"
+    endif
+    if curline =~ '^### .*$'
+        return ">3"
+    endif
+    if curline =~ '^#### .*$'
+        return ">4"
+    endif
+    if curline =~ '^##### .*$'
+        return ">5"
+    endif
+    if curline =~ '^###### .*$'
+        return ">6"
+    endif
+    return "=" 
+endfunction
+
+function! MarkdownFoldText()
+    let foldsize = v:foldend - v:foldstart
+    return getline(v:foldstart).' ('.foldsize.' lines)'
+endfunction
+
+au BufEnter *.md setlocal foldexpr=MarkdownLevel()
+au BufEnter *.md setlocal foldmethod=expr
+au BufEnter *.md setlocal foldtext=MarkdownFoldText()
+
+
+
+
+
+
+
+

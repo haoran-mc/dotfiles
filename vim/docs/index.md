@@ -7,7 +7,8 @@
   - [leetcode](leetcode)
   - [dlv](dlv)
 - [小技巧](tips)
-
+  - [vim的g命令](vim的g命令)
+  - [vim的z命令](vim的z命令)
 
 
 

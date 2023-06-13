@@ -3,11 +3,6 @@ alias gg='git clone'
 alias lg="lazygit"
 alias n='nvim'
 alias e='emacs -nw'
-# alias v='/opt/homebrew/bin/vim'
-# alias vi='/opt/homebrew/bin/vim'
-# alias vim='/opt/homebrew/bin/vim'
-# alias V='/opt/homebrew/bin/vim -u NONE -N'
-alias f='figlet'
 alias q='exit'
 
 alias gm="go run main.go"
@@ -21,3 +16,5 @@ alias hard_push="git commit --amend && git push -f"
 alias win="cd /mnt/c/Users/haora"
 # alias upv="cp ~/dotfiles/vim/windows-gui-for-algorithm.vim /mnt/c/Users/haora/.vimrc"
 alias upv="rm -rf /mnt/c/Users/haora/dotfiles && cp -r ~/dotfiles /mnt/c/Users/haora/dotfiles"
+
+
