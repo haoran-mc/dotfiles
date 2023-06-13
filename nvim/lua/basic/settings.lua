@@ -116,7 +116,6 @@ vim.o.grepprg = "rg --vimgrep"
 vim.o.lazyredraw = true
 vim.o.sessionoptions = "buffers,curdir,folds,winsize,winpos"
 vim.o.shortmess = "filnxtToOFI"
-vim.o.selection = "exclusive"
 vim.o.selectmode = "mouse,key"
 vim.o.viewoptions = "cursor,folds,slash,unix"
 

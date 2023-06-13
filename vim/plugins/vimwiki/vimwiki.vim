@@ -2,8 +2,6 @@
 
 
 
-let g:vimwiki_map_prefix = '<Leader>e'
-nmap <leader>ew  <Plug>VimwikiUISelect
 
 
 let wiki_1 = {}

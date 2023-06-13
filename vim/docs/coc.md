@@ -23,10 +23,10 @@ coc 本身并不提供具体语言的补全功能，只是提供了一个补全�
 安装完后用下面命令可以打开面板，`Tab` 可对高亮的子插件进行安装卸载等操作。
 
 ```
-# 打开面板
+打开面板
 :CocList marketplace
 
-# 搜索python相关子插件
+搜索python相关子插件
 :CocList marketplace python
 ```
 
@@ -47,7 +47,7 @@ coc.nvim 与 vim-go 的区别：
         - Diagnostics
         - precompile: errors, warning
 
-    vim-go:
+    vim-go: （使用了coc.nvim，也可以不使用vim-go）
         - Build, Test, Run
         - Go Docs
         - Debug
@@ -102,6 +102,16 @@ coc 的功能非常齐全，coc 各种复杂的属性、配置、插件，让人
 [coc](https://github.com/neoclide/coc.nvim)
 
 在 vim 中可以对各个内置的功能或者外加的子插件进行配置。就类似 vscode 的配置系统一样。具体可以设置什么内容可以参见仓库的 [wiki](https://github.com/neoclide/coc.nvim/wiki)。
+
+# c++/c
+
+```
+命令行中
+brew install clang-format
+
+vim命令行
+CocInstall coc-clangd
+```
 
 
 

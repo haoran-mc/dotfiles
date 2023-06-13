@@ -84,14 +84,10 @@ endfunction
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
 
-" Symbol renaming
-nmap <leader>rn <Plug>(coc-rename)
-
 
 
 
 source ~/dotfiles/vim/plugins/coc/coc-snippets.vim
-
 
 
 
