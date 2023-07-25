@@ -11,6 +11,7 @@ git clone --depth 1 git@github.com:haoran-mc/dotfiles.git
 ```
 
 ```
+ln -s ~/dotfiles/nvim/ ~/.config/nvim
 ln -s ~/dotfiles/.ctags.d ~/.ctags.d
 ln -s ~/dotfiles/git/config ~/.gitconfig
 ln -s ~/dotfiles/vim/init.vim ~/.vimrc
