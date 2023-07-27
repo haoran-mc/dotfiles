@@ -28,7 +28,7 @@ set statusline+=\ ::
 set statusline+=\ %{strftime('%R',\ getftime(expand('%')))}
 set statusline+=\ ››\ %*
 
-
+ 
 if has("gui_running")
     set transparency=20
 endif

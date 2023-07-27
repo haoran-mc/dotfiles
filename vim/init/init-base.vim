@@ -68,7 +68,7 @@ set fileencodings=ucs-bom,utf-8,gbk,gb18030,big5,euc-jp,latin1 " 打开文件时
 set termencoding=utf-8       " 设置终端使用的编码方式
 set fileformats=unix,dos,mac " 文本格式优先选择 unix
 set langmenu=en_US.UTF-8  " zh_CN.UTF-8
-language en_US
+" language en_US
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 折叠
@@ -139,5 +139,5 @@ if has("gui_running")
 else
     " color elflord
 	color snazzy
-	let g:SnazzyTransparent = 1
+	" let g:SnazzyTransparent = 1
 endif
