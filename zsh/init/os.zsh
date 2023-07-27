@@ -1,4 +1,4 @@
-if [ "$(uname)" "==" "Linux" ]
-then
-    cd /mnt/c/Users/haora
-fi
+# if [ "$(uname)" "==" "Linux" ]
+# then
+#     cd /mnt/c/Users/haora
+# fi

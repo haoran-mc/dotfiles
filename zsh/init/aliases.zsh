@@ -13,8 +13,8 @@ alias fgd="cd ~/haoran/gd/"
 alias hard_pull="git fetch --all && git reset --hard origin/main && git pull"
 alias hard_push="git commit --amend && git push -f"
 
-alias win="cd /mnt/c/Users/haora"
+# alias win="cd /mnt/c/Users/haora"
 # alias upv="cp ~/dotfiles/vim/windows-gui-for-algorithm.vim /mnt/c/Users/haora/.vimrc"
-alias upv="rm -rf /mnt/c/Users/haora/dotfiles && cp -r ~/dotfiles /mnt/c/Users/haora/dotfiles"
+# alias upv="rm -rf /mnt/c/Users/haora/dotfiles && cp -r ~/dotfiles /mnt/c/Users/haora/dotfiles"
 
 

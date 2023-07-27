@@ -19,4 +19,9 @@ export PATH=$JAVA_HOME/bin:$PATH
 # 安装 emacs 时，需要 pyenv 依赖
 export PATH="${HOME}/.pyenv/shims:$PATH"
 
-source ~/servicewall/secret.zsh
+if [ -f ~/servicewall/secret.zsh ]
+then
+	source ~/servicewall/secret.zsh
+fi
+
+export LC_ALL=zh_CN.UTF-8
