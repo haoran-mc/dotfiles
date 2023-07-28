@@ -26,9 +26,6 @@ nmap <leader>wK <c-w>K
 
 nmap <leader>tn :tabnew<cr>
 
-nmap <leader><tab> :e#<cr>
-
-
 nmap <c-h> :vertical resize -2<cr>
 nmap <c-l> :vertical resize +2<cr>
 nmap <c-j> :resize +2<cr>
@@ -72,13 +69,13 @@ nmap <leader>fl  :FzfLines<cr>
 nmap <leader>fb  :FzfBuffers<cr>
 nmap <leader>fr  :FzfHistory<cr>
 
-"markdown
-nmap <leader>mp :MarkdownPreview<cr>
-nmap <leader>mt :TableModeToggle<cr>
+" markdown, 写命令吧
+" nmap <leader>mp :MarkdownPreview<cr>
+" nmap <leader>mt :TableModeToggle<cr>
 
-"template
+" template
 " nmap <leader>ti :TemplateInit<cr>
-nmap <leader>tr :r ~/haoran/co/algo/misc/08-prog/17-leetcode-template.go<cr>
+" nmap <leader>tr :r ~/haoran/co/algo/misc/08-prog/17-leetcode-template.go<cr>
 
 " tagbar
 nmap <leader>tb :TagbarToggle<cr>
@@ -89,3 +86,5 @@ nmap <leader>ew  <Plug>VimwikiUISelect
 
 " coc
 nmap <leader>rn <Plug>(coc-rename)
+
+

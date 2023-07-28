@@ -7,21 +7,21 @@ Plug 'preservim/nerdtree'
 Plug 'preservim/nerdcommenter' " tpope/vim-commentary
 Plug 'ianva/vim-youdao-translater'
 Plug 'easymotion/vim-easymotion'
-Plug 'tibabit/vim-templates'
 Plug 'preservim/tagbar'
 " --- search
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-Plug 'lfv89/vim-interestingwords'
-Plug 'itchyny/vim-cursorword'
+Plug 'lfv89/vim-interestingwords' " <leader>k
+Plug 'itchyny/vim-cursorword' " 单次下划线
 " --- markdown
 Plug 'dhruvasagar/vim-table-mode', { 'for': ['markdown'] }
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug'] }
 Plug 'vimwiki/vimwiki'
 " --- coc
 " Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-Plug 'neoclide/coc.nvim', { 'branch': 'release' }
-Plug 'honza/vim-snippets'
+" Plug 'neoclide/coc.nvim', { 'branch': 'release' }
+" Plug 'honza/vim-snippets'
+" Plug 'tibabit/vim-templates'
 call plug#end()
 
 " :PlugInstall     - 安装插件
@@ -62,9 +62,9 @@ let g:tmpl_search_paths=['~/dotfiles/vim/templates']
 
 
 source ~/dotfiles/vim/plugins/tagbar/tagbar.vim
-source ~/dotfiles/vim/plugins/coc/coc.vim
 source ~/dotfiles/vim/plugins/vimwiki/vimwiki.vim
-source ~/dotfiles/vim/plugins/vim-go/vim-go.vim
+" source ~/dotfiles/vim/plugins/coc/coc.vim
+" source ~/dotfiles/vim/plugins/vim-go/vim-go.vim
 
 
 

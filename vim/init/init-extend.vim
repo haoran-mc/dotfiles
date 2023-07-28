@@ -82,8 +82,3 @@ au BufEnter *.md setlocal foldtext=MarkdownFoldText()
 
 
 
-
-
-
-
-
