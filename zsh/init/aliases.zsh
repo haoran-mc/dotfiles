@@ -1,3 +1,7 @@
+alias l='ls -a'
+alias ll='ls -lh'
+alias la='ls -all'
+
 alias c='clear'
 alias gg='git clone'
 alias lg="lazygit"
