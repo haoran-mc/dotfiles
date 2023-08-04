@@ -10,15 +10,17 @@ selection:
 
 window:
   opacity: 0.85
-  startup_mode: Windowed
+  # Windowed Maximized Fullscreen SimpleFullscreen
+  startup_mode: Maximized
+  # Window
   # 窗口尺寸
-  dimensions:
-    columns: 126
-    lines: 32
+  # dimensions:
+  #   columns: 126
+  #   lines: 32
   # 窗口位置
-  position:
-    x: 100
-    y: 0
+  # position:
+  #   x: 100
+  #   y: 0
   # 窗口的外边框，buttonless: 标题栏，透明背景，但没有标题栏按钮
   decorations: buttonless
   # 动态内边距
