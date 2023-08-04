@@ -4,6 +4,11 @@
 #         without any warranty.
 #         Copyright 2012— Gregory Pakosz (@gpakosz).
 
+# set       session option (alias set-option)
+# set -g    global session option
+# setw      window option
+# setw -g   global window option (seem same to set)
+# set -s    entire server (seem same to set -g)
 
 # -- session creation ----------------------------------------------------------
 
@@ -352,26 +357,37 @@ tmux_conf_copy_to_os_clipboard=false
 # -- user customizations -------------------------------------------------------
 # this is the place to override or undo settings
 
+set -g default-terminal "screen-256color"
+
+set -g prefix C-\\                        # GNU-Screen compatible prefix
+unbind C-b
+bind C-\\ send-prefix
+
 # increase history size
-#set -g history-limit 10000
+set -g history-limit 10000
+
+bind H split-window -hb -c "#{pane_current_path}"
+bind J split-window -v -c "#{pane_current_path}"
+bind K split-window -vb -c "#{pane_current_path}"
+bind L split-window -h -c "#{pane_current_path}"
+
+bind h select-pane -L
+bind j select-pane -D
+bind k select-pane -U
+bind l select-pane -R
 
 # start with mouse mode enabled
-#set -g mouse on
+set -g mouse on
 
 # force Vi mode
 #   really you should export VISUAL or EDITOR environment variable, see manual
 #set -g status-keys vi
 #set -g mode-keys vi
 
-# replace C-b by C-a instead of using both prefixes
-# set -gu prefix2
-# unbind C-a
-# unbind C-b
-# set -g prefix C-a
-# bind C-a send-prefix
-
 # if you don't want Oh my tmux! to alter a binding, use #!important
 # bind c new-window -c '#{pane_current_path}' #!important
+
+#set -g status off
 
 # move status line to top
 #set -g status-position top
