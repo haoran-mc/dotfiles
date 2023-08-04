@@ -25,3 +25,4 @@ then
 fi
 
 export LC_ALL=zh_CN.UTF-8
+export PATH=$PATH:/home/haoran/.local/bin
