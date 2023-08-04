@@ -4,7 +4,7 @@ return {
     event = { "BufReadPost", "BufNewFile" },
 	dependencies = {
 		"JoosepAlviste/nvim-ts-context-commentstring",
-		"p00f/nvim-ts-rainbow",
+		-- "p00f/nvim-ts-rainbow",
 		"windwp/nvim-ts-autotag",
 		"yioneko/nvim-yati",
 		"nvim-treesitter/nvim-treesitter-context",
@@ -34,7 +34,7 @@ return {
                 "vim",
                 "markdown",
                 "markdown_inline",
-                "help",
+                -- "help",
 			},
 			sync_install = true,
 			highlight = {
