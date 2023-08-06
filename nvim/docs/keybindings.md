@@ -17,6 +17,8 @@
 
 # f(filetree, find)
 
+hop, neotree and telescope
+
 # g(global)
 
 | key | command            |
@@ -31,15 +33,15 @@
 | gr  | references         |
 | g[  | goto prev          |
 | g]  | goto next          |
-
-| K | hover doc |
+| K   | hover doc          |
+| ]t  | next todo          |
+| [t  | previous todo      |
 
 # h(hunk)
 
 | key        | command  |
 |------------|----------|
 | <leader>hh | gitsigns |
-| <leader>hd | gitdiff  |
 
 # m(markdown)
 
@@ -53,6 +55,22 @@
 | key        | command         |
 |------------|-----------------|
 | <leader>ot | open tootleterm |
+
+# r(rename)
+
+| key        | command |
+|------------|---------|
+| <leader>rn | rename  |
+
+# t(tab)
+
+| key         | command  |
+|-------------|----------|
+| <leader>tn  | tabnew   |
+| <leader>tc  | tabclose |
+| <leader>to  | tabonly  |
+| <leader>tmp | -tabmove |
+| <leader>tmn | +tabmove |
 
 # u(user)
 

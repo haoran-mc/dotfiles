@@ -45,7 +45,7 @@ return {
 		"williamboman/mason.nvim",
 		"jay-babu/mason-null-ls.nvim",
 		"williamboman/mason-lspconfig.nvim",
-		"folke/neodev.nvim",                     -- full signature help
+		"folke/neodev.nvim", -- full signature help
 		"nvim-telescope/telescope.nvim",
 		"stevearc/dressing.nvim",
 		"j-hui/fidget.nvim",
@@ -89,7 +89,7 @@ return {
 			{ noremap = true, silent = true, desc = "diagnostic goto next" }
 		)
 
-        -- 
+		--
 		local on_attach = function(client, bufnr)
 			vim.api.nvim_exec_autocmds("User", { pattern = "LspAttached" })
 			lsp_signature.on_attach(client, bufnr)
