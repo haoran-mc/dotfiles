@@ -5,7 +5,7 @@ return {
 		{ "nvim-lua/plenary.nvim" },
 		{ "kyazdani42/nvim-web-devicons" },
 		{ "MunifTanjim/nui.nvim" },
-        { "s1n7ax/nvim-window-picker" },
+        { "s1n7ax/nvim-window-picker" }, -- neotree w 选择窗口
 	},
 	keys = {
 		{

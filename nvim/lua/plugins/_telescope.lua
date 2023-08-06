@@ -81,7 +81,7 @@ return {
 		end
 		require("telescope").setup({
 			defaults = {
-				border = false,
+				border = true,
 				winblend = 0,
 				dynamic_preview_title = true,
 				path_display = { "truncate" },

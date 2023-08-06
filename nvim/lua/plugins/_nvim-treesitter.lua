@@ -51,8 +51,9 @@ return {
 			incremental_selection = {
 				enable = true,
 				keymaps = {
-					init_selection = "<CR>",
-					node_incremental = "<CR>",
+                    --TODO not in effect
+					init_selection = "<C-CR>",
+					node_incremental = "<C-CR>",
 					node_decremental = "<BS>",
 					scope_incremental = nil,
 				},

@@ -67,7 +67,6 @@ return {
 
                 -- Actions
 				map("n", "<leader>hh", "<cmd>Gitsigns<CR>", { desc = "gitsigns" })
-				map("n", "<leader>hd", gs.diffthis, { desc = "diffthis" })
 			end,
 		})
 	end,

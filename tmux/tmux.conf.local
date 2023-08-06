@@ -363,6 +363,9 @@ set -g prefix C-\\                        # GNU-Screen compatible prefix
 unbind C-b
 bind C-\\ send-prefix
 
+set -gu prefix2
+unbind C-a
+
 # increase history size
 set -g history-limit 10000
 
