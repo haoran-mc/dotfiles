@@ -102,6 +102,12 @@ vim.o.shortmess = "filnxtToOFI"
 vim.o.selectmode = "mouse,key"
 vim.o.viewoptions = "cursor,folds,slash,unix"
 
+-- 新版本功能
+if vim.fn.has("nvim-0.9.0") == 1 then
+  vim.opt.splitkeep = "screen"
+  vim.opt.shortmess:append({ C = true })
+end
+
 
 -- WSL yank support
 vim.cmd [[
