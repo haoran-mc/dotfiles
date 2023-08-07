@@ -1,6 +1,8 @@
 return {
 	"lukas-reineke/indent-blankline.nvim",
+    enabled = false,
     -- do not lazy load due to https://github.com/lukas-reineke/indent-blankline.nvim/issues/542
+    event = { "BufReadPost", "BufNewFile" },
 	config = function()
 		require("indent_blankline").setup({
 			char = "",

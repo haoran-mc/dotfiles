@@ -38,11 +38,20 @@ vim.keymap.set("n", "<leader>wk", "<C-w>k", opts)
 vim.keymap.set("n", "<leader>wl", "<C-w>l", opts)
 vim.keymap.set("n", "<leader>wx", "<C-w>x", opts)
 vim.keymap.set("n", "<leader>w=", "<C-w>=", opts)
-vim.keymap.set("n", "<C-h>", ":vertical resize -2<cr>", opts)
-vim.keymap.set("n", "<C-l>", ":vertical resize +2<cr>", opts)
-vim.keymap.set("n", "<C-j>", ":resize +2<cr>", opts)
-vim.keymap.set("n", "<C-k>", ":resize -2<cr>", opts)
+vim.keymap.set("n", "<A-Up>", ":resize +2<cr>", opts)
+vim.keymap.set("n", "<A-Down>", ":resize -2<cr>", opts)
+vim.keymap.set("n", "<A-Left>", ":vertical resize -2<cr>", opts)
+vim.keymap.set("n", "<A-Right>", ":vertical resize +2<cr>", opts)
+
+-- Move Lines
+vim.keymap.set("n", "<A-j>", "<cmd>m .+1<cr>==", { desc = "Move down" })
+vim.keymap.set("n", "<A-k>", "<cmd>m .-2<cr>==", { desc = "Move up" })
+vim.keymap.set("i", "<A-j>", "<esc><cmd>m .+1<cr>==gi", { desc = "Move down" })
+vim.keymap.set("i", "<A-k>", "<esc><cmd>m .-2<cr>==gi", { desc = "Move up" })
+vim.keymap.set("v", "<A-j>", ":m '>+1<cr>gv=gv", { desc = "Move down" })
+vim.keymap.set("v", "<A-k>", ":m '<-2<cr>gv=gv", { desc = "Move up" })
 
 -- Editor
 vim.keymap.set("n", "<leader>1", ":noh<cr>", opts)
 vim.keymap.set("n", "<leader>2", ":cclose<cr>", opts)
+
