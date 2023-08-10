@@ -23,3 +23,5 @@ source ~/dotfiles/zsh/init/os.zsh
 
 
 
+
+source /Users/haoran/.config/broot/launcher/bash/br
