@@ -10,6 +10,11 @@ fi
 
 # git clone git://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions
 # plugins=(git zsh-autosuggestions)
+bindkey '^p' autosuggest-accept
+
+# bat,  Dracula, gruvbox-dark
+export BAT_THEME="OneHalfDark"
+
 
 # git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 # plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
