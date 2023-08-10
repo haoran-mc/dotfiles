@@ -22,7 +22,7 @@ window:
   #   x: 100
   #   y: 0
   # 窗口的外边框，buttonless: 标题栏，透明背景，但没有标题栏按钮
-  decorations: buttonless
+  decorations: None
   # 动态内边距
   dynamic_padding: false
   # 窗口内边距
@@ -44,8 +44,11 @@ font:
     # family: "JetBrainsMono Nerd Font"
     # style: Bold Italic
 
-  size: 13.0
+  size: 7.6
   AppleFontSmoothing: true
+    # offset:
+    #   x: 0
+    #   y: -1
 
 cursor:  
   # 光标样式
