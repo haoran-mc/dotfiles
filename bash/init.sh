@@ -4,4 +4,4 @@ source ~/dotfiles/bash/env.sh
 source ~/dotfiles/bash/funcs.sh
 source ~/dotfiles/bash/ui.sh
 
-source /Users/haoran/.config/broot/launcher/bash/br
+
