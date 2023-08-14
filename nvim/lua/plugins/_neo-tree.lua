@@ -5,7 +5,7 @@ return {
 		{ "nvim-lua/plenary.nvim" },
 		{ "kyazdani42/nvim-web-devicons" },
 		{ "MunifTanjim/nui.nvim" },
-        { "s1n7ax/nvim-window-picker" }, -- neotree w 选择窗口
+		{ "s1n7ax/nvim-window-picker" }, -- neotree w 选择窗口
 	},
 	keys = {
 		{
@@ -90,12 +90,12 @@ return {
 					["C"] = "set_root", -- cursor movement
 					["<"] = "prev_source",
 					[">"] = "next_source",
-                    ["-"] = "navigate_up", -- filetree operation
+					["-"] = "navigate_up", -- filetree operation
 					["R"] = "refresh",
 					["q"] = "close_window",
 					["z"] = "close_all_nodes",
 					["Z"] = "expand_all_nodes",
-                    ["T"] = "toggle_node", -- toggle
+					["T"] = "toggle_node", -- toggle
 					["P"] = { "toggle_preview", config = { use_float = true } },
 					["?"] = "show_help",
 				},
@@ -155,9 +155,9 @@ return {
 					hide_gitignored = true,
 					hide_hidden = true, -- only works on Windows for hidden files/directories
 					hide_by_name = {
-                        ".DS_Store",
-                        ".git",
-						"node_modules"
+						".DS_Store",
+						".git",
+						"node_modules",
 					},
 					hide_by_pattern = { -- uses glob style patterns
 						--"*.meta",
@@ -171,8 +171,9 @@ return {
 						--"thumbs.db"
 					},
 				},
-
-				-- follow_current_file = true, -- This will find and focus the file in the active buffer every
+				follow_current_file = {
+					enabled = true,
+				},
 				-- time the current file is changed while the tree is open.
 				group_empty_dirs = true, -- when true, empty folders will be grouped together
 				hijack_netrw_behavior = "open_current", -- netrw disabled, opening a directory opens neo-tree
@@ -209,21 +210,18 @@ return {
 				},
 			},
 		})
-        require("window-picker").setup({
-            selection_chars = 'FJDKSLA;CMRUEIWOQP',
-
-            -- whether you want to use winbar instead of the statusline
-            -- "always" means to always use winbar,
-            -- "never" means to never use winbar
-            -- "smart" means to use winbar if cmdheight=0 and statusline if cmdheight > 0
-            use_winbar = 'never', -- "always" | "never" | "smart"
-
-            -- the foreground (text) color of the picker
-            fg_color = '#e35e4f',
-
-            -- all the windows except the curren window will be highlighted using this
-            -- color
-            other_win_hl_color = '#282C34',
-        })
+		require("window-picker").setup({
+			selection_chars = "FJDKSLA;CMRUEIWOQP",
+			-- whether you want to use winbar instead of the statusline
+			-- "always" means to always use winbar,
+			-- "never" means to never use winbar
+			-- "smart" means to use winbar if cmdheight=0 and statusline if cmdheight > 0
+			use_winbar = "never", -- "always" | "never" | "smart"
+			-- the foreground (text) color of the picker
+			fg_color = "#e35e4f",
+			-- all the windows except the curren window will be highlighted using this
+			-- color
+			other_win_hl_color = "#282C34",
+		})
 	end,
 }
