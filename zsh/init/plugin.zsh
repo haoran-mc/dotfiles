@@ -6,6 +6,13 @@ VI_MODE_SET_CURSOR=true
 KEYTIMEOUT=3
 bindkey -M vicmd 'k' history-substring-search-up
 bindkey -M vicmd 'j' history-substring-search-down
+# https://gist.github.com/ssebastianj/dd4a42da5eee3304751712dc8aa1dc62
+bindkey '^b' backward-char
+bindkey '^f' forward-char
+bindkey '^w' backward-kill-word
+bindkey '^a' beginning-of-line
+bindkey '^e' end-of-line
+# https://youtrack.jetbrains.com/issue/IDEA-180154/Zsh-bindkeys-forward-word-and-backward-word-do-not-work-in-Terminal
 
 # autojump 需要下载
 
