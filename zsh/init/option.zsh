@@ -27,6 +27,7 @@ plugins=(
     autojump
     zsh-autosuggestions 
     zsh-syntax-highlighting
+    zsh-history-substring-search
 )
 
 # after plugins and before plugin.zsh
