@@ -1,13 +1,8 @@
 # 在 neovim 中使用 Lua
 
 **在neovim 0.9版本中添加了lua教程，如果你使用该版本的neovim可以使用 `:h lua-guide` 查看**
-**对于英文不好的同学那么此文档对你仍然有用**
 
 [nvim-lua-guide](https://github.com/nanotee/nvim-lua-guide) 中文版简易教程
-
-译者：Neovim Core Developer
-
-:arrow_upper_left: （感觉太多太杂乱？使用 Github TOC 来浏览大纲！）
 
 ## 简介
 
@@ -112,9 +107,8 @@ end
 
 * [`:help lua-require`](https://neovim.io/doc/user/lua.html#lua-require)
 
-#### 提示
-
-多个 Lua 插件在它们的 `lua/` 文件夹中可能有相同的文件名。这可能会导致命名空间冲突。如果两个不同的插件有一个 `lua/main.lua` 文件，那么执行 `require('main')` 是不明确的：我们想要加载哪个文件？最好将您的配置或插件命名为顶级文件夹，
+> 提示：
+> 多个 Lua 插件在它们的 `lua/` 文件夹中可能有相同的文件名。这可能会导致命名空间冲突。如果两个不同的插件有一个 `lua/main.lua` 文件，那么执行 `require('main')` 是不明确的：我们想要加载哪个文件？最好将您的配置或插件命名为顶级文件夹，
 例如这样的形式：`lua/plugin_name/main.lua`。
 
 ### 运行时文件
@@ -135,9 +129,8 @@ end
 * [`:help 'runtimepath'`](https://neovim.io/doc/user/options.html#'runtimepath')
 * [`:help load-plugins`](https://neovim.io/doc/user/starting.html#load-plugins)
 
-#### 提示
-
-因为运行时文件并不基于 Lua 模块系统，所以两个不同的插件都拥有 `plugins/main.lua` 文件是没有任何问题的。
+> 提示：
+> 因为运行时文件并不基于 Lua 模块系统，所以两个不同的插件都拥有 `plugins/main.lua` 文件是没有任何问题的。
 
 ## 在 Vimscript 中使用 Lua
 
@@ -377,9 +370,8 @@ echo v:lua.some_global_dict['key']
 echo map([1, 2, 3], v:lua.global_callback)
 ```
 
-#### 提示
-
-在配置文件中，可以通过设置 `let g:vimsyn_embed = 'l'` 实现 .vim 文件中的 Lua 语法高亮。关于此选项的更多信息请参见 [`:help g:vimsyn_embed`](https://neovim.io/doc/user/syntax.html#g:vimsyn_embed)
+> 提示
+> 在配置文件中，可以通过设置 `let g:vimsyn_embed = 'l'` 实现 .vim 文件中的 Lua 语法高亮。关于此选项的更多信息请参见 [`:help g:vimsyn_embed`](https://neovim.io/doc/user/syntax.html#g:vimsyn_embed)
 
 ## Vim 命名空间
 
@@ -396,8 +388,7 @@ Neovim 会暴露一个全局的 `vim` 变量来作为 Lua 调用 Vim 的 APIs �
 - `vim.treesitter`: 暴露 tree-sitter 库中一些实用函数的模块
 
 上面列举功能的并不全面。如果你想知道更多可行的操作可以参见：[`:help lua-stdlib`](https://neovim.io/doc/user/lua.html#lua-stdlib) 和 [`:help lua-vim`](https://neovim.io/doc/user/lua.html#lua-vim)。你也可以通过 `:lua print(vim.inspect(vim))` 获得所有可用模块。API 函数的详细文档请参见 [`:help api-global`](https://neovim.io/doc/user/api.html#api-global)
-
-#### Tips
+#### Tips：检查一个对象
 
 每次你想检查一个对象时到要用 `print(vim.inspect(x))` 是相当繁琐的。你可以你的配置中写一个全局的包装器函数来替代这个繁琐的过程（在 Neovim 0.7.0+ 中，你可以使用内建的 `vim.pretty_print()` ，请参见 [`:help vim.pretty_print()`](https://neovim.io/doc/user/lua.html#vim.pretty_print())）
 
@@ -449,9 +440,8 @@ print(vim.api.nvim_eval('v:true')) -- true
 print(vim.api.nvim_eval('v:null')) -- nil
 ```
 
-#### Caveats
-
-与 `luaeval()` 不同，`vim.api.nvim_eval()` 不提供隐式 `_A` 变量来传递数据给表达式。
+> Caveats:
+> 与 `luaeval()` 不同，`vim.api.nvim_eval()` 不提供隐式 `_A` 变量来传递数据给表达式。
 
 ### vim.api.nvim_exec()
 
@@ -473,9 +463,8 @@ true)
 print(result) -- 'hello world'
 ```
 
-#### Caveats
-
-在 Neovim 0.6.0 之前，`nvim_exec` 不支持 script-local 的变量 （`s:`） 。
+> Caveats:
+> 在 Neovim 0.6.0 之前，`nvim_exec` 不支持 script-local 的变量 （`s:`） 。
 
 ### vim.api.nvim_command()
 
@@ -505,7 +494,7 @@ echo g:multiline_list
 ]])
 ```
 
-#### Tips
+#### Tips：转义的反斜杠
 
 由于您必须将字符串传递给这些函数，因此通常需要添加转义的反斜杠：
 
