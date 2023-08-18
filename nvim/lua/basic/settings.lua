@@ -80,6 +80,7 @@ vim.o.splitright = true                       -- force all vertical splits to go
 vim.o.guifont = "monospace:h17"               -- the font used in graphical neovim applications
 vim.o.ruler = false
 vim.o.showcmd = false
+vim.o.cole = 1                                -- see :h cole
 
 -- netrw
 vim.g.netrw_sort_by = "time"
