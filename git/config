@@ -3,3 +3,5 @@
 	name = haoran
 [init]
 	defaultBranch = main
+[http]
+	postBuffer = 1048576000
