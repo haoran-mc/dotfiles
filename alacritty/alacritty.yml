@@ -9,7 +9,7 @@ selection:
   save_to_clipboard: true
 
 window:
-  opacity: 0.85
+  opacity: 1
   # Windowed Maximized Fullscreen SimpleFullscreen
   startup_mode: Maximized
   # Window
