@@ -78,4 +78,6 @@ alias haoranping='ping'
 alias haoranps='ps'
 alias haorantree='tree'
 
-
+alias rm=trash
+alias rl='ls ~/.Trash'
+alias ur=undelfile

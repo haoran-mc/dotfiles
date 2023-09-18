@@ -1,2 +1,6 @@
+undelfile()
+{
+    mv -i ~/.Trash/$@ ./
+}
 
 
