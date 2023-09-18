@@ -5,10 +5,10 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+source ~/dotfiles/zsh/init/funcs.zsh
 source ~/dotfiles/zsh/init/ui.zsh
 source ~/dotfiles/zsh/init/option.zsh
 source ~/dotfiles/zsh/init/env.zsh
-source ~/dotfiles/zsh/init/funcs.zsh
 source ~/dotfiles/zsh/init/plugin.zsh
 
 # Generated for envman. Do not edit.
