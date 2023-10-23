@@ -85,11 +85,11 @@ return {
 				winblend = 0,
 				dynamic_preview_title = true,
 				path_display = { "truncate" },
-				layout_strategy = "bottom_pane",
+				layout_strategy = "cursor", -- horizontal center cursor vertical flex bottom_pane
 				layout_config = {
 					preview_cutoff = 1,
 					bottom_pane = {
-						height = 0.9,
+						height = 0.5,
 						prompt_position = "bottom",
 					},
 					center = {
@@ -97,16 +97,16 @@ return {
 						height = 0.4,
 					},
 					cursor = {
-						width = 0.8,
-						height = 0.9,
+						width = 0.7,
+						height = 0.5,
 					},
 					vertical = {
 						width = 0.9,
-						height = 0.9,
+						height = 0.5,
 					},
 					horizontal = {
 						width = 0.9,
-						height = 0.9,
+						height = 0.5,
 					},
 				},
 				history = {
