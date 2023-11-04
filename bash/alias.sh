@@ -6,7 +6,7 @@
 alias ls='ls --color=auto'
 # ll为人们约定俗成的全信息列举别名
 alias ll='ls -lh'
-alias l='ls -all'
+alias l='ls -a'
 # 外加列出隐藏目录
 alias la='ls -lAh'
 # 过滤当前目录文件
