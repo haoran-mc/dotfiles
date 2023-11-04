@@ -37,7 +37,8 @@ source $ZSH/oh-my-zsh.sh
 # User configuration
 
 # You may need to manually set your language environment
-export LANG=en_US.UTF-8
+# export LANG=en_US.UTF-8
+export LANG=zh_CN.UTF-8
 
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
@@ -69,13 +70,13 @@ alias gm="go run main.go"
 alias cat='bat'
 alias man='tldr'
 alias ping='gping'
-alias ps='procs'
+# alias ps='procs'
 alias tree='broot'
 
 alias haorancat='cat'
 alias haoranman='man'
 alias haoranping='ping'
-alias haoranps='ps'
+# alias haoranps='ps'
 alias haorantree='tree'
 
 alias rm=trash
