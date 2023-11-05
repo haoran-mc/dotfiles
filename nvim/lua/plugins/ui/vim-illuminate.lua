@@ -1,3 +1,4 @@
+-- 高亮当前的单词
 return {
     "RRethy/vim-illuminate",
     event = { "BufReadPost", "BufNewFile" },
