@@ -1,3 +1,4 @@
+-- 右下角 nvim-lsp 进程独立界面
 return {
 	"j-hui/fidget.nvim",
     lazy = true,

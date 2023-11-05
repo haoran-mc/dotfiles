@@ -5,6 +5,8 @@ neo-tree                   侧边栏插件
 nvim-colorizer             高亮颜色
 onedark                    主题
 tabby                      tab栏
+SmoothCursor.nvim          光标前缀
+rayso.nvim                 代码图片
 
 calendar                   日历插件
 comment                    注释插件

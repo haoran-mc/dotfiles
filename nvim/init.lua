@@ -33,6 +33,7 @@ require("lazy").setup({
         { import = "plugins.ui" },
         { import = "plugins.lsp" },
         { import = "plugins.lang" },
+        { import = "plugins.tools" },
     },
 	lockfile = vim.fn.stdpath("config") .. "/lazy-lock.json", -- lockfile generated after running update.
 	concurrency = nil, ---@type number limit the maximum amount of concurrent tasks

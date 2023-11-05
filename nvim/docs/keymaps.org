@@ -1,13 +1,14 @@
-# a(app)
+#+STARTUP: showall
+
+* a(app)
 
 | key        | command           |
 |------------|-------------------|
-| <leader>ac | calendar          |
 | <leader>af | youdao-translater |
 | <leader>ag | lazygit           |
 | <leader>at | todo-comments     |
 
-# c(code)
+* c(code)
 
 | key        | command              |
 |------------|----------------------|
@@ -15,11 +16,11 @@
 | <leader>cf | code format          |
 | <leader>cs | code symbols outline |
 
-# f(filetree, find)
+* f(filetree, find)
 
 hop, neotree and telescope
 
-# g(global)
+* g(global)
 
 | key | command            |
 |-----|--------------------|
@@ -37,32 +38,32 @@ hop, neotree and telescope
 | ]t  | next todo          |
 | [t  | previous todo      |
 
-# h(hunk)
+* h(hunk)
 
 | key        | command  |
 |------------|----------|
 | <leader>hh | gitsigns |
 
-# m(markdown)
+* m(markdown)
 
 | key        | command           |
 |------------|-------------------|
 | <leader>mp | markdown preview  |
 | <leader>mt | table mode enable |
 
-# o(open)
+* o(open)
 
 | key        | command         |
 |------------|-----------------|
 | <leader>ot | open tootleterm |
 
-# r(rename)
+* r(rename)
 
 | key        | command |
 |------------|---------|
 | <leader>rn | rename  |
 
-# t(tab)
+* t(tab)
 
 | key         | command  |
 |-------------|----------|
@@ -72,13 +73,13 @@ hop, neotree and telescope
 | <leader>tmp | -tabmove |
 | <leader>tmn | +tabmove |
 
-# u(user)
+* u(user)
 
 | key        | command           |
 |------------|-------------------|
 | <leader>ul | copy current line |
 
-# w(window)
+* w(window)
 
 window maps
 
