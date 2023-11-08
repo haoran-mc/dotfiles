@@ -66,6 +66,7 @@ alias e='emacs -nw'
 alias q='exit'
 
 alias gm="go run main.go"
+alias pm="python main.py"
 
 alias cat='bat'
 alias man='tldr'
