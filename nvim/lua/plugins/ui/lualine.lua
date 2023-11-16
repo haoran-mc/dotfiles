@@ -57,7 +57,7 @@ return {
 				lualine_b = {},
 				lualine_c = { fileinfo },
 				lualine_x = {},
-				lualine_y = { location },
+				lualine_y = { location, "branch" },
 				lualine_z = { progress },
 			},
 			inactive_sections = {
