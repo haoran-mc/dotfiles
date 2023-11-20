@@ -110,14 +110,6 @@ return {
 					"switch",
 					"case",
 				},
-				-- Patterns for specific filetypes
-				-- If a pattern is missing, *open a PR* so everyone can benefit.
-				tex = {
-					"chapter",
-					"section",
-					"subsection",
-					"subsubsection",
-				},
 				rust = {
 					"impl_item",
 					"struct",

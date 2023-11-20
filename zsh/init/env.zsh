@@ -19,6 +19,9 @@ export PATH=$JAVA_HOME/bin:$PATH
 # lua
 export LUA_PATH="./?.lua;;"
 
+# nvim
+export PATH=$PATH:/usr/local/nvim-macos/bin
+
 # 安装 emacs 时，需要 pyenv 依赖
 export PATH="${HOME}/.pyenv/shims:$PATH"
 
