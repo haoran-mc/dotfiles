@@ -29,12 +29,14 @@ require("lazy").setup({
 	-- leave nil when passing the spec as the first argument to setup()
 	spec = {
         { import = "plugins" },
-        -- { import = "plugins.dap" },
         { import = "plugins.edit" },
         { import = "plugins.git" },
         { import = "plugins.lang" },
-        { import = "plugins.lsp" },
+        { import = "plugins.lang.lsp" },
+        -- { import = "plugins.lang.dap" },
+        -- { import = "plugins.theme" },
         { import = "plugins.tools" },
+        { import = "plugins.tools.jump" },
         { import = "plugins.ui" },
     },
 	lockfile = vim.fn.stdpath("config") .. "/lazy-lock.json", -- lockfile generated after running update.
