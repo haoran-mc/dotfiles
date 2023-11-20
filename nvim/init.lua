@@ -29,11 +29,13 @@ require("lazy").setup({
 	-- leave nil when passing the spec as the first argument to setup()
 	spec = {
         { import = "plugins" },
-        { import = "plugins.markdown" },
-        { import = "plugins.ui" },
-        { import = "plugins.lsp" },
+        -- { import = "plugins.dap" },
+        { import = "plugins.edit" },
+        { import = "plugins.git" },
         { import = "plugins.lang" },
+        { import = "plugins.lsp" },
         { import = "plugins.tools" },
+        { import = "plugins.ui" },
     },
 	lockfile = vim.fn.stdpath("config") .. "/lazy-lock.json", -- lockfile generated after running update.
 	concurrency = nil, ---@type number limit the maximum amount of concurrent tasks
@@ -42,7 +44,7 @@ require("lazy").setup({
 		-- log = { "-10" }, -- show the last 10 commits
 		log = { "--since=3 days ago" }, -- show commits from the last 3 days
 		timeout = 120, -- kill processes that take more than 2 minutes
-		url_format = "https://ghproxy.com/https://github.com/%s.git",
+		-- url_format = "https://ghproxy.com/https://github.com/%s.git",
 	},
 	install = {
 		-- install missing plugins on startup. This doesn't increase startup time.

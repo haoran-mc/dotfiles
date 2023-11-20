@@ -97,10 +97,16 @@ return {
 			-- See `:help vim.lsp.*` for documentation on any of the below functions
 			vim.keymap.set(
 				"n",
-				"gd",
+				"<C-j>",
 				"<cmd>Telescope lsp_definitions<CR>",
 				{ noremap = true, silent = true, buffer = true, desc = "goto definition" }
 			)
+            vim.keymap.set(
+                "n",
+                "<C-k>",
+                "<cmd>execute \"normal <c-o>\"<cr>",
+				{ noremap = true, silent = true, buffer = true, desc = "go back" }
+            )
 			vim.keymap.set(
 				"n",
 				"gi",
