@@ -93,7 +93,6 @@ vim.g.netrw_winsize = 25
 vim.g.netrw_keepdir = 0
 
 
-vim.o.confirm = true
 vim.o.formatoptions = "jcroqlnt"
 vim.o.grepprg = "rg --vimgrep"
 
