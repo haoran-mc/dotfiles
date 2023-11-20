@@ -4,7 +4,6 @@ return {
     event = { "BufReadPost", "BufNewFile" },
 	dependencies = {
 		-- "p00f/nvim-ts-rainbow",
-		"windwp/nvim-ts-autotag",
 		"yioneko/nvim-yati",
 		"nvim-treesitter/nvim-treesitter-context",
 		"nvim-treesitter/playground",
@@ -62,9 +61,6 @@ return {
 				disable = {},
 			},
 			yati = {
-				enable = true,
-			},
-			autotag = {
 				enable = true,
 			},
 			rainbow = {
