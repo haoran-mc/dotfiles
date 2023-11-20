@@ -3,7 +3,6 @@ return {
 	build = ":TSUpdate",
     event = { "BufReadPost", "BufNewFile" },
 	dependencies = {
-		"JoosepAlviste/nvim-ts-context-commentstring",
 		-- "p00f/nvim-ts-rainbow",
 		"windwp/nvim-ts-autotag",
 		"yioneko/nvim-yati",
@@ -74,9 +73,6 @@ return {
 				max_file_lines = nil, -- Do not enable for files with more than n lines, int
 				colors = rainbow, -- table of hex strings
 				termcolors = rainbow, --table of colour name strings
-			},
-			context_commentstring = {
-				enable = true,
 			},
 			playground = {
 				enable = true,
