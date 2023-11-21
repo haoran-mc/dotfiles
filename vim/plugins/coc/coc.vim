@@ -52,6 +52,8 @@ function! CheckBackspace() abort
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
+" coc
+nmap <leader>rn <Plug>(coc-rename)
 
 " Use `g[` and `g]` to navigate diagnostics
 " Use `[g` and `]g` for git

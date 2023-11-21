@@ -1,3 +1,5 @@
+不适配window⚠️
+
 # check
 
 ```

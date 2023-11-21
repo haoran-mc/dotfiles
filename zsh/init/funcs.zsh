@@ -1,6 +1,0 @@
-undelfile()
-{
-    mv -i ~/.Trash/$@ ./
-}
-
-
