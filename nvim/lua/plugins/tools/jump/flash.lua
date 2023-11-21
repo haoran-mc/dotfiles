@@ -24,13 +24,15 @@ return {
         },
         modes = {
             char = {
+                enabled = false,
                 multi_line = false,
                 keys = { "f", "F", "t", "T", ";", "," },
+                highlight = { backdrop = false },
             },
         },
     },
     keys = {
-        {
+        { -- you may use / more often.
             "<c-s>", mode = { "n", "x", "o" },
             function() require("flash").jump() end,
             desc = "Flash",
