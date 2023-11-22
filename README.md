@@ -1,14 +1,10 @@
 # dotfiles
 
 ```
-git clone --depth 1 git@github.com:haoran-mc/dotfiles.git
-```
-
-```
-ln -s ~/dotfiles/nvim/ ~/.config/nvim
-ln -s ~/dotfiles/.gitconfig ~/.gitconfig
-ln -s ~/dotfiles/vim/.vimrc ~/.vimrc
-ln -s ~/dotfiles/.zshrc ~/.zshrc
+git clone --depth 1 git@github.com:haoran-mc/dotfiles.git ~/dotfiles
+cd ~/dotfiles
+chmod +x ./install.sh
+./install.sh
 ```
 
 # zsh
