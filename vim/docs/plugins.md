@@ -1,3 +1,16 @@
+xolox/vim-misc      vimscript functions
+mhinz/vim-signify   侧边栏标记 git 增改行
+preservim/tagbar
+
+
+
+
+
+
+
+
+
+
 # tagbar
 
 jstemmer/gotags
@@ -43,3 +56,5 @@ Plugin 'terryma/vim-multiple-cursors'
 
 " 语法检查(支持大部分语言）
 Plugin 'vim-syntastic/syntastic'
+
+

@@ -1,7 +1,7 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 通用设置
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set title titlestring=vim    " 设置窗口title"
+set title titlestring=macvim    " 设置窗口title"
 let mapleader = " "      " 定义<leader>键
 set nocompatible         " 设置不兼容原始vi模式
 set noeb                 " 关闭错误的提示（响铃）
@@ -15,6 +15,7 @@ set shell=bash           " 使用 bash 作为默认 shell 环境
 set history=1000         " 保存历史命令行数
 set ttyfast              " 快速滚动
 set winaltkeys=no        " windows 禁用 ALT 操作菜单（使得 ALT 可以用到 vim 里）
+set autochdir                         " 自动确定文件夹
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 代码缩进和排版
@@ -28,7 +29,6 @@ set tabstop=4            " 设置编辑时制表符占用空格数
 set shiftwidth=4         " 设置格式化时制表符占用空格数
 set softtabstop=4        " 设置4个空格为制表符
 set backspace=2          " 使用回车键正常处理indent,eol,start等
-set fo=ro                " 新行自动添加注释
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 搜索设置
@@ -43,21 +43,22 @@ exec "nohlsearch"
 " 缓存设置
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set nobackup            " 设置不备份
-set nowritebackup       " 设置不备份
-set noswapfile          " 禁止生成临时文件
-set undofile            " 重新打开一个文件，可以撤销上一次编辑的操作
+set nowritebackup       " 保存时备份
+set noswapfile          " 禁用交换文件
+set noundofile          " 重新打开一个文件，可以撤销上一次编辑的操作
 set autowrite           " 自动保存
 set autoread            " 文件在vim之外修改过，自动重新读入
 set splitright          " 在右侧分屏
 set splitbelow          " 在下面分屏
-set backupdir=~/.vim/.backup//  " 结尾的//表示生成的文件名带有绝对路径，路径中用%替换目录分隔符，这样可以防止文件重名。  
+set backupext=.bak      " 备份文件扩展名
+set backupdir=~/.vim/.backup//  " 结尾的//表示生成的文件名带有绝对路径，路径中用%替换目录分隔符，这样可以防止文件重名。
 set directory=~/.vim/.swp//
 set undodir=~/.vim/.undo// 
 set hidden              " 切换 buffer 时，前一个编辑的文件保留在后台
 " Having longer updatetime (default is 4000 ms = 4s) leads to noticeable
 " delays and poor user experience
-set updatetime=300
-set timeoutlen=500
+set updatetime=30
+set timeoutlen=50
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 编码设置
@@ -66,7 +67,7 @@ set encoding=utf-8       " 内部工作编码
 set fileencoding=utf-8   " 文件默认编码
 set fileencodings=ucs-bom,utf-8,gbk,gb18030,big5,euc-jp,latin1 " 打开文件时自动尝试下面顺序的编码
 set termencoding=utf-8       " 设置终端使用的编码方式
-set fileformats=unix,dos,mac " 文本格式优先选择 unix
+set fileformats=unix,dos,mac " 文件换行符优先选择 unix
 set langmenu=en_US.UTF-8  " zh_CN.UTF-8
 " language en_US
 
@@ -76,28 +77,6 @@ set langmenu=en_US.UTF-8  " zh_CN.UTF-8
 set foldlevel=99
 set foldmethod=indent
 set foldenable
-set formatoptions-=tc
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" vim的文件管理器
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set autochdir                         " 自动确定文件夹
-let g:netrw_hide = 1                  " 隐藏 dotfile
-let g:netrw_liststyle = 1             " 增加时间戳等详细信息
-let g:netrw_banner = 0                " 不显示默认的“横幅”显示
-let g:netrw_liststyle=3               " 使用树状模式
-" 控制打开文件的窗口位置
-" 0 - 覆盖目录
-" 1 - 水平分裂
-" 2 - 垂直分裂
-" 3 - 新 tab 中打开
-" 4 - 新开窗口覆盖原先窗口
-let g:netrw_browse_split = 4
-let g:netrw_winsize = 31              " netrw 的宽度
-let g:netrw_altv = 1                  " 默认右侧分裂窗口显示
-let g:netrw_chgwin = 2
-let g:netrw_list_hide = '.*\.swp$'    " 隐藏文件
-let g:netrw_localrmdir = 'rm -rf'     " 使用 rm -rf 执行 vim 中 D 的删除
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 文件配置
@@ -117,6 +96,28 @@ filetype indent on   " 自适应不同语言的智能缩进
 filetype plugin on   " 设置加载对应文件类型的插件
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" 文件搜索和补全时忽略下面扩展名
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set suffixes=.bak,~,.o,.h,.info,.swp,.obj,.pyc,.pyo,.egg-info,.class
+
+set wildignore=*.o,*.obj,*~,*.exe,*.a,*.pdb,*.lib "stuff to ignore when tab completing
+set wildignore+=*.so,*.dll,*.swp,*.egg,*.jar,*.class,*.pyc,*.pyo,*.bin,*.dex
+set wildignore+=*.zip,*.7z,*.rar,*.gz,*.tar,*.gzip,*.bz2,*.tgz,*.xz    " MacOSX/Linux
+set wildignore+=*DS_Store*,*.ipch
+set wildignore+=*.gem
+set wildignore+=*.png,*.jpg,*.gif,*.bmp,*.tga,*.pcx,*.ppm,*.img,*.iso
+set wildignore+=*.so,*.swp,*.zip,*/.Trash/**,*.pdf,*.dmg,*/.rbenv/**
+set wildignore+=*/.nx/**,*.app,*.git,.git
+set wildignore+=*.wav,*.mp3,*.ogg,*.pcm
+set wildignore+=*.mht,*.suo,*.sdf,*.jnlp
+set wildignore+=*.chm,*.epub,*.pdf,*.mobi,*.ttf
+set wildignore+=*.mp4,*.avi,*.flv,*.mov,*.mkv,*.swf,*.swc
+set wildignore+=*.ppt,*.pptx,*.docx,*.xlt,*.xls,*.xlsx,*.odt,*.wps
+set wildignore+=*.msi,*.crx,*.deb,*.vfd,*.apk,*.ipa,*.bin,*.msu
+set wildignore+=*.gba,*.sfc,*.078,*.nds,*.smd,*.smc
+set wildignore+=*.linux2,*.win32,*.darwin,*.freebsd,*.linux,*.android
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 主题、界面、GUI
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set shortmess=atI        " 关闭欢迎页面
@@ -133,8 +134,8 @@ if has("gui_running")
     set background=dark
     color jellybeans
     " set guifont='Operator\ Mono':h9.6
-    " winpos 1080 150
-    " set lines=40 columns=110
+    winpos 1080 130
+    set lines=65 columns=180
 else
     " color elflord
 	color snazzy
@@ -274,21 +275,25 @@ autocmd FileType ruby,javascript,html,css,xml :set tabstop=2 shiftwidth=2 softta
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 source ~/dotfiles/vim/autoload/plug.vim
 call plug#begin('~/.vim/plugins')
-Plug 'preservim/nerdtree'
+Plug 'preservim/nerdtree'      " vim-dirvish
 Plug 'preservim/nerdcommenter' " tpope/vim-commentary
 Plug 'ianva/vim-youdao-translater'
 Plug 'easymotion/vim-easymotion'
-Plug 'preservim/tagbar'
+Plug 'terryma/vim-expand-region'
+" Plug 'Raimondi/delimitMate'  " 配对括号和引号自动补全
 " --- search
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+Plug 'wsdjeg/FlyGrep.vim' " 使用 :FlyGrep 命令进行实时 grep
+Plug 'dyng/ctrlsf.vim'    " 使用 :CtrlSF 命令进行模仿 sublime 的 grep
 Plug 'lfv89/vim-interestingwords' " <leader>k
-Plug 'itchyny/vim-cursorword' " 单词下划线
+" Plug 'itchyny/vim-cursorword' " 单词下划线
 " --- markdown
 Plug 'dhruvasagar/vim-table-mode', { 'for': ['markdown'] }
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug'] }
 Plug 'vimwiki/vimwiki'
 " --- coc
+Plug 'asins/vim-dict'
 " Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 " Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 " Plug 'honza/vim-snippets'
@@ -321,12 +326,17 @@ vmap ,/ <plug>NERDCommenterToggle
 let g:EasyMotion_smartcase = 1
 
 " fzf
-let g:fzf_command_prefix='Fzf'
+let g:fzf_command_prefix = 'Fzf'
+" flygrep
+let g:FlyGrep_input_delay = 50
+
+" vim-expand-region
+map <m-=> <Plug>(expand_region_expand)
+map <m--> <Plug>(expand_region_shrink)
 
 " template
 " let g:tmpl_search_paths=['~/dotfiles/vim/templates']
 
-" source ~/dotfiles/vim/plugins/tagbar.vim
 " source ~/dotfiles/vim/plugins/vimwiki.vim
 " source ~/dotfiles/vim/plugins/coc/coc.vim
 " source ~/dotfiles/vim/plugins/vim-go/vim-go.vim
@@ -334,7 +344,19 @@ let g:fzf_command_prefix='Fzf'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " keys
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-imap {<cr> {<cr>}<esc>O
+inoremap {<cr> {<cr>}<esc>O
+inoremap <c-a> <home>
+inoremap <c-e> <end>
+inoremap <c-d> <del>
+inoremap <c-_> <c-k>
+
+cnoremap <c-a> <home>
+cnoremap <c-e> <end>
+cnoremap <c-f> <right>
+cnoremap <c-b> <left>
+cnoremap <c-d> <del>
+cnoremap <c-_> <c-k>
+
 nmap <leader>0 i<Space><C-c>la<Space><C-c>h
 " nmap <leader>rc :e ~/dotfiles/vim/init.vim<cr>
 nmap <leader>rc :e ~/dotfiles/vim/.vimrc<cr>
@@ -348,6 +370,7 @@ nmap <leader><tab> :e#<cr>
 nmap <leader>wc :q<cr>
 nmap <leader>wv :vsp<cr>
 nmap <leader>ws :sp<cr>
+nmap <leader>wm :only<cr>
 nmap <leader>wh <c-w><c-h>
 nmap <leader>wj <c-w><c-j>
 nmap <leader>wk <c-w><c-k>
@@ -356,8 +379,6 @@ nmap <leader>wx <c-w><c-x>
 nmap <leader>w= <c-w>=
 nmap <leader>wH <c-w>H
 nmap <leader>wK <c-w>K
-
-nmap <leader>tn :tabnew<cr>
 
 nmap <c-h> :vertical resize -2<cr>
 nmap <c-l> :vertical resize +2<cr>
@@ -370,6 +391,74 @@ nnoremap < <<
 nnoremap > >>
 vnoremap < <gv
 vnoremap > >gv
+
+" tab
+noremap <silent> <leader>tn :tabnew<cr>
+noremap <silent> <leader>tc :tabclose<cr>
+noremap <silent> <leader>to :tabonly<cr>
+noremap <silent><m-1> :tabn 1<cr>
+noremap <silent><m-2> :tabn 2<cr>
+noremap <silent><m-3> :tabn 3<cr>
+noremap <silent><m-4> :tabn 4<cr>
+noremap <silent><m-5> :tabn 5<cr>
+noremap <silent><m-6> :tabn 6<cr>
+noremap <silent><m-7> :tabn 7<cr>
+noremap <silent><m-8> :tabn 8<cr>
+noremap <silent><m-9> :tabn 9<cr>
+noremap <silent><m-0> :tabn 10<cr>
+inoremap <silent><m-1> <ESC>:tabn 1<cr>
+inoremap <silent><m-2> <ESC>:tabn 2<cr>
+inoremap <silent><m-3> <ESC>:tabn 3<cr>
+inoremap <silent><m-4> <ESC>:tabn 4<cr>
+inoremap <silent><m-5> <ESC>:tabn 5<cr>
+inoremap <silent><m-6> <ESC>:tabn 6<cr>
+inoremap <silent><m-7> <ESC>:tabn 7<cr>
+inoremap <silent><m-8> <ESC>:tabn 8<cr>
+inoremap <silent><m-9> <ESC>:tabn 9<cr>
+inoremap <silent><m-0> <ESC>:tabn 10<cr>
+
+" MacVim 允许 CMD+数字键快速切换标签
+if has("gui_macvim")
+	set macmeta
+	noremap <silent><d-1> :tabn 1<cr>
+	noremap <silent><d-2> :tabn 2<cr>
+	noremap <silent><d-3> :tabn 3<cr>
+	noremap <silent><d-4> :tabn 4<cr>
+	noremap <silent><d-5> :tabn 5<cr>
+	noremap <silent><d-6> :tabn 6<cr>
+	noremap <silent><d-7> :tabn 7<cr>
+	noremap <silent><d-8> :tabn 8<cr>
+	noremap <silent><d-9> :tabn 9<cr>
+	noremap <silent><d-0> :tabn 10<cr>
+	inoremap <silent><d-1> <ESC>:tabn 1<cr>
+	inoremap <silent><d-2> <ESC>:tabn 2<cr>
+	inoremap <silent><d-3> <ESC>:tabn 3<cr>
+	inoremap <silent><d-4> <ESC>:tabn 4<cr>
+	inoremap <silent><d-5> <ESC>:tabn 5<cr>
+	inoremap <silent><d-6> <ESC>:tabn 6<cr>
+	inoremap <silent><d-7> <ESC>:tabn 7<cr>
+	inoremap <silent><d-8> <ESC>:tabn 8<cr>
+	inoremap <silent><d-9> <ESC>:tabn 9<cr>
+	inoremap <silent><d-0> <ESC>:tabn 10<cr>
+endif
+noremap <silent><leader>tl :call Tab_MoveLeft()<cr>
+noremap <silent><leader>tr :call Tab_MoveRight()<cr>
+
+" 左移 tab
+function! Tab_MoveLeft()
+	let l:tabnr = tabpagenr() - 2
+	if l:tabnr >= 0
+		exec 'tabmove '.l:tabnr
+	endif
+endfunc
+
+" 右移 tab
+function! Tab_MoveRight()
+	let l:tabnr = tabpagenr() + 1
+	if l:tabnr <= tabpagenr('$')
+		exec 'tabmove '.l:tabnr
+	endif
+endfunc
 
 " 修复 ctags ctrl+] 无效问题
 nmap <c-]> g<c-]>
@@ -393,7 +482,8 @@ nmap <leader>fa <Plug>(easymotion-overwin-w)
 
 " fzf
 nmap <leader>ff  :FzfFiles<cr>
-nmap <leader>fg  :FzfGFiles<cr>
+nmap <leader>fg  :FlyGrep<cr>
+nmap <leader>fs  :CtrlSF<cr>
 nmap <leader>fl  :FzfLines<cr>
 nmap <leader>fb  :FzfBuffers<cr>
 nmap <leader>fr  :FzfHistory<cr>
@@ -401,9 +491,6 @@ nmap <leader>fr  :FzfHistory<cr>
 " markdown, 写命令吧
 " nmap <leader>mp :MarkdownPreview<cr>
 " nmap <leader>mt :TableModeToggle<cr>
-
-" tagbar
-nmap <leader>tb :TagbarToggle<cr>
 
 " vimwiki
 let g:vimwiki_map_prefix = '<Leader>e'

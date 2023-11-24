@@ -26,7 +26,7 @@ function link_file {
 }
 
 current_status "linking dotfiles"
-dotfiles=(.ctags .bashrc .zshrc .gitconfig)
+dotfiles=(.ctags .bashrc .vimrc .zshrc .gitconfig)
 
 for file in "${dotfiles[@]}"
 do

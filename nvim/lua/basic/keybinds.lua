@@ -11,7 +11,7 @@ local opts = { noremap = true, silent = true }
 vim.keymap.set("n", "<leader><tab>", ":e#<cr>", opts)
 
 -- user
-vim.keymap.set("n", "<leader>rc", ":e ~/.config/nvim/init.lua<cr>", opts)
+vim.keymap.set("n", "<leader>rc", ":cd ~/dotfiles/nvim<cr>:e ~/.config/nvim/init.lua<cr>", opts)
 -- copy current file and cursor line to clipboard
 vim.keymap.set("n", "<leader>ul", ":let @+ = expand(\"%\") . \":\" . line(\".\")<CR>", opts)
 
