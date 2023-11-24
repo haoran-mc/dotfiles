@@ -169,6 +169,8 @@ alias q='exit'
 alias gm="go run main.go"
 alias pm="python main.py"
 
+alias vim="open -a MacVim $1"
+
 alias cat='bat'
 alias man='tldr'
 alias ping='gping'
