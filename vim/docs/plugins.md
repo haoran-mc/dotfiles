@@ -30,9 +30,8 @@ nmap <leader>mz :<C-u>MiniMDToggleFold<cr>
 # vim-auto-popmenu
 
 ```
-" --- cmp
-Plug 'skywind3000/vim-auto-popmenu'
-Plug 'skywind3000/vim-dict'
+" Plug 'skywind3000/vim-auto-popmenu'
+" Plug 'skywind3000/vim-dict'
 
 
 " vim-auto-popmenu

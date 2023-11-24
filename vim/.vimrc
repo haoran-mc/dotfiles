@@ -2,7 +2,7 @@
 " 通用设置
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set title titlestring=macvim    " 设置窗口title"
-let mapleader = " "      " 定义<leader>键
+let mapleader = "\<space>"      " 定义<leader>键
 set nocompatible         " 设置不兼容原始vi模式
 set noeb                 " 关闭错误的提示（响铃）
 set visualbell t_vb=     " 关闭错误的提示（闪烁）
@@ -57,8 +57,8 @@ set undodir=~/.vim/.undo//
 set hidden              " 切换 buffer 时，前一个编辑的文件保留在后台
 " Having longer updatetime (default is 4000 ms = 4s) leads to noticeable
 " delays and poor user experience
-set updatetime=30
-set timeoutlen=50
+set updatetime=300
+set timeoutlen=500
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 编码设置
@@ -129,217 +129,42 @@ set listchars=trail:■
 " set listchars=tab:»■,trail:■  " 显示行尾空格
 " set list                 " 显示非可见字符 ^I
 " set signcolumn=yes
-
-if has("gui_running")
-    set background=dark
-    color jellybeans
-    " set guifont='Operator\ Mono':h9.6
-    winpos 1080 130
-    set lines=65 columns=180
-else
-    " color elflord
-	color snazzy
-	" let g:SnazzyTransparent = 1
-endif
-
+color snazzy
+let g:SnazzyTransparent = 1
 set background=dark             " 设置背景颜色黑色
 set t_Co=256                    " 终端 256 色
 
-set guioptions-=m
-set guioptions-=T
-set guioptions-=r
-set guioptions-=L
-set background=dark
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" 模块加载
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-set statusline=
-set statusline+=\ %n
-set statusline+=\ %*
-set statusline+=\ ‹‹
-set statusline+=\ %f\ %*
-set statusline+=\ ››
-set statusline+=%=
-set statusline+=\ ‹‹
-set statusline+=\ %l:%c
-set statusline+=\ ::
-set statusline+=\ %{strftime('%R',\ getftime(expand('%')))}
-set statusline+=\ ››\ %*
- 
-if has("gui_running")
-    set transparency=20
+" 防止重复加载
+if get(s:, 'loaded', 0) != 0
+	finish
+else
+	let s:loaded = 1
 endif
 
-set guicursor=n:block-blinkoff0,i:block-iCursor-blinkoff0,v:block-blinkoff0
-" highlight Cursor guifg=white guibg=black
-highlight iCursor guifg=white guibg=red
+" 取得本文件所在的目录
+let s:home = fnamemodify(resolve(expand('<sfile>:p')), ':h')
 
-hi TabLineSel term=inverse
-hi TabLineSel ctermfg=red ctermbg=Black
-hi TabLineSel gui=none guifg=red guibg=Black
+" 将 vim 目录加入 runtimepath
+exec 'set rtp+='.s:home
 
-set tabline=%!TabLine()
-function TabLine()
-    let TabStyle = ''
-    for i in range(tabpagenr('$'))
-        if i + 1 == tabpagenr()
-            let TabStyle .= '%#TabLineSel#'
-        else
-            let TabStyle .= '%#TabLine#'
-        endif
-        let TabStyle .= ' %{ShortTabLabel(' . (i + 1) . ')} '
-    endfor
-    let TabStyle .= '%##'
-    return TabStyle
-endfunction
+" 将 ~/.vim 目录加入 runtimepath (有时候 vim 不会自动帮你加入）
+set rtp+=~/.vim
 
-function ShortTabLabel(n)
-    let buflist = tabpagebuflist(a:n)
-    let label = bufname (buflist[tabpagewinnr (a:n) -1])
-    let filename = fnamemodify (label, ':t')
-    return filename
-endfunction
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" code
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-:ab NNN NEXTLINE
-:ab dfs DFS
-:ab bfs BFS
-:ab inf INF
-:ab llinf LLINF
-:ab pi PI
-:ab pii PII
-:ab piii PIII
-:ab mod MOD
+source ~/dotfiles/vim/init-style.vim
+source ~/dotfiles/vim/init-code.vim
+source ~/dotfiles/vim/init-autocmd.vim
+source ~/dotfiles/vim/init-plugins.vim
 
-nmap <F9> <leader>cf:call RunInTerm()<CR>
+if has("gui_running")
+    source ~/dotfiles/vim/init-gui.vim
+endif
 
-func! RunInTerm()
-	if &filetype == 'c'
-		exec "!gcc % -o _exe"
-		exec "term ./_exe"
-		redraw!
-		echohl WarningMsg | echo " Running finish! ^_^"
-	elseif &filetype == 'cpp'
-		exec "!g++ % -o _exe"
-		exec "term ./_exe"
-		redraw!
-		echohl WarningMsg | echo " Running finish! ^_^"
-	elseif &filetype == 'python'
-		echo " compiling..."
-		exec "term python3 %"
-		redraw!
-		echohl WarningMsg | echo " Running finish! ^_^"
-	elseif &filetype == 'go'
-		echo " compiling..."
-		exec "term go run %"
-		redraw!
-		echohl WarningMsg | echo " Running finish! ^_^"
-	else
-		redraw!
-		echo "language not support! -_-"
-	endif
-endfunc
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" autocmd
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" 自动记住上次位置
-autocmd BufReadPost *
-    \ if line("'\"")>0&&line("'\"")<=line("$") |
-    \   exe "normal g'\"" |
-    \ endif
-
-" markdown
-autocmd Filetype markdown set wrap
-autocmd Filetype markdown nnoremap j gj
-autocmd Filetype markdown nnoremap k gk
-
-" golang
-" autocmd FileType go nmap <leader>cf :silent ! ~/go/bin/goimports -w %<cr>
-autocmd FileType go :set tabstop=4 noexpandtab " Do not use spaces instead of tabs
-" go build -o _exe -gcflags "-N -l" main.go
-" gdb -tui _exe
-" autocmd BufNewFile go :TemplateInit()
-
-" c/cpp
-" autocmd FileType c,cpp nmap <leader>cf :silent ! astyle --style=attach --pad-oper --lineend=linux %<cr>
-autocmd FileType c,cpp :set shiftwidth=4 expandtab
-
-autocmd FileType lua :set shiftwidth=4
-autocmd FileType sh :set shiftwidth=2 expandtab
-autocmd FileType python :set tabstop=4 shiftwidth=4 expandtab ai
-autocmd FileType ruby,javascript,html,css,xml :set tabstop=2 shiftwidth=2 softtabstop=2 expandtab ai
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" plugins
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-source ~/dotfiles/vim/autoload/plug.vim
-call plug#begin('~/.vim/plugins')
-Plug 'preservim/nerdtree'      " vim-dirvish
-Plug 'preservim/nerdcommenter' " tpope/vim-commentary
-Plug 'ianva/vim-youdao-translater'
-Plug 'easymotion/vim-easymotion'
-Plug 'terryma/vim-expand-region'
-" Plug 'Raimondi/delimitMate'  " 配对括号和引号自动补全
-" --- search
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
-Plug 'wsdjeg/FlyGrep.vim' " 使用 :FlyGrep 命令进行实时 grep
-Plug 'dyng/ctrlsf.vim'    " 使用 :CtrlSF 命令进行模仿 sublime 的 grep
-Plug 'lfv89/vim-interestingwords' " <leader>k
-" Plug 'itchyny/vim-cursorword' " 单词下划线
-" --- markdown
-Plug 'dhruvasagar/vim-table-mode', { 'for': ['markdown'] }
-Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug'] }
-Plug 'vimwiki/vimwiki'
-" --- coc
-Plug 'asins/vim-dict'
-" Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-" Plug 'neoclide/coc.nvim', { 'branch': 'release' }
-" Plug 'honza/vim-snippets'
-" Plug 'tibabit/vim-templates'
-call plug#end()
-
-" :PlugInstall     - 安装插件
-" :PlugClean       - 移除插件
-" :plugStatus      - 插件状态
-
-" NERDTree
-let NERDTreeIgnore=['\.o$', '^\.git$', '_exe', '.vscode', '\.exe', '.DS_Store', '_exe', '\.orig', 'input.txt', 'output.txt' ]
-let g:NERDTreeMinimalMenu=1
-let g:NERDTreeShowHidden=1
-let g:NERDTreeBookmarksFile='/Users/haoran/dotfiles/vim/plugins/NERDTreeBookmarks'
-let NERDTreeMapUpdirKeepOpen='-'  " dir up
-let NERDTreeMapCWD='C'            " change dir
-let NERDTreeMapOpenVSplit='v'     " vsplit
-let NERDTreeMapPreviewVSplit='gv' " vsplit
-let NERDTreeMapOpenSplit='s'      " split
-let NERDTreeMapPreviewSplit='s'   " split
-
-" nerdcommenter
-let g:NERDCreateDefaultMappings = 0
-let g:NERDSpaceDelims = 1
-nmap ,/ <plug>NERDCommenterToggle
-vmap ,/ <plug>NERDCommenterToggle
-
-" vim-easymotion
-let g:EasyMotion_smartcase = 1
-
-" fzf
-let g:fzf_command_prefix = 'Fzf'
-" flygrep
-let g:FlyGrep_input_delay = 50
-
-" vim-expand-region
-map <m-=> <Plug>(expand_region_expand)
-map <m--> <Plug>(expand_region_shrink)
-
-" template
-" let g:tmpl_search_paths=['~/dotfiles/vim/templates']
-
-" source ~/dotfiles/vim/plugins/vimwiki.vim
-" source ~/dotfiles/vim/plugins/coc/coc.vim
-" source ~/dotfiles/vim/plugins/vim-go/vim-go.vim
+source ~/dotfiles/vim/init-style.vim
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " keys
@@ -348,6 +173,8 @@ inoremap {<cr> {<cr>}<esc>O
 inoremap <c-a> <home>
 inoremap <c-e> <end>
 inoremap <c-d> <del>
+inoremap <c-n> <down>
+inoremap <c-p> <up>
 inoremap <c-_> <c-k>
 
 cnoremap <c-a> <home>
@@ -355,6 +182,8 @@ cnoremap <c-e> <end>
 cnoremap <c-f> <right>
 cnoremap <c-b> <left>
 cnoremap <c-d> <del>
+inoremap <c-n> <down>
+inoremap <c-p> <up>
 cnoremap <c-_> <c-k>
 
 nmap <leader>0 i<Space><C-c>la<Space><C-c>h
@@ -416,31 +245,6 @@ inoremap <silent><m-7> <ESC>:tabn 7<cr>
 inoremap <silent><m-8> <ESC>:tabn 8<cr>
 inoremap <silent><m-9> <ESC>:tabn 9<cr>
 inoremap <silent><m-0> <ESC>:tabn 10<cr>
-
-" MacVim 允许 CMD+数字键快速切换标签
-if has("gui_macvim")
-	set macmeta
-	noremap <silent><d-1> :tabn 1<cr>
-	noremap <silent><d-2> :tabn 2<cr>
-	noremap <silent><d-3> :tabn 3<cr>
-	noremap <silent><d-4> :tabn 4<cr>
-	noremap <silent><d-5> :tabn 5<cr>
-	noremap <silent><d-6> :tabn 6<cr>
-	noremap <silent><d-7> :tabn 7<cr>
-	noremap <silent><d-8> :tabn 8<cr>
-	noremap <silent><d-9> :tabn 9<cr>
-	noremap <silent><d-0> :tabn 10<cr>
-	inoremap <silent><d-1> <ESC>:tabn 1<cr>
-	inoremap <silent><d-2> <ESC>:tabn 2<cr>
-	inoremap <silent><d-3> <ESC>:tabn 3<cr>
-	inoremap <silent><d-4> <ESC>:tabn 4<cr>
-	inoremap <silent><d-5> <ESC>:tabn 5<cr>
-	inoremap <silent><d-6> <ESC>:tabn 6<cr>
-	inoremap <silent><d-7> <ESC>:tabn 7<cr>
-	inoremap <silent><d-8> <ESC>:tabn 8<cr>
-	inoremap <silent><d-9> <ESC>:tabn 9<cr>
-	inoremap <silent><d-0> <ESC>:tabn 10<cr>
-endif
 noremap <silent><leader>tl :call Tab_MoveLeft()<cr>
 noremap <silent><leader>tr :call Tab_MoveRight()<cr>
 
@@ -459,42 +263,6 @@ function! Tab_MoveRight()
 		exec 'tabmove '.l:tabnr
 	endif
 endfunc
-
-" 修复 ctags ctrl+] 无效问题
-nmap <c-]> g<c-]>
-
-nmap <leader>af :Ydc<cr>
-
-" NERDTree
-nmap <leader>ft  :NERDTreeToggle<cr>
-nmap <leader>fo  :NERDTreeFind<cr>
-nmap <leader>fm  :NERDTreeFromBookmark 
-
-" easymotion
-" bidirectional word
-" pay attention! no chars at the end of map
-nmap <leader>fw <Plug>(easymotion-bd-w)
-nmap <leader>fj <Plug>(easymotion-j)
-nmap <leader>fk <Plug>(easymotion-k)
-nmap <leader>f. <Plug>(easymotion-repeat)
-nmap <leader>fa <Plug>(easymotion-overwin-w)
-" useless: w b e ge, W B E gE
-
-" fzf
-nmap <leader>ff  :FzfFiles<cr>
-nmap <leader>fg  :FlyGrep<cr>
-nmap <leader>fs  :CtrlSF<cr>
-nmap <leader>fl  :FzfLines<cr>
-nmap <leader>fb  :FzfBuffers<cr>
-nmap <leader>fr  :FzfHistory<cr>
-
-" markdown, 写命令吧
-" nmap <leader>mp :MarkdownPreview<cr>
-" nmap <leader>mt :TableModeToggle<cr>
-
-" vimwiki
-let g:vimwiki_map_prefix = '<Leader>e'
-nmap <leader>ew  <Plug>VimwikiUISelect
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " other configs
