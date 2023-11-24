@@ -6,6 +6,10 @@ set guioptions-=r
 set guioptions-=L
 set background=dark
 
+highlight iCursor guifg=white guibg=red
+highlight CursorLine cterm=NONE ctermbg=NONE ctermfg=NONE guibg=#525051 guifg=NONE
+
+
 set statusline=
 set statusline+=\ %n
 set statusline+=\ %*
@@ -18,8 +22,6 @@ set statusline+=\ %l:%c
 set statusline+=\ ::
 set statusline+=\ %{strftime('%R',\ getftime(expand('%')))}
 set statusline+=\ ››\ %*
-
-highlight iCursor guifg=white guibg=red
 
 hi TabLineSel term=inverse
 hi TabLineSel ctermfg=red ctermbg=Black

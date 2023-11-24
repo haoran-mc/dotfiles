@@ -155,7 +155,6 @@ exec 'set rtp+='.s:home
 set rtp+=~/.vim
 
 
-source ~/dotfiles/vim/init-style.vim
 source ~/dotfiles/vim/init-code.vim
 source ~/dotfiles/vim/init-autocmd.vim
 source ~/dotfiles/vim/init-plugins.vim
