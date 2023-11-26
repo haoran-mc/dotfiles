@@ -40,8 +40,8 @@ set autowrite           " 自动保存
 set autoread            " 文件在vim之外修改过，自动重新读入
 set splitright          " 在右侧分屏
 set splitbelow          " 在下面分屏
-set updatetime=30
-set timeoutlen=50
+set updatetime=300
+set timeoutlen=500
 
 " 编码设置
 set encoding=utf-8       " 内部工作编码

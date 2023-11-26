@@ -38,6 +38,7 @@ alias df='df -Th'
 alias free='free -h'
 alias q="exit"
 alias c="clear"
+alias docker-format='docker ps -a --format "table {{.Names}}"'
 
 # 获取自己的公网IP
 alias publicip='curl ipinfo.io'
