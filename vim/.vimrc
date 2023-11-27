@@ -186,14 +186,12 @@ inoremap <c-p> <up>
 cnoremap <c-_> <c-k>
 
 nmap <leader>0 i<Space><C-c>la<Space><C-c>h
-" nmap <leader>rc :e ~/dotfiles/vim/init.vim<cr>
 nmap <leader>rc :e ~/dotfiles/vim/.vimrc<cr>
-nmap <leader>ut :e ~/haoran/tr/vim/test.go<cr>
-tmap <leader>us :so ~/.vimrc<cr>
+nmap <leader>bx :e ~/haoran/tr/vim/scratch-buffer<cr>
+nmap <leader>us :so ~/.vimrc<cr>
 nmap <leader>1 :nohlsearch<cr>
 nmap <leader><tab> :e#<cr>
 " nmap <leader><leader> <esc>/<++><cr>:nohlsearch<cr>c4l
-" nmap <leader>ft :Vex<cr>
 
 nmap <leader>wc :q<cr>
 nmap <leader>wv :vsp<cr>

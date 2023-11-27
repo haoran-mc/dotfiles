@@ -163,7 +163,9 @@ cnoremap <c-_> <c-k>
 
 nmap <leader>0 i<Space><C-c>la<Space><C-c>h
 nmap <leader>rc :e ~/.vimrc<cr>
-tmap <leader>us :so ~/.vimrc<cr>
+nmap <leader>bx :e ~/haoran/tr/vim/scratch-buffer<cr>
+nmap <leader>us :so ~/.vimrc<cr>
+nmap <leader>ft :Vex<cr>
 nmap <leader>1 :nohlsearch<cr>
 nmap <leader><tab> :e#<cr>
 " nmap <leader><leader> <esc>/<++><cr>:nohlsearch<cr>c4l
