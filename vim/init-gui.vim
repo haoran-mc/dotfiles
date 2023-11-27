@@ -1,6 +1,8 @@
 set background=dark
 
-color jellybeans
+" color pablo
+" color jellybeans
+color molokai
 
 set guifont=Fira\ Code:h10.2
 

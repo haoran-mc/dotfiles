@@ -7,8 +7,7 @@ set guioptions-=L
 set background=dark
 
 highlight iCursor guifg=white guibg=red
-highlight CursorLine cterm=NONE ctermbg=NONE ctermfg=NONE guibg=#525051 guifg=NONE
-
+" highlight CursorLine cterm=NONE ctermbg=NONE ctermfg=NONE guibg=#525051 guifg=NONE
 
 set statusline=
 set statusline+=\ %n
