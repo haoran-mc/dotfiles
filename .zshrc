@@ -5,7 +5,9 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-# #####################################################
+# environment prompt plugins user-configuration alias
+
+# environment #########################################
 export GOROOT=/usr/local/go
 export GOPATH=$HOME/go
 export GOBIN=$GOPATH/bin
@@ -39,7 +41,7 @@ fi
 
 export PATH=$PATH:/home/haoran/.local/bin
 
-# #####################################################
+# prompt ##############################################
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
@@ -76,28 +78,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # If set to an empty array, this variable will have no effect.
 # ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
 
-# brew install pfetch
-# brew install neofetch
-# curl zh-cn.wttr.in/beijing
-
-# enable color support of ls and also add handy aliases
-if [ -x /usr/bin/dircolors ]; then
-    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-    alias ls='ls --color=auto'
-    #alias dir='dir --color=auto'
-    #alias vdir='vdir --color=auto'
-
-    alias grep='grep --color=auto'
-    alias fgrep='fgrep --color=auto'
-    alias egrep='egrep --color=auto'
-fi
-
-# #####################################################
-undelfile()
-{
-    mv -i ~/.Trash/$@ ./
-}
-
+# plugins #############################################
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
@@ -133,24 +114,37 @@ plugins=(
 # after plugins and before plugin.zsh
 source $ZSH/oh-my-zsh.sh
 
-# #####################################################
-# User configuration
+# after source $ZSH/oh-my-zsh.sh
+# vi-mode
+VI_MODE_RESET_PROMPT_ON_MODE_CHANGE=true
+VI_MODE_SET_CURSOR=true
+KEYTIMEOUT=1
+bindkey -M vicmd 'k' history-substring-search-up
+bindkey -M vicmd 'j' history-substring-search-down
+# https://gist.github.com/ssebastianj/dd4a42da5eee3304751712dc8aa1dc62
+bindkey '^b' backward-char
+bindkey '^f' forward-char
+bindkey '^w' backward-kill-word
+bindkey '^a' beginning-of-line
+bindkey '^e' end-of-line
+bindkey '^p' history-substring-search-up
+bindkey '^n' history-substring-search-down
+bindkey '^r' history-incremental-pattern-search-backward
+bindkey '^s' history-incremental-pattern-search-forward
+# https://youtrack.jetbrains.com/issue/IDEA-180154/Zsh-bindkeys-forward-word-and-backward-word-do-not-work-in-Terminal
 
+# user configuration ##################################
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 export LANG=zh_CN.UTF-8
 
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
-
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
-# #####################################################
+# bat,  Dracula, gruvbox-dark
+export BAT_THEME="OneHalfDark"
+
+# alias ###############################################
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
@@ -183,43 +177,14 @@ alias haoranping='ping'
 # alias haoranps='ps'
 alias haorantree='tree'
 
+undelfile()
+{
+    mv -i ~/.Trash/$@ ./
+}
+
 alias rm=trash
 alias rl='ls ~/.Trash'
 alias ur=undelfile
-
-
-# #####################################################
-# after source $ZSH/oh-my-zsh.sh
-# vi-mode
-VI_MODE_RESET_PROMPT_ON_MODE_CHANGE=true
-VI_MODE_SET_CURSOR=true
-KEYTIMEOUT=1
-bindkey -M vicmd 'k' history-substring-search-up
-bindkey -M vicmd 'j' history-substring-search-down
-# https://gist.github.com/ssebastianj/dd4a42da5eee3304751712dc8aa1dc62
-bindkey '^b' backward-char
-bindkey '^f' forward-char
-bindkey '^w' backward-kill-word
-bindkey '^a' beginning-of-line
-bindkey '^e' end-of-line
-bindkey '^p' history-substring-search-up
-bindkey '^n' history-substring-search-down
-bindkey '^r' history-incremental-pattern-search-backward
-bindkey '^s' history-incremental-pattern-search-forward
-# https://youtrack.jetbrains.com/issue/IDEA-180154/Zsh-bindkeys-forward-word-and-backward-word-do-not-work-in-Terminal
-
-# autojump 需要下载
-
-# git clone git://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions
-# plugins=(git zsh-autosuggestions)
-# bindkey '^p' autosuggest-accept
-
-# 需要将源码克隆到 ~/.oh-my-zsh/custom/ 目录下配置才会生效
-# git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-# plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
-
-# bat,  Dracula, gruvbox-dark
-export BAT_THEME="OneHalfDark"
 
 
 # Generated for envman. Do not edit.
