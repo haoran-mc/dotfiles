@@ -155,13 +155,14 @@ alias la='lsd -all'
 
 alias c='clear'
 alias gg='git clone'
-alias lg="lazygit"
+alias lg='lazygit'
 alias n='nvim'
 alias e='emacs -nw'
 alias q='exit'
 
-alias gm="go run main.go"
-alias pm="python main.py"
+alias gm='go run main.go'
+alias pm='python main.py'
+alias lm='lua main.lua'
 
 alias vim="open -a MacVim $1"
 
