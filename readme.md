@@ -20,7 +20,6 @@ chmod +x ./install.sh
 5. bat instead cat
 6. fzf
 7. tldr
-8. bat
 
 <!--
 - iterm2 color: https://iterm2colorschemes.com/
