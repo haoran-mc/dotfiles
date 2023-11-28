@@ -19,12 +19,10 @@ require("basic.keybinds")
 require("basic.autocmd")
 
 require("lazy").setup({
-	root = vim.fn.stdpath("data") .. "/lazy", -- directory where plugins will be installed
-    -- ~/.local/share/nvim/lazy
+	root = vim.fn.stdpath("data") .. "/lazy", -- ~/.local/share/nvim/lazy
 	defaults = {
 		lazy = false, -- should plugins be lazy-loaded?
 		version = nil,
-		-- version = "*", -- enable this to try installing the latest stable versions of plugins
 	},
 	-- leave nil when passing the spec as the first argument to setup()
 	spec = {
@@ -52,7 +50,8 @@ require("lazy").setup({
 		-- install missing plugins on startup. This doesn't increase startup time.
 		missing = true,
 		-- try to load one of these colorschemes when starting an installation during startup
-		colorscheme = { "onedark" },
+		-- colorscheme = { "moonlight"},
+        -- "onedark", "habamax" 
 	},
 	ui = {
 		-- a number <1 is a percentage., >1 is a fixed size

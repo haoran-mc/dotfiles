@@ -12,6 +12,7 @@ return {
         "vue",
         "markdown",
     },
+    enabled = false,
     config = function()
         require("web-tools").setup({
             keymaps = {

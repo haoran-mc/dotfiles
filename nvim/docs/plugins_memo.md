@@ -1,6 +1,3 @@
-
-
-
 | indent-blankline      | 缩进基准线                         |
 | lualine               | 状态栏插件                         |
 | navic                 | winbar                             |

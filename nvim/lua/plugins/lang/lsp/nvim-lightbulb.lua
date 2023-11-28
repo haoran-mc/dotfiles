@@ -1,3 +1,4 @@
+-- code action
 return {
 	"kosayoda/nvim-lightbulb",
 	dependenies = "nvim-lspconfig",
