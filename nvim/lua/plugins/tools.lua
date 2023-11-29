@@ -1,6 +1,7 @@
 return {
     {
         "RRethy/vim-illuminate", -- 高亮当前的单词
+        -- ft = CodeFileTypeList,
         event = { "BufReadPost", "BufNewFile" },
         config = function()
             require("illuminate").configure({
@@ -34,13 +35,9 @@ return {
         keys = {
             { "<leader>af", "<cmd>Ydc<cr>", "n", { noremap = true, silent = true } },
         },
-        init = function()
-        end,
     },
     {
-        "lfv89/vim-interestingwords",
-        init = function()
-        end,
+        "lfv89/vim-interestingwords", -- <leader>k
     },
     {
         'karb94/neoscroll.nvim',

@@ -60,6 +60,7 @@ return {
     {
         "SmiteshP/nvim-navic",
         enabled = false,
+        ft = CodeFileTypeList,
         dependencies = {
             "neovim/nvim-lspconfig",
         },

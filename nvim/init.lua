@@ -18,6 +18,7 @@ vim.opt.rtp:prepend(vim.env.LAZY or lazypath)
 require("basic.settings")
 require("basic.keybinds")
 require("basic.autocmd")
+require("basic.variant")
 
 require("lazy").setup({
 	root = vim.fn.stdpath("data") .. "/lazy", -- ~/.local/share/nvim/lazy

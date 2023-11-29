@@ -1,7 +1,7 @@
 return {
     {
         "zbirenbaum/copilot.lua",
-        event = "InsertEnter",
+        event = "InsertEnter", -- some times insert lazy than filetypes
         config = function()
             require('copilot').setup({
                 panel = {
@@ -50,6 +50,7 @@ return {
     },
     {
         "zbirenbaum/copilot-cmp",
+        event = "InsertEnter",
         dependencies = { "copilot.lua", "nvim-cmp" },
         config = function()
             require("copilot_cmp").setup({

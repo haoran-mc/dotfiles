@@ -1,6 +1,7 @@
 -- npm install -g browser-sync
 return {
     "ray-x/web-tools.nvim",
+    enabled = false,
     ft = {
         "html",
         "css",
@@ -12,7 +13,6 @@ return {
         "vue",
         "markdown",
     },
-    enabled = false,
     config = function()
         require("web-tools").setup({
             keymaps = {
