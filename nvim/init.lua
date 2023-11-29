@@ -16,7 +16,7 @@ end
 vim.opt.rtp:prepend(vim.env.LAZY or lazypath)
 
 require("basic.settings")
-require("basic.keybinds")
+require("basic.keymaps")
 require("basic.autocmd")
 require("basic.variant")
 
