@@ -38,6 +38,25 @@ end
 vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "single" })
 vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = "single" })
 
+PositionStack = {}
+
+function SavePositionAndCallLspDefinitions()
+    local currentPosition = vim.fn.winsaveview()
+    currentPosition.bufnr = vim.fn.bufnr()
+    table.insert(PositionStack, currentPosition)
+    vim.cmd("Telescope lsp_definitions")
+end
+
+function PopPositionAndJumpBack()
+    if #PositionStack == 0 then
+        print("Position stack is empty")
+        return
+    end
+    local position = table.remove(PositionStack)
+    vim.cmd('buffer ' .. position.bufnr)
+    vim.fn.winrestview(position)
+end
+
 return {
   "neovim/nvim-lspconfig",
   event = { "BufReadPre", "BufNewFile" },
@@ -70,24 +89,14 @@ return {
       },
     }
 
-    vim.keymap.set(
-      "n",
-      "gf",
-      vim.diagnostic.open_float,
-      { noremap = true, silent = true, desc = "diagnostic open float" }
-    )
-    vim.keymap.set(
-      "n",
-      "g[",
-      vim.diagnostic.goto_prev,
-      { noremap = true, silent = true, desc = "diagnostic goto prev" }
-    )
-    vim.keymap.set(
-      "n",
-      "g]",
-      vim.diagnostic.goto_next,
-      { noremap = true, silent = true, desc = "diagnostic goto next" }
-    )
+    vim.keymap.set("n", "gf", vim.diagnostic.open_float,
+    { noremap = true, silent = true, desc = "diagnostic open float" })
+
+    vim.keymap.set("n", "g[", vim.diagnostic.goto_prev,
+    { noremap = true, silent = true, desc = "diagnostic goto prev" })
+
+    vim.keymap.set("n", "g]", vim.diagnostic.goto_next,
+    { noremap = true, silent = true, desc = "diagnostic goto next" })
 
     --
     local on_attach = function(client, bufnr)
@@ -95,30 +104,18 @@ return {
       lsp_signature.on_attach(client, bufnr)
       -- Mappings.
       -- See `:help vim.lsp.*` for documentation on any of the below functions
-      vim.keymap.set(
-        "n",
-        "<C-j>",
-        "<cmd>Telescope lsp_definitions<CR>",
-        { noremap = true, silent = true, buffer = true, desc = "goto definition" }
-      )
-      vim.keymap.set(
-        "n",
-        "<C-k>",
-        "<cmd>execute \"normal <c-o>\"<cr>",
-        { noremap = true, silent = true, buffer = true, desc = "go back" }
-      )
-      vim.keymap.set(
-        "n",
-        "gi",
-        "<cmd>Telescope lsp_implementations<CR>", -- vim.lsp.buf.implementation
-        { noremap = true, silent = true, buffer = true, desc = "goto implementation" }
-      )
-      vim.keymap.set(
-        "n",
-        "gl",
-        "<cmd>Telescope diagnostics<CR>",
-        { noremap = true, silent = true, buffer = true, desc = "diagnostics" }
-      )
+      vim.keymap.set("n", "<C-j>", SavePositionAndCallLspDefinitions,
+      { noremap = true, silent = true })
+
+      vim.keymap.set("n", "<C-k>", PopPositionAndJumpBack,
+      { noremap = true, silent = true })
+
+      vim.keymap.set("n", "gi", "<cmd>Telescope lsp_implementations<CR>", -- vim.lsp.buf.implementation
+      { noremap = true, silent = true, buffer = true, desc = "goto implementation" })
+
+      vim.keymap.set("n", "gl", "<cmd>Telescope diagnostics<CR>",
+      { noremap = true, silent = true, buffer = true, desc = "diagnostics" })
+
       vim.keymap.set("n", "gp", function()
         local params = vim.lsp.util.make_position_params()
         return vim.lsp.buf_request(0, "textDocument/definition", params, function(_, result)
@@ -128,42 +125,25 @@ return {
           vim.lsp.util.preview_location(result[1])
         end)
       end, { noremap = true, silent = true, buffer = bufnr, desc = "preview definition" })
-      vim.keymap.set(
-        "n",
-        "gD",
-        vim.lsp.buf.type_definition,
-        { noremap = true, silent = true, buffer = bufnr, desc = "type definition" }
-      )
-      vim.keymap.set(
-        "n",
-        "gr",
-        "<cmd>Telescope lsp_references <CR>",
-        { noremap = true, silent = true, buffer = bufnr, desc = "lsp_references" }
-      )
-      vim.keymap.set(
-        "n",
-        "K",
-        vim.lsp.buf.hover,
-        { noremap = true, silent = true, buffer = bufnr, desc = "hover doc" }
-      )
-      vim.keymap.set(
-        "n",
-        "<leader>cr",
-        vim.lsp.buf.rename,
-        { noremap = true, silent = true, buffer = bufnr, desc = "rename" }
-      )
-      vim.keymap.set(
-        "n",
-        "<leader>ca",
-        vim.lsp.buf.code_action,
-        { noremap = true, silent = true, buffer = bufnr, desc = "code action" }
-      )
-      vim.keymap.set(
-        "n",
-        "<leader>cf",
-        "<cmd>lua vim.lsp.buf.format { async = true }<CR>",
-        { noremap = true, silent = true, buffer = bufnr, desc = "format" }
-      )
+
+      vim.keymap.set("n", "gD", vim.lsp.buf.type_definition,
+      { noremap = true, silent = true, buffer = bufnr, desc = "type definition" })
+
+      vim.keymap.set("n", "gr", "<cmd>Telescope lsp_references <CR>",
+      { noremap = true, silent = true, buffer = bufnr, desc = "lsp_references" })
+
+      vim.keymap.set("n", "K", vim.lsp.buf.hover,
+      { noremap = true, silent = true, buffer = bufnr, desc = "hover doc" })
+
+      vim.keymap.set("n", "<leader>cr", vim.lsp.buf.rename,
+      { noremap = true, silent = true, buffer = bufnr, desc = "rename" })
+
+      vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action,
+      { noremap = true, silent = true, buffer = bufnr, desc = "code action" })
+
+      vim.keymap.set("n", "<leader>cf",
+      "<cmd>lua vim.lsp.buf.format { async = true }<CR>",
+      { noremap = true, silent = true, buffer = bufnr, desc = "format" })
     end
 
     require("neodev").setup()
