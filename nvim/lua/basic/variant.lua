@@ -1,5 +1,5 @@
 CodeFileTypeList = {
-    "go",
-    "lua",
-    "python"
+  "go",
+  "lua",
+  "python"
 }

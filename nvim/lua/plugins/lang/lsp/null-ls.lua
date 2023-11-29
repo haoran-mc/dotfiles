@@ -3,24 +3,24 @@
 -- null-ls server 作为补充，这样，无论我们使用哪个 server 都可以共享 null-ls 提供的功能。
 
 return {
-	"jose-elias-alvarez/null-ls.nvim",
-    event = { "BufReadPre", "BufNewFile" },
-	dependencies = {
-		"neovim/nvim-lspconfig",
-		"jay-babu/mason-null-ls.nvim",
-		"williamboman/mason.nvim",
-		"nvim-lua/plenary.nvim",
-	},
-	config = function()
-		local null_ls = require("null-ls")
-		null_ls.setup({
-			sources = {
-				null_ls.builtins.formatting.stylua,
-				-- null_ls.builtins.completion.spell,
-				null_ls.builtins.diagnostics.eslint,
-				null_ls.builtins.diagnostics.cmake_lint,
-			},
-		})
-		require("null-ls.custom")
-	end,
+  "jose-elias-alvarez/null-ls.nvim",
+  event = { "BufReadPre", "BufNewFile" },
+  dependencies = {
+    "neovim/nvim-lspconfig",
+    "jay-babu/mason-null-ls.nvim",
+    "williamboman/mason.nvim",
+    "nvim-lua/plenary.nvim",
+  },
+  config = function()
+    local null_ls = require("null-ls")
+    null_ls.setup({
+      sources = {
+        null_ls.builtins.formatting.stylua,
+        -- null_ls.builtins.completion.spell,
+        null_ls.builtins.diagnostics.eslint,
+        null_ls.builtins.diagnostics.cmake_lint,
+      },
+    })
+    require("null-ls.custom")
+  end,
 }
