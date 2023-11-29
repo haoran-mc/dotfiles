@@ -110,12 +110,12 @@ return {
       vim.keymap.set(
         "n",
         "gi",
-        "<cmd>Telescope lsp_implementations<CR>",
+        "<cmd>Telescope lsp_implementations<CR>", -- vim.lsp.buf.implementation
         { noremap = true, silent = true, buffer = true, desc = "goto implementation" }
       )
       vim.keymap.set(
         "n",
-        "go",
+        "gl",
         "<cmd>Telescope diagnostics<CR>",
         { noremap = true, silent = true, buffer = true, desc = "diagnostics" }
       )
@@ -140,12 +140,6 @@ return {
         "<cmd>Telescope lsp_references <CR>",
         { noremap = true, silent = true, buffer = bufnr, desc = "lsp_references" }
       )
-      -- vim.keymap.set(
-      -- 	"n",
-      -- 	"gi",
-      -- 	vim.lsp.buf.implementation,
-      -- 	{ noremap = true, silent = true, buffer = bufnr, desc = "implementation" }
-      -- )
       vim.keymap.set(
         "n",
         "K",
@@ -154,13 +148,7 @@ return {
       )
       vim.keymap.set(
         "n",
-        "gh",
-        vim.lsp.buf.signature_help,
-        { noremap = true, silent = true, buffer = bufnr, desc = "signature_help" }
-      )
-      vim.keymap.set(
-        "n",
-        "<leader>rn",
+        "<leader>cr",
         vim.lsp.buf.rename,
         { noremap = true, silent = true, buffer = bufnr, desc = "rename" }
       )
@@ -176,21 +164,6 @@ return {
         "<cmd>lua vim.lsp.buf.format { async = true }<CR>",
         { noremap = true, silent = true, buffer = bufnr, desc = "format" }
       )
-      vim.keymap.set(
-        "n",
-        "<leader>Wa",
-        vim.lsp.buf.add_workspace_folder,
-        { noremap = true, silent = true, buffer = bufnr, desc = "add_workspace_folder" }
-      )
-      vim.keymap.set(
-        "n",
-        "<leader>Wr",
-        vim.lsp.buf.remove_workspace_folder,
-        { noremap = true, silent = true, buffer = bufnr, desc = "remove_workspace_folder" }
-      )
-      vim.keymap.set("n", "<leader>Wl", function()
-        print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-      end, { noremap = true, silent = true, buffer = bufnr, desc = "list workspace fold" })
     end
 
     require("neodev").setup()

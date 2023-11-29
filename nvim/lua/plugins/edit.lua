@@ -12,10 +12,11 @@ return {
         check_ts = true,
         ts_config = {
           lua = { "string" }, -- it will not add a pair on that treesitter node
-          javascript = {'template_string'},
-          java = false, -- don't check treesitter on java
+          javascript = { 'template_string' },
+          java = false,       -- don't check treesitter on java
         },
-        fast_wrap = { -- not in effect
+        fast_wrap = {
+                              -- not in effect
           map = "<M-e>",
           chars = { "{", "[", "(", '"', "'" },
           pattern = [=[[%'%"%)%>%]%)%}%,]]=],
@@ -41,26 +42,20 @@ return {
     "kylechui/nvim-surround",
     version = "*", -- Use for stability; omit to use `main` branch for the latest features
     event = "VeryLazy",
-    config = function()
-      require("nvim-surround").setup({
-        -- Configuration here, or leave empty to use defaults
-      })
-    end
+    opts = {},
   },
   {
     "phaazon/hop.nvim",
     branch = 'v2',
     keys = {
-      { "<leader>fj", "<cmd>HopLine<cr>", "n", { noremap = true, silent = true } },
-      { "<leader>fk", "<cmd>HopLine<cr>", "n", { noremap = true, silent = true } },
-      { "<leader>fw", "<cmd>HopWord<cr>", "n", { noremap = true, silent = true } },
+      { "<leader>fj", "<cmd>HopLine<cr>",   "n", { noremap = true, silent = true } },
+      { "<leader>fk", "<cmd>HopLine<cr>",   "n", { noremap = true, silent = true } },
+      { "<leader>fw", "<cmd>HopWord<cr>",   "n", { noremap = true, silent = true } },
       { "<leader>fa", "<cmd>HopWordMW<cr>", "n", { noremap = true, silent = true } },
     },
-    config = function ()
-      require("hop").setup({
-        keys = 'etovxqpdygfblzhckisuran', -- j m w
-      })
-    end,
+    opts = {
+      keys = 'etovxqpdygfblzhckisuran', -- j m w
+    }
   },
   {
     "folke/flash.nvim",
@@ -96,13 +91,16 @@ return {
       },
     },
     keys = {
-      { -- you may use / more often.
-        "<c-s>", mode = { "n", "x", "o" },
+      {
+        -- you may use / more often.
+        "<c-s>",
+        mode = { "n", "x", "o" },
         function() require("flash").jump() end,
         desc = "Flash",
       },
       {
-        "<leader>v", mode = { "n", "x", "o" },
+        "<leader>v",
+        mode = { "n", "x", "o" },
         function() require("flash").treesitter() end,
         desc = "Flash Treesitter"
       },

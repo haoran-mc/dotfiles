@@ -64,19 +64,14 @@ return {
     dependencies = {
       "neovim/nvim-lspconfig",
     },
-    config = function()
-      require("nvim-navic").setup({
-      })
-    end
+    opts = {}
   },
   {
     "simrat39/symbols-outline.nvim",
     keys = {
       { "<leader>cs", "<cmd>SymbolsOutline<cr>", "n", { silent = true } },
     },
-    config = function()
-      require("symbols-outline").setup()
-    end
+    opts = {}
   },
 }
 

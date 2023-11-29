@@ -38,6 +38,11 @@ return {
   },
   {
     "lfv89/vim-interestingwords", -- <leader>k
+    config = function ()
+      vim.g['interestingWordsGUIColors'] = {
+        '#A4E57E', '#8CCBEA', '#FFDB72', '#FF7272', '#FFB3FF', '#9999FF'
+      }
+    end
   },
   {
     'karb94/neoscroll.nvim',

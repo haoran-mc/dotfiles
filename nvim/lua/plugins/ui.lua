@@ -3,12 +3,16 @@ return {
     "utilyre/sentiment.nvim", -- 高亮最近的括号
     version = "*",
     event = "VeryLazy", -- keep for lazy loading
-    opts = {
-      -- config
-    },
+    opts = {},
     init = function()
       -- `matchparen.vim` needs to be disabled manually in case of lazy loading
       vim.g.loaded_matchparen = 1
+      vim.api.nvim_create_autocmd("ColorScheme", {
+        pattern = "*",
+        callback = function()
+          vim.api.nvim_set_hl(0, "matchparen", { fg = "#FF0000" })
+        end,
+      })
     end,
   },
   {

@@ -2,10 +2,10 @@ return {
   "akinsho/toggleterm.nvim",
   event = "VeryLazy",
   keys = {
-    { "<leader>ott", "<cmd>ToggleTerm direction=tab<cr>", "n", { noremap = true, silent = true } },
-    { "<leader>otf", "<cmd>ToggleTerm direction=float<cr>", "n", { noremap = true, silent = true } },
-    { "<leader>otv", "<cmd>ToggleTerm direction=vertical<cr>", "n", { noremap = true, silent = true } },
-    { "<leader>oth", "<cmd>ToggleTerm direction=horizontal<cr>", "n", { noremap = true, silent = true } },
+    { "<leader>ot", "<cmd>ToggleTerm direction=tab<cr>", "n", { noremap = true, silent = true } },
+    { "<leader>of", "<cmd>ToggleTerm direction=float<cr>", "n", { noremap = true, silent = true } },
+    { "<leader>ol", "<cmd>ToggleTerm direction=vertical<cr>", "n", { noremap = true, silent = true } },
+    { "<leader>oj", "<cmd>ToggleTerm direction=horizontal<cr>", "n", { noremap = true, silent = true } },
     {
       "<leader>ag",
       function()
