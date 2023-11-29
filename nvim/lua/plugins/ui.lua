@@ -1,4 +1,17 @@
 return {
+    {
+        "utilyre/sentiment.nvim", -- 高亮最近的括号
+        version = "*",
+        event = "VeryLazy", -- keep for lazy loading
+        opts = {
+            -- config
+        },
+        init = function()
+            -- `matchparen.vim` needs to be disabled manually in case of lazy loading
+            vim.g.loaded_matchparen = 1
+        end,
+    },
+{
 	"norcalli/nvim-colorizer.lua",
     event = { "BufReadPost", "BufNewFile" },
 	config = function()
@@ -30,4 +43,5 @@ return {
 			command = "ColorizerDetachFromBuffer",
 		})
 	end,
+},
 }

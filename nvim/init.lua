@@ -1,5 +1,5 @@
 -- @diagnostic disable: undefined-global
-
+-- install `lazy.nvim` plugin manager
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
 	vim.fn.system({
@@ -7,11 +7,12 @@ if not vim.loop.fs_stat(lazypath) then
 		"clone",
 		"--filter=blob:none",
 		"https://github.com/folke/lazy.nvim.git",
-		"--branch=stable",
+		"--branch=stable", -- latest stable release
 		lazypath,
 	})
 end
 
+-- add lazypath in runtime path(rtp)
 vim.opt.rtp:prepend(vim.env.LAZY or lazypath)
 
 require("basic.settings")
@@ -24,18 +25,13 @@ require("lazy").setup({
 		lazy = false, -- should plugins be lazy-loaded?
 		version = nil,
 	},
-	-- leave nil when passing the spec as the first argument to setup()
 	spec = {
         { import = "plugins" },
-        { import = "plugins.edit" },
-        { import = "plugins.git" },
         { import = "plugins.lang" },
         { import = "plugins.lang.lsp" },
         -- { import = "plugins.lang.dap" },
-        -- { import = "plugins.theme" },
+        { import = "plugins.themes" },
         { import = "plugins.tools" },
-        { import = "plugins.tools.jump" },
-        { import = "plugins.ui" },
     },
 	lockfile = vim.fn.stdpath("config") .. "/lazy-lock.json", -- lockfile generated after running update.
 	concurrency = nil, ---@type number limit the maximum amount of concurrent tasks
@@ -44,14 +40,13 @@ require("lazy").setup({
 		-- log = { "-10" }, -- show the last 10 commits
 		log = { "--since=3 days ago" }, -- show commits from the last 3 days
 		timeout = 120, -- kill processes that take more than 2 minutes
-		-- url_format = "https://ghproxy.com/https://github.com/%s.git",
+        url_format = "https://github.com/%s.git",
 	},
 	install = {
 		-- install missing plugins on startup. This doesn't increase startup time.
 		missing = true,
 		-- try to load one of these colorschemes when starting an installation during startup
-		-- colorscheme = { "moonlight"},
-        -- "onedark", "habamax" 
+		colorscheme = { "habamax"}, -- "onedark", "habamax" 
 	},
 	ui = {
 		-- a number <1 is a percentage., >1 is a fixed size
@@ -66,7 +61,7 @@ require("lazy").setup({
 			init = " ",
 			import = " ",
 			keys = " ",
-			lazy = "鈴 ",
+            lazy = "󰒲 ",
 			loaded = "●",
 			not_loaded = "○",
 			plugin = " ",
@@ -109,14 +104,5 @@ require("lazy").setup({
 			disable_events = { "UIEnter", "BufReadPre" },
 			ttl = 3600 * 24 * 5, -- keep unused modules for up to 5 days
 		},
-	},
-	-- lazy can generate helptags from the headings in markdown readme files,
-	-- so :help works even for plugins that don't have vim docs.
-	-- when the readme opens with :help it will be correctly displayed as markdown
-	readme = {
-		root = vim.fn.stdpath("state") .. "/lazy/readme",
-		files = { "README.md", "lua/**/README.md" },
-		-- only generate markdown helptags for plugins that dont have docs
-		skip_if_doc_exists = true,
 	},
 })
