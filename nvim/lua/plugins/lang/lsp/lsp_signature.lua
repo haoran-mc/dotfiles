@@ -3,6 +3,8 @@ return {
   "ray-x/lsp_signature.nvim",
   event = "InsertEnter",
   dependenies = "hrsh7th/nvim-cmp",
+  opts = {
+  },
   config = function()
     require("lsp_signature").setup(
       {
@@ -21,7 +23,7 @@ return {
         hint_enable = false, -- virtual hint enable
         hint_prefix = "» ",  -- Panda for parameter, NOTE: for the terminal not support emoji, might crash
         handler_opts = {
-          border = "single"   -- double, rounded, single, shadow, none
+          border = "single"   -- double, rounded, single, shadow, none, String
         },
 
         transparency = 0, -- disabled by default, allow floating win transparent value 1~100

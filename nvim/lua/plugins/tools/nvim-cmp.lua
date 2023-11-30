@@ -5,7 +5,7 @@
 
 return {
   "hrsh7th/nvim-cmp",                      -- complete engine
-  event = "InsertEnter", -- some times insert lazy than filetype
+  event = { "InsertEnter", "CmdlineEnter" }, -- some times insert lazy than filetype
   dependencies = {
     "onsails/lspkind.nvim",              -- adds vscode-like pictograms
     "hrsh7th/cmp-nvim-lsp",              -- lsp completions

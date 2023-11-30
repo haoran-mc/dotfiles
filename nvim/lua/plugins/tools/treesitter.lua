@@ -1,5 +1,6 @@
 return {
   "nvim-treesitter/nvim-treesitter",
+  enabled = false,
   build = ":TSUpdate",
   event = { "BufReadPost", "BufNewFile" },
   dependencies = {
@@ -21,17 +22,10 @@ return {
       -- HACK:
       parser_install_dir = vim.fn.stdpath("data") .. "/lazy/nvim-treesitter",
       ensure_installed = {
-        "c",
-        "cpp",
         "lua",
         "python",
         "go",
-        "html",
-        "javascript",
-        "org",
         "vim",
-        "markdown",
-        "markdown_inline",
         -- "help",
       },
       sync_install = true,

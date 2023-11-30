@@ -2,23 +2,23 @@
 -- https://github.com/neovim/nvim-lspconfig/wiki/UI-Customization
 
 -- To instead override float border setting globally
-local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
-function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
-  local border = {
-    { "┌", "FloatBorder" },
-    { "─", "FloatBorder" },
-    { "┐", "FloatBorder" },
-    { "│", "FloatBorder" },
-    { "┘", "FloatBorder" },
-    { "─", "FloatBorder" },
-    { "└", "FloatBorder" },
-    { "│", "FloatBorder" },
-  }
-  opts = opts or {}
-  opts.border = opts.border or border
+-- local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
+-- function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
+--   local border = {
+--     { "┌", "FloatBorder" },
+--     { "─", "FloatBorder" },
+--     { "┐", "FloatBorder" },
+--     { "│", "FloatBorder" },
+--     { "┘", "FloatBorder" },
+--     { "─", "FloatBorder" },
+--     { "└", "FloatBorder" },
+--     { "│", "FloatBorder" },
+--   }
+--   opts = opts or {}
+--   opts.border = opts.border or border
 
-  return orig_util_open_floating_preview(contents, syntax, opts, ...)
-end
+--   return orig_util_open_floating_preview(contents, syntax, opts, ...)
+-- end
 
 vim.diagnostic.config({
   virtual_text = { prefix = "", source = "always" }, -- prefix：'●', '▎', 'x'
@@ -49,7 +49,7 @@ end
 
 function PopPositionAndJumpBack()
     if #PositionStack == 0 then
-        print("Position stack is empty")
+        print("position stack is empty")
         return
     end
     local position = table.remove(PositionStack)
@@ -62,11 +62,11 @@ return {
   event = { "BufReadPre", "BufNewFile" },
   dependencies = {
     "williamboman/mason.nvim",
-    "jay-babu/mason-null-ls.nvim",
     "williamboman/mason-lspconfig.nvim",
-    "folke/neodev.nvim", -- full signature help
+    "jay-babu/mason-null-ls.nvim",
+    -- "folke/neodev.nvim", -- full signature help
     "nvim-telescope/telescope.nvim",
-    "stevearc/dressing.nvim",
+    -- "stevearc/dressing.nvim",
     "j-hui/fidget.nvim",
   },
   config = function()
@@ -98,7 +98,6 @@ return {
     vim.keymap.set("n", "g]", vim.diagnostic.goto_next,
     { noremap = true, silent = true, desc = "diagnostic goto next" })
 
-    --
     local on_attach = function(client, bufnr)
       vim.api.nvim_exec_autocmds("User", { pattern = "LspAttached" })
       lsp_signature.on_attach(client, bufnr)
@@ -110,10 +109,13 @@ return {
       vim.keymap.set("n", "<C-k>", PopPositionAndJumpBack,
       { noremap = true, silent = true })
 
-      vim.keymap.set("n", "gi", "<cmd>Telescope lsp_implementations<CR>", -- vim.lsp.buf.implementation
+      vim.keymap.set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<cr>",
+      { noremap = true, silent = true })
+
+      vim.keymap.set("n", "gi", "<cmd>Telescope lsp_implementations<cr>", -- vim.lsp.buf.implementation
       { noremap = true, silent = true, buffer = true, desc = "goto implementation" })
 
-      vim.keymap.set("n", "gl", "<cmd>Telescope diagnostics<CR>",
+      vim.keymap.set("n", "gl", "<cmd>Telescope diagnostics<cr>",
       { noremap = true, silent = true, buffer = true, desc = "diagnostics" })
 
       vim.keymap.set("n", "gp", function()
@@ -129,7 +131,7 @@ return {
       vim.keymap.set("n", "gD", vim.lsp.buf.type_definition,
       { noremap = true, silent = true, buffer = bufnr, desc = "type definition" })
 
-      vim.keymap.set("n", "gr", "<cmd>Telescope lsp_references <CR>",
+      vim.keymap.set("n", "gr", "<cmd>Telescope lsp_references <cr>",
       { noremap = true, silent = true, buffer = bufnr, desc = "lsp_references" })
 
       vim.keymap.set("n", "K", vim.lsp.buf.hover,
@@ -142,11 +144,11 @@ return {
       { noremap = true, silent = true, buffer = bufnr, desc = "code action" })
 
       vim.keymap.set("n", "<leader>cf",
-      "<cmd>lua vim.lsp.buf.format { async = true }<CR>",
+      "<cmd>lua vim.lsp.buf.format { async = true }<cr>",
       { noremap = true, silent = true, buffer = bufnr, desc = "format" })
     end
 
-    require("neodev").setup()
+    -- require("neodev").setup()
 
     require("lspconfig").lua_ls.setup({
       capabilities = capabilities,

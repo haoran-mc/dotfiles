@@ -1,6 +1,9 @@
 return {
   "lewis6991/gitsigns.nvim",
   event = { "BufReadPost", "BufNewFile" },
+  dependencies = {
+    -- "stevearc/dressing.nvim", -- better ui
+  },
   config = function()
     require("gitsigns").setup({
       signs = {
