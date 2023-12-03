@@ -2,8 +2,11 @@
 -- 等功能。也就是说，在编辑同一个 buffer 时，不只可以挂一个 language server，还可以加一个通用的
 -- null-ls server 作为补充，这样，无论我们使用哪个 server 都可以共享 null-ls 提供的功能。
 
+-- 我只用到了 code format 部分，但是由于 go 可以使用 goformat，所以先禁用 null-ls
+
 return {
   "jose-elias-alvarez/null-ls.nvim",
+  enabled = false,
   event = { "BufReadPre", "BufNewFile" },
   dependencies = {
     "neovim/nvim-lspconfig",
@@ -17,8 +20,8 @@ return {
       sources = {
         null_ls.builtins.formatting.stylua,
         -- null_ls.builtins.completion.spell,
-        null_ls.builtins.diagnostics.eslint,
-        null_ls.builtins.diagnostics.cmake_lint,
+        -- null_ls.builtins.diagnostics.eslint,
+        -- null_ls.builtins.diagnostics.cmake_lint,
       },
     })
     require("null-ls.custom")

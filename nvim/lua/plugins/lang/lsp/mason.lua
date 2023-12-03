@@ -22,13 +22,16 @@ return {
     })
 
     require("mason-lspconfig").setup({
-      ensure_installed = {},
+      ensure_installed = {
+        "gopls",
+        "lua_ls",
+      },
       automatic_installation = true,
     })
 
-    require("mason-null-ls").setup({
-      ensure_installed = { "stylua", "jq" },
-      automatic_installation = true,
-    })
+    -- require("mason-null-ls").setup({
+    --   ensure_installed = { "stylua", "jq" },
+    --   automatic_installation = true,
+    -- })
   end,
 }

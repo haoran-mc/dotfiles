@@ -71,17 +71,17 @@ return {
   },
   config = function()
     local lsp_signature = require("lsp_signature")
-    local capabilities = vim.lsp.protocol.make_client_capabilities()
+    local my_capabilities = vim.lsp.protocol.make_client_capabilities()
 
-    capabilities.textDocument.completion.completionItem.snippetSupport = true
-    capabilities.textDocument.completion.completionItem.documentationFormat = { "markdown", "plaintext" }
-    capabilities.textDocument.completion.completionItem.preselectSupport = true
-    capabilities.textDocument.completion.completionItem.insertReplaceSupport = true
-    capabilities.textDocument.completion.completionItem.labelDetailsSupport = true
-    capabilities.textDocument.completion.completionItem.deprecatedSupport = true
-    capabilities.textDocument.completion.completionItem.commitCharactersSupport = true
-    capabilities.textDocument.completion.completionItem.tagSupport = { valueSet = { 1 } }
-    capabilities.textDocument.completion.completionItem.resolveSupport = {
+    my_capabilities.textDocument.completion.completionItem.snippetSupport = true
+    my_capabilities.textDocument.completion.completionItem.documentationFormat = { "markdown", "plaintext" }
+    my_capabilities.textDocument.completion.completionItem.preselectSupport = true
+    my_capabilities.textDocument.completion.completionItem.insertReplaceSupport = true
+    my_capabilities.textDocument.completion.completionItem.labelDetailsSupport = true
+    my_capabilities.textDocument.completion.completionItem.deprecatedSupport = true
+    my_capabilities.textDocument.completion.completionItem.commitCharactersSupport = true
+    my_capabilities.textDocument.completion.completionItem.tagSupport = { valueSet = { 1 } }
+    my_capabilities.textDocument.completion.completionItem.resolveSupport = {
       properties = {
         "documentation",
         "detail",
@@ -98,7 +98,8 @@ return {
     vim.keymap.set("n", "g]", vim.diagnostic.goto_next,
     { noremap = true, silent = true, desc = "diagnostic goto next" })
 
-    local on_attach = function(client, bufnr)
+    -- custom on_attach
+    local my_attach = function(client, bufnr)
       vim.api.nvim_exec_autocmds("User", { pattern = "LspAttached" })
       lsp_signature.on_attach(client, bufnr)
       -- Mappings.
@@ -150,9 +151,10 @@ return {
 
     -- require("neodev").setup()
 
+    -- lua_ls(offcial) or sumneko_lua(communal)
     require("lspconfig").lua_ls.setup({
-      capabilities = capabilities,
-      on_attach = on_attach,
+      capabilities = my_capabilities,
+      on_attach = my_attach,
       cmd = { "lua-language-server", "--locale=zh-cn" },
       settings = {
         Lua = {
@@ -185,32 +187,32 @@ return {
       },
     })
     require("lspconfig").cmake.setup({
-      capabilities = capabilities,
-      on_attach = on_attach,
+      capabilities = my_capabilities,
+      on_attach = my_attach,
     })
     require("lspconfig").gopls.setup({
-      capabilities = capabilities,
-      on_attach = on_attach,
+      capabilities = my_capabilities,
+      on_attach = my_attach,
     })
     require("lspconfig").pylsp.setup({
-      capabilities = capabilities,
-      on_attach = on_attach,
+      capabilities = my_capabilities,
+      on_attach = my_attach,
     })
     require("lspconfig").jsonls.setup({
-      on_attach = on_attach,
-      capabilities = capabilities,
+      on_attach = my_attach,
+      capabilities = my_capabilities,
     })
     require("lspconfig").html.setup({
-      on_attach = on_attach,
-      capabilities = capabilities,
+      on_attach = my_attach,
+      capabilities = my_capabilities,
     })
     require("lspconfig").cssls.setup({
-      on_attach = on_attach,
-      capabilities = capabilities,
+      on_attach = my_attach,
+      capabilities = my_capabilities,
     })
     require("lspconfig").eslint.setup({
-      on_attach = on_attach,
-      capabilities = capabilities,
+      on_attach = my_attach,
+      capabilities = my_capabilities,
     })
   end,
 }
