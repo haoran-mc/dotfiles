@@ -34,8 +34,7 @@ export PATH=$PATH:/usr/local/nvim-macos/bin
 # 安装 emacs 时，需要 pyenv 依赖
 export PATH="${HOME}/.pyenv/shims:$PATH"
 
-if [ -f ~/servicewall/secret.zsh ]
-then
+if [ -f ~/servicewall/secret.zsh ]; then
 	source ~/servicewall/secret.zsh
 fi
 
@@ -144,6 +143,24 @@ export LANG=zh_CN.UTF-8
 # bat,  Dracula, gruvbox-dark
 export BAT_THEME="OneHalfDark"
 
+# ostype ##############################################
+if [[ "$OSTYPE" = darwin* ]]; then
+    undelfile()
+    {
+        mv -i ~/.Trash/$@ ./
+    }
+
+    alias rm=trash
+    alias rl='ls ~/.Trash'
+    alias ur=undelfile
+
+    alias vim='open -a MacVim $1'
+elif [[ "$OSTYPE" = linux-gnu* ]]; then
+    # echo "I'm Linux"
+else
+    echo "unknow os"
+fi
+
 # alias ###############################################
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
@@ -164,8 +181,6 @@ alias gm='go run main.go'
 alias pm='python main.py'
 alias lm='lua main.lua'
 
-alias vim="open -a MacVim $1"
-
 alias cat='bat'
 alias man='tldr'
 alias ping='gping'
@@ -177,15 +192,6 @@ alias haoranman='man'
 alias haoranping='ping'
 # alias haoranps='ps'
 alias haorantree='tree'
-
-undelfile()
-{
-    mv -i ~/.Trash/$@ ./
-}
-
-alias rm=trash
-alias rl='ls ~/.Trash'
-alias ur=undelfile
 
 
 # Generated for envman. Do not edit.
