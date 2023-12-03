@@ -54,29 +54,6 @@ require("lazy").setup({
     size = { width = 0.8, height = 0.8 },
     -- The border to use for the UI window. Accepts same border values as |nvim_open_win()|.
     border = "single",
-    icons = {
-      cmd = " ",
-      config = "",
-      event = "",
-      ft = " ",
-      init = " ",
-      import = " ",
-      keys = " ",
-      lazy = "󰒲 ",
-      loaded = "●",
-      not_loaded = "○",
-      plugin = " ",
-      runtime = " ",
-      source = " ",
-      start = "",
-      task = "✔ ",
-      list = {
-        "●",
-        "➜",
-        "★",
-        "‒",
-      },
-    },
     -- you can define custom key maps here.
     -- To disable one of the defaults, set it to false
     custom_keys = {},

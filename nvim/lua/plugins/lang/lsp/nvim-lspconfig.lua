@@ -63,7 +63,7 @@ return {
   dependencies = {
     "williamboman/mason.nvim",
     "williamboman/mason-lspconfig.nvim",
-    "jay-babu/mason-null-ls.nvim",
+    -- "jay-babu/mason-null-ls.nvim",
     -- "folke/neodev.nvim", -- full signature help
     "nvim-telescope/telescope.nvim",
     -- "stevearc/dressing.nvim",
@@ -209,14 +209,6 @@ return {
       capabilities = capabilities,
     })
     require("lspconfig").eslint.setup({
-      on_attach = on_attach,
-      capabilities = capabilities,
-    })
-    require("lspconfig").tsserver.setup({
-      on_attach = on_attach,
-      capabilities = capabilities,
-    })
-    require("lspconfig").texlab.setup({
       on_attach = on_attach,
       capabilities = capabilities,
     })

@@ -1,3 +1,5 @@
+| plugin                | desc                               |
+|-----------------------+------------------------------------|
 | indent-blankline      | 缩进基准线                         |
 | lualine               | 状态栏插件                         |
 | navic                 | winbar                             |
@@ -7,7 +9,7 @@
 | tabby                 | tab栏                              |
 | SmoothCursor.nvim     | 光标前缀                           |
 | rayso.nvim            | 代码图片                           |
-|-----------------------+------------------------------------|
+|                       |                                    |
 | calendar              | 日历插件                           |
 | comment               | 注释插件                           |
 | copilot-cmp           |                                    |
@@ -24,10 +26,10 @@
 | vim-interestingwords  | 单词高亮                           |
 | vim-youdao-translater | 翻译                               |
 | symbols-outline       | 显示大纲                           |
-|-----------------------+------------------------------------|
+|                       |                                    |
 | markdown-preview      | markdown 预览                      |
 | vim-table-mode        | markdown 表格对齐                  |
-|-----------------------+------------------------------------|
+|                       |                                    |
 | fidget.nvim           | nvim-lsp progress                  |
 | lsp_signature         | 函数签名                           |
 | mason                 | formatter, linter, lsp, dap 管理器 |
