@@ -2,7 +2,7 @@ return {
   "lewis6991/gitsigns.nvim",
   event = { "BufReadPost", "BufNewFile" },
   dependencies = {
-    -- "stevearc/dressing.nvim", -- better ui
+    "stevearc/dressing.nvim", -- input box for <leader>hh :GitSigns
   },
   config = function()
     require("gitsigns").setup({

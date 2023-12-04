@@ -66,7 +66,7 @@ return {
     -- "jay-babu/mason-null-ls.nvim",
     -- "folke/neodev.nvim", -- full signature help
     "nvim-telescope/telescope.nvim",
-    -- "stevearc/dressing.nvim",
+    "stevearc/dressing.nvim", -- input box for rename
     "j-hui/fidget.nvim",
   },
   config = function()
