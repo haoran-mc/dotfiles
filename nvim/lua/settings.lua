@@ -107,27 +107,3 @@ if vim.fn.has("nvim-0.9.0") == 1 then
   vim.opt.splitkeep = "screen"
   vim.opt.shortmess:append({ C = true })
 end
-
-
--- WSL yank support
-vim.cmd [[
-let s:clip = '/mnt/c/Windows/System32/clip.exe' 
-if executable(s:clip)
-    augroup WSLYank
-        autocmd!
-        autocmd TextYankPost * if v:event.operator ==# 'y' | call system(s:clip, @0) | endif
-    augroup END
-endif
-]]
-
-
--- if vim.fn.has("win32")  and vim.fn.executable("bash.exe") then
--- 	vim.o.shell = "bash.exe"
--- 	vim.o.shellcmdflag = "-c"
--- 	vim.o.shellredir = ">%s 2>&1"
--- 	vim.o.shellpipe = "2>&1 | tee"
--- 	vim.o.shellquote = ""
--- 	vim.o.shellxescape = ""
--- 	vim.o.shellxquote = ""
--- end
-
