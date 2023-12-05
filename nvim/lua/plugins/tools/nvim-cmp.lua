@@ -31,6 +31,17 @@ return {
     local luasnip = require("luasnip")
     cmp.setup({
       enabled = function()
+        -- disable
+        local inList = false
+        for _, ft in pairs(CodeFileTypeList) do
+          if vim.bo.filetype == ft then
+            inList = true
+          end
+        end
+        if not inList then
+          return false
+        end
+
         -- https://github.com/hrsh7th/nvim-cmp/issues/519#issuecomment-1091109258
         local line = vim.api.nvim_get_current_line()
         local cursor = vim.api.nvim_win_get_cursor(0)[2]

@@ -58,15 +58,6 @@ return {
     end,
   },
   {
-    "SmiteshP/nvim-navic",
-    enabled = false,
-    ft = CodeFileTypeList,
-    dependencies = {
-      "neovim/nvim-lspconfig",
-    },
-    opts = {}
-  },
-  {
     "simrat39/symbols-outline.nvim",
     keys = {
       { "<leader>cs", "<cmd>SymbolsOutline<cr>", "n", { silent = true } },
