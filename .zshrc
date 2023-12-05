@@ -96,19 +96,19 @@ COMPLETION_WAITING_DOTS="true"
 HIST_STAMPS="mm/dd/yyyy"
 setopt HIST_IGNORE_DUPS
 
-# Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
     vi-mode
-    git 
+    git
     autojump
     zsh-autosuggestions 
     zsh-syntax-highlighting
     zsh-history-substring-search
 )
+# git: support git aliases
+# autojump: j for quick jump
 
 # after plugins and before plugin.zsh
 source $ZSH/oh-my-zsh.sh
