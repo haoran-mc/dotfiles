@@ -25,6 +25,7 @@ return {
       ensure_installed = {
         "gopls",
         "lua_ls",
+        "bashls",
       },
       automatic_installation = true,
     })

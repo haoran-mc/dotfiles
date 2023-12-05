@@ -186,15 +186,19 @@ return {
         },
       },
     })
-    require("lspconfig").cmake.setup({
-      capabilities = my_capabilities,
-      on_attach = my_attach,
-    })
     require("lspconfig").gopls.setup({
       capabilities = my_capabilities,
       on_attach = my_attach,
     })
+    require("lspconfig").bashls.setup({
+      capabilities = my_capabilities,
+      on_attach = my_attach,
+    })
     require("lspconfig").pylsp.setup({
+      capabilities = my_capabilities,
+      on_attach = my_attach,
+    })
+    require("lspconfig").cmake.setup({
       capabilities = my_capabilities,
       on_attach = my_attach,
     })
