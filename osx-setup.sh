@@ -36,3 +36,4 @@ ssh-keygen -t rsa -C "haoran.mc@outlook.com"
 brew install postgresql
 brew services start postgresql
 initdb --locale=C -E UTF-8 /opt/homebrew/var/postgresql
+# /opt/homebrew/opt/postgresql@14/bin/createuser -s postgres
