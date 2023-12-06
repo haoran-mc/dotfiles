@@ -1,5 +1,7 @@
+Variants = {}
+
 -- 1. set filetype for indent, complete
-CodeFileTypeList = {
+Variants.CodeFileTypeList = {
   "go",
   "lua",
   "python",
@@ -9,4 +11,5 @@ CodeFileTypeList = {
 -- 3. set ensure installed language parser (plugins.tools.treesitter)
 -- 4. language server setup (plugins.lang.lsp.nvim-lspconfig)
 
+Variants.Theme = "moonlight"
 

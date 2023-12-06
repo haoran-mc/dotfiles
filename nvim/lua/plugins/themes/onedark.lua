@@ -1,7 +1,12 @@
 return {
   "navarasu/onedark.nvim",
+  enabled = function ()
+    if Variants.Theme == "onedark" then
+      return true
+    end
+    return false
+  end,
   lazy = false,
-  -- enabled = false,
   priority = 1000,
   config = function()
     require("onedark").setup({
@@ -58,6 +63,6 @@ return {
         background = false, -- use background color for virtual text
       },
     })
-    require("onedark").load()
+    -- require("onedark").load()
   end,
 }

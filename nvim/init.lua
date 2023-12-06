@@ -18,7 +18,7 @@ vim.opt.rtp:prepend(vim.env.LAZY or lazypath)
 require("settings")
 require("keymaps")
 require("autocmd")
-require("variant")
+require("variants")
 
 require("lazy").setup({
   root = vim.fn.stdpath("data") .. "/lazy", -- ~/.local/share/nvim/lazy
@@ -47,7 +47,7 @@ require("lazy").setup({
     -- install missing plugins on startup. This doesn't increase startup time.
     missing = true,
     -- try to load one of these colorschemes when starting an installation during startup
-    colorscheme = { "onedark" }, -- "onedark", "habamax"
+    -- colorscheme = { "habamax" } -- "moonlight", "onedark",
   },
   ui = {
     -- a number <1 is a percentage., >1 is a fixed size

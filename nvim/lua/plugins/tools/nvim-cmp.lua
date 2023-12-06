@@ -33,7 +33,7 @@ return {
       enabled = function()
         -- disable
         local inList = false
-        for _, ft in pairs(CodeFileTypeList) do
+        for _, ft in pairs(Variants.CodeFileTypeList) do
           if vim.bo.filetype == ft then
             inList = true
           end

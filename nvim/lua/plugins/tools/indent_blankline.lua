@@ -2,7 +2,7 @@ return {
   "lukas-reineke/indent-blankline.nvim",
   main = "ibl",
   -- do not lazy load due to https://github.com/lukas-reineke/indent-blankline.nvim/issues/542
-  ft = CodeFileTypeList,
+  ft = Variants.CodeFileTypeList,
   config = function()
     local highlight = {
       "RainbowGreen",
