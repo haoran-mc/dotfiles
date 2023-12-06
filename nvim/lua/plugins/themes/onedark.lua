@@ -63,6 +63,6 @@ return {
         background = false, -- use background color for virtual text
       },
     })
-    -- require("onedark").load()
+    require("onedark").load()
   end,
 }

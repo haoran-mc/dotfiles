@@ -11,5 +11,5 @@ Variants.CodeFileTypeList = {
 -- 3. set ensure installed language parser (plugins.tools.treesitter)
 -- 4. language server setup (plugins.lang.lsp.nvim-lspconfig)
 
-Variants.Theme = "moonlight"
+Variants.Theme = "onedark"
 
