@@ -45,7 +45,7 @@ function install_from_git {
 }
 
 current_status "linking dotfiles"
-dotfiles=(.ctags .bashrc .zshrc .gitconfig)
+dotfiles=(.ctags .bashrc .zshrc .zshenv .gitconfig)
 
 for file in ${dotfiles[@]}; do
     current_status "linking ${file}"

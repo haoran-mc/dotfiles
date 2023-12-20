@@ -5,40 +5,18 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-# environment prompt plugins user-configuration alias
-
-# environment #########################################
-export GOROOT=/usr/local/go
-export GOPATH=$HOME/go
-export GOBIN=$GOPATH/bin
-export PATH=$PATH:$GOBIN:$GOROOT/bin
-export GO111MODULE=on
-export GOPROXY=https://goproxy.io,direct
-# export GOPROXY=https://goproxy.cn
-
-# python
-export PYTHONPATH=/usr/bin/python3
-export PYENV_ROOT=/Users/haoran/.pyenv
-
-# java
-export JAVA_HOME=/usr/local/java/jdk1.8.0_201
-export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
-export PATH=$JAVA_HOME/bin:$PATH
-
-# lua
-export LUA_PATH="./?.lua;;"
+# prompt plugins user-configuration alias
 
 # nvim
-export PATH=$PATH:/usr/local/nvim-macos/bin
+export NVIM_PATH=/usr/local/nvim-macos
+export PATH=$PATH:$NVIM_PATH/bin:$PATH
 
 # 安装 emacs 时，需要 pyenv 依赖
-export PATH="${HOME}/.pyenv/shims:$PATH"
+export PATH=$HOME/.pyenv/shims:$PATH
 
 if [ -f ~/servicewall/secret.zsh ]; then
 	source ~/servicewall/secret.zsh
 fi
-
-export PATH=$PATH:/home/haoran/.local/bin
 
 # prompt ##############################################
 # Set name of the theme to load --- if set to "random", it will
