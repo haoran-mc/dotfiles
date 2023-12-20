@@ -26,6 +26,7 @@ return {
         "gopls",
         "lua_ls",
         "bashls",
+        "sqlls"
       },
       automatic_installation = true,
     })

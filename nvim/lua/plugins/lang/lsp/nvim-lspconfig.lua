@@ -194,6 +194,10 @@ return {
       capabilities = my_capabilities,
       on_attach = my_attach,
     })
+    require("lspconfig").sqlls.setup({
+      capabilities = my_capabilities,
+      on_attach = my_attach,
+    })
     require("lspconfig").pylsp.setup({
       capabilities = my_capabilities,
       on_attach = my_attach,

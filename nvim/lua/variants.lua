@@ -5,7 +5,8 @@ Variants.CodeFileTypeList = {
   "go",
   "lua",
   "python",
-  "sh"
+  "sh",
+  "sql"
 }
 -- 2. set ensure installed language server (plugins.lang.lsp.mason)
 -- 3. set ensure installed language parser (plugins.tools.treesitter)
