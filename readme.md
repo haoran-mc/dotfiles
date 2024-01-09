@@ -13,7 +13,7 @@ chmod +x ./install.sh
 
 **tools:**
 
-1. terminal: iterm2(mac), alacritty(linux)
+1. terminal: alacritty
 2. shell: zsh
 3. ripgrep instead grep
 4. fd instead find

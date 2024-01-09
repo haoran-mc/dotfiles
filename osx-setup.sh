@@ -1,39 +1,82 @@
 #!/bin/bash
 
-# https://github.com/nithinbekal/setup-scripts
+# Think you've already downloaded the softwares.
 
-# install homebrew - this will also install xcode command line tools
-ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+set -e
 
-brew install ctags git htop zsh vim macvim elixir
-brew install -q tmux reattach-to-user-namespace
+function current_status {
+    printf "\e[33m⭑\e[0m %s\n" "$1"
+}
 
-# use cask for installing GUI apps
-brew cask install iterm2 sublime-text --cask
+function link_file {
+    local src=$1 dst=$2
+    local date_str=$(date +%y%m%d%H%M)
 
-# git
-git config --global user.name "haoran"
-git config --global user.email "haoran.mc@outlook.com"
+    if [ -h "${dst}" ]; then
+        printf "info: removing existing symlink: %s\n\n" ${dst}
+        rm ${dst}
+    elif [ -f "${dst}" ]; then
+        printf "info: backing up existing file: %s\n\n" "${dst}"
+        mv ${dst}{,.${date_str}}
+    elif [ -d "${dst}" ]; then
+        printf "info: backing up existing dir: %s\n\n" "${dst}"
+        mv ${dst}{,.${date_str}}
+    fi
 
-# configure zsh
-touch ~/.env.local
-chsh -s /bin/zsh
-curl -L http://install.ohmyz.sh | sh
+    mkdir -p "$(dirname "${dst}")"
+    ln -sf "${src}" "${dst}"
+}
 
-# install RVM
-\curl -sSL https://get.rvm.io | bash -s stable
-rvm install ruby
+function install_from_repo {
+    local apps=$1
 
-# setup node.js
-curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.1/install.sh | bash
-nvm install 6.2
+    if [[ `uname` == 'Darwin' ]]; then
+        for app in ${apps[@]}; do
+            brew install $app
+        done
+    elif [[ `uname` == 'Linux' ]]; then
+        for app in ${apps[@]}; do
+            sudo yay -S "$1"
+        done
+    else
+        echo "unsupported os"
+    fi
+}
 
-# generate ssh keys
-mkdir -p ~/.ssh
-ssh-keygen -t rsa -C "haoran.mc@outlook.com"
+function install_from_git {
+}
 
-# set up postgresql
-brew install postgresql
-brew services start postgresql
-initdb --locale=C -E UTF-8 /opt/homebrew/var/postgresql
-# /opt/homebrew/opt/postgresql@14/bin/createuser -s postgres
+current_status "linking dotfiles"
+dotfiles=(.ctags .bashrc .zshrc .zshenv .gitconfig)
+
+for file in ${dotfiles[@]}; do
+    current_status "linking ${file}"
+    rm -f ~/$file
+    link_file ~/dotfiles/$file ~/$file
+done
+
+current_status "linking vim config"
+link_file ~/dotfiles/vim/.vimrc ~/.vimrc
+
+current_status "linking neovim config"
+link_file ~/dotfiles/nvim ~/.config/nvim
+
+current_status "installing neovim tools"
+install_from_repo (ripgrep fzf)
+# mason lazy sync
+
+current_status "installing ohmyzsh"
+if [ -d ~/.oh-my-zsh ]; then
+    current_status "found ~/.oh-my-zsh - skipping this step"
+else
+    sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+
+    current_status "installing zsh plugins"
+    plugins=(autojump zsh-autosuggestions zsh-syntax-highlighting)
+    install_from_repo "${plugins[*]}"
+fi
+
+current_status "installation successful 🚀"
+
+
+
