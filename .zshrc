@@ -6,10 +6,36 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 # prompt plugins user-configuration alias
+# zsh 文件加载顺序：.zshenv → .zprofile → .zshrc → .zlogin → .zlogout
+# 为了环境变量不被 .zprofile 覆盖，使用 .zshrc 存放环境变量
 
+# env ##############################################
 # nvim
 export NVIM_PATH=/usr/local/nvim-macos
-export PATH=$PATH:$NVIM_PATH/bin:$PATH
+export PATH=$PATH:$NVIM_PATH/bin
+
+# golang
+export GOROOT=/usr/local/go
+export GOPATH=$HOME/go
+export GOBIN=$GOPATH/bin
+export PATH=$PATH:$GOBIN:$GOROOT/bin
+export GO111MODULE=on
+export GOPROXY=https://goproxy.io,direct
+# export GOPROXY=https://goproxy.cn
+
+# python
+export PYTHONPATH=/usr/bin/python3
+export PYENV_ROOT=/Users/haoran/.pyenv
+
+# java
+export JAVA_HOME=/usr/local/java/jdk1.8.0_201
+export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
+export PATH=$JAVA_HOME/bin:$PATH
+
+# lua
+export LUA_PATH="./?.lua;;"
+
+export PATH=$PATH:/home/haoran/.local/bin
 
 # 安装 emacs 时，需要 pyenv 依赖
 export PATH=$HOME/.pyenv/shims:$PATH
@@ -151,7 +177,7 @@ alias la='lsd -all'
 alias c='clear'
 alias gg='git clone'
 alias lg='lazygit'
-alias n='nvim'
+# alias n='nvim'
 alias e='emacs -nw'
 alias q='exit'
 
