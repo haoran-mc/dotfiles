@@ -11,7 +11,7 @@ selection:
 window:
   opacity: 1
   # Windowed Maximized Fullscreen SimpleFullscreen
-  startup_mode: Maximized
+  startup_mode: Windowed
   # Window
   # 窗口尺寸
   # dimensions:
@@ -21,8 +21,17 @@ window:
   # position:
   #   x: 100
   #   y: 0
-  # 窗口的外边框，buttonless: 标题栏，透明背景，但没有标题栏按钮
-  decorations: None
+
+  # Values for `decorations`:
+  #     - full: Borders and title bar
+  #     - none: Neither borders nor title bar
+  #
+  # Values for `decorations` (macOS only):
+  #     window will only controled by magnet after using the below two values
+  #     - transparent: Title bar, transparent background and title bar buttons
+  #     - buttonless: Title bar, transparent background, but no title bar buttons
+  decorations: buttonless
+
   # 动态内边距
   dynamic_padding: false
   # 窗口内边距
