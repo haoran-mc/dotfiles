@@ -1,0 +1,101 @@
+# https://github.com/alacritty/alacritty-theme
+# import = [
+#     "~/.config/alacritty/themes/themes/tomorrow_night_bright.toml"
+# ]
+
+# https://alacritty.org/config-alacritty.html
+live_config_reload = true # 自动刷新
+
+[env]
+TERM = "alacritty"
+
+[selection]
+semantic_escape_chars = ",│`|:\"' ()[]{}<>	"
+save_to_clipboard     = true
+
+
+[window]
+opacity      = 1
+
+# Windowed Maximized Fullscreen SimpleFullscreen
+startup_mode = "Windowed"
+
+# Values for `decorations`:
+#     - full: Borders and title bar
+#     - none: Neither borders nor title bar
+#
+# Values for `decorations` (macOS only):
+#     window will only controled by magnet after using the below two values
+#     - transparent: Title bar, transparent background and title bar buttons
+#     - buttonless: Title bar, transparent background, but no title bar buttons
+decorations  = "buttonless"
+
+# 窗口内边距
+padding      = { x = 4, y = 9 }
+
+
+[font]
+size     = 12
+# https://github.com/alacritty/alacritty/issues/4616#issuecomment-1236413444
+# defaults write -g AppleFontSmoothing -int 2
+# AppleFontSmoothing  = true
+
+[font.normal]
+family   = "JetBrainsMono Nerd Font"
+style    = "Regular"
+
+[font.italic]
+family   = "JetBrainsMono Nerd Font"
+style    = "Italic"
+
+[font.bold]
+family   = "JetBrainsMono Nerd Font"
+style    = "Bold"
+
+[font.bold_italic]
+family   = "JetBrainsMono Nerd Font"
+style    = "Bold Italic"
+
+
+[cursor.style]
+# 光标形状 ▇ Block _ Underline | Beam
+shape      = "Block"
+
+# 光标闪烁状态
+# - Never: Prevent the cursor from ever blinking
+# - Off: Disable blinking by default
+# - On: Enable blinking by default
+# - Always: Force the cursor to always blink
+blinking   = "Off"
+
+[scrolling]
+history    = 10000
+multiplier = 3
+
+[mouse]
+hide_when_typing = false
+  
+
+# [colors.primary]
+# foreground = '0xeeeeec'
+
+# [colors.normal]
+# black   = '0x2e3436'
+# red     = '0xcc0000'
+# green   = '0x73d216'
+# yellow  = '0xedd400'
+# blue    = '0x3465a4'
+# magenta = '0x75507b'
+# cyan    = '0x06989a'
+# white   = '0xd3d7cf'
+
+# [colors.bright]
+# black   = '0x2e3436'
+# red     = '0xef2929'
+# green   = '0x8ae234'
+# yellow  = '0xfce94f'
+# blue    = '0x729fcf'
+# magenta = '0xad7fa8'
+# cyan    = '0x34e2e2'
+# white   = '0xeeeeec'
+
