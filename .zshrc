@@ -40,6 +40,9 @@ export PATH=$PATH:/home/haoran/.local/bin
 # 安装 emacs 时，需要 pyenv 依赖
 export PATH=$HOME/.pyenv/shims:$PATH
 
+# 取消 tldr 自动更新
+export TLDR_AUTO_UPDATE_DISABLED=true
+
 if [ -f ~/servicewall/secret.zsh ]; then
 	source ~/servicewall/secret.zsh
 fi
@@ -190,12 +193,6 @@ alias man='tldr'
 alias ping='gping'
 # alias ps='procs'
 alias tree='broot'
-
-alias haorancat='cat'
-alias haoranman='man'
-alias haoranping='ping'
-# alias haoranps='ps'
-alias haorantree='tree'
 
 
 # Generated for envman. Do not edit.
