@@ -108,8 +108,8 @@ setopt HIST_IGNORE_DUPS
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
     vi-mode
-    git
-    autojump
+    # git
+    # autojump
     zsh-autosuggestions 
     zsh-syntax-highlighting
     zsh-history-substring-search
