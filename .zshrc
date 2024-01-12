@@ -173,8 +173,9 @@ fi
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
-alias l='exa -a'
-alias ll='exa -l -U --icons --octal-permissions -b -h -i --time-style long-iso'
+alias l='eza -a'
+alias ll='eza -l -U --icons --octal-permissions -b -h -i --time-style long-iso'
+alias lt='eza -l -U --icons --octal-permissions -b -h -i --time-style long-iso --sort=created --reverse'
 alias la='lsd -all'
 
 alias c='clear'
@@ -189,7 +190,7 @@ alias pm='python main.py'
 alias lm='lua main.lua'
 
 alias cat='bat'
-alias man='tldr'
+# alias man='tldr'
 alias ping='gping'
 # alias ps='procs'
 alias tree='broot'
