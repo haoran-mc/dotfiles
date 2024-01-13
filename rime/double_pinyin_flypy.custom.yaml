@@ -1,11 +1,34 @@
+# Rime schema
+# encoding: utf-8
+
 patch:
+  # 开关
   switches:
     - name: ascii_mode
-      states: ["中文", "西文"]
+      reset: 1                  # 默认西文
+      states: ["中", "A"]
     - name: full_shape
-      states: ["半角", "全角"]
+      states: ["半角", "全角"]  # 默认半角
     - name: simplification
       reset: 1                  # 默认简体
-      states: ["漢字", "汉字"]
+      states: ["繁", "简"]
     - name: ascii_punct
       states: ["。，", "．，"]
+
+  # 标点符号
+  # punctuator 下面有三个子项：
+  #   full_shape 全角标点映射
+  #   half_shape 半角标点映射
+  #   symbols    Rime 的预设配置是以 '/' 前缀开头输出一系列字符，自定义的 symbols_caps_v.yaml 修改成了 'V' 开头。
+  punctuator:
+    half_shape:
+      __include: default:/punctuator/half_shape  # 从 default.yaml 导入配置
+
+  # 处理符合特定规则的输入码，如网址、邮箱
+  recognizer:
+    import_preset: default  # 从 default.yaml 继承通用的
+
+  # 从 default 继承快捷键
+  key_binder:
+    import_preset: default  # 从 default.yaml 继承通用的
+    # bindings:             # 也可以再增加方案专有的
