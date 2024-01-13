@@ -1,0 +1,50 @@
+# Squirrel settings
+# encoding: utf-8
+#
+# squirrel[.custom].yaml 是鼠须管的前端配置文件，小狼毫是 weasel[.custom].yaml
+# 各平台皮肤配置并不一致。
+#
+# 鼠须管内置皮肤展示： https://github.com/NavisLab/rime-pifu
+# 鼠须管界面配置指南： https://github.com/LEOYoon-Tsaw/Rime_collections/blob/master/鼠鬚管介面配置指南.md
+# 鼠须管作者写的图形化的皮肤设计器： https://github.com/LEOYoon-Tsaw/Squirrel-Designer
+
+patch:
+  # 主题方案
+  style/color_scheme: cleanwhite
+  style/color_scheme_dark: macos_dark
+
+  # 候选词字体
+  style/font_face: "Zpix"
+  style/corner_radius: 5                          # 窗口圆角
+  style/hilited_corner_radius: 5                  # 高亮圆角
+  style/font_point: 20                            # 候选字大小
+  style/label_font_point: 16                      # 候选编号大小
+
+  # 预设选项。如果皮肤没写，则使用这些属性；如果皮肤写了，使用皮肤的。
+  style/text_orientation: horizontal  # 文字排列方向 horizontal | vertical
+  style/candidate_list_layout: linear # 候选项排列方向 stacked | linear
+  style/inline_preedit: false         # 拼音位于：候选框 false | 行内 true
+
+
+  preset_color_schemes:
+    cleanwhite:
+      name: 简约白／Clean White
+      author: Chongyu Zhu <lembacon@gmail.com>, based on 搜狗「简约白」
+      horizontal: true                # 水平排列
+      candidate_format: '%c %@'
+      corner_radius: 6                # 窗口圆角
+      border_height: 6                # 外边框 高
+      border_width: 6                 # 外边框 宽
+      font_point: 16                  # 候选字大小
+      label_font_point: 12            # 候选编号大小
+      inline_preedit: false           # 拼音位于：候选框 false | 行内 true
+      spacing: 0                      # 拼音与候选项之间的距离 （inline_preedit: false）
+      label_color: 0x888888
+      text_color: 0x808080
+      hilited_text_color: 0x000000
+      candidate_text_color: 0x000000
+      comment_text_color: 0x808080
+      back_color: 0xeeeeee
+      hilited_candidate_label_color: 0xa0c98915
+      hilited_candidate_text_color: 0xc98915
+      hilited_candidate_back_color: 0xeeeeee
