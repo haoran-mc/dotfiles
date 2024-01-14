@@ -16,19 +16,27 @@ patch:
       states: ["。，", "．，"]
 
   # 标点符号
-  # punctuator 下面有三个子项：
-  #   full_shape 全角标点映射
-  #   half_shape 半角标点映射
-  #   symbols    Rime 的预设配置是以 '/' 前缀开头输出一系列字符，自定义的 symbols_caps_v.yaml 修改成了 'V' 开头。
+  # half_shape 半角标点映射
+  # symbols    Rime 预设配置是以 '/' 前缀开头输出一系列字符，自定义的 symbols_caps_s.yaml 修改成了 'S' 开头
   punctuator:
     half_shape:
       __include: default:/punctuator/half_shape  # 从 default.yaml 导入配置
+    symbols:
+      __include: symbols_caps_s:/symbols         # 从 symbols_caps_s.yaml 导入配置
 
   # 处理符合特定规则的输入码，如网址、邮箱
   recognizer:
     import_preset: default  # 从 default.yaml 继承通用的
+    patterns:  # 再增加方案专有的：
+      punct: "^S([0-9]|10|[A-Za-z]+)$"  # 响应 symbols_caps_s.yaml 的 symbols
 
   # 从 default 继承快捷键
   key_binder:
     import_preset: default  # 从 default.yaml 继承通用的
     # bindings:             # 也可以再增加方案专有的
+
+__patch:
+# Rx: emoji:customize:schema=luna_pinyin_simp {
+  - patch/+:
+      __include: emoji_suggestion:/patch
+# }
