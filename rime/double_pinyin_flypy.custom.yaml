@@ -15,6 +15,44 @@ patch:
     - name: ascii_punct
       states: ["。，", "．，"]
 
+  engine:
+    processors:
+      - ascii_composer
+      - recognizer
+      - key_binder
+      - speller
+      - punctuator
+      - selector
+      - navigator
+      - express_editor
+    segmentors:
+      - ascii_segmentor
+      - matcher
+      - abc_segmentor
+      - punct_segmentor
+      - fallback_segmentor
+    translators:
+      - punct_translator
+      - reverse_lookup_translator
+      - script_translator
+      - table_translator@custom_phrase   # 自定义短语 custom_phrase.txt
+    filters:
+      - "simplifier@emoji_suggestion"    # Emoji
+      - simplifier
+      - uniquifier
+
+  # 自定义短语
+  custom_phrase:
+    dictionary: ""
+    user_dict: custom_phrase
+    db_class: stabledb
+    enable_completion: false # 补全提示
+    enable_sentence: false   # 禁止造句
+    initial_quality: 99      # 给予 custom_phrase 更大的权重
+
+
+  ############################################
+
   # 标点符号
   # half_shape 半角标点映射
   # symbols    Rime 预设配置是以 '/' 前缀开头输出一系列字符，自定义的 symbols_caps_s.yaml 修改成了 'S' 开头
