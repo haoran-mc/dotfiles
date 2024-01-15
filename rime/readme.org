@@ -1,1 +1,20 @@
+
+
+
 - [[https://haoran-mc.github.io/231227-RIME.html][Rime]] :: 什么是 Rime、Rime 的使用；
+
+
+
+#+begin_example
+  .
+  ├── default.yaml                     # 入口配置
+  ├── double_pinyin_flypy.schema.yaml  # 小鹤双拼
+  ├── squirrel.custom.yaml             # 鼠须管客制化
+  └── symbols_caps_s.yaml              # 双拼 symbols
+#+end_example
+
+
+
+*特性：*
+
+- symbols：双拼使用大写 V 开头，使用空格 Space 上屏；
