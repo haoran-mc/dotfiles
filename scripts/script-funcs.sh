@@ -39,5 +39,5 @@ function __install_from_repo {
     fi
 }
 
-function __install_from_git {
-}
+# function __install_from_git {
+# }
