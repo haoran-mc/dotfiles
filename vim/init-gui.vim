@@ -4,11 +4,11 @@ set background=dark
 " color jellybeans
 color molokai
 
-set guifont=Fira\ Code:h10.2
+set guifont=JetBrainsMono\ Nerd\ Font:h10.5
 
-winpos 1220 110
-set lines=55 columns=190
-set transparency=20
+winpos 1220 145
+set lines=49 columns=155
+" set transparency=20
 
 
 set guicursor=n:block-blinkoff0,i:block-iCursor-blinkoff0,v:block-blinkoff0
