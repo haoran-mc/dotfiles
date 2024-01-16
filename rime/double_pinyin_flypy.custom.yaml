@@ -16,30 +16,30 @@ patch:
       states: ["。，", "．，"]
 
   engine:
-    processors:
-      - ascii_composer
-      - recognizer
-      - key_binder
-      - speller
-      - punctuator
-      - selector
-      - navigator
-      - express_editor
-    segmentors:
-      - ascii_segmentor
-      - matcher
-      - abc_segmentor
-      - punct_segmentor
-      - fallback_segmentor
-    translators:
-      - punct_translator
-      - reverse_lookup_translator
-      - script_translator
+    processors:          # 这批组件处理按键消息
+      - ascii_composer   # 处理西文模式及中西文切换
+      - recognizer       # 与 segmentors 中的 matcher 搭配，处理符合特定规则的输入码，如网址、反查等
+      - key_binder       # 在特定条件下将按键绑定到其他按键，如重定义逗号、句号与候选翻页、开关快捷键等
+      - speller          # 拼写处理器，接受字符按键，编辑输入
+      - punctuator       # 句读处理器，将单个字符快捷键直接映射为标点符号或文字
+      - selector         # 选字处理器，处理数字选字键〔可以换成其他〕、上、下定位候选、换页
+      - navigator        # 处理输入栏内部的移动
+      - express_editor   # 编辑器，处理空格、回车上屏、回退键
+    segmentors:              # 这批组件识别不用的内容类型，将输入码分段并加上 tag
+      - ascii_segmentor      # 标识西文段落〔比喻如在西文模式下〕字母直接上屛
+      - matcher              # 与 processors 中的 recognizer 搭配，处理符合特定规则的输入码，如网址、反查等
+      - abc_segmentor        # 符号惯用的文字段落，加上abc这个tag
+      - punct_segmentor      # 符号句读句子〔键入标点符号用〕加上punct这个tag
+      - fallback_segmentor   # 其他标识未标识文字
+    translators:                         # 这批组件翻译特定类型的编码段为一组候选字
+      - punct_translator                 # 配合punct_segmentor转换标点符号
+      - reverse_lookup_translator        # 反查翻译器，用另一种编码方案查码
+      - script_translator                # 脚本翻译器，用于拼音、粤拼等基于音节表的输入方案
       - table_translator@custom_phrase   # 自定义短语 custom_phrase.txt
-    filters:
+    filters:                             # 这批组件过滤转换的结果
       - "simplifier@emoji_suggestion"    # Emoji
-      - simplifier
-      - uniquifier
+      - simplifier                       # 使用字转换
+      - uniquifier                       # 过滤的重复候选字，有可能来自simplifier
 
   # 自定义短语
   custom_phrase:
