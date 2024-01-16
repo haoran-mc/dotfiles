@@ -5,16 +5,19 @@ patch:
   # 开关
   switches:
     - name: ascii_mode
-      reset: 1                  # 默认西文
       states: ["中", "A"]
-    - name: full_shape
-      states: ["半角", "全角"]  # 默认半角
-    - name: simplification
-      reset: 1                  # 默认简体
+      reset: 1                  # 默认西文
+    - name: simplification      # 只能这个名字
       states: ["繁", "简"]
-    - name: ascii_punct
-      states: ["。，", "．，"]
+      reset: 1                  # 默认简体
+    - name: full_shape
+      states: ["半角", "全角"]
+      reset: 0                  # 默认半角
+    - name: emoji_suggestion    # 要和下面 simplifier 的 option_name 保持一致
+      states: [ "🈚️️", "🈶️️" ]
+      reset: 1
 
+  # 引擎
   engine:
     processors:          # 这批组件处理按键消息
       - ascii_composer   # 处理西文模式及中西文切换
@@ -37,8 +40,8 @@ patch:
       - script_translator                # 脚本翻译器，用于拼音、粤拼等基于音节表的输入方案
       - table_translator@custom_phrase   # 自定义短语 custom_phrase.txt
     filters:                             # 这批组件过滤转换的结果
-      - "simplifier@emoji_suggestion"    # Emoji
-      - simplifier                       # 使用字转换
+      - simplifier@emoji_suggestion      # Emoji，要和下面 Emoji 的 option_name 保持一致
+      - simplifier                       # 简繁转换
       - uniquifier                       # 过滤的重复候选字，有可能来自simplifier
 
   # 自定义短语
@@ -49,6 +52,11 @@ patch:
     enable_completion: false # 补全提示
     enable_sentence: false   # 禁止造句
     initial_quality: 99      # 给予 custom_phrase 更大的权重
+
+  # Emoji，要和 switches、engine 中的配置保持一致
+  emoji_suggestion:
+    opencc_config: emoji.json
+    option_name: emoji_suggestion
 
 
   ############################################
@@ -73,8 +81,3 @@ patch:
     import_preset: default  # 从 default.yaml 继承通用的
     # bindings:             # 也可以再增加方案专有的
 
-__patch:
-# Rx: emoji:customize:schema=luna_pinyin_simp {
-  - patch/+:
-      __include: emoji_suggestion:/patch
-# }

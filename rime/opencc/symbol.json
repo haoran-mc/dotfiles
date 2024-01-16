@@ -1,0 +1,23 @@
+{
+  "name": "Chinese to Symbol",
+  "segmentation": {
+    "type": "mmseg",
+    "dict": {
+      "type": "text",
+      "file": "symbol_word.txt"
+    }
+  },
+  "conversion_chain": [
+    {
+      "dict": {
+        "type": "group",
+        "dicts": [
+          {
+            "type": "text",
+            "file": "symbol_word.txt"
+          }
+        ]
+      }
+    }
+  ]
+}
