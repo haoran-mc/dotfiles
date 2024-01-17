@@ -74,8 +74,7 @@ patch:
   recognizer:
     import_preset: default  # 从 default.yaml 继承通用的
     patterns:  # 再增加方案专有的：
-      punct: "^S([0-9]|10|[A-Za-z]+)$"  # 响应 symbols.yaml 的 symbols
-      punct: "^B([0-9]|10|[A-Za-z]+)$"  # 响应 symbols.yaml 的 symbols
+      punct: "^(S|B)([0-9]|10|[A-Za-z]+)$"  # 响应 symbols.yaml 的 symbols
 
   # 从 default 继承快捷键
   key_binder:
