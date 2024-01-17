@@ -1,34 +1,36 @@
-
-
-
-- [[https://haoran-mc.github.io/231227-RIME.html][Rime]] :: 什么是 Rime、Rime 的使用；
-
+- [[https://haoran-mc.github.io/231227-RIME.html][Rime]]：Rime 及 Rime 的使用；
 
 
 #+begin_example
   .
+  ├── opencc/                          # 自定义短语
+  ├── custom_phrase.txt                # 自定义短语
   ├── default.yaml                     # 入口配置
   ├── double_pinyin_flypy.schema.yaml  # 小鹤双拼
+  ├── rime-setup.sh                    # 简单的安装脚本
   ├── squirrel.custom.yaml             # 鼠须管客制化
-  └── symbols_caps_s.yaml              # 双拼 symbols
+  └── symbols.yaml                     # emojis
 #+end_example
-
 
 
 *特性：*
 
-- symbols：双拼使用大写 S 开头，使用空格 Space 上屏；
-- emacs 快捷键：C-n C-p 翻页、C-b C-f 切光标；
-- 自定义短语 custom_phrase.txt（最高的权重）
-- opencc
-- [ ] 删词、降权
-- [ ] 添加字典，使用简体词库，而不是Rime自带的「明月拼音·简化字」方案（是繁体词库加上一个自动繁转简的设定，由OpenCC转换，用户词典中保存的输入历史还是繁体的）
-- [ ] 同步
-- [ ] 排序
-- [ ] 皮肤
-- [ ] 直接schema，不custom
+- ☑ symbols：双拼使用大写 S 开头，使用空格 Space 上屏（TODO 是否考虑使用 ~/~ 引入 symbols？是否可以使用 Enter 直接上屏？）；
+- ☑ emacs 快捷键：C-n C-p 翻页、C-b C-f 移动光标；
+- ☑ custom_phrase.txt 自定义短语（最高的权重）
+- ☑ opencc 自定义短语携带 symbols
+- ☐ 删词、降权
+- ☐ 添加字典，使用简体词库，而不是Rime自带的「明月拼音·简化字」方案（是繁体词库加上一个自动繁转简的设定，由OpenCC转换，用户词典中保存的输入历史还是繁体的）
+- ☐ 同步
+- ☐ 排序
+- ☐ 皮肤
+- ☐ 直接schema，不custom
 
 
-*输入法理念:*
-- 快速、简洁、易扩展！
-- 不过度配置，不考虑中文输入情况下的英文输入
+*设计输入法理念:*
+- 快速、简洁、易理解、易扩展！
+- 不过度配置，不考虑中文输入下的英文输入；
+- 输入是一件很快乐的事情，不要让过多的输入规则打断敲击思绪；
+
+
+[[file:flypy.jpeg]]
