@@ -1,0 +1,115 @@
+# Rime dictionary
+# encoding: utf-8
+#
+# ice: https://github.com/iDvel/rime-ice
+# clover: https://github.com/fkxxyz/rime-cloverpinyin
+#
+# - 权重由上到下
+# - 单字没必要多个词典，一般词典都能把常用单字收纳完全
+# - version 项是必填的
+
+
+---
+name: rime_ice
+version: "2024.01"
+import_tables:
+  # ice
+  - cn_dicts/ice/8105              # ice 单字
+  - cn_dicts/ice/base              # ice 词组
+  # - cn_dicts/ice/41448           # ice 大字表（我不需要）
+  - cn_dicts/ice/ext               # ice 扩展词库
+  - cn_dicts/ice/tencent           # ice 腾讯词向量（大词库，部署时间较长）
+  - cn_dicts/ice/others            # ice 一些杂项
+
+  # clover 四叶草
+  # - cn_dicts/clover/clover.base  # clover 单字
+  - cn_dicts/clover/clover.phrase  # clover 词组
+
+  # thuocl
+  - cn_dicts/thuocl/THUOCL_IT            # IT 类词汇
+  - cn_dicts/thuocl/THUOCL_caijing       # 财经词汇
+  - cn_dicts/thuocl/THUOCL_chengyu       # 成语词汇
+  - cn_dicts/thuocl/THUOCL_diming        # 地名
+  - cn_dicts/thuocl/THUOCL_animal        # 动物
+  - cn_dicts/thuocl/THUOCL_car           # 汽车
+  - cn_dicts/thuocl/THUOCL_food          # 食物
+  - cn_dicts/thuocl/THUOCL_law           # 法律
+  - cn_dicts/thuocl/THUOCL_lishimingren  # 历史人名
+  - cn_dicts/thuocl/THUOCL_medical       # 药物
+  - cn_dicts/thuocl/THUOCL_poem          # 诗
+
+  # luna_pinyin extend
+  - cn_dicts/extend/luna_pinyin.zhuanye  # 专业术语，地理，法律，军事，天文，物理，数学
+
+  # others...
+  # - cn_dicts/mywords/changyong     # 我的常用
+...
+
+# 按需启用：
+
+# # 大写字母
+# # 可在拼音方案下直接输入大写字母（Shift + 字母），大写字母参与造句。
+# # 示例：输入 `nihaoASDFzaijian` 得到 `你好ASDF再见`
+# # （非雾凇方案的双拼如果要启用，需要参考双拼方案下的 speller/algebra 将大写字母搭桥改成一些特殊字符）
+# A	A
+# B	B
+# C	C
+# D	D
+# E	E
+# F	F
+# G	G
+# H	H
+# I	I
+# J	J
+# K	K
+# L	L
+# M	M
+# N	N
+# O	O
+# P	P
+# Q	Q
+# R	R
+# S	S
+# T	T
+# U	U
+# V	V
+# W	W
+# X	X
+# Y	Y
+# Z	Z
+
+# # 数字参与中文造词，方便输入一些特殊的 ID。配合大写字母造词可以自动为 `5G网络`，`3D打印` 等词汇注音
+# 0	ling
+# 1	yi
+# 1	yao
+# 2	er
+# 3	san
+# 4	si
+# 5	wu
+# 6	liu
+# 7	qi
+# 8	ba
+# 9	jiu
+# # 示例：输入 siSdian 得到 4S店
+# 3G
+# 4G
+# 5G
+# 3G网络
+# 4G网络
+# 5G网络
+# 3G流量
+# 4G流量
+# 5G流量
+# 2D
+# 3D
+# 4D
+# 3D打印
+# 2D电影
+# 3D电影
+# 4S店
+# AE86
+# M1
+# M2
+# M3
+# M4
+# M4A1
