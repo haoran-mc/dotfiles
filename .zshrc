@@ -203,7 +203,7 @@ alias cat='bat'
 # alias man='tldr'
 alias ping='gping'
 # alias ps='procs'
-alias tree='broot'
+# alias tree='broot'
 
 
 # Generated for envman. Do not edit.
