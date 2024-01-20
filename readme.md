@@ -3,8 +3,8 @@
 ```
 git clone --depth 1 git@github.com:haoran-mc/dotfiles.git ~/dotfiles
 cd ~/dotfiles
-chmod +x ./install.sh
-./install.sh
+chmod +x ./osx-setup.sh
+./osx-setup.sh
 ```
 
 - neovim for code
@@ -15,9 +15,9 @@ chmod +x ./install.sh
 
 1. terminal: alacritty
 2. shell: zsh
-3. ripgrep instead grep
-4. fd instead find
-5. bat instead cat
+3. grep → ripgrep
+4. find → fd
+5. cat → bat
 6. fzf
 7. tldr
 

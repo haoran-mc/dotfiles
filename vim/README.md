@@ -12,5 +12,10 @@ cp ~/dotfiles/vim/colors/snazzy.vim ~/.vim/colors/
 ```
 
 
+<!--
+```
+:PlugInstall
+```
+-->
 
 
