@@ -9,7 +9,7 @@ set visualbell t_vb=     " 关闭错误的提示（闪烁）
 set nowrap               " 禁止折行
 set scrolloff=5          " 光标距底行最小距离
 set wildmenu             " vim自身命名行模式智能补全
-set mouse-=a             " 禁止使用鼠标
+" set mouse-=a             " 禁止使用鼠标
 set clipboard=unnamed    " vim 剪切板
 set shell=bash           " 使用 bash 作为默认 shell 环境
 set history=1000         " 保存历史命令行数
