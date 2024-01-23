@@ -17,5 +17,7 @@ if [[ `uname` == 'Darwin' ]]; then
 elif [[ `uname` == 'Linux' ]]; then
     __link_file ~/dotfiles/rime/default.custom.yaml ~/.config/ibus/rime/default.custom.yaml
     __link_file ~/dotfiles/rime/double_pinyin_flypy.custom.yaml ~/.config/ibus/rime/double_pinyin_flypy.custom.yaml
-    __link_file ~/dotfiles/rime/symbols_caps_s.yaml ~/.config/ibus/rime/symbols_caps_s.yaml
+    __link_file ~/dotfiles/rime/symbols.yaml ~/.config/ibus/rime/symbols.yaml
+    __link_file ~/dotfiles/rime/custom_phrase.txt ~/.config/ibus/rime/custom_phrase.txt
+    __link_file ~/dotfiles/rime/opencc ~/.config/ibus/rime/opencc
 fi

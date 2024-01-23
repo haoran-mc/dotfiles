@@ -164,6 +164,9 @@ if [[ "$OSTYPE" = darwin* ]]; then
     alias vim='open -a MacVim $1'
 elif [[ "$OSTYPE" = linux-gnu* ]]; then
     # echo "I'm Linux"
+    export GTK_IM_MODULE=ibus
+    export XMODIFIERS=@im=ibus
+    export QT_IM_MODULE=ibus
 else
     echo "unknow os"
 fi

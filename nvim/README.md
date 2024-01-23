@@ -1,12 +1,15 @@
 =======> [NEOVIM](https://haoran-mc.github.io/231105-neovim.html)
 
 
-| plugin               | key        |
-|----------------------|------------|
-| vim-interestingwords | <leader>k  |
-| hop.nvim             | <leader>fw |
-| flash.nvim           | /          |
-| symbols-outline.nvim | <leader>cs |
+| plugin                            | key        |
+|-----------------------------------|------------|
+| vim-interestingwords              | <leader>k  |
+| hop.nvim                          | <leader>fw |
+| flash.nvim                        | /          |
+| symbols-outline.nvim              | <leader>cs |
+| comment.nvim                      | <A-;>      |
+| SavePositionAndCallLspDefinitions | <A-.>      |
+| PopPositionAndJumpBack            | <A-,>      |
 
 
 ```
