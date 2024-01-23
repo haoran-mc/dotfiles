@@ -2,19 +2,19 @@
 
 set -e
 
+source ./scripts/script-funcs.sh
 
 ### install softwares
-sudu yay -S repgrep fzf
+yay -S repgrep fzf
 # go nvm nodejs
 
 
 ### dotfiles
 __current_status "linking dotfiles"
-dotfiles=(.ctags .bashrc .zshrc .gitconfig)
+dotfiles=(.ctags .bashrc .zshrc .gitconfig .xprofile)
 
 for file in ${dotfiles[@]}; do
     __current_status "linking ${file}"
-    rm -f ~/$file
     __link_file ~/dotfiles/$file ~/$file
 done
 
