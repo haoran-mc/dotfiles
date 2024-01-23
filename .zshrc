@@ -110,7 +110,7 @@ plugins=(
     vi-mode
     # git
     # autojump
-    zsh-autosuggestions 
+    zsh-autosuggestions
     zsh-syntax-highlighting
     zsh-history-substring-search
 )
@@ -176,7 +176,7 @@ export LESS_TERMCAP_us=$'\e[01;37m'    # begin underline
 export LESS_TERMCAP_me=$'\e[0m'        # reset bold/blink
 export LESS_TERMCAP_se=$'\e[0m'        # reset reverse video
 export LESS_TERMCAP_ue=$'\e[0m'        # reset underline
-export GROFF_NO_SGR=1  
+export GROFF_NO_SGR=1
 
 # alias ###############################################
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
@@ -192,7 +192,7 @@ alias c='clear'
 alias gg='git clone'
 alias lg='lazygit'
 # alias n='nvim'
-alias e='emacs -nw'
+alias e='emacsclient -n'
 alias q='exit'
 
 alias gm='go run main.go'
