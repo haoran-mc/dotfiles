@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Download softwares
+########### 1. Download softwares
 
 # https://github.com/nithinbekal/setup-scripts
 
@@ -45,7 +45,7 @@ initdb --locale=C -E UTF-8 /opt/homebrew/var/postgresql
 # vimac -> homerow
 
 
-# Think you've already downloaded the softwares.
+########### 2. Think you've already downloaded the softwares.
 
 set -e
 
@@ -83,5 +83,10 @@ fi
 
 current_status "installation successful 🚀"
 
+
+########### 3. Record the data to be migrated
+
+# push repository commit
+# rime data
 
 
