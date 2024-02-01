@@ -113,6 +113,7 @@ plugins=(
     zsh-autosuggestions
     zsh-syntax-highlighting
     zsh-history-substring-search
+    wakatime
 )
 # git: support git aliases
 # autojump: j for quick jump
