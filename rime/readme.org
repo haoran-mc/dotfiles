@@ -45,4 +45,4 @@
 
 小鹤双拼：
 
-[[file:flypy.jpeg]]
+[[file:resources/flypy.jpeg]]

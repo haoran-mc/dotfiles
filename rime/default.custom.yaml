@@ -5,6 +5,9 @@ patch:
   # 方案列表
   schema_list:
     - schema: double_pinyin_flypy  # 使用小鹤双拼
+    - schema: tiger
+    # - schema: tigress
+    # - schema: PY_c
 
   # 菜单
   menu:

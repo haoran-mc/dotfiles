@@ -1,0 +1,194 @@
+schema:
+  author:
+    - {}
+  dependencies:
+    - core2022     # 自定义字集工具方案
+    - PY_c         # 拼音方案
+    - easy_english # 英文
+  name: "虎码单字"
+  schema_id: tiger
+  version: 0.9
+
+
+switches:
+  - name: ascii_mode
+    states: [ "中文", "A" ] 
+    reset: 1                    # 默认英文
+  - name: simplification
+    states: [ "简", "繁" ]
+    reset: 0                    # 默认简体
+  - name: full_shape
+    states: [ "半角", "全角" ]
+    reset: 0                    # 默认半角
+  - name: extended_char
+    states: [ "全字集", "常用字" ]
+    reset: 1                    # 默认常用字
+  - name: pinyin # 拼音注释
+    states: [ "拼", "pīn" ]
+    reset: 0                    # 默认关闭 pinyin
+  - name: emoji_cn
+    states: [ 🈚, 🈶 ]
+    reset: 0                    # 默认关闭 emoji
+  - name: chaifen
+    states: [ "拆隐", "拆显" ]  
+    reset: 0                    # 默认不示拆字
+
+engine:
+  processors:
+    - ascii_composer
+    - recognizer
+    - key_binder
+    - speller
+    - punctuator
+    - selector
+    - navigator
+    - express_editor
+  segmentors:
+    - ascii_segmentor
+    - matcher
+    - affix_segmentor@easy_english # 英文相关
+    - abc_segmentor
+    - punct_segmentor
+    - fallback_segmentor
+  translators:
+    - punct_translator
+    - reverse_lookup_translator            # 拼音反查
+    - table_translator
+    - table_translator@easy_english        # 临时英文
+    - table_translator@custom_phrase       # 自定义短语 custom_phrase.txt
+    - lua_translator@number_translator     # 数字转大写
+    - lua_translator@calculator_translator # 简易计算器
+    - lua_translator@shijian2_translator   # 高级时间
+
+
+  filters:
+    - lua_filter@core2022  # 自定义字集过滤lua；放在最上面完美解决简繁滤镜出错的问题
+    - simplifier@simplification  # 简繁注释
+    - simplifier@pinyin    # 拼音注释
+    - simplifier@chaifen   # 拆分注释
+    - simplifier@emoji_cn  # 表情注释
+    - uniquifier           # 过滤重复
+
+# 自定义短语
+custom_phrase:
+  dictionary: ""
+  user_dict: custom_phrase
+  db_class: stabledb
+  enable_completion: false # 补全提示
+  enable_sentence: false   # 禁止造句
+  initial_quality: 99      # 给予 custom_phrase 更大的权重
+
+speller:
+  auto_clear: max_length # 3种选择， manual|auto|max_length 空码按下一键确认清屏|空码自动清|达到最长码时后码顶上清屏
+  auto_select: true
+  max_code_length: 4
+  alphabet: "[;'zyxwvutsrqponmlkjihgfedcba]"
+  # initials: "abcdefghijklmnopqrstuvwxyz;'"
+  auto_select_pattern: ^;\w+ #自动上屏规则  对 [;] 引导的编码实行候选唯一自动上屏
+  # 若要添加四码上屏功能，在  ^;\w+ 后面 加上  |^\w{4}$  即可
+
+translator:
+  dictionary: tiger
+  enable_charset_filter: false
+  enable_encoder: false
+  enable_sentence: false
+  encode_commit_history: false
+  # max_phrase_length: 4
+  enable_user_dict: false
+  enable_completion: false	# 编码提示 true 开启  false 关闭
+  comment_format:  #提示码自定义
+    - "xform/~/ /" #去掉编码提示前的~号
+    # - "xform/^/ /" #提示前面 +间距
+
+
+# 拼音反查
+reverse_lookup:
+  dictionary: PY_c
+  prefix: "`"
+  tips: "〔拼音〕"
+  preedit_format:
+    - "xform/([nl])v/$1ü/"
+    - "xform/([nl])ue/$1üe/"
+    - "xform/([jqxy])v/$1u/"
+  comment_format:
+    - "xform/^/ /"
+  # suffix: "'"
+
+key_binder:
+  import_preset: default
+  bindings:
+    - { when: has_menu,  accept: semicolon,  send: 2 } # 分号次选
+    - { when: has_menu,  accept: apostrophe, send: 3 } # 引号三选
+    - { when: composing, accept: "Control+i", toggle: chaifen } # PC 拆分滤镜开关
+
+recognizer:
+  import_preset: default
+  patterns:
+    punct: "^/([0-9]0?|[A-Za-z]+)$"
+    # uppercase: "" #中文状态大写锁定直接上屏
+    reverse_lookup: "^`[a-z]*'?$"
+    easy_english: "^'[A-Z|a-z]*`?$"
+    expression: "^=.*$"
+
+# 拼音滤镜
+pinyin:
+  opencc_config: pinyin.json
+  option_name: pinyin
+  show_in_comment: true # 作为注解在后面显示
+  comment_format:
+    - 'xform/&nbsp;/ /'
+    # - "xform/^/ /"
+  tips: char
+  tags:
+    - abc
+    - tiger
+    - tigress
+    # - reverse_lookup
+
+
+# emoji表情滤镜
+emoji_cn:
+  opencc_config: emoji.json
+  option_name: emoji_cn
+  tips: all
+
+# 临时英文
+easy_english:
+  dictionary: easy_english
+  tag: easy_english
+  prefix: "'"
+  tips: 〔En〕
+  enable_completion: true
+  enable_sentence: false
+  initial_quality: -1
+  preedit_format:
+    - "xlit|_| |"
+  comment_format: #去掉编码提示前的~号
+    - "xform/~/ /"
+
+# 拆分滤镜
+chaifen:
+  opencc_config: hu_cf.json
+  option_name: chaifen
+  show_in_comment: true 
+  comment_format:     
+    - "xform/&nbsp;/ /"
+  tags:     
+    - abc
+    - tiger
+    - tigress
+    - reverse_lookup
+  tips: all # 如只想给单字加滤镜，可改为 char
+
+
+############################################
+
+# 标点符号
+# half_shape 半角标点映射
+# symbols    Rime 预设配置是以 '/' 前缀开头输出一系列字符，自定义的 symbols_caps_s.yaml 修改成了 'S' 开头
+
+punctuator:
+  half_shape:
+    __include: default:/punctuator/half_shape  # 从 default.yaml 导入配置
+  symbols:
+    __include: symbols:/symbols         # 从 symbols.yaml 导入配置

@@ -21,24 +21,22 @@ patch:
   style/label_font_point: 16                      # 候选编号大小
 
   # 预设选项。如果皮肤没写，则使用这些属性；如果皮肤写了，使用皮肤的。
-  style/text_orientation: horizontal  # 文字排列方向 horizontal | vertical
-  style/candidate_list_layout: linear # 候选项排列方向 stacked | linear
-  style/inline_preedit: false         # 拼音位于：候选框 false | 行内 true
+  style/horizontal: false
+  style/text_orientation: horizontal     # 文字排列方向 horizontal | vertical
+  style/inline_preedit: false            # 拼音位于：候选框 false | 行内 true
 
 
   preset_color_schemes:
     cleanwhite:
       name: 简约白／Clean White
-      author: Chongyu Zhu <lembacon@gmail.com>, based on 搜狗「简约白」
-      horizontal: true                # 水平排列
       candidate_format: '%c %@'
       corner_radius: 6                # 窗口圆角
       border_height: 6                # 外边框 高
       border_width: 6                 # 外边框 宽
       font_point: 16                  # 候选字大小
       label_font_point: 12            # 候选编号大小
-      inline_preedit: false           # 拼音位于：候选框 false | 行内 true
       spacing: 0                      # 拼音与候选项之间的距离 （inline_preedit: false）
+      candidate_list_layout: stacked  # 候选项排列方向 stacked | linear
       label_color: 0x888888
       text_color: 0x808080
       hilited_text_color: 0x000000

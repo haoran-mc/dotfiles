@@ -15,7 +15,7 @@ patch:
       reset: 0                  # 默认半角
     - name: emoji_suggestion    # 要和下面 simplifier 的 option_name 保持一致
       states: [ "🈚️️", "🈶️️" ]
-      reset: 1
+      reset: 1                  # 默认开启 emoji
 
   # 引擎
   engine:
