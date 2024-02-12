@@ -34,7 +34,7 @@ call plug#end()
 let NERDTreeIgnore=['\.o$', '^\.git$', '_exe', '.vscode', '\.exe', '.DS_Store', '_exe', '\.orig', 'input.txt', 'output.txt' ]
 let g:NERDTreeMinimalMenu=1
 let g:NERDTreeShowHidden=1
-let g:NERDTreeBookmarksFile='/Users/haoran/dotfiles/vim/plugins/NERDTreeBookmarks'
+" let g:NERDTreeBookmarksFile='/Users/haoran/dotfiles/vim/plugins/NERDTreeBookmarks'
 let NERDTreeMapUpdirKeepOpen='-'  " dir up
 let NERDTreeMapCWD='C'            " change dir
 let NERDTreeMapOpenVSplit='v'     " vsplit
