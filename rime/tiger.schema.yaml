@@ -48,7 +48,6 @@ engine:
     - punct_translator
     - reverse_lookup_translator            # 拼音反查
     - table_translator
-    - table_translator@custom_phrase       # 自定义短语 custom_phrase.txt
     - lua_translator@number_translator     # 数字转大写
     - lua_translator@calculator_translator # 简易计算器
     - lua_translator@shijian2_translator   # 高级时间
@@ -71,15 +70,6 @@ translator:
   comment_format:           # 提示码自定义
     - "xform/~/ /"          # 去掉编码提示前的~号
     # - "xform/^/ /"        # 提示前面 +间距
-
-# 自定义短语
-custom_phrase:
-  dictionary: ""
-  user_dict: custom_phrase
-  db_class: stabledb
-  enable_completion: false # 补全提示
-  enable_sentence: false   # 禁止造句
-  initial_quality: 99      # 给予 custom_phrase 更大的权重
 
 # Emoji
 emoji_cn:
