@@ -2,6 +2,12 @@
 # encoding: utf-8
 
 patch:
+  schema:
+    author: "haoran"
+    name: "小鹤双拼"
+    schema_id: flypy
+    version: 0.9
+
   # 开关
   switches:
     - name: ascii_mode
