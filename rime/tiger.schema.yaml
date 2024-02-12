@@ -57,14 +57,12 @@ engine:
     - lua_translator@number_translator     # 数字转大写
     - lua_translator@calculator_translator # 简易计算器
     - lua_translator@shijian2_translator   # 高级时间
-
-
   filters:
-    - simplifier@simplification  # 简繁注释
-    - simplifier@pinyin    # 拼音注释
-    - simplifier@chaifen   # 拆分注释
-    - simplifier@emoji_cn  # 表情注释
-    - uniquifier           # 过滤重复
+    # - simplifier@simplification  # 简繁注释
+    - simplifier@pinyin     # 拼音
+    - simplifier@chaifen    # 拆分
+    - simplifier@emoji_cn   # emoji
+    - uniquifier            # 过滤重复
 
 translator:
   dictionary: rime_hu
@@ -131,20 +129,6 @@ pinyin:
     - tigress
     # - reverse_lookup
 
-# 临时英文
-easy_english:
-  dictionary: en_dicts/easy_english
-  tag: easy_english
-  prefix: "'"
-  tips: 〔En〕
-  enable_completion: true
-  enable_sentence: false
-  initial_quality: -1
-  preedit_format:
-    - "xlit|_| |"
-  comment_format:
-    - "xform/~/ /"
-
 # 拆分注释
 chaifen:
   opencc_config: hu_cf.json
@@ -165,7 +149,6 @@ chaifen:
 # 标点符号
 # half_shape 半角标点映射
 # symbols    Rime 预设配置是以 '/' 前缀开头输出一系列字符，自定义的 symbols_caps_s.yaml 修改成了 'S' 开头
-
 punctuator:
   half_shape:
     __include: default:/punctuator/half_shape  # 从 default.yaml 导入配置
@@ -175,10 +158,9 @@ punctuator:
 recognizer:
   import_preset: default
   patterns:
-    punct: "^/([0-9]0?|[A-Za-z]+)$"
+    punct: "^/([0-9]0?0?|[A-Za-z]+)$"
     uppercase: ""       # 中文状态大写锁定直接上屏
     reverse_lookup: "^`[a-z]*'?$"
-    easy_english: "^'[A-Z|a-z]*`?$"
     expression: "^=.*$"
 
 key_binder:
