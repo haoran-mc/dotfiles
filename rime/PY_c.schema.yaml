@@ -101,7 +101,7 @@ speller:
 # erase --刪除
 
 translator:
-  dictionary: PY_c #字典文件
+  dictionary: cn_dicts/tiger/PY_c #字典文件
   prism: PY_c
   initial_quality: 1    #该翻译器出字优先级别
   enable_user_dict: true # 开启用户词典〔用户词典记录动态字词频、用户词〕
@@ -111,7 +111,7 @@ translator:
   enable_completion: false # 编码提示 true 开启  false 关闭
   encode_commit_history: true # 是否对已上屏的词自动造词
   max_phrase_length: 99  #自动造词的最长字数
-  user_dict: PY_c    #在本地生成的用户词典名称
+  user_dict: PY_c    #在本地生成的用户词典名称, txt
   db_class: tabledb  #用户词典格式，tabledb（文本） 或 userdb （二进制）
   comment_format:  #提示码自定义
     - "xform/~/ /" #去掉编码提示前的~号
@@ -217,7 +217,7 @@ emoji_cn:
 
 # 临时英文
 easy_english:
-  dictionary: easy_english
+  dictionary: en_dicts/easy_english
   tag: easy_english
   prefix: "'"
   tips: 〔En〕

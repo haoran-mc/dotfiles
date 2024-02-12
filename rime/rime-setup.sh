@@ -13,23 +13,22 @@ if [[ `uname` == 'Darwin' ]]; then
     __link_file ~/dotfiles/rime/custom_phrase.txt ~/Library/Rime/custom_phrase.txt
     __link_file ~/dotfiles/rime/opencc ~/Library/Rime/opencc
     __link_file ~/dotfiles/rime/rime_ice.dict.yaml ~/Library/Rime/rime_ice.dict.yaml
-    __link_file ~/dotfiles/rime/cn_dicts ~/Library/Rime/cn_dicts
 
+    __link_file ~/dotfiles/rime/cn_dicts ~/Library/Rime/cn_dicts
+    __link_file ~/dotfiles/rime/en_dicts ~/Library/Rime/en_dicts
+
+    __link_file ~/dotfiles/rime/rime_hu.dict.yaml ~/Library/Rime/rime_hu.dict.yaml
     __link_file ~/dotfiles/rime/lua ~/Library/Rime/lua
     __link_file ~/dotfiles/rime/rime.lua ~/Library/Rime/rime.lua
 
-    __link_file ~/dotfiles/rime/core2022.dict.yaml ~/Library/Rime/core2022.dict.yaml
-    # __link_file ~/dotfiles/rime/core2022.schema.yaml ~/Library/Rime/core2022.schema.yaml
-    __link_file ~/dotfiles/rime/easy_english.dict.yaml ~/Library/Rime/easy_english.dict.yaml
-    # __link_file ~/dotfiles/rime/easy_english.schema.yaml ~/Library/Rime/easy_english.schema.yaml
+    # __link_file ~/dotfiles/rime/easy_english.dict.yaml ~/Library/Rime/easy_english.dict.yaml
+    __link_file ~/dotfiles/rime/easy_english.schema.yaml ~/Library/Rime/easy_english.schema.yaml
 
     __link_file ~/dotfiles/rime/PY_c.schema.yaml ~/Library/Rime/PY_c.schema.yaml
     # __link_file ~/dotfiles/rime/PY_c.dict.yaml ~/Library/Rime/PY_c.dict.yaml
     __link_file ~/dotfiles/rime/PY_c.txt ~/Library/Rime/PY_c.txt
 
-    __link_file ~/dotfiles/rime/tiger.custom.yaml ~/Library/Rime/tiger.custom.yaml
-    __link_file ~/dotfiles/rime/tiger.dict.yaml ~/Library/Rime/tiger.dict.yaml
-    __link_file ~/dotfiles/rime/tiger.extended.dict.yaml ~/Library/Rime/tiger.extended.dict.yaml
+    # __link_file ~/dotfiles/rime/tiger.custom.yaml ~/Library/Rime/tiger.custom.yaml
     __link_file ~/dotfiles/rime/tiger.schema.yaml ~/Library/Rime/tiger.schema.yaml
 
     # __link_file ~/dotfiles/rime/tigress.custom.yaml ~/Library/Rime/tigress.custom.yaml
