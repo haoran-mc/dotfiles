@@ -38,7 +38,11 @@
 
 虎码：
 
+- 需要预备安装更大字集的字体：
+   1. [[https://github.com/lxgw/LxgwWenKai][霞鸳文楷]]
+   2. [[https://github.com/Fitzgerald-Porthmouth-Koenigsegg/Plangothic-Project][遍黑体]]
 
+[[file:resources/tiger-code.png]]
 
 -----
 

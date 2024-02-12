@@ -15,12 +15,12 @@ patch:
 
   # 候选词字体
   style/font_face: "LXGW WenKai"
-  style/font_point: 20                            # 候选字大小
+  style/font_point: 19
   # 注释字体
-  style/comment_font_face: "LXGW WenKai"
-  style/comment_font_point: 20
+  style/comment_font_face: "Plangothic P1"
+  style/comment_font_point: 17
   # 候选编号字体
-  style/label_font_face: "LXGW WenKai"
+  style/label_font_face: ""
   style/label_font_point: 16
 
   # 预设选项。如果皮肤没写，则使用这些属性；如果皮肤写了，使用皮肤的。
