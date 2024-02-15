@@ -48,6 +48,7 @@ engine:
     - reverse_lookup_translator            # 拼音反查
     - table_translator
     - table_translator@custom_phrase       # 自定义短语 custom_phrase.txt
+    - history_translator@history           # 历史上屏
     - lua_translator@number_translator     # 数字转大写
     - lua_translator@calculator_translator # 简易计算器
     - lua_translator@shijian2_translator   # 高级时间
@@ -86,15 +87,15 @@ emoji_cn:
   option_name: emoji_cn
   tips: all
 
-# speller:
+speller:
+  alphabet: "[zyxwvutsrqponmlkjihgfedcba"
+  # initials: "abcdefghijklmnopqrstuvwxyz;'"
   # auto_clear: max_length   # manual|auto|max_length 空码按下一键确认清屏|空码自动清|达到最长码时后码顶上清屏
   # auto_select: true
   # max_code_length: 4
-  # # alphabet: "[;'zyxwvutsrqponmlkjihgfedcba]"
-  # # initials: "abcdefghijklmnopqrstuvwxyz;'"
-  # #
-  # # auto_select_pattern: ^;\w+ # 自动上屏规则，对 [;] 引导的编码实行候选唯一自动上屏
-  # # 若要添加四码上屏功能，在  ^;\w+ 后面 加上  |^\w{4}$  即可
+  #
+  # auto_select_pattern: ^;\w+ # 自动上屏规则，对 [;] 引导的编码实行候选唯一自动上屏
+  # 若要添加四码上屏功能，在  ^;\w+ 后面 加上  |^\w{4}$  即可
 
 # 拼音反查
 reverse_lookup:
@@ -138,6 +139,12 @@ chaifen:
   #   - reverse_lookup
   tips: all # 如只想给单字加注释，可改为 char
 
+# 历史输入
+history:
+  input: "["
+  size: 1
+  initial_quality: 999 # -999
+
 
 ############################################
 
@@ -154,7 +161,7 @@ recognizer:
   import_preset: default
   patterns:
     punct: "^/([0-9]0?0?|[A-Za-z]+)$"
-    uppercase: ""       # 中文状态大写锁定直接上屏
+    # uppercase: ""       # 中文状态大写锁定直接上屏，lua 数字输入
     reverse_lookup: "^`[a-z]*'?$"
     expression: "^=.*$"
 
