@@ -10,7 +10,7 @@
 
 
 ---
-name: rime_ice
+name: dict_ice
 version: "2024.01"
 import_tables:
   # ice

@@ -2,30 +2,29 @@ schema:
   author: "haoran"
   name: "虎码单字"
   schema_id: tiger
+  dependencies:
+    - dict_hupy  # 拼音反查
   version: 0.9
 
 switches:
   - name: ascii_mode
     states: [ "中文", "A" ] 
     reset: 1                    # 默认英文
-  - name: simplification
-    states: [ "简", "繁" ]
-    reset: 0                    # 默认简体
   - name: full_shape
     states: [ "半角", "全角" ]
     reset: 0                    # 默认半角
-  - name: extended_char
-    states: [ "全字集", "常用字" ]
-    reset: 1                    # 默认常用字
-  - name: pinyin # 拼音注释
-    states: [ "拼", "pīn" ]
-    reset: 0                    # 默认关闭 pinyin
   - name: emoji_cn
     states: [ 🈚, 🈶 ]
     reset: 1                    # 默认开启 emoji -- follow letter
   - name: chaifen
     states: [ "拆隐", "拆显" ]  
-    reset: 0                    # 默认不示拆字
+    reset: 0                    # 默认不显示拆字
+  # - name: simplification
+  #   states: [ "简", "繁" ]
+  #   reset: 0                  # 默认简体
+  # - name: pinyin # 拼音注释
+  #   states: [ "拼", "pīn" ]
+  #   reset: 0                    # 默认关闭 pinyin
 
 engine:
   processors:
@@ -60,7 +59,7 @@ engine:
     - uniquifier            # 过滤重复
 
 translator:
-  dictionary: rime_hu
+  dictionary: dict_hu
   enable_charset_filter: false
   enable_encoder: false
   enable_sentence: false
