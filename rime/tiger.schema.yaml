@@ -99,7 +99,7 @@ emoji_cn:
 
 # 拼音反查
 reverse_lookup:
-  dictionary: PY_c
+  dictionary: dict_hupy
   prefix: "`"
   tips: "〔拼音〕"
   preedit_format:
