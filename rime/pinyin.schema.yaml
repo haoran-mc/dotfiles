@@ -1,0 +1,78 @@
+# Rime schema
+# encoding: utf-8
+
+schema:
+  name: "袖珍拼音"
+  schema_id: pinyin
+  version: '0.9'
+
+switches:
+  - name: ascii_mode
+    states: [ "中", "A" ]
+    reset: 1             # 默认西文
+  - name: full_shape
+    states: [ "半角", "全角" ]
+    reset: 0             # 默认半角
+
+engine:
+  processors:
+    - ascii_composer
+    - recognizer
+    - key_binder
+    - speller
+    - punctuator
+    - selector
+    - navigator
+    - express_editor
+  segmentors:
+    - ascii_segmentor
+    - matcher
+    - abc_segmentor
+    - punct_segmentor
+    - fallback_segmentor
+  translators:
+    - punct_translator
+    - script_translator
+
+speller:
+  alphabet: zyxwvutsrqponmlkjihgfedcba
+  delimiter: " '"
+  algebra:
+    - erase/^hm$/
+    - erase/^m$/
+    - erase/^n$/
+    - erase/^ng$/
+    - abbrev/^([a-z]).+$/$1/
+    - abbrev/^([zcs]h).+$/$1/
+    - derive/^([nl])ue$/$1ve/
+    - derive/^([jqxy])u/$1v/
+    - derive/un$/uen/
+    - derive/ui$/uei/
+    - derive/iu$/iou/
+    - derive/([aeiou])ng$/$1gn/
+    - derive/([dtngkhrzcs])o(u|ng)$/$1o/
+    - derive/ong$/on/
+    - derive/ao$/oa/
+    - derive/([iu])a(o|ng?)$/a$1$2/
+
+translator:
+  dictionary: dict_pocket
+  preedit_format:
+    - xform/([nl])v/$1ü/
+    - xform/([nl])ue/$1üe/
+    - xform/([jqxy])v/$1u/
+
+punctuator:
+  import_preset: symbols
+
+key_binder:
+  import_preset: default
+
+recognizer:
+  import_preset: default
+  patterns:
+    # hack: to enable "/fh" style symbols, '/' must be mapped to a [list].
+    # so those who have customized '/' for direct commit won't be affected by
+    # this change.
+    punct: "^/([0-9]0?0?|[A-Za-z]+)$"  # 响应 symbols.yaml 的 symbols，允许数字选择！
+
