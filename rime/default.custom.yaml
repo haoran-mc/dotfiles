@@ -4,7 +4,7 @@
 patch:
   # 方案列表
   schema_list:
-    - schema: tiger  # 虎码
+    - schema: huma   # 虎码
     - schema: pinyin # 袖珍拼音
     - schema: flypy  # 小鹤双拼
     # - schema: hupy   # 虎码反查

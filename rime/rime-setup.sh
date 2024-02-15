@@ -27,7 +27,7 @@ if [[ `uname` == 'Darwin' ]]; then
     __link_file ~/dotfiles/rime/hupy.schema.yaml ~/Library/Rime/hupy.schema.yaml
     __link_file ~/dotfiles/rime/dict_hupy.dict.yaml ~/Library/Rime/dict_hupy.dict.yaml
 
-    __link_file ~/dotfiles/rime/tiger.schema.yaml ~/Library/Rime/tiger.schema.yaml
+    __link_file ~/dotfiles/rime/huma.schema.yaml ~/Library/Rime/huma.schema.yaml
 
     __link_file ~/dotfiles/rime/pinyin.schema.yaml ~/Library/Rime/pinyin.schema.yaml
     __link_file ~/dotfiles/rime/dict_pocket.dict.yaml ~/Library/Rime/dict_pocket.dict.yaml

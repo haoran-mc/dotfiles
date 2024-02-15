@@ -1,7 +1,7 @@
 schema:
   author: "haoran"
   name: "虎码单字"
-  schema_id: tiger
+  schema_id: huma
   dependencies:
     - dict_hupy  # 拼音反查
   version: 0.9
@@ -121,7 +121,7 @@ reverse_lookup:
 #   tips: char
 #   tags:
 #     - abc
-#     - tiger
+#     - huma
 #     - tigress
 #     # - reverse_lookup
 
@@ -134,7 +134,7 @@ chaifen:
     - "xform/&nbsp;/ /"
   # tags:     
   #   - abc
-  #   - tiger
+  #   - huma
   #   - tigress
   #   - reverse_lookup
   tips: all # 如只想给单字加注释，可改为 char

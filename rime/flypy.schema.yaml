@@ -101,7 +101,7 @@ speller:
 # 主翻译器
 translator:
   dictionary: dict_ice
-  prism: double_pinyin_flypy  # 多方案共用一个词库时，为避免冲突，需要用 prism 指定一个名字
+  prism: dict_ice_flypy  # 多方案共用一个词库时，为避免冲突，需要用 prism 指定一个名字
   preedit_format:
     - "xform/([bpmfdtnljqx])n/$1iao/"
     - "xform/(\\w)g/$1eng/"
