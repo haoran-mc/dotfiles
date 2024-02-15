@@ -53,7 +53,7 @@ engine:
     - lua_translator@shijian2_translator   # 高级时间
   filters:
     # - simplifier@simplification  # 简繁注释
-    - simplifier@pinyin     # 拼音
+    # - simplifier@pinyin     # 拼音
     - simplifier@chaifen    # 拆分
     - simplifier@emoji_cn   # emoji
     - uniquifier            # 过滤重复
@@ -110,19 +110,19 @@ reverse_lookup:
   # suffix: "'"
 
 # 拼音注释
-pinyin:
-  opencc_config: pinyin.json
-  option_name: pinyin
-  show_in_comment: true # 作为注解在后面显示
-  comment_format:
-    - 'xform/&nbsp;/ /'
-    # - "xform/^/ /"
-  tips: char
-  tags:
-    - abc
-    - tiger
-    - tigress
-    # - reverse_lookup
+# pinyin:
+#   opencc_config: pinyin.json
+#   option_name: pinyin
+#   show_in_comment: true # 作为注解在后面显示
+#   comment_format:
+#     - 'xform/&nbsp;/ /'
+#     # - "xform/^/ /"
+#   tips: char
+#   tags:
+#     - abc
+#     - tiger
+#     - tigress
+#     # - reverse_lookup
 
 # 拆分注释
 chaifen:
@@ -131,11 +131,11 @@ chaifen:
   show_in_comment: true 
   comment_format:     
     - "xform/&nbsp;/ /"
-  tags:     
-    - abc
-    - tiger
-    - tigress
-    - reverse_lookup
+  # tags:     
+  #   - abc
+  #   - tiger
+  #   - tigress
+  #   - reverse_lookup
   tips: all # 如只想给单字加注释，可改为 char
 
 
