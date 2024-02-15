@@ -22,7 +22,7 @@ switches:
     reset: 0                    # 默认关闭 pinyin
   - name: emoji_cn
     states: [ 🈚, 🈶 ]
-    reset: 0                    # 默认关闭 emoji
+    reset: 1                    # 默认开启 emoji -- follow letter
   - name: chaifen
     states: [ "拆隐", "拆显" ]  
     reset: 0                    # 默认不示拆字
@@ -83,7 +83,7 @@ custom_phrase:
 
 # Emoji
 emoji_cn:
-  opencc_config: emoji.json
+  opencc_config: follow.json # emoji.json
   option_name: emoji_cn
   tips: all
 

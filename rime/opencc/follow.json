@@ -1,0 +1,16 @@
+{
+  "name": "Following Symbol",
+  "segmentation": {
+    "type": "mmseg",
+    "dict": {
+      "type": "text",
+      "file": "follow_letter.txt"
+    }
+  },
+  "conversion_chain": [{
+    "dict": {
+      "type": "text",
+      "file": "follow_letter.txt"
+    }
+  }]
+}

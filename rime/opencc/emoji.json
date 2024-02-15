@@ -18,7 +18,7 @@
           },
           {
             "type": "text",
-            "file": "symbol_word.txt"
+            "file": "follow_word.txt"
           }
         ]
       }
