@@ -44,6 +44,9 @@ engine:
     - reverse_lookup_translator        # 反查翻译器，用另一种编码方案查码
     - script_translator                # 脚本翻译器，用于拼音、粤拼等基于音节表的输入方案
     - table_translator@custom_phrase   # 自定义短语 custom_phrase.txt
+    - lua_translator@number_translator     # 数字转大写
+    - lua_translator@calculator_translator # 简易计算器
+    - lua_translator@shijian2_translator   # 高级时间
   filters:                             # 这批组件过滤转换的结果
     - simplifier@emoji_suggestion      # Emoji，要和下面 Emoji 的 option_name 保持一致
     - simplifier                       # 简繁转换

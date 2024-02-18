@@ -58,10 +58,16 @@ speller:
 translator:
   dictionary: dict_pocket
   prism: dict_pocket
+  enable_user_dict: true      # 开启用户词典〔用户词典记录动态字词频、用户词〕
+  enable_sentence: false      # 是否开启自动造句
+  enable_encoder: true        # 开启自动造词
+  encode_commit_history: true # 是否对已上屏的词自动造词
+  max_phrase_length: 4        # 自动造词的最长字数
+  db_class: tabledb           # 用户词典格式，tabledb（文本）或 userdb（二进制）
   preedit_format:
-    - xform/([nl])v/$1ü/
-    - xform/([nl])ue/$1üe/
-    - xform/([jqxy])v/$1u/
+    - xform/([nl])v/$1ü/      # 拼音状态下输入nv实际显示nü
+    - xform/([nl])ue/$1üe/    # n或者l后面紧跟着输入ue显示üe
+    - xform/([jqxy])v/$1u/    # j q x y 后面紧跟着输入v 实际显示u
 
 punctuator:
   import_preset: symbols
