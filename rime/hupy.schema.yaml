@@ -8,8 +8,8 @@ schema:
 
 switches:
   - name: ascii_mode
+    states: [ "中", "A" ]
     reset: 0
-    states: [ 中文, 西文 ]
 
 engine:
   processors:
@@ -85,9 +85,9 @@ translator:
     - xform/([nl])v/$1ü/ # 拼音状态下输入nv实际显示nü
     - xform/([nl])ue/$1üe/ # n或者l后面紧跟着输入ue显示üe
     - xform/([jqxy])v/$1u/ # j q x y 后面紧跟着输入v 实际显示u
-  #contextual_suggestions: true
-  #max_homophones: 7
-  #max_homographs: 7
+  # contextual_suggestions: true
+  # max_homophones: 7
+  # max_homographs: 7
 
 punctuator:
   half_shape:
@@ -97,15 +97,7 @@ punctuator:
 
 recognizer:
   import_preset: default
-  patterns:
-    punct: "^/([0-9]0?0?|[A-Za-z]+)$"
-    uppercase: ""       # 中文状态大写锁定直接上屏
-    reverse_lookup: "^`[a-z]*'?$"
-    expression: "^=.*$"
 
 key_binder:
   import_preset: default
-  bindings:
-    - { when: has_menu,  accept: semicolon,  send: 2 }          # 分号次选
-    - { when: has_menu,  accept: apostrophe, send: 3 }          # 引号三选
-    - { when: composing, accept: "Control+i", toggle: chaifen } # 拆分开关
+

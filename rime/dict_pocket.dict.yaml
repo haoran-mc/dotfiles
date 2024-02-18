@@ -8,7 +8,7 @@
 #
 
 ---
-name: pinyin_simp
+name: dict_pocket
 version: "0.1"
 sort: by_weight
 ...
