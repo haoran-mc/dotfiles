@@ -4,7 +4,7 @@ Plug 'preservim/nerdtree'      " vim-dirvish
 Plug 'preservim/nerdcommenter' " tpope/vim-commentary
 Plug 'ianva/vim-youdao-translater'
 Plug 'easymotion/vim-easymotion'
-Plug 'terryma/vim-expand-region'
+" Plug 'terryma/vim-expand-region'
 " Plug 'Raimondi/delimitMate'  " 配对括号和引号自动补全
 Plug 'terryma/vim-multiple-cursors'
 " --- search
@@ -57,8 +57,10 @@ let g:fzf_command_prefix = 'Fzf'
 let g:FlyGrep_input_delay = 50
 
 " vim-expand-region
-map <m-=> <Plug>(expand_region_expand)
-map <m--> <Plug>(expand_region_shrink)
+" map <m-e> <Plug>(expand_region_expand)
+" map <m--> <Plug>(expand_region_shrink)
+" vmap K <Plug>(expand_region_expand)
+" vmap J <Plug>(expand_region_shrink)
 
 " template
 " let g:tmpl_search_paths=['~/dotfiles/vim/templates']
@@ -100,10 +102,6 @@ nmap <leader>fr  :FzfHistory<cr>
 " vimwiki
 " let g:vimwiki_map_prefix = '<Leader>e'
 " nmap <leader>ew  <Plug>VimwikiUISelect
-
-" vim-expand-region
-vmap K <Plug>(expand_region_expand)
-vmap J <Plug>(expand_region_shrink)
 
 " vim-multiple-cursor
 let g:multi_cursor_start_word_key      = '<C-n>'
