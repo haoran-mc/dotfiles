@@ -102,14 +102,13 @@ speller:
 reverse_lookup:
   dictionary: dict_hupy
   prefix: "`"
-  tips: "〔拼音〕"
+  tips: "〔反查〕"
   preedit_format:
     - "xform/([nl])v/$1ü/"
     - "xform/([nl])ue/$1üe/"
     - "xform/([jqxy])v/$1u/"
   comment_format:
     - "xform/^/ /"
-  # suffix: "'"
 
 # 拼音注释
 # pinyin:
@@ -151,7 +150,7 @@ history:
 
 # 标点符号
 # half_shape 半角标点映射
-# symbols    Rime 预设配置是以 '/' 前缀开头输出一系列字符，自定义的 symbols_caps_s.yaml 修改成了 'S' 开头
+# symbols    Rime 预设配置是以 '/' 前缀开头输出一系列字符
 punctuator:
   half_shape:
     __include: default:/punctuator/half_shape  # 从 default.yaml 导入配置
