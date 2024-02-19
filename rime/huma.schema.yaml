@@ -14,7 +14,7 @@ switches:
     states: [ "半角", "全角" ]
     reset: 0                    # 默认半角
   - name: emoji_cn
-    states: [ 🈚, 🈶 ]
+    states: [ "𡆶", "囿" ]
     reset: 1                    # 默认开启 emoji -- follow letter
   - name: chaifen
     states: [ "拆隐", "拆显" ]  
