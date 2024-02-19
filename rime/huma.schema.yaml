@@ -168,6 +168,4 @@ recognizer:
 key_binder:
   import_preset: default
   bindings:
-    - { when: has_menu,  accept: semicolon,  send: 2 }          # 分号次选
-    - { when: has_menu,  accept: apostrophe, send: 3 }          # 引号三选
     - { when: composing, accept: "Control+i", toggle: chaifen } # 拆分开关

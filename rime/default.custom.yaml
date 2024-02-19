@@ -103,9 +103,11 @@ patch:
   #快捷键
   key_binder:
     bindings:
-      # 上下翻页 , .
-      - { when: has_menu, accept: comma, send: Page_Up }
-      - { when: has_menu, accept: period, send: Page_Down }
+      - { when: has_menu, accept: comma,  send: Page_Up }         # ,
+      - { when: has_menu, accept: period, send: Page_Down }       # .
+
+      - { when: has_menu,  accept: semicolon,  send: 2 }          # 分号次选
+      - { when: has_menu,  accept: apostrophe, send: 3 }          # 引号三选
 
       # emacs key bindings, copy from https://github.com/rime/rime-prelude/blob/master/key_bindings.yaml
       - { when: composing, accept: Control+p, send: Up }
