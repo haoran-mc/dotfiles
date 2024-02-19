@@ -1832,44 +1832,60 @@ end
 
 local function translator(input, seg)
   if (input == "/date" or input == "/frq" or input == "/orzh") then
-    date = os.date("%Y.%m.%d")
     num_year = os.date("%j/") .. IsLeap(os.date("%Y"))
+
+    -- 240219
+    date = os.date("%y%m%d")
     candidate = Candidate("date", seg.start, seg._end, date, num_year)
     yield(candidate)
 
+    -- 2024.02.19
+    date = os.date("%Y.%m.%d")
+    candidate = Candidate("date", seg.start, seg._end, date, num_year)
+    yield(candidate)
+
+    -- 2024-02-19
     date = os.date("%Y-%m-%d")
     candidate = Candidate("date", seg.start, seg._end, date, num_year)
     yield(candidate)
 
+    -- 2024年02月19日
     date = os.date("%Y年%m月%d日")
     candidate = Candidate("date", seg.start, seg._end, date, num_year)
     yield(candidate)
 
+    -- Feb 19, 2024
     date = os.date("%Y.%m.%d")
     candidate = Candidate("date", seg.start, seg._end, string.gsub(os.date("%b %d, %Y"), "([^%d])0+", "%1"), num_year)
     yield(candidate)
 
+    -- 2/19/2024
     date = string.gsub(os.date("%m/%d/%Y"), "([^%d])0+", "%1")
     date = string.gsub(date, "^0+", "")
     candidate = Candidate("date", seg.start, seg._end, date, num_year)
     yield(candidate)
 
+    -- 二〇二四年二月十九日
     date = CnDate_translator(os.date("%Y%m%d"))
     candidate = Candidate("date", seg.start, seg._end, date, num_year)
     yield(candidate)
 
-    date = os.date("%Y%m%d")
-    candidate = Candidate("date", seg.start, seg._end, date, num_year)
-    yield(candidate)
+    -- 20240219
+    -- date = os.date("%Y%m%d")
+    -- candidate = Candidate("date", seg.start, seg._end, date, num_year)
+    -- yield(candidate)
 
+    -- 甲辰年丙寅月癸丑日己未时
     date = lunarJzl(os.date("%Y%m%d%H"))
     candidate = Candidate("date", seg.start, seg._end, date, " ")
     yield(candidate)
 
+    -- 甲辰年(龙)正月初十
     date = Date2LunarDate(os.date("%Y%m%d")) .. JQtest(os.date("%Y%m%d"))
     candidate = Candidate("date", seg.start, seg._end, date, "")
     yield(candidate)
 
+    -- 甲辰年(龙)正月初十未时(日昳)
     date = Date2LunarDate(os.date("%Y%m%d")) .. GetLunarSichen(os.date("%H"), 1)
     candidate = Candidate("date", seg.start, seg._end, date, "")
     yield(candidate)
