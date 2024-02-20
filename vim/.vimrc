@@ -21,14 +21,15 @@ set autochdir                         " 自动确定文件夹
 " 代码缩进和排版
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " set expandtab            " 将制表符扩展为空格
+" set shiftwidth=4         " 设置格式化时制表符占用空格数
+" set fo=ro                " 新行自动添加注释
+" set softtabstop=4        " 设置4个空格为制表符
 set shiftround           " 表示缩进列数对齐到 shiftwidth 值的整数倍
 set autoindent           " 设置自动缩进
 set cindent              " 打开 C/C++ 语言缩进优化
 set smartindent          " 智能的选择对其方式
-" set tabstop=4            " 设置编辑时制表符占用空格数
-" set shiftwidth=4         " 设置格式化时制表符占用空格数
-" set softtabstop=4        " 设置4个空格为制表符
-set backspace=2          " 使用回车键正常处理indent,eol,start等
+set tabstop=4            " 设置编辑时制表符占用空格数
+set backspace=2          " 使用删除键正常处理indent,eol,start
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 搜索设置
