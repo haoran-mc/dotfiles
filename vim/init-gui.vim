@@ -4,8 +4,8 @@ set background=dark
 " color jellybeans
 color molokai
 
-set guifont=JetBrainsMono\ Nerd\ Font:h10.5
-set guifontwide=仓耳今楷03-6763:h11.5
+set guifont=JetBrainsMono\ Nerd\ Font:h11
+set guifontwide=仓耳今楷03-6763:h12.5
 
 winpos 1220 145
 set lines=49 columns=155
