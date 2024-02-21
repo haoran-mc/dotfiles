@@ -89,7 +89,7 @@ emoji_cn:
   tips: none                 # 去掉注释
 
 speller:
-  alphabet: "[zyxwvutsrqponmlkjihgfedcba'\""
+  alphabet: "[zyxwvutsrqponmlkjihgfedcba'\"-"
   # initials: "abcdefghijklmnopqrstuvwxyz;'"
   # auto_clear: max_length   # manual|auto|max_length 空码按下一键确认清屏|空码自动清|达到最长码时后码顶上清屏
   # auto_select: true

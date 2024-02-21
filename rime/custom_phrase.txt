@@ -77,3 +77,15 @@ okk	okk	5
 
 	apple
 OS X	osx
+
+→	-l	2
+⇢	-l	1
+
+←	-h	2
+⇠	-h	1
+
+↓	-j	2
+⇣	-j	1
+
+↑	-k	2
+⇡	-k	1
