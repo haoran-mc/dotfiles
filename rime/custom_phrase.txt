@@ -75,4 +75,5 @@ okk	okk	5
 贂	okk	1
 
 
-
+	apple
+OS X	osx
