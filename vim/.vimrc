@@ -9,21 +9,20 @@ set visualbell t_vb=     " 关闭错误的提示（闪烁）
 set nowrap               " 禁止折行
 set scrolloff=5          " 光标距底行最小距离
 set wildmenu             " vim自身命名行模式智能补全
-" set mouse-=a             " 禁止使用鼠标
+" set mouse-=a           " 禁止使用鼠标
 set clipboard=unnamed    " vim 剪切板
 set shell=bash           " 使用 bash 作为默认 shell 环境
 set history=1000         " 保存历史命令行数
 set ttyfast              " 快速滚动
 set winaltkeys=no        " windows 禁用 ALT 操作菜单（使得 ALT 可以用到 vim 里）
-set autochdir                         " 自动确定文件夹
+set autochdir            " 自动确定文件夹
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 代码缩进和排版
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" set expandtab            " 将制表符扩展为空格
-" set shiftwidth=4         " 设置格式化时制表符占用空格数
-" set fo=ro                " 新行自动添加注释
-" set softtabstop=4        " 设置4个空格为制表符
+" set expandtab          " 将制表符扩展为空格
+" set shiftwidth=4       " 设置格式化时制表符占用空格数
+" set softtabstop=4      " 设置4个空格为制表符
 set shiftround           " 表示缩进列数对齐到 shiftwidth 值的整数倍
 set autoindent           " 设置自动缩进
 set cindent              " 打开 C/C++ 语言缩进优化
@@ -64,12 +63,12 @@ set timeoutlen=500
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 编码设置
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set encoding=utf-8       " 内部工作编码
-set fileencoding=utf-8   " 文件默认编码
+set encoding=utf-8           " 内部工作编码
+set fileencoding=utf-8       " 文件默认编码
 set fileencodings=ucs-bom,utf-8,gbk,gb18030,big5,euc-jp,latin1 " 打开文件时自动尝试下面顺序的编码
 set termencoding=utf-8       " 设置终端使用的编码方式
 set fileformats=unix,dos,mac " 文件换行符优先选择 unix
-set langmenu=en_US.UTF-8  " zh_CN.UTF-8
+set langmenu=en_US.UTF-8     " zh_CN.UTF-8
 " language en_US
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -90,8 +89,8 @@ syntax on                " 自动语法高亮
 " q：允许使用“gq”命令对注释进行格式化
 " o: 如果当前有注释，用O，o时自动插入注释
 " w: 尾部白色空格代表下一行继续，非白色表示一个段落的结尾
-set formatoptions+=tcrqw
-set formatoptions-=o
+" set formatoptions+=tcrqw
+set formatoptions-=c formatoptions-=r formatoptions-=o
 filetype on          " 开启文件识别
 filetype indent on   " 自适应不同语言的智能缩进
 filetype plugin on   " 设置加载对应文件类型的插件
@@ -141,9 +140,9 @@ set t_Co=256                    " 终端 256 色
 
 " 防止重复加载
 if get(s:, 'loaded', 0) != 0
-	finish
+  " finish
 else
-	let s:loaded = 1
+  " let s:loaded = 1
 endif
 
 " 取得本文件所在的目录
@@ -161,7 +160,7 @@ source ~/dotfiles/vim/init-autocmd.vim
 source ~/dotfiles/vim/init-plugins.vim
 
 if has("gui_running")
-    source ~/dotfiles/vim/init-gui.vim
+  source ~/dotfiles/vim/init-gui.vim
 endif
 
 source ~/dotfiles/vim/init-style.vim
