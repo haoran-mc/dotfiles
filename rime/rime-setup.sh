@@ -32,6 +32,9 @@ if [[ `uname` == 'Darwin' ]]; then
     __link_file ~/dotfiles/rime/pinyin.schema.yaml ~/Library/Rime/pinyin.schema.yaml
     __link_file ~/dotfiles/rime/dict_pocket.dict.yaml ~/Library/Rime/dict_pocket.dict.yaml
 
+    __link_file ~/dotfiles/rime/yi.schema.yaml ~/Library/Rime/yi.schema.yaml
+    __link_file ~/dotfiles/rime/yi.dict.yaml ~/Library/Rime/yi.dict.yaml
+
 elif [[ `uname` == 'Linux' ]]; then
     __link_file ~/dotfiles/rime/default.custom.yaml ~/.config/ibus/rime/default.custom.yaml
     __link_file ~/dotfiles/rime/flypy.schema.yaml ~/.config/ibus/rime/flypy.schema.yaml
