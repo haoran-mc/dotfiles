@@ -162,7 +162,13 @@ if [[ "$OSTYPE" = darwin* ]]; then
     alias rl='ls ~/.Trash'
     alias ur=undelfile
 
-    alias vim='open -a MacVim $1'
+	vimedit()
+	{
+		touch $1
+		open -a MacVim $1
+	}
+
+    alias vim=vimedit
 elif [[ "$OSTYPE" = linux-gnu* ]]; then
     # echo "I'm Linux"
     export GTK_IM_MODULE=ibus
