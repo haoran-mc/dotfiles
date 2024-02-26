@@ -1,14 +1,12 @@
 # Rime schema
 # encoding: utf-8
+# https://github.com/lakent/rime-yi
 
 schema:
   name: 逸码
   schema_id: yi
   version: "1.0"
-  author:
-    - 小泥巴
-  description: |
-    26码元单字顶功输入法
+  description: "26码元单字顶功输入法"
 
 switches:
   - name: ascii_mode
@@ -16,13 +14,6 @@ switches:
     states: [中文, 西文]
   - name: full_shape
     states: [半角, 全角]
-  - name: simplification
-    states: [繁体, 简体]
-  - name: ascii_punct
-    states: [。，, ．，]
-  - name: spelling
-    reset: 1
-    states: [ "编码", "拆分" ]
 
 engine:
   processors:
