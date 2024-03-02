@@ -51,4 +51,4 @@ done
 ##########################################################
 #
 #
-# sudo systemctl start your_script
+# sudo systemctl start monitor_traffic
