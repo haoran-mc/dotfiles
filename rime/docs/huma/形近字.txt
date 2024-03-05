@@ -18,6 +18,7 @@ sdhk → 办(sh) 务(hs) 只(dh) 总(hd) 公(hk) 加(sd) 别(ds)
 青(avy) - 情(ha) 精(pa_) 晴(oav) 睛(qav) 清(kav) 猜(mav) 氰(vav) 婧(bav) 靖(iav) 蜻(cav) 请(sav) 倩(jav) 鲭(wav) 菁(lavy) 静(avx) 靓(ave)
 
 见(ej) - 视(fe_) 观(rej)
+见(ej) - 观(rej) 觅(yej) 舰(iej) 视(fej) 规(hej) 岘(vej) 现(nej) 砚(mej)
 
 充(bpe) - 统(ibp)
 
@@ -71,4 +72,13 @@ sdhk → 办(sh) 务(hs) 只(dh) 总(hd) 公(hk) 加(sd) 别(ds)
 行(p) - 衙(pwd) 衔(pzj) 街(pgg) 衡(pwv) 衢(pqqu)
 
 赤(gch) - 赫(gcg) 赦(gchp)
+
+堇(ldaf) - 勤(lda) 觐(ldae)
+燕(ldac)
+
+申(ogs) - 审(wog) 绅(iog) 呻(dog) 神(fog) 坤(gog) 伸(jog) 珅(nog) 畅(oga)
+
+景(ogy) - 颢(ogyw) 影(ogye) 幜(rogy) 暻(oogy) 憬(hogy) 璟(nogy)
+
+扁(mic) - 遍(miu) 翩(miz) 篇(rmi) 编(imi) 偏(jmi) 煸(cmi) 骗(nmi)
 
