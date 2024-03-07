@@ -9,8 +9,12 @@ qm 目 具 真 直
 
 学(kw) 觉(kwe) 深(kwh) 爱(yw) 受(ywr)
 
-sdhk → 办(sh) 务(hs) 只(dh) 总(hd) 公(hk) 加(sd) 别(ds)
+sdhk: 加(sd) 办(sh)→力ㆿ
+      只(dh) 别(ds)
+      总(hd) 公(hk) 务(hs)
+	  台(kd)
 
+	  识(sdh) 计(sn)
 -----
 
 寺(gkc) - 等(rg_) 特(qg_) 待(wgk) 诗(sgk) 持(ugk) 侍(jgk) 峙(vgk) 痔(agk) 恃(hgkc)
@@ -81,4 +85,6 @@ sdhk → 办(sh) 务(hs) 只(dh) 总(hd) 公(hk) 加(sd) 别(ds)
 景(ogy) - 颢(ogyw) 影(ogye) 幜(rogy) 暻(oogy) 憬(hogy) 璟(nogy)
 
 扁(mic) - 遍(miu) 翩(miz) 篇(rmi) 编(imi) 偏(jmi) 煸(cmi) 骗(nmi)
+
+卖(naw_) - 犊(qna_) 窦(ena_) 续(ina_) 赎(ona_) 黩(pna_) 牍(ana_) 读(snam)
 
