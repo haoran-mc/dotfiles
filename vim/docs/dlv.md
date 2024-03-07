@@ -22,7 +22,20 @@ $ dlv exec -r stdin:input.txt _exe         # 重定向输入
 (dlv) goroutine
 (dlv) goroutines           # 通过 goroutine(s) 查看当前 Goroutine 相关的信息
 
+-----
 
+1. continue 运行
+2. next 单步
+3. step 步入
+4. stepout 跳出
+
+
+1. break internal/restful/util.go:80
+2. print(dbTasks)
+
+
+
+-----
 
 
 断点：
