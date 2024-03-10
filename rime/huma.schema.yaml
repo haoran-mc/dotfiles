@@ -89,7 +89,9 @@ emoji_cn:
   tips: none                 # 去掉注释
 
 speller:
-  alphabet: "[zyxwvutsrqponmlkjihgfedcba'\"-"
+  # 这里直接控制单字符是否上屏
+  # recognizer 是正则匹配，用于 symbols
+  alphabet: "[zyxwvutsrqponmlkjihgfedcba'\"-/"
   # initials: "abcdefghijklmnopqrstuvwxyz;'"
   # auto_clear: max_length   # manual|auto|max_length 空码按下一键确认清屏|空码自动清|达到最长码时后码顶上清屏
   # auto_select: true
@@ -160,7 +162,8 @@ punctuator:
 recognizer:
   import_preset: default
   patterns:
-    punct: "^/([0-9]0?0?|[A-Za-z]+)$"
+    #        / 数字     | 字母    | huma-code
+    punct: "^/([0-9]0?0?|[A-Za-z]+|/[A-Za-z]+)$"
     # uppercase: ""       # 中文状态大写锁定直接上屏，lua 数字输入
     reverse_lookup: "^`[a-z]*'?$"
     expression: "^=.*$"
