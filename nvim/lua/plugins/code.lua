@@ -13,9 +13,9 @@ return {
         ---LHS of toggle mappings in NORMAL mode
         toggler = {
           ---Line-comment toggle keymap
-          line = "<A-;>",
+          line = "gcc",
           ---Block-comment toggle keymap
-          block = "gbc",
+          block = "gcb",
         },
         ---LHS of operator-pending mappings in NORMAL and VISUAL mode
         opleader = {
@@ -39,7 +39,7 @@ return {
           ---Operator-pending mapping; `gcc` `gbc` `gc[count]{motion}` `gb[count]{motion}`
           basic = true,
           ---Extra mapping; `gco`, `gcO`, `gcA`
-          extra = true,
+          extra = false,
           ---Extended mapping; `g>` `g<` `g>[count]{motion}` `g<[count]{motion}`
           extended = false,
         },

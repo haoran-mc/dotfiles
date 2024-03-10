@@ -104,14 +104,14 @@ return {
       lsp_signature.on_attach(client, bufnr)
       -- Mappings.
       -- See `:help vim.lsp.*` for documentation on any of the below functions
-      vim.keymap.set("n", "<A-.>", SavePositionAndCallLspDefinitions,
+      vim.keymap.set("n", "gd", SavePositionAndCallLspDefinitions,
       { noremap = true, silent = true })
 
-      vim.keymap.set("n", "<A-,>", PopPositionAndJumpBack,
+      vim.keymap.set("n", "gb", PopPositionAndJumpBack,
       { noremap = true, silent = true })
 
-      vim.keymap.set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<cr>",
-      { noremap = true, silent = true })
+      -- vim.keymap.set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<cr>",
+      -- { noremap = true, silent = true })
 
       vim.keymap.set("n", "gi", "<cmd>Telescope lsp_implementations<cr>", -- vim.lsp.buf.implementation
       { noremap = true, silent = true, buffer = true, desc = "goto implementation" })
@@ -132,8 +132,7 @@ return {
       vim.keymap.set("n", "gD", vim.lsp.buf.type_definition,
       { noremap = true, silent = true, buffer = bufnr, desc = "type definition" })
 
-      -- gr
-      vim.keymap.set("n", "<A-?>", "<cmd>Telescope lsp_references <cr>",
+      vim.keymap.set("n", "gr", "<cmd>Telescope lsp_references <cr>",
       { noremap = true, silent = true, buffer = bufnr, desc = "lsp_references" })
 
       vim.keymap.set("n", "K", vim.lsp.buf.hover,
