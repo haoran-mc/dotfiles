@@ -51,7 +51,7 @@ engine:
     - history_translator@history           # 历史上屏
     - lua_translator@number_translator     # 数字转大写
     - lua_translator@calculator_translator # 简易计算器
-    - lua_translator@shijian2_translator   # 高级时间
+    - lua_translator@datetime_translator   # 高级时间
   filters:
     # - simplifier@simplification  # 简繁注释
     # - simplifier@pinyin     # 拼音

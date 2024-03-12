@@ -1904,30 +1904,28 @@ local function translator(input, seg)
     yield(candidate)
     -- 时间
   elseif (input == "/time" or input == "/fsj" or input == "/fuj" or input == "/okao") then
-    time = string.gsub(os.date("%H:%M"), "", "")
     time_discrpt = GetLunarSichen(os.date("%H"), 1)
-    candidate = Candidate("time", seg.start, seg._end, time, time_discrpt)
-    yield(candidate)
-
-    time = format_Time() .. string.gsub(os.date("%I:%M"), "", "")
-    candidate = Candidate("time", seg.start, seg._end, time, time_discrpt)
-    yield(candidate)
 
     time = string.gsub(os.date("%H:%M:%S"), "", "")
+    candidate = Candidate("time", seg.start, seg._end, time, time_discrpt)
+    yield(candidate)
+
+    time = string.gsub(os.date("%H:%M"), "", "")
     candidate = Candidate("time", seg.start, seg._end, time, time_discrpt)
     yield(candidate)
 
     time = string.gsub(os.date("%H点%M分%S秒"), "^0", "")
     candidate = Candidate("time", seg.start, seg._end, time, time_discrpt)
     yield(candidate)
+
+    time = format_Time() .. string.gsub(os.date("%I:%M"), "", "")
+    candidate = Candidate("time", seg.start, seg._end, time, time_discrpt)
+    yield(candidate)
     -- 星期几 周几
   elseif (input == "/week" or input == "/fxq" or input == "/olzh") then
-    weekday = chinese_weekday(os.date("%w"))
     num_weekday = os.date("第%W周")
-    candidate = Candidate("xq", seg.start, seg._end, weekday, num_weekday)
-    yield(candidate)
 
-    weekday = chinese_weekday2(os.date("%w"))
+    weekday = os.date("%A")
     candidate = Candidate("xq", seg.start, seg._end, weekday, num_weekday)
     yield(candidate)
 
@@ -1935,7 +1933,11 @@ local function translator(input, seg)
     candidate = Candidate("xq", seg.start, seg._end, weekday, num_weekday)
     yield(candidate)
 
-    weekday = os.date("%A")
+    weekday = chinese_weekday2(os.date("%w"))
+    candidate = Candidate("xq", seg.start, seg._end, weekday, num_weekday)
+    yield(candidate)
+
+    weekday = chinese_weekday(os.date("%w"))
     candidate = Candidate("xq", seg.start, seg._end, weekday, num_weekday)
     yield(candidate)
     -- 节气 已修复崩溃问题
