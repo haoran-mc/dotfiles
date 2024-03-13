@@ -43,20 +43,5 @@ return {
         '#A4E57E', '#8CCBEA', '#FFDB72', '#FF7272', '#FFB3FF', '#9999FF'
       }
     end
-  },
-  {
-    'karb94/neoscroll.nvim',
-    enabled = false,
-    lazy = true,
-    opts = {
-      mappings = {
-        '<C-u>', '<C-d>', '<C-b>', '<C-f>', '<C-y>', '<C-e>',
-        'zt', 'zz', 'zb'
-      },
-    },
-    keys = {
-      '<C-u>', '<C-d>', '<C-b>', '<C-f>', '<C-y>', '<C-e>',
-      'zt', 'zz', 'zb'
-    }
   }
 }
