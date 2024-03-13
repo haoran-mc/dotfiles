@@ -15,9 +15,9 @@ vim.o.hidden = true                           -- 允许未保存文件时切换 
 
 -- 缩进
 vim.o.tabstop = 4                             -- 制表符占用空格数
--- vim.o.expandtab = true                     -- 使用空格作为制表符
--- vim.o.shiftwidth = 4                       -- 如果使用空格作为制表符, 空格的个数
--- vim.o.softtabstop = 4                      -- 设置 4 个空格为制表符
+vim.o.expandtab = true                        -- 使用空格作为制表符
+vim.o.shiftwidth = 4                          -- 如果使用空格作为制表符, 空格的个数
+vim.o.softtabstop = 4                         -- 设置 4 个空格为制表符
 vim.o.smartindent = true                      -- 智能的对齐方式
 vim.o.cindent = true                          -- 打开 C/C++ 语言缩进优化
 vim.o.autoindent = true                       -- 设置自动缩进
