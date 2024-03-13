@@ -40,14 +40,14 @@ vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.s
 
 PositionStack = {}
 
-function SavePositionAndCallLspDefinitions()
+function LspJump()
     local currentPosition = vim.fn.winsaveview()
     currentPosition.bufnr = vim.fn.bufnr()
     table.insert(PositionStack, currentPosition)
     vim.cmd("Telescope lsp_definitions")
 end
 
-function PopPositionAndJumpBack()
+function LspJumpBack()
     if #PositionStack == 0 then
         print("position stack is empty")
         return
@@ -104,10 +104,10 @@ return {
       lsp_signature.on_attach(client, bufnr)
       -- Mappings.
       -- See `:help vim.lsp.*` for documentation on any of the below functions
-      vim.keymap.set("n", "gd", SavePositionAndCallLspDefinitions,
+      vim.keymap.set("n", "gd", LspJump,
       { noremap = true, silent = true })
 
-      vim.keymap.set("n", "gb", PopPositionAndJumpBack,
+      vim.keymap.set("n", "gb", LspJumpBack,
       { noremap = true, silent = true })
 
       -- vim.keymap.set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<cr>",
@@ -205,7 +205,7 @@ return {
     require("lspconfig").clangd.setup({
       capabilities = my_capabilities,
       on_attach = my_attach,
-			-- https://www.reddit.com/r/neovim/comments/12qbcua/comment/jgpqxsp/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button
+			-- https://www.reddit.com/r/neovim/comments/12qbcua/comment/jgpqxsp
 			cmd = {
 				"clangd",
 				"--offset-encoding=utf-16",
