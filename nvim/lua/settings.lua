@@ -1,86 +1,86 @@
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
+vim.g.mapleader = " "                         -- 定义<leader>键
+-- vim.g.maplocalleader = " "
 
 -- basic
-vim.o.scrolloff = 4                           -- keep 4 height offset from above and bottom
-vim.o.sidescrolloff = 8                       -- keep 8 width offset from left and right
-vim.o.wrap = false                            -- display lines as one long line
-vim.o.mouse = ""                              -- disallow the mouse to be used in neovim
-vim.o.clipboard = "unnamedplus"               -- allows neovim to access the system clipboard
-vim.o.showmode = false                        -- we don't need to see things like -- INSERT -- anymore
-vim.o.undofile = true                         -- enable persistent undo
-vim.o.spell = false                           -- add spell support
-vim.o.spelllang = 'en_us'                     -- support which languages?
-vim.o.autochdir = false                       -- for Telescope
-vim.o.compatible = false                      -- no compatible for vi
+vim.o.scrolloff = 4                           -- 光标距底行最小距离
+vim.o.sidescrolloff = 8                       -- 光标距屏幕右边框最小距离
+vim.o.wrap = false                            -- 禁止折行
+vim.o.mouse = ""                              -- 禁止使用鼠标
+vim.o.clipboard = "unnamedplus"               -- 使用系统剪切板
+vim.o.showmode = false                        -- 取消模式显示 -- INSERT --
+vim.o.undofile = true                         -- 重新打开一个文件, 可以撤销上一次编辑的操作
+vim.o.autochdir = false                       -- 不要自动确认文件夹(with Telescope)
+vim.o.compatible = false                      -- 不兼容原始 vi 模式
+vim.o.hidden = true                           -- 允许未保存文件时切换 buffer
 
--- enhance
-vim.o.wildmenu = true                         -- enhance command line completion
-vim.o.hidden = true                           -- hidden unsaved buffer
+-- 缩进
+vim.o.tabstop = 4                             -- 制表符占用空格数
+-- vim.o.expandtab = true                     -- 使用空格作为制表符
+-- vim.o.shiftwidth = 4                       -- 如果使用空格作为制表符, 空格的个数
+-- vim.o.softtabstop = 4                      -- 设置 4 个空格为制表符
+vim.o.smartindent = true                      -- 智能的对齐方式
+vim.o.cindent = true                          -- 打开 C/C++ 语言缩进优化
+vim.o.autoindent = true                       -- 设置自动缩进
 
--- indent
-vim.o.tabstop = 4                             -- insert 2 spaces for a tab
-vim.o.expandtab = true                        -- convert tabs to spaces
-vim.o.shiftwidth = 4                          -- the number of spaces inserted for each indentation, such as >> <<
-vim.o.softtabstop = 4
-vim.o.smartindent = true                      -- make indenting smarter again
+-- 折叠
 vim.o.foldmethod = "expr"                     -- fold with nvim_treesitter
 vim.o.foldexpr = "nvim_treesitter#foldexpr()"
 vim.o.foldenable = false                      -- no fold to be applied when open a file
 vim.o.foldlevel = 99                          -- if not set this, fold will be everywhere
-vim.o.cindent = true                          -- for c indent
-vim.o.autoindent = true                       -- auto indent
 
 -- search
-vim.o.hlsearch = true                         -- highlight all matches on previous search pattern
-vim.o.incsearch = true                        -- real time search
-vim.o.ignorecase = true                       -- ignore case in search patterns
-vim.o.smartcase = true                        -- smart case
+vim.o.hlsearch = true                         -- 高亮显示搜索结果
+vim.o.incsearch = true                        -- 搜索实时高亮
+vim.o.ignorecase = true                       -- 搜索时大小写不敏感
+vim.o.smartcase = true                        -- 智能大小写
 
 -- backup
-vim.o.backup = false                          -- creates a backup file
-vim.o.writebackup = false                     -- if a file is being edited by another program (or was written to file while editing with another program), it is not allowed to be edited
-vim.o.swapfile = false                        -- creates a swapfile
-vim.o.updatetime = 1000                        -- faster completion for gitsigns (4000ms default)
+vim.o.backup = false                          -- 不创建备份文件
+vim.o.writebackup = false                     -- 保存时备份
+vim.o.swapfile = false                        -- 禁用交换文件
+vim.o.updatetime = 1000
 vim.o.timeout = true
 vim.o.timeoutlen = 500                        -- time to wait for a mapped sequence to complete (in milliseconds)
-vim.o.autoread = true                         -- load automatically when the file is modified by an external program
-vim.o.autowrite = true                        -- auto write
+vim.o.autoread = true                         -- 在 nvim 外修改过, 自动载入
+vim.o.autowrite = true                        -- 自动保存
 
 -- encode
-vim.o.encoding = "utf-8"
-vim.o.fileencoding = "utf-8"
+vim.o.encoding = "utf-8"                      -- 内部工作编码
+vim.o.fileencoding = "utf-8"                  -- 文件默认编码
+                                              -- 打开文件时自动尝试下面顺序的编码
 vim.o.fileencodings = "utf-8,gb18030,gbk,gb2312,utf-16,cp936,usc-bom,euc-jp"
+                                              -- 终端使用的编码方式
+vim.o.termencodings = "utf-8,gb18030,gbk,gb2312,utf-16,cp936,usc-bom,euc-jp"
 
 -- code
-vim.o.completeopt = "menuone,noselect"             -- mostly just for cmp
-vim.o.conceallevel = 0                             -- so that `` is visible in markdown files
-vim.o.signcolumn = "yes"                           -- always show the sign column, otherwise it would shift the text each time
-vim.o.diffopt="vertical,filler,internal,context:4"                      -- vertical diff split view
+vim.o.completeopt = "menuone,noselect"        -- mostly just for cmp
+vim.o.conceallevel = 0                        -- so that `` is visible in markdown files
+vim.o.signcolumn = "yes"                      -- 使用 sign column 用于 gitsign
+vim.o.diffopt="vertical,filler,internal,context:4"           -- vertical diff split view
 
 -- filetype
-vim.o.syntax = "enable"                       -- enable file syntax
-vim.o.filetype = "plugin"                     -- filetype according to plugin
+vim.o.syntax = "enable"                       -- 允许自动高亮
+vim.o.filetype = "plugin"                     -- 设置加载对应文件类型的插件
 
 -- UI
-vim.o.number = false                          -- set numbered lines
-vim.o.relativenumber = false                  -- set relative numbered lines
-vim.o.numberwidth = 4                         -- set number column width to 2 {default 4}
-vim.o.cursorline = true                       -- highlight the current line
-vim.o.cursorcolumn = false                    -- cursor column.
-vim.o.laststatus = 2                          -- show statusline always
+vim.o.number = false                          -- 行号显示
+vim.o.relativenumber = false                  -- 相对行号
+vim.o.cursorline = true                       -- 高亮当前行
+vim.o.cursorcolumn = false                    -- 高亮当前列
+vim.o.laststatus = 2                          -- 总是显示状态栏
 vim.o.termguicolors = true                    -- set term gui colors (most terminals support this)
-vim.o.cmdheight = 1                           -- keep status bar position close to bottom
-vim.o.showtabline = 0                         -- never show tabs
-vim.o.list = false                            -- display invisible character
-vim.o.listchars = "tab:»■,trail:■"            -- displays end-of-line spaces
+vim.o.cmdheight = 1                           -- 命令行高度
+vim.o.showtabline = 0                         -- 默认不显示 tabline
+vim.o.list = false                            -- 显示可见字符^I
+vim.o.listchars = "tab:»■,trail:■"            -- 显示行尾空格
 vim.o.pumheight = 10                          -- pop up menu height
-vim.o.splitbelow = true                       -- force all horizontal splits to go below current window
-vim.o.splitright = true                       -- force all vertical splits to go to the right of current window
-vim.o.guifont = "monospace:h17"               -- the font used in graphical neovim applications
+vim.o.splitbelow = true                       -- 默认下面分屏
+vim.o.splitright = true                       -- 默认右侧分屏
 vim.o.ruler = false
-vim.o.showcmd = false
+vim.o.showcmd = false                         -- 显示operator
 vim.o.cole = 1                                -- see :h cole
+
+------------------------------------------------------------
 
 -- netrw
 vim.g.netrw_sort_by = "time"
