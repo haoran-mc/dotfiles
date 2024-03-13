@@ -6,7 +6,9 @@ Variants.CodeFileTypeList = {
   "lua",
   "python",
   "sh",
-  "sql"
+  "sql",
+	"c",
+	"cpp"
 }
 -- 2. set ensure installed language server (plugins.lang.lsp.mason)
 -- 3. set ensure installed language parser (plugins.tools.treesitter)

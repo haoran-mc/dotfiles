@@ -202,6 +202,15 @@ return {
       capabilities = my_capabilities,
       on_attach = my_attach,
     })
+    require("lspconfig").clangd.setup({
+      capabilities = my_capabilities,
+      on_attach = my_attach,
+			-- https://www.reddit.com/r/neovim/comments/12qbcua/comment/jgpqxsp/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button
+			cmd = {
+				"clangd",
+				"--offset-encoding=utf-16",
+			},
+    })
     require("lspconfig").cmake.setup({
       capabilities = my_capabilities,
       on_attach = my_attach,
