@@ -117,7 +117,7 @@ patch:
   recognizer:
     patterns:  # 一些常见的英文组合，当正则匹配到这些时，都不会生成候选词，而只输入英文
       email: "^[-_.0-9A-Za-z]+@.*$"
-      # uppercase: "[A-Z][-_+.'0-9A-Za-z]*$"
+        # uppercase: "[A-Z][-_+.'0-9A-Za-z]*$"
       url: "^(www[.]|https?:|ftp[.:]|mailto:|file:|localhost).*$|^[a-z]+[.].+$"
 
   #快捷键
