@@ -45,3 +45,22 @@
 
 - nvim-treesitter
     - nvim-yati: should be no longer needed
+
+
+```lua
+return {
+  {
+    "jghauser/follow-md-links.nvim",
+    ft = "markdown",
+  },
+  {
+
+    "dhruvasagar/vim-table-mode",
+    keys = {
+      { "<leader>mt", "<cmd>TableModeEnable<cr>", "n", { silent = true } },
+    },
+    init = function()
+    end,
+  }
+}
+```
