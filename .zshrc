@@ -43,6 +43,9 @@ export PATH=$HOME/.pyenv/shims:$PATH
 # 取消 tldr 自动更新
 export TLDR_AUTO_UPDATE_DISABLED=true
 
+# 使用自己的 ranger 配置
+export RANGER_LOAD_DEFAULT_RC=false
+
 if [ -f ~/servicewall/secret.zsh ]; then
 	source ~/servicewall/secret.zsh
 fi
