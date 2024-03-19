@@ -44,8 +44,13 @@ fi
 
 
 ### rime
-__current_status "installing rime"
+# __current_status "installing rime"
 
+
+### i3wm
+source ./i3/setup.sh
+
+__link_file ~/dotfiles/ranger ~/.config/ranger
 
 
 ### end here
