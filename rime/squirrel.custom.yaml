@@ -26,7 +26,7 @@ patch:
   # 预设选项。如果皮肤没写，则使用这些属性；如果皮肤写了，使用皮肤的。
   style/horizontal: false
   style/text_orientation: horizontal     # 文字排列方向 horizontal | vertical
-  style/inline_preedit: false            # 嵌入编码模式，拼音位于：候选框 false | 行内 true
+  style/inline_preedit: true             # 嵌入编码模式，拼音位于：候选框 false | 行内 true
 
   # 嵌入首选项内容(字词)
   # input       嵌入输入码 
