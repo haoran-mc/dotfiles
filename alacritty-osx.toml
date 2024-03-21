@@ -15,7 +15,7 @@ save_to_clipboard     = true
 
 
 [window]
-opacity      = 1
+opacity      = 0.8
 
 # Windowed Maximized Fullscreen SimpleFullscreen
 startup_mode = "Windowed"
