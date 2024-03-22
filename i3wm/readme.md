@@ -6,20 +6,48 @@ sudo pacman -S network-manager.
 
 ## nmcli
 
-1. nmcli radio wifi :: wifi 的状态
-2. nmcli radio wifi on :: 开启 Wi-Fi
-3. nmcli dev wifi connect <network-ssid>
-4. nmcli dev wifi connect <network-ssid> password <network-password>
-5. nmcli --ask dev wifi connect <network-ssid>
+- nmcli radio wifi :: wifi 的状态
+- nmcli radio wifi on :: 开启 Wi-Fi
+- nmcli dev wifi connect <network-ssid>
+- nmcli dev wifi connect <network-ssid> password <network-password>
+- nmcli --ask dev wifi connect <network-ssid>
 
+-----
 
-1. nmcli con show
-2. nmcli con down ssid/uuid
-3. nmcli con up ssid/uuid
+- nmcli con show
+- nmcli con down ssid/uuid
+- nmcli con up ssid/uuid
 
 
 # 2. 安装软件包
 
-1. feh：设置壁纸
-2. picom：picom 提供了 i3wm 默认不支持的窗口动画及特效（透明）
-3. rofi：一个程序启动器
+```
+pacman -Qs i3
+pacman -R i3status
+```
+
+- feh：设置壁纸
+- picom：picom 提供了 i3wm 默认不支持的窗口动画及特效（透明）
+- rofi：一个程序启动器
+- polybar
+
+# 3. 快捷键
+
+- is-msg "reload"
+- i3-msg "restart"
+
+-----
+
+- alt-h 焦点左移
+- alt-j 焦点下移
+- alt-k 焦点上移
+- alt-l 焦点右移
+- alt-ret 终端
+- alt-shift-t ranger
+- alt-f fullscreen
+- alt-d dmenu -> rofi
+- alt-s layout stacking
+- alt-w layout tabbed
+- alt-e layout toggle split
+- alt-r resize
+
