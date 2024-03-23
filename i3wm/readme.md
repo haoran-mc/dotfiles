@@ -39,6 +39,10 @@ xrandr
 | maim     | 屏幕截图                                       |
 | peek     | gif 录制                                       |
 
+-    active opacity: 0.95
+-  inactive opacity: 0.95
+- alacritty opacity: 0.9
+
 # 3. 快捷键
 
 | keys        | desc           |
