@@ -7,8 +7,8 @@ chmod +x ./osx-setup.sh
 ./osx-setup.sh
 ```
 
-- neovim for code
-- vim for edit
+- code with neovim
+- edit with vim
 
 
 **tools:**
@@ -20,6 +20,13 @@ chmod +x ./osx-setup.sh
 5. cat → bat
 6. fzf
 7. tldr
+
+
+**tips:**
+
+```
+❯ fc-list
+```
 
 <!--
 - iterm2 color: https://iterm2colorschemes.com/

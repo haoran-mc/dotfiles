@@ -17,7 +17,7 @@ fi
 __link_file ~/dotfiles/i3wm/picom.conf ~/.config/picom/picom.conf
 
 
-if [ ! -d ~/.config/polybar ]; then
-    mkdir ~/.config/polybar
-fi
-__link_file ~/dotfiles/i3wm/polybar.ini ~/.config/polybar/config.ini
+# if [ ! -d ~/.config/polybar ]; then
+#     mkdir ~/.config/polybar
+# fi
+# __link_file ~/dotfiles/i3wm/polybar.ini ~/.config/polybar/config.ini
