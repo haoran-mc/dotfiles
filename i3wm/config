@@ -208,6 +208,7 @@ bindsym $mod+d exec --no-startup-id "rofi -modi drun, run -show drun"
 # --no-startup-id 取消启动提醒
 exec --no-startup-id picom -b
 exec --no-startup-id feh --bg-scale ~/haoran/du/photo/wallhaven-6dg7ll.png
+exec --no-startup-id fcitx5 &
 # exec --no-startup-id ~/haoran/so/clash/cfw &
 # exec --no-startup-id xset r rate 250 55
 

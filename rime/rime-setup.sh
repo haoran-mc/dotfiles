@@ -1,7 +1,5 @@
 #!/bin/bash
 
-# arch 下配置 fcitx5 好难啊，头都整晕了，先使用 ibus 吧。
-
 source ../scripts/script-funcs.sh
 
 
@@ -36,23 +34,41 @@ if [[ `uname` == 'Darwin' ]]; then
     # __link_file ~/dotfiles/rime/yi.dict.yaml ~/Library/Rime/yi.dict.yaml
 
 elif [[ `uname` == 'Linux' ]]; then
-    __link_file ~/dotfiles/rime/default.custom.yaml ~/.config/ibus/rime/default.custom.yaml
-    __link_file ~/dotfiles/rime/symbols.yaml ~/.config/ibus/rime/symbols.yaml
-    __link_file ~/dotfiles/rime/custom_phrase.txt ~/.config/ibus/rime/custom_phrase.txt
-    __link_file ~/dotfiles/rime/opencc ~/.config/ibus/rime/opencc
+    # ibus ##################
+    # __link_file ~/dotfiles/rime/default.custom.yaml ~/.config/ibus/rime/default.custom.yaml
+    # __link_file ~/dotfiles/rime/symbols.yaml ~/.config/ibus/rime/symbols.yaml
+    # __link_file ~/dotfiles/rime/custom_phrase.txt ~/.config/ibus/rime/custom_phrase.txt
+    # __link_file ~/dotfiles/rime/opencc ~/.config/ibus/rime/opencc
 
-    __link_file ~/dotfiles/rime/lua ~/.config/ibus/rime/lua
-    __link_file ~/dotfiles/rime/rime.lua ~/.config/ibus/rime/rime.lua
+    # __link_file ~/dotfiles/rime/lua ~/.config/ibus/rime/lua
+    # __link_file ~/dotfiles/rime/rime.lua ~/.config/ibus/rime/rime.lua
 
-    # __link_file ~/dotfiles/rime/flypy.schema.yaml ~/.config/ibus/rime/flypy.schema.yaml
+    # # __link_file ~/dotfiles/rime/flypy.schema.yaml ~/.config/ibus/rime/flypy.schema.yaml
  
-    __link_file ~/dotfiles/rime/cn_dicts ~/.config/ibus/rime/cn_dicts
+    # __link_file ~/dotfiles/rime/cn_dicts ~/.config/ibus/rime/cn_dicts
 
-    __link_file ~/dotfiles/rime/huma.schema.yaml ~/.config/ibus/rime/huma.schema.yaml
-    __link_file ~/dotfiles/rime/dict_hu.dict.yaml ~/.config/ibus/rime/dict_hu.dict.yaml
-    __link_file ~/dotfiles/rime/hupy.schema.yaml ~/.config/ibus/rime/hupy.schema.yaml
-    __link_file ~/dotfiles/rime/dict_hupy.dict.yaml ~/.config/ibus/rime/dict_hupy.dict.yaml
+    # __link_file ~/dotfiles/rime/huma.schema.yaml ~/.config/ibus/rime/huma.schema.yaml
+    # __link_file ~/dotfiles/rime/dict_hu.dict.yaml ~/.config/ibus/rime/dict_hu.dict.yaml
+    # __link_file ~/dotfiles/rime/hupy.schema.yaml ~/.config/ibus/rime/hupy.schema.yaml
+    # __link_file ~/dotfiles/rime/dict_hupy.dict.yaml ~/.config/ibus/rime/dict_hupy.dict.yaml
 
-    __link_file ~/dotfiles/rime/pinyin.schema.yaml ~/.config/ibus/rime/pinyin.schema.yaml
-    __link_file ~/dotfiles/rime/dict_pocket.dict.yaml ~/.config/ibus/rime/dict_pocket.dict.yaml
+    # fcitx5 ##################
+    __link_file ~/dotfiles/rime/default.custom.yaml ~/.local/share/fcitx5/rime/default.custom.yaml
+    __link_file ~/dotfiles/rime/symbols.yaml ~/.local/share/fcitx5/rime/symbols.yaml
+    __link_file ~/dotfiles/rime/custom_phrase.txt ~/.local/share/fcitx5/rime/custom_phrase.txt
+    __link_file ~/dotfiles/rime/opencc ~/.local/share/fcitx5/rime/opencc
+
+    __link_file ~/dotfiles/rime/lua ~/.local/share/fcitx5/rime/lua
+    __link_file ~/dotfiles/rime/rime.lua ~/.local/share/fcitx5/rime/rime.lua
+
+    __link_file ~/dotfiles/rime/cn_dicts ~/.local/share/fcitx5/rime/cn_dicts
+
+    __link_file ~/dotfiles/rime/huma.schema.yaml ~/.local/share/fcitx5/rime/huma.schema.yaml
+    __link_file ~/dotfiles/rime/dict_hu.dict.yaml ~/.local/share/fcitx5/rime/dict_hu.dict.yaml
+    __link_file ~/dotfiles/rime/hupy.schema.yaml ~/.local/share/fcitx5/rime/hupy.schema.yaml
+    __link_file ~/dotfiles/rime/dict_hupy.dict.yaml ~/.local/share/fcitx5/rime/dict_hupy.dict.yaml
+
+    # just for the first testing
+    # __link_file ~/dotfiles/rime/pinyin.schema.yaml ~/.local/share/fcitx5/rime/pinyin.schema.yaml
+    # __link_file ~/dotfiles/rime/dict_pocket.dict.yaml ~/.local/share/fcitx5/rime/dict_pocket.dict.yaml
 fi
