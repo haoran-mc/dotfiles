@@ -76,8 +76,8 @@ bindsym $mod+Shift+Right move right
 
 # custom keys ####################################
 bindsym $mod+Return exec alacritty
-bindsym $mod+Shift+t exec alacritty -e ranger
-bindsym $mod+Shift+q kill
+bindsym $mod+t exec alacritty -e ranger
+bindsym $mod+q kill
 bindsym $mod+f fullscreen toggle
 
 # start dmenu (a program launcher)
@@ -97,7 +97,7 @@ bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
-bindsym $mod+Shift+space floating toggle
+bindsym $mod+space floating toggle
 
 # change focus between tiling / floating windows
 # bindsym $mod+space focus mode_toggle

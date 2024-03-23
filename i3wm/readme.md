@@ -41,22 +41,24 @@ xrandr
 
 # 3. 快捷键
 
-| keys            | desc           |
-|-----------------|----------------|
-| alt-h           | 焦点左移       |
-| alt-j           | 焦点下移       |
-| alt-k           | 焦点上移       |
-| alt-l           | 焦点右移       |
-| alt-return      | 终端           |
-| alt-shift-t     | ranger         |
-| alt-shift-q     | kill           |
-| alt-f           | fullscreen     |
-| alt-d           | rofi 搜索工具  |
-| alt-s           | 横向排列       |
-| alt-v           | 纵向排列       |
-| alt-w           | 窗口标签排布   |
-| alt-e           | 窗口平铺排布   |
-| alt-shift-space | float / tiling |
-| alt-shift-c     | reload         |
-| alt-r           | resize         |
+| keys        | desc           |
+|-------------|----------------|
+| alt-h       | 焦点左移       |
+| alt-j       | 焦点下移       |
+| alt-k       | 焦点上移       |
+| alt-l       | 焦点右移       |
+| alt-return  | 终端           |
+| alt-t       | ranger         |
+| alt-q       | kill           |
+| alt-f       | fullscreen     |
+| alt-d       | rofi 搜索工具  |
+| alt-s       | 横向排列       |
+| alt-v       | 纵向排列       |
+| alt-w       | 窗口标签排布   |
+| alt-e       | 窗口平铺排布   |
+| alt-space   | float / tiling |
+| alt-shift-c | reload         |
+| alt-r       | resize         |
+| alt-p       | screenshot     |
+| alt-shift-p | peek           |
 
