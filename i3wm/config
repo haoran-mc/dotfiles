@@ -119,6 +119,11 @@ bindsym $mod+Shift+c reload
 # exit i3 (logs you out of your X session)
 # bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
+# ------------- screen  shortcut config -----------------------
+bindsym --release $mod+p exec "maim -s ~/haoran/du/screenshots/`date +'%y%m%d-%H%M%S.png'`"
+# maim -s | xclip -selection clipboard -t image/png
+bindsym --release $mod+Shift+p exec peek
+
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
 set $ws1 "1"
