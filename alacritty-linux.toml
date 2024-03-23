@@ -25,7 +25,7 @@ padding      = { x = 4, y = 9 }
 
 
 [font]
-size     = 8
+size     = 7.2
 # https://github.com/alacritty/alacritty/issues/4616#issuecomment-1236413444
 # defaults write -g AppleFontSmoothing -int 2
 # AppleFontSmoothing  = true

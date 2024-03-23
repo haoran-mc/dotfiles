@@ -24,30 +24,37 @@ sudo pacman -S network-manager.
 ```
 pacman -Qs i3
 pacman -R i3status
+pacman -S i3-gaps
+xmodmap -pke
+xprop
+xrandr
 ```
 
-- feh：设置壁纸
-- picom：picom 提供了 i3wm 默认不支持的窗口动画及特效（透明）
-- rofi：一个程序启动器
-- polybar
+| software | desc                                   |
+|----------|----------------------------------------|
+| feh      | 壁纸                                   |
+| picom    | 提供i3wm不支持的窗口动画及特效（透明） |
+| rofi     | 程序启动器                             |
+| polybar  |                                        |
 
 # 3. 快捷键
 
-- is-msg "reload"
-- i3-msg "restart"
-
------
-
-- alt-h 焦点左移
-- alt-j 焦点下移
-- alt-k 焦点上移
-- alt-l 焦点右移
-- alt-ret 终端
-- alt-shift-t ranger
-- alt-f fullscreen
-- alt-d dmenu -> rofi
-- alt-s layout stacking
-- alt-w layout tabbed
-- alt-e layout toggle split
-- alt-r resize
+| keys            | desc           |
+|-----------------|----------------|
+| alt-h           | 焦点左移       |
+| alt-j           | 焦点下移       |
+| alt-k           | 焦点上移       |
+| alt-l           | 焦点右移       |
+| alt-return      | 终端           |
+| alt-shift-t     | ranger         |
+| alt-shift-q     | kill           |
+| alt-f           | fullscreen     |
+| alt-d           | rofi 搜索工具  |
+| alt-s           | 横向排列       |
+| alt-v           | 纵向排列       |
+| alt-w           | 窗口标签排布   |
+| alt-e           | 窗口平铺排布   |
+| alt-shift-space | float / tiling |
+| alt-shift-c     | reload         |
+| alt-r           | resize         |
 
