@@ -33,7 +33,7 @@ xrandr
 | software | desc                                           |
 |----------|------------------------------------------------|
 | picom    | 混成器，提供i3wm不支持的窗口动画及特效（透明） |
-| rofi     | 程序启动器                                     |
+| rofi     | 程序启动器，`rofi-theme-selector`              |
 | polybar  | Dock                                           |
 | feh      | 壁纸                                           |
 | maim     | 屏幕截图                                       |

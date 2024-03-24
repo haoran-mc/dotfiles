@@ -21,3 +21,10 @@ __link_file ~/dotfiles/i3wm/picom.conf ~/.config/picom/picom.conf
 #     mkdir ~/.config/polybar
 # fi
 # __link_file ~/dotfiles/i3wm/polybar.ini ~/.config/polybar/config.ini
+
+
+if [ ! -d ~/.config/rofi ]; then
+    mkdir ~/.config/rofi
+fi
+__link_file ~/dotfiles/i3wm/rofi.rasi ~/.config/rofi/config.rasi
+
