@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 
-sudo /opt/homebrew/bin/yabai --load-sa
-/opt/homebrew/bin/yabai -m signal --add event=dock_did_restart action="sudo /opt/homebrew/bin/yabai --load-sa"
+sudo yabai --load-sa
+yabai -m signal --add event=dock_did_restart action="sudo /opt/homebrew/bin/yabai --load-sa"
 
 # global settings
 /opt/homebrew/bin/yabai -m config mouse_follows_focus          off
@@ -12,8 +12,8 @@ sudo /opt/homebrew/bin/yabai --load-sa
 /opt/homebrew/bin/yabai -m config window_shadow                on
 /opt/homebrew/bin/yabai -m config window_opacity               off
 /opt/homebrew/bin/yabai -m config window_opacity_duration      2000.0
-/opt/homebrew/bin/yabai -m config active_window_opacity        0.8
-/opt/homebrew/bin/yabai -m config normal_window_opacity        0.85
+/opt/homebrew/bin/yabai -m config active_window_opacity        1.0
+/opt/homebrew/bin/yabai -m config normal_window_opacity        1.0
 /opt/homebrew/bin/yabai -m config window_border                off
 /opt/homebrew/bin/yabai -m config window_border_width          6
 /opt/homebrew/bin/yabai -m config active_window_border_color   0xff775759
@@ -38,6 +38,8 @@ sudo /opt/homebrew/bin/yabai --load-sa
 /opt/homebrew/bin/yabai -m rule --add app="^iStat*" sticky=on layer=above manage=off border=off
 /opt/homebrew/bin/yabai -m rule --add app="^System Preferences*" manage=off
 
+/opt/homebrew/bin/yabai -m config external_bar all:24:0
+
 echo "yabai configuration loaded.."
 
 
@@ -49,7 +51,6 @@ echo "yabai configuration loaded.."
 # 3. shasum -a 256 $(which yabai)
 # 4. <user> ALL=(root) NOPASSWD: sha256:<hash> <yabai> --load-sa
 # 5. sudo yabai --load-sa
-# 6. install skhd
 # 7. yabai --start-service
 # 
 # • host to use
@@ -58,4 +59,9 @@ echo "yabai configuration loaded.."
 # ❯ yabai --start-service
 # ❯ yabai --stop-service
 # ❯ yabai --restart-service
+#
+# • enhance your experience
+#   • set CapsLock Option
+#   • install skhd
 # #######################################################################################
+
