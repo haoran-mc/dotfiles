@@ -127,7 +127,7 @@ sketchybar --add       event        window_focus                                
 ### Time Widget ###
 sketchybar --add item clock right                                                  \
            --set clock update_freq=1                                               \
-                       icon=""                                                   \
+                       icon=""                                                    \
                        icon.font="Font Awesome 6 Free:Solid:12.4"                  \
                        icon.padding_right=4                                        \
                        icon.color=0xff55d0f0                                       \
