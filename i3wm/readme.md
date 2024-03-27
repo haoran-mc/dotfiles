@@ -43,7 +43,15 @@ xrandr
 -  inactive opacity: 0.95
 - alacritty opacity: 0.9
 
-# 3. 快捷键
+# 3. xrandr
+
+```shell
+❯ xrandr # 查看显示屏
+❯ xrandr --output DP-1 --auto --left-of eDP-1 # 调整左右屏
+❯ xrandr --output DP-1 --primary # 将扩展屏做为主屏
+```
+
+# 4. 快捷键
 
 | keys        | desc           |
 |-------------|----------------|
