@@ -51,40 +51,48 @@ set -e
 
 source ./scripts/script-funcs.sh
 
-current_status "linking dotfiles"
+__current_status "linking dotfiles"
 dotfiles=(.ctags .bashrc .zshrc .gitconfig)
 
 for file in ${dotfiles[@]}; do
-    current_status "linking ${file}"
+    __current_status "linking ${file}"
     rm -f ~/$file
     link_file ~/dotfiles/$file ~/$file
 done
 
-current_status "linking vim config"
+__current_status "linking vim config"
 link_file ~/dotfiles/vim/.vimrc ~/.vimrc
 
-current_status "linking neovim config"
+__current_status "linking neovim config"
 link_file ~/dotfiles/nvim ~/.config/nvim
 
-current_status "installing neovim tools"
+__current_status "installing neovim tools"
 install_from_repo (ripgrep fzf)
 # mason lazy sync
 
-current_status "installing ohmyzsh"
+__current_status "installing ohmyzsh"
 if [ -d ~/.oh-my-zsh ]; then
-    current_status "found ~/.oh-my-zsh - skipping this step"
+    __current_status "found ~/.oh-my-zsh - skipping this step"
 else
     sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 
-    current_status "installing zsh plugins"
+    __current_status "installing zsh plugins"
     plugins=(autojump zsh-autosuggestions zsh-syntax-highlighting)
     install_from_repo "${plugins[*]}"
 fi
 
-current_status "installation successful 🚀"
+########### 3. Essential Fonts
+brew tap homebrew/cask-fonts
+brew install font-ubuntu
+brew install font-fontawesome
+brew install font-hack-nerd-font
+brew install font-fira-code-nerd-font
 
 
-########### 3. Record the data to be migrated
+__current_status "installation successful 🚀"
+
+
+########### 4. Record the data to be migrated
 
 # push repository commit
 # rime data
