@@ -154,7 +154,8 @@ exec 'set rtp+='.s:home
 " 将 ~/.vim 目录加入 runtimepath (有时候 vim 不会自动帮你加入）
 set rtp+=~/.vim
 
-
+" vim 内置的插件 匹配 <tag>
+runtime macros/matchit.vim
 source ~/dotfiles/vim/init-code.vim
 source ~/dotfiles/vim/init-autocmd.vim
 source ~/dotfiles/vim/init-plugins.vim
