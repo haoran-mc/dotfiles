@@ -76,6 +76,7 @@ bindsym $mod+Shift+Right move right
 
 # custom keys ####################################
 bindsym $mod+Return exec alacritty
+bindsym $mod+Shift+Return exec "dolphin ~"
 bindsym $mod+t exec alacritty -e ranger
 bindsym $mod+q kill
 bindsym $mod+f fullscreen toggle
