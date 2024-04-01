@@ -55,3 +55,7 @@ vim.keymap.set("v", "<A-k>", ":m '<-2<cr>gv=gv", { desc = "Move up" })
 vim.keymap.set("n", "<leader>1", ":noh<cr>", opts)
 vim.keymap.set("n", "<leader>2", ":cclose<cr>", opts)
 
+-- :help [m [{ https://stackoverflow.com/a/2109620/23877411
+vim.keymap.set("n", "[f", "[m[{", opts)
+vim.keymap.set("n", "]f", "]m]}", opts)
+
