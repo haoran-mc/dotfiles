@@ -37,6 +37,7 @@ return {
       -- Custom Highlights --
       colors = {}, -- Ove"rride default colors
       highlights = {
+        -- ["CursorLine"] = { bg = '$cursor_line_color' },
         ["@comment"] = { fg = "gray" },
         Comment = { fg = "gray" },
         TreesitterContextLineNumber = { fg = "gray" },

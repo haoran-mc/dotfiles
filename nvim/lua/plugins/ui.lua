@@ -21,15 +21,35 @@ return {
     config = function()
       require("colorizer").setup()
 
-      -- vim.api.nvim_create_autocmd("BufEnter", {
-      --   pattern = { "*.html", "*.css", "*.lua" },
-      --   command = "ColorizerAttachToBuffer",
-      -- })
+      --[[
+      vim.api.nvim_create_autocmd("BufEnter", {
+        pattern = { "*.html", "*.css", "*.lua" },
+        command = "ColorizerAttachToBuffer",
+      })
 
-      -- vim.api.nvim_create_autocmd("BufLeave", {
-      --   pattern = { "*.html", "*.css", "*.lua" },
-      --   command = "ColorizerDetachFromBuffer",
-      -- })
+      vim.api.nvim_create_autocmd("BufLeave", {
+        pattern = { "*.html", "*.css", "*.lua" },
+        command = "ColorizerDetachFromBuffer",
+      })
+      --]]
+    end,
+  },
+  {
+    'rainbowhxch/beacon.nvim', -- 跳转闪烁
+    event = "VeryLazy",
+    config = function()
+      require('beacon').setup({
+        enable = true,
+        size = 50,
+        fade = true,
+        minimal_jump = 10,
+        show_jumps = true,
+        focus_gained = false,
+        shrink = true,
+        timeout = 620,
+        ignore_buffers = {},
+        ignore_filetypes = {},
+      })
     end,
   },
 }

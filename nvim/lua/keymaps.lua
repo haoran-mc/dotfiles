@@ -8,7 +8,7 @@ local opts = { noremap = true, silent = true }
 -- term_mode = "t"
 -- command_mode = "c",
 
-vim.keymap.set("n", "<leader><tab>", ":e#<cr>", opts)
+vim.keymap.set("n", "<leader><tab>", ":e#<cr>:Beacon<cr>", opts)
 
 -- user
 vim.keymap.set("n", "<leader>rc", ":cd ~/dotfiles/nvim<cr>:e ~/.config/nvim/init.lua<cr>", opts)
