@@ -15,10 +15,10 @@ end
 -- add lazypath in runtime path(rtp)
 vim.opt.rtp:prepend(vim.env.LAZY or lazypath)
 
+require("variants")
 require("settings")
 require("keymaps")
 require("autocmd")
-require("variants")
 
 require("lazy").setup({
   root = vim.fn.stdpath("data") .. "/lazy", -- ~/.local/share/nvim/lazy
