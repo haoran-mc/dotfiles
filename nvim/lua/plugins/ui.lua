@@ -35,18 +35,12 @@ return {
     end,
   },
   {
-    'rainbowhxch/beacon.nvim', -- 跳转闪烁
+    'haoran-mc/beacon.nvim',
+    branch = 'zz',
     event = "VeryLazy",
     config = function()
       require('beacon').setup({
-        enable = true,
-        size = 50,
-        fade = true,
-        minimal_jump = 10,
-        show_jumps = true,
-        focus_gained = false,
-        shrink = true,
-        timeout = 620,
+        timeout = 200,
         ignore_buffers = {},
         ignore_filetypes = {},
       })

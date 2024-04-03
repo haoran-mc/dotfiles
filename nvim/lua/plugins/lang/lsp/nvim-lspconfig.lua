@@ -45,7 +45,6 @@ function LspJump()
     currentPosition.bufnr = vim.fn.bufnr()
     table.insert(PositionStack, currentPosition)
     vim.cmd("Telescope lsp_definitions")
-    -- zz plugin
 end
 
 function LspJumpBack()
@@ -56,7 +55,6 @@ function LspJumpBack()
     local position = table.remove(PositionStack)
     vim.cmd('buffer ' .. position.bufnr)
     vim.fn.winrestview(position)
-    -- zz plugin
 end
 
 return {
