@@ -42,7 +42,7 @@ return {
       require('beacon').setup({
         timeout = 200,
         ignore_buffers = {},
-        ignore_filetypes = {},
+        ignore_filetypes = {"neo-tree"},
       })
     end,
   },
