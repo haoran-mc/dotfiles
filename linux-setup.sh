@@ -11,7 +11,7 @@ yay -S repgrep fzf
 
 ### dotfiles
 __current_status "linking dotfiles"
-dotfiles=(.ctags .bashrc .zshrc .gitconfig .xprofile)
+dotfiles=(.ctags .bashrc .zshrc .gitconfig .xprofile .xinitrc)
 
 for file in ${dotfiles[@]}; do
     __current_status "linking ${file}"
