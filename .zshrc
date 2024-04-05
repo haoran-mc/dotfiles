@@ -144,8 +144,8 @@ bindkey '^s' history-incremental-pattern-search-forward
 
 # user configuration ##################################
 # You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-export LANG=zh_CN.UTF-8
+export LANG=en_US.UTF-8
+# export LANG=zh_CN.UTF-8
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"

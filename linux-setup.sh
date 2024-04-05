@@ -18,6 +18,12 @@ for file in ${dotfiles[@]}; do
     __link_file ~/dotfiles/$file ~/$file
 done
 
+### fontconfig
+if [ ! -d ~/.config/fontconfig ]; then
+    mkdir ~/.config/fontconfig
+fi
+__link_file ~/dotfiles/.fonts.conf ~/.config/fontconfig/fonts.conf
+
 
 ### vim
 __current_status "linking vim config"

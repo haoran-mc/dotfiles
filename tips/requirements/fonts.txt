@@ -6,6 +6,7 @@ brew install font-hack-nerd-font
 brew install font-fira-code-nerd-font
 
 arch:
+yozai https://github.com/lxgw/yozai-font
 ..
 
 ttf-lxgw-wenkai 霞骛文楷
