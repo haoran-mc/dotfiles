@@ -1,0 +1,11 @@
+osx:
+brew tap homebrew/cask-fonts
+brew install font-ubuntu
+brew install font-fontawesome
+brew install font-hack-nerd-font
+brew install font-fira-code-nerd-font
+
+arch:
+..
+
+ttf-lxgw-wenkai 霞骛文楷
