@@ -9,4 +9,8 @@ arch:
 yozai https://github.com/lxgw/yozai-font
 ..
 
-ttf-lxgw-wenkai 霞骛文楷
+要求：典雅秀丽
+- ttf-lxgw-wenkai 霞骛文楷
+- 仓耳金楷
+- 筑紫老式黑体
+- MiSans 小米无衬线黑体
