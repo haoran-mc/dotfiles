@@ -137,7 +137,7 @@ configuration {
 /*	me-accept-entry: "MouseDPrimary";*/
 /*	me-accept-custom: "Control+MouseDPrimary";*/
 
-  font: "monospace 11.5";
+  font: "JetBrainsMono Nerd Font 11.5";
   location: 3;
   yoffset: 40;
   xoffset: -15;
