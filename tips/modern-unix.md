@@ -1,0 +1,59 @@
+**Modern Unix:**
+
+<!-- https://github.com/ibraheemdev/modern-unix -->
+
+| tool       | intro                         |
+|------------|-------------------------------|
+| bat        | `cat` with highlight          |
+| exa        | A modern replacement for `ls` |
+| delta      | batter `diff`                 |
+| fd         | `find` file                   |
+| ripgrep    | `grep` line                   |
+| jq         | `sed` for JSON data           |
+| cheat/tldr | `man`                         |
+| gping      | `ping`                          |
+|------------|-------------------------------|
+| dust       | du                            |
+| duf        | df                            |
+| broot      | tree                          |
+
+```
+❯ pfetch
+       .:'      haoran@ran-macbook-air.local
+    _ :'_       os     macOS 14.0
+ .'`_`-'_``.    host   Mac14,2
+:________.-'    kernel 23.0.0
+:_______:       uptime 16d 17h 41m
+ :_______`-;    pkgs   4
+  `._.-._.'     memory 2361M / 16384M
+```
+
+```
+❯ neofetch
+                    'c.          haoran@ran-macbook-air.local
+                 ,xNMM.          ----------------------------
+               .OMMMMo           OS: macOS 14.0 23A344 arm64
+               OMMM0,            Host: Mac14,2
+     .;loddo:' loolloddol;.      Kernel: 23.0.0
+   cKMMMMMMMMMMNWMMMMMMMMMM0:    Uptime: 16 days, 17 hours, 41 mins
+ .KMMMMMMMMMMMMMMMMMMMMMMMWd.    Packages: 3 (port), 277 (brew)
+ XMMMMMMMMMMMMMMMMMMMMMMMX.      Shell: zsh 5.9
+;MMMMMMMMMMMMMMMMMMMMMMMM:       Resolution: 2560x1440, 1470x956
+:MMMMMMMMMMMMMMMMMMMMMMMM:       DE: Aqua
+.MMMMMMMMMMMMMMMMMMMMMMMMX.      WM: yabai
+ kMMMMMMMMMMMMMMMMMMMMMMMMWd.    Terminal: tmux
+ .XMMMMMMMMMMMMMMMMMMMMMMMMMMk   CPU: Apple M2
+  .XMMMMMMMMMMMMMMMMMMMMMMMMK.   GPU: Apple M2
+    kMMMMMMMMMMMMMMMMMMMMMMd     Memory: 2382MiB / 16384MiB
+     ;KMMMMMMMWXXWMMMMMMMk.
+       .cooc,.    .,coo:.
+```
+
+
+Yet another cross-platform graphical process/system monitor:
+
+- btop
+- gtop
+- asitop
+- glances
+
