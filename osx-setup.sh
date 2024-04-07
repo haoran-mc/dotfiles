@@ -23,7 +23,7 @@ chsh -s /bin/zsh
 curl -L http://install.ohmyz.sh | sh
 
 # install RVM
-\curl -sSL https://get.rvm.io | bash -s stable
+curl -sSL https://get.rvm.io | bash -s stable
 rvm install ruby
 
 # setup node.js

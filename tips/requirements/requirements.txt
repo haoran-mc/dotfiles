@@ -1,0 +1,27 @@
+delta: a diff tool
+    brew install git-delta
+
+bat
+gping
+
+
+
+
+
+
+
+
+
+
+
+
+
+osx brew:
+
+
+
+arch pacman:
+
+
+
+

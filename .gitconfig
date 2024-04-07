@@ -5,6 +5,7 @@
 	email = haoran.mc@outlook.com
 [core]
 	editor = vim
+    pager = delta
 	excludesfile = /Users/haoran/.gitignore_global
 	quotepath = false
 [init]
@@ -13,12 +14,6 @@
 	short = false
 [alias]
 	br = branch
-[difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
-[mergetool "sourcetree"]
-	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
 [commit]
 	template = /Users/haoran/.stCommitMsg
 [http]
@@ -32,3 +27,17 @@
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
+
+# delta
+[interactive]
+    diffFilter = delta --color-only
+[delta]
+    navigate = true    # use n and N to move between diff sections
+
+    # delta detects terminal colors automatically; set one of these to disable auto-detection
+    # dark = true
+    # light = true
+[merge]
+    conflictstyle = diff3
+[diff]
+    colorMoved = default
