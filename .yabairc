@@ -36,7 +36,7 @@ yabai -m config window_gap                   10
 # yabai -m config window_animation_duration    0.00
 
 yabai -m rule --add app="^iStat*" sticky=on layer=above manage=off border=off
-yabai -m rule --add app="^System Preferences*" manage=off
+yabai -m rule --add app="^(System Preferences|关于本机|提醒事项|系统设置|Finder|访达|DeepL|微信)$" manage=off opacity=1.00
 
 yabai -m config external_bar all:24:0
 
