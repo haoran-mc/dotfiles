@@ -1,56 +1,54 @@
 #!/bin/bash
 
+
+if test "$(whoami)" != "ran"; then
+  printf "\n";
+  printf "ERROR! this script must run as user 'ran'.\n"
+  printf "\n";
+  printf "* ************************\n";
+  printf "* CREATE USER 'ran'       \n";
+  printf "*\n";
+  printf "* useradd -m ran\n";
+  printf "* passwd user ran\n";
+  printf "*\n";
+  printf "* visudo\n";
+  printf "*    ran ALL=(All)   ALL\n";
+  printf "*\n";
+  printf "* cp -r /root/.ssh /home/ran\n";
+  printf "*    chmod 644 /home/ran/.ssh/*\n";
+  printf "*\n";
+  printf "* ************************\n";
+  exit 1
+fi
+
+
 set -e
+source ./scripts/script-funcs.sh
 
-function current_status {
-  printf "\e[33m⭑\e[0m %s\n" "$1"
-}
-
-function link_file {
-  local src=$1 dst=$2
-  local date_str=$(date +%y%m%d%H%M)
-
-  if [ -h "${dst}" ]; then
-    printf "info: removing existing symlink: %s\n\n" ${dst}
-    rm ${dst}
-  elif [ -f "${dst}" ]; then
-    printf "info: backing up existing file: %s\n\n" "${dst}"
-    mv ${dst}{,.${date_str}}
-  elif [ -d "${dst}" ]; then
-    printf "info: backing up existing dir: %s\n\n" "${dst}"
-    mv ${dst}{,.${date_str}}
-  fi
-
-  mkdir -p "$(dirname "${dst}")"
-  ln -sf "${src}" "${dst}"
-}
 
 function check_command {
   if ! which $1 > /dev/null 2>&1; then
-    printf "command not installed: ", $1
+    printf "\e[31m⭑\e[0m command not found: \e[31m%s\e[0m \n" $1
     exit 0
   fi
 }
 
-current_status "installing must-have tools"
-must_have_tools=(vim)
-for tool in "${must_have_tools[@]}"
-do
-  current_status "check ${tool}"
+__current_status "installing must-have tools"
+must_have_tools=(vim git wget)
+for tool in "${must_have_tools[@]}"; do
+  __current_status "check ${tool}"
   check_command ${tool}
 done
 
-current_status "linking dotfiles"
-dotfiles=(.bashrc .vimrc)
 
-for file in "${dotfiles[@]}"
-do
-  current_status "linking ${file}"
-  rm -f ~/$file
-  link_file ~/dotfiles/$file ~/$file
+__current_status "linking dotfiles"
+dotfiles=(.bashrc .vimrc)
+for file in "${dotfiles[@]}"; do
+  __current_status "linking ${file}"
+  __link_file ~/dotfiles/$file ~/$file
 done
 
-source ~/.bashrc
 
-current_status "installation successful 🚀"
+source ~/.bashrc
+__current_status "installation successful 🚀"
 
