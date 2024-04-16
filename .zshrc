@@ -111,14 +111,12 @@ setopt HIST_IGNORE_DUPS
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
     vi-mode
-    # git
-    # autojump
     zsh-autosuggestions
     zsh-syntax-highlighting
-    zsh-history-substring-search
 )
-# git: support git aliases
-# autojump: j for quick jump
+# git support git aliases
+# autojump quick jump with j
+# zsh-history-substring-search
 
 # after plugins and before plugin.zsh
 source $ZSH/oh-my-zsh.sh
@@ -128,17 +126,14 @@ source $ZSH/oh-my-zsh.sh
 VI_MODE_RESET_PROMPT_ON_MODE_CHANGE=true
 VI_MODE_SET_CURSOR=true
 KEYTIMEOUT=1
-bindkey -M vicmd 'k' history-substring-search-up
-bindkey -M vicmd 'j' history-substring-search-down
 # https://gist.github.com/ssebastianj/dd4a42da5eee3304751712dc8aa1dc62
 bindkey '^b' backward-char
 bindkey '^f' forward-char
 bindkey '^w' backward-kill-word
 bindkey '^a' beginning-of-line
 bindkey '^e' end-of-line
-bindkey '^p' history-substring-search-up
-bindkey '^n' history-substring-search-down
-# https://youtrack.jetbrains.com/issue/IDEA-180154/Zsh-bindkeys-forward-word-and-backward-word-do-not-work-in-Terminal
+bindkey '^p' up-line-or-beginning-search
+bindkey '^n' down-line-or-beginning-search
 
 # user configuration ##################################
 # You may need to manually set your language environment
@@ -168,7 +163,7 @@ if [[ "$OSTYPE" = darwin* ]]; then
 		open -a MacVim $1
 	}
 
-    alias vim=vimedit
+    alias v=vimedit
 elif [[ "$OSTYPE" = linux-gnu* ]]; then
     # echo "I'm Linux"
     export GTK_IM_MODULE=ibus
@@ -201,7 +196,8 @@ alias la='eza -l -U --icons --octal-permissions -b -h -i --time-style long-iso -
 alias c='clear'
 alias gg='git clone'
 alias lg='lazygit'
-# alias n='nvim'
+alias n='nvim'
+alias vim='nvim'
 alias e='emacsclient -n'
 alias q='exit'
 
