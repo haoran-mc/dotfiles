@@ -138,8 +138,6 @@ bindkey '^a' beginning-of-line
 bindkey '^e' end-of-line
 bindkey '^p' history-substring-search-up
 bindkey '^n' history-substring-search-down
-bindkey '^r' history-incremental-pattern-search-backward
-bindkey '^s' history-incremental-pattern-search-forward
 # https://youtrack.jetbrains.com/issue/IDEA-180154/Zsh-bindkeys-forward-word-and-backward-word-do-not-work-in-Terminal
 
 # user configuration ##################################
@@ -223,3 +221,7 @@ alias ping='gping'
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf && ~/.fzf/install
+# ^r fuzzy search
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
