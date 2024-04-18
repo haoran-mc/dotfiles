@@ -8,7 +8,7 @@ export GOPROXY=https://goproxy.io,direct
 
 export EDITOR="vim"
 export TERM="screen-256color"
-export LC_ALL=C
+export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
 # History control
