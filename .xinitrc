@@ -39,3 +39,6 @@ fi
 
 exec i3
 xset r rate 250 55
+
+# no work
+# fcitx5 &
