@@ -73,7 +73,7 @@ history    = 10000
 multiplier = 3
 
 [mouse]
-hide_when_typing = false
+hide_when_typing = true
   
 
 # [colors.primary]
