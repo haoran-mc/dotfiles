@@ -201,6 +201,9 @@ alias n='nvim'
 alias vim='nvim'
 alias e='emacsclient -n'
 alias q='exit'
+alias capacity='find /sys/ -name capacity -exec cat {} \;'
+
+alias sudo='sudo '
 
 alias gm='go run main.go'
 alias pm='python main.py'
