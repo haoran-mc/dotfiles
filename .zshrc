@@ -46,6 +46,11 @@ export TLDR_AUTO_UPDATE_DISABLED=true
 # 使用自己的 ranger 配置
 export RANGER_LOAD_DEFAULT_RC=false
 
+# nvm: curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.39.0/install.sh | bash
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # T
+
 if [ -f ~/servicewall/secret.zsh ]; then
 	source ~/servicewall/secret.zsh
 fi
