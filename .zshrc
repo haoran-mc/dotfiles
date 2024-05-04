@@ -162,6 +162,7 @@ if [[ "$OSTYPE" = darwin* ]]; then
     alias rm=trash
     alias rl='ls ~/.Trash'
     alias ur=undelfile
+	alias vim='nvim'
 
 	vimedit()
 	{
@@ -175,6 +176,8 @@ elif [[ "$OSTYPE" = linux-gnu* ]]; then
     export GTK_IM_MODULE=ibus
     export XMODIFIERS=@im=ibus
     export QT_IM_MODULE=ibus
+
+	alias v=vim
 else
     echo "unknow os"
 fi
@@ -203,7 +206,6 @@ alias c='clear'
 alias gg='git clone'
 alias lg='lazygit'
 alias n='nvim'
-alias vim='nvim'
 alias e='emacsclient -n'
 alias q='exit'
 alias capacity='find /sys/ -name capacity -exec cat {} \;'

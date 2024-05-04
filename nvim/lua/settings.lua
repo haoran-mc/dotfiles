@@ -14,13 +14,15 @@ vim.o.compatible = false                      -- 不兼容原始 vi 模式
 vim.o.hidden = true                           -- 允许未保存文件时切换 buffer
 
 -- 缩进
-vim.o.tabstop = 4                             -- 制表符占用空格数
-vim.o.expandtab = true                        -- 使用空格作为制表符
-vim.o.shiftwidth = 4                          -- 如果使用空格作为制表符, 空格的个数
-vim.o.softtabstop = 4                         -- 设置 4 个空格为制表符
-vim.o.smartindent = true                      -- 智能的对齐方式
-vim.o.cindent = true                          -- 打开 C/C++ 语言缩进优化
+-- vim.o.expandtab = true                     -- 使用空格作为制表符
+-- vim.o.softtabstop = 4                      -- 设置 4 个空格为制表符
+vim.o.shiftwidth = 4                          -- 开启自动缩进或智能缩进后
+                                              -- 通过设置 shiftwidth 指定自动缩进的单位长度
+vim.o.tabstop = 4                             -- 设置制表符占用的长度，默认值是8
+vim.o.shiftround = true                       -- 缩进列数对齐到 shiftwidth 值的整数倍
 vim.o.autoindent = true                       -- 设置自动缩进
+vim.o.cindent = true                          -- 打开 C/C++ 语言缩进优化
+vim.o.smartindent = true                      -- 智能的对齐方式
 
 -- 折叠
 vim.o.foldmethod = "expr"                     -- fold with nvim_treesitter
