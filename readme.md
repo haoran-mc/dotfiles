@@ -24,6 +24,8 @@ chmod +x ./osx-setup.sh
 
 **tips:**
 
+- always use Tabs for line indentation
+
 ```
 ❯ fc-list
 ```
