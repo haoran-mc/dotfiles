@@ -2,11 +2,11 @@ Variants = {}
 
 -- 1. set filetype for indent, complete
 Variants.CodeFileTypeList = {
-  "go",
-  "lua",
-  "python",
-  "sh",
-  "sql",
+	"go",
+	"lua",
+	"python",
+	"sh",
+	"sql",
 	"c",
 	"cpp"
 }
