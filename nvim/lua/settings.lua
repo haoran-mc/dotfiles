@@ -80,7 +80,7 @@ vim.o.splitbelow = true                       -- 默认下面分屏
 vim.o.splitright = true                       -- 默认右侧分屏
 vim.o.ruler = false
 vim.o.showcmd = false                         -- 显示operator
-vim.o.cole = 1                                -- see :h cole
+-- vim.o.cole = 1                             -- hide markdown flag, see :h cole
 
 ------------------------------------------------------------
 
