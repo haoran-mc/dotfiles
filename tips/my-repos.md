@@ -47,7 +47,8 @@
 - [algorithm-template](https://github.com/haoran-mc/algorithm-template)
 
 
-**tools**
+**others**
+- [demos](https://github.com/haoran-mc/demos)
 - [build_tools](https://github.com/haoran-mc/build_tools)
 - [dotfiles](https://github.com/haoran-mc/dotfiles)
 - [bigdata-learning](https://github.com/haoran-mc/bigdata-learning)
