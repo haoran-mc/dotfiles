@@ -215,6 +215,11 @@ alias sudo='sudo '
 alias gm='go run main.go'
 alias pm='python main.py'
 alias lm='lua main.lua'
+gobuild()
+{
+	go build -o _exe -gcflags "-N -l" $1
+}
+alias godebug='dlv exec _exe'
 
 alias cat='bat'
 # alias man='tldr'

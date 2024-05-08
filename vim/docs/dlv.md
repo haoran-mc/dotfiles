@@ -24,15 +24,18 @@ $ dlv exec -r stdin:input.txt _exe         # 重定向输入
 
 -----
 
-1. continue 运行
-2. next 单步
-3. step 步入
-4. stepout 跳出
+```
+1. go build -o _exe -gcflags "-N -l" main.go
+2. dlv exec _exe
+3. continue    运行
+4. next        单步
+5. step        步入
+6. stepout     跳出
+```
 
 
 1. break internal/restful/util.go:80
 2. print(dbTasks)
-
 
 
 -----
