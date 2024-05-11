@@ -28,16 +28,12 @@ vim.keymap.set("i", "<C-p>", "<up>", opts)
 vim.keymap.set("i", "<C-n>", "<down>", opts)
 
 -- c-w = ratio windows
-vim.keymap.set("n", "<leader>wv", ":vsp<cr>", opts)
-vim.keymap.set("n", "<leader>ws", ":sp<cr>", opts)
-vim.keymap.set("n", "<leader>wc", ":q<cr>", opts)
-vim.keymap.set("n", "<leader>wm", ":only<cr>", opts)
-vim.keymap.set("n", "<leader>wh", "<C-w>h", opts)
-vim.keymap.set("n", "<leader>wj", "<C-w>j", opts)
-vim.keymap.set("n", "<leader>wk", "<C-w>k", opts)
-vim.keymap.set("n", "<leader>wl", "<C-w>l", opts)
-vim.keymap.set("n", "<leader>wx", "<C-w>x", opts)
-vim.keymap.set("n", "<leader>w=", "<C-w>=", opts)
+vim.keymap.set("n", "<C-w>J", ":sp<cr>", opts)
+vim.keymap.set("n", "<C-w>L", ":vsp<cr>", opts)
+vim.keymap.set("n", "<C-w>H", ":vsp<cr><C-w>h", opts)
+vim.keymap.set("n", "<C-w>K", ":sp<cr><C-w>k", opts)
+-- <C-w>o :only
+-- <C-w>x <C-w>+ <C-w>- <C-w>= <C-w>< <C-w>>
 vim.keymap.set("n", "<A-Up>", ":resize +2<cr>", opts)
 vim.keymap.set("n", "<A-Down>", ":resize -2<cr>", opts)
 vim.keymap.set("n", "<A-Left>", ":vertical resize -2<cr>", opts)
