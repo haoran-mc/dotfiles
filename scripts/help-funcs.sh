@@ -14,6 +14,12 @@ function __tldr_git {
 	local opt=$1
 
 	case $opt in
+		'branch')
+			printf 'List, create, or delete branches.\n'
+			printf $NEXTLINE
+
+			printf '%s \033[36mgit br\033[0m                   \033[32mgit branch\033[0m \n' $SPACE
+			;;
 		'log')
 			printf 'usage: git log [<options>] [<revision-range>] [[--] <path>...]\n'
 			printf '   or: git show [<options>] <object>...\n'
@@ -49,13 +55,18 @@ function __tldr_git {
 # too long, didn't read
 function __help_tldr {
 	local cmd=$1 opt=$2
-	printf " | git | printf | \n"
+	if [ -z $cmd ]; then
+		printf " | git | printf | \n"
+		return
+	fi
 
 	case $cmd in
 		'git')
 			if [ -z $opt ]; then
+				printf 'Distributed version control system.\n'
 				printf $NEXTLINE
-				printf '%s ➢\033[33m -log \033[0m         Show commit logs.\n' $SPACE
+				printf '%s ➢\033[33m log \033[0m         Show commit logs.\n' $SPACE
+				printf '%s ➢\033[33m branch \033[0m      List, create, or delete branches.\n' $SPACE
 			else
 				__tldr_git $opt
 			fi
