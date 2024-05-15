@@ -5,4 +5,5 @@
 
 ```
 ❯ brew install jq
+❯ sketchybar --reload
 ```

@@ -1,7 +1,8 @@
 #!/usr/bin/env sh
 
 # Color Palette
-BLACK=0xff181a1c
+DEEPBLACK=0xff181a1c
+BLACK=0xff2a2f38
 WHITE=0xffe1e3e4
 RED=0xffff6578
 GREEN=0xffcf6e6e
@@ -9,7 +10,7 @@ BLUE=0xffeacb64
 YELLOW=0xffcf6e6e
 ORANGE=0xfffcf6e6e
 MAGENTA=0xffcf6e6e
-GREY=0xff2a2f38
+GREY=0xff32353a
 TRANSPARENT=0x00000000
 
 # General bar colors
