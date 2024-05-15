@@ -49,6 +49,7 @@ function __tldr_git {
 # too long, didn't read
 function __help_tldr {
 	local cmd=$1 opt=$2
+	printf " | git | printf | \n"
 
 	case $cmd in
 		'git')
