@@ -18,6 +18,7 @@
 	ci = commit -v
 	lo = log --oneline --graph
 	lp = log --patch
+	la = log --format='%an <%ae>'
 [commit]
 	template = /Users/haoran/.stCommitMsg
 [http]

@@ -30,6 +30,14 @@ function __tldr_git {
 			printf '        ➢ -p, -u, --patch    Draw a text-based graphical representation of the commit history on the left hand side of the output.\n'
 			printf $NEXTLINE
 
+			printf "$SPACE \033[36mgit la\033[0m                   \033[32mgit log --format='%%an <%%ae>'\033[0m This command will output a list of all authors who have made commits\n"
+			printf "                                               in your repository, you may use \033[33m| sort -u\033[0m to sort the output alphabetically and\n"
+			printf "                                               then removes duplicate lines. This ensures each author appears only once in the list.\n"
+			printf '        ➢ %%n                 newline\n'
+			printf '        ➢ %%an                author name\n'
+			printf '        ➢ %%aN                author email\n'
+			printf $NEXTLINE
+
 			printf '\n%s -------------->\n' $SPACE
 			printf '%s ➢\033[33m --reverse \033[0m             Output the commits chosen to be shown (see Commit Limiting section above) in reverse order.\n' $SPACE
 			printf '%s ➢\033[33m --author \033[0m              Limit the commits output to ones with author/committer header lines that match the specified pattern (regular expression).\n' $SPACE
