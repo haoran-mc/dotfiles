@@ -52,3 +52,8 @@ done
 source ~/.bashrc
 __current_status "installation successful 🚀"
 
+
+printf "\n"
+printf "1. now you can source ~/.bashrc\n"
+printf "2. change yum.repos.d"
+

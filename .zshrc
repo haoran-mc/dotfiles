@@ -28,7 +28,8 @@ export PYTHONPATH=/usr/bin/python3
 export PYENV_ROOT=/Users/haoran/.pyenv
 
 # java
-export JAVA_HOME=/usr/local/java/jdk1.8.0_201
+# export JAVA_HOME=/usr/local/java/jdk1.8.0_201
+export JAVA_HOME=/opt/homebrew/Cellar/openjdk/21.0.2/bin
 export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
 export PATH=$JAVA_HOME/bin:$PATH
 
