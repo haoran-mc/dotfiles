@@ -4,10 +4,11 @@ NEXTLINE='\n'
 # 3 个空格
 SPACE='   '
 
-# \033[36m 天蓝 \033[0m
+# \033[31m 红色 \033[0m
 # \033[32m 绿色 \033[0m
-# \033[34m 蓝色 \033[0m
 # \033[33m 明黄 \033[0m
+# \033[34m 蓝色 \033[0m
+# \033[36m 天蓝 \033[0m
 
 function __tldr_git {
 	local opt=$1
@@ -30,7 +31,7 @@ function __tldr_git {
 			printf '        ➢ -p, -u, --patch    Draw a text-based graphical representation of the commit history on the left hand side of the output.\n'
 			printf $NEXTLINE
 
-			printf "$SPACE \033[36mgit la\033[0m                   \033[32mgit log --format='%%an <%%ae>'\033[0m This command will output a list of all authors who have made commits\n"
+			printf "%s \033[36mgit la\033[0m                   \033[32mgit log --format='%%an <%%ae>'\033[0m This command will output a list of all authors who have made commits\n" $SPACE
 			printf "                                               in your repository, you may use \033[33m| sort -u\033[0m to sort the output alphabetically and\n"
 			printf "                                               then removes duplicate lines. This ensures each author appears only once in the list.\n"
 			printf '        ➢ %%n                 newline\n'
@@ -59,7 +60,21 @@ function __help_tldr {
 			fi
 			;;
 		'printf')
-			printf 'printf\n'
+			printf 'Format and print text. If you want to use ${myvar} to view variables, use \033[31m"\033[0m, otherwise use \033[31m'\''\033[0m at all times.\n'
+			printf $NEXTLINE
+
+			printf '%s - \033[34mprintf "%%s\\n" "Hello world"\033[0m                  Print a text message.\n' $SPACE
+			printf '%s - \033[34mprintf "\\e[1;34m%%.3d\\e[0m\\n" 42\033[0m              Print an integer in bold blue.\n' $SPACE
+			printf '%s - \033[34mprintf -v myvar "This is %%s = %%d\\n" "a year" 20a4\033[0m\n' $SPACE
+			printf '                                                   Store a formatted message in a variable.'
+			printf $NEXTLINE
+
+			printf '\n%s -------------->\n' $SPACE
+			printf '%s ➢\033[33m \\n \033[0m                    Write a <new-line> character.\n' $SPACE
+			printf '%s ➢\033[33m \\t \033[0m                    Write a <tab> character.\n' $SPACE
+			printf '%s ➢\033[33m \\` \033[0m                    Write a <single quote> character.\n' $SPACE
+			printf '%s ➢\033[33m \\\\ \033[0m                    Write a backslash character.\n' $SPACE
+			printf '%s ➢\033[33m %%%% \033[0m                    Write a percent sign character.\n' $SPACE
 			;;
 	esac
 }
