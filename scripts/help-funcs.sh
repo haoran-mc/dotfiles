@@ -20,6 +20,15 @@ function __tldr_git {
 
 			printf '%s \033[36mgit br\033[0m                   \033[32mgit branch\033[0m \n' $SPACE
 			;;
+		'clone')
+			printf 'Clone a repository into a new directory.\n'
+			printf $NEXTLINE
+
+			printf '%s - \033[34mgg clone -b main --depth 1 github.com:haoran-mc/dotfiles.git\033[0m\n' $SPACE
+			printf '        ➢ -b, --branch       Instead of pointing the newly created HEAD to the branch pointed to by the cloned repository’s HEAD, point to <branch-name> branch instead.\n'
+			printf '        ➢ --depth            Create a shallow clone with a history truncated to the specified number of commits.\n'
+			printf '                             You may need use \033[33m--single-branch\033[0m to fetch the histories near the tips of single branch.\n'
+			;;
 		'log')
 			printf 'usage: git log [<options>] [<revision-range>] [[--] <path>...]\n'
 			printf '   or: git show [<options>] <object>...\n'
@@ -65,8 +74,13 @@ function __help_tldr {
 			if [ -z $opt ]; then
 				printf 'Distributed version control system.\n'
 				printf $NEXTLINE
-				printf '%s ➢\033[33m log \033[0m         Show commit logs.\n' $SPACE
+
+				printf '%s - \033[34mgit log --help\033[0m\n' $SPACE
+				printf $NEXTLINE
+
 				printf '%s ➢\033[33m branch \033[0m      List, create, or delete branches.\n' $SPACE
+				printf '%s ➢\033[33m clone \033[0m       Clone a repository into a new directory.\n' $SPACE
+				printf '%s ➢\033[33m log \033[0m         Show commit logs.\n' $SPACE
 			else
 				__tldr_git $opt
 			fi
