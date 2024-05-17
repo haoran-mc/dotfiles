@@ -36,7 +36,7 @@ export PATH=$JAVA_HOME/bin:$PATH
 # lua
 export LUA_PATH="./?.lua;;"
 
-export PATH=$PATH:/home/haoran/.local/bin
+export PATH=$PATH:/Users/haoran/.local/bin
 
 # 安装 emacs 时，需要 pyenv 依赖
 export PATH=$HOME/.pyenv/shims:$PATH
@@ -46,6 +46,9 @@ export TLDR_AUTO_UPDATE_DISABLED=true
 
 # 使用自己的 ranger 配置
 export RANGER_LOAD_DEFAULT_RC=false
+
+# ripgrep configuration file
+export RIPGREP_CONFIG_PATH=/Users/haoran/dotfiles/.ripgreprc
 
 # nvm: curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.39.0/install.sh | bash
 export NVM_DIR="$HOME/.nvm"
@@ -209,6 +212,7 @@ alias lg='lazygit'
 alias n='nvim'
 alias e='emacsclient -n'
 alias q='exit'
+alias so='source ~/.zshrc'
 alias capacity='find /sys/ -name capacity -exec cat {} \;'
 
 alias sudo='sudo '

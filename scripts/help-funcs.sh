@@ -65,7 +65,7 @@ function __tldr_git {
 function __help_tldr {
 	local cmd=$1 opt=$2
 	if [ -z $cmd ]; then
-		printf " | git | printf | \n"
+		printf " | git | printf | rg | \n"
 		return
 	fi
 
@@ -101,6 +101,20 @@ function __help_tldr {
 			printf '%s ➢\033[33m \\` \033[0m                    Write a <single quote> character.\n' $SPACE
 			printf '%s ➢\033[33m \\\\ \033[0m                    Write a backslash character.\n' $SPACE
 			printf '%s ➢\033[33m %%%% \033[0m                    Write a percent sign character.\n' $SPACE
+			;;
+		'rg')
+			printf 'Ripgrep is a recursive line-oriented search tool.\n'
+			printf 'Aims to be a faster alternative to `grep`.\n'
+			printf $NEXTLINE
+
+			printf "%s - \033[34mrg <glob> -g '!/*/*'\033[0m\n" $SPACE
+			printf '        ➢ -g <glob>              Include or exclude files and directories for searching that match the given glob.\n'
+			printf $NEXTLINE
+
+			printf '\n%s -------------->\n' $SPACE
+			printf '%s ➢\033[33m -e \033[0m                        regular-expression.\n' $SPACE
+			printf '%s ➢\033[33m -i \033[0m                        case-insensitive.\n' $SPACE
+			printf '%s ➢\033[33m -S \033[0m                        smartcase.\n' $SPACE
 			;;
 	esac
 }
