@@ -65,11 +65,33 @@ function __tldr_git {
 function __help_tldr {
 	local cmd=$1 opt=$2
 	if [ -z $cmd ]; then
-		printf " | git | printf | rg | \n"
+		printf " | fd | fzf | git | printf | rg | \n"
 		return
 	fi
 
 	case $cmd in
+		'fd')
+			printf 'An alternative to `find`. Aims to be faster and easier to use than `find`.\n'
+			printf $NEXTLINE
+
+			printf '%s - \033[34mfd -t directory <pattern>\033[0m\n' $SPACE
+			printf '        ➢ -t, --type         Filetype.\n'
+			printf $NEXTLINE
+
+			printf '\n%s -------------->\n' $SPACE
+			printf '%s ➢\033[33m -i \033[0m               case-insensitive.\n' $SPACE
+			printf '%s ➢\033[33m -s \033[0m               smartcase.\n' $SPACE
+			printf "%s ➢\033[33m -l \033[0m               Use a detailed listing format like 'ls -l'. \n" $SPACE
+			;;
+		'fzf')
+			printf 'Command-line fuzzy finder. Similar to `sk`.\n'
+			printf $NEXTLINE
+
+			printf '%s - \033[34mecho "one\\ntwo\\nthree\\nfour" | fzf\033[0m\n' $SPACE
+			printf '%s - \033[34mls | fzf\033[0m\n' $SPACE
+			printf '%s - \033[34mfd --type file | fzf\033[0m\n' $SPACE
+			printf '%s - \033[34mvim `fzf`\033[0m\n' $SPACE
+			;;
 		'git')
 			if [ -z $opt ]; then
 				printf 'Distributed version control system.\n'
