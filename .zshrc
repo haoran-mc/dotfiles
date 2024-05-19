@@ -184,6 +184,7 @@ if [[ "$OSTYPE" = darwin* ]]; then
 	}
 
     alias v=vimedit
+	alias copy=pbcopy
 elif [[ "$OSTYPE" = linux-gnu* ]]; then
     # echo "I'm Linux"
     export GTK_IM_MODULE=ibus
