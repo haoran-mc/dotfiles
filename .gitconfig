@@ -40,7 +40,7 @@
     path = ~/dotfiles/themes.gitconfig
 [delta]
 	# delta --show-themes
-	features = chameleon
+	features = mytheme
 	navigate = true    # use n and N to move between diff sections
 [merge]
 	conflictstyle = diff3

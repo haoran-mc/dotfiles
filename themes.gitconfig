@@ -325,7 +325,7 @@
     zero-style = syntax
     whitespace-error-style = "#aaaaaa"
 
-[delta "chameleon"]
+[delta "mytheme"]
     #author: https://github.com/AirOnSkin
     dark = true
     line-numbers = true

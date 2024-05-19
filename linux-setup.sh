@@ -59,5 +59,9 @@ source ./i3/setup.sh
 __link_file ~/dotfiles/ranger ~/.config/ranger
 
 
+### lazygit
+__current_status "linking lazygit config"
+link_file ~/dotfiles/lazygit.yml ~/.config/lazygit/config.yml
+
 ### end here
 __current_status "installation successful 🚀"
