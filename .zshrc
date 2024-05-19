@@ -191,6 +191,7 @@ elif [[ "$OSTYPE" = linux-gnu* ]]; then
     export QT_IM_MODULE=ibus
 
 	alias v=vim
+	alias open=dolphin
 else
     echo "unknow os"
 fi
