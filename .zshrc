@@ -122,10 +122,13 @@ plugins=(
     vi-mode
     zsh-autosuggestions
     zsh-syntax-highlighting
+	copypath
+	you-should-use
 )
 # git support git aliases
 # autojump quick jump with j
 # zsh-history-substring-search
+# copyfile
 
 # after plugins and before plugin.zsh
 source $ZSH/oh-my-zsh.sh
@@ -143,6 +146,8 @@ bindkey '^a' beginning-of-line
 bindkey '^e' end-of-line
 bindkey '^p' up-line-or-beginning-search
 bindkey '^n' down-line-or-beginning-search
+# you should use
+export YSU_MESSAGE_POSITION="after"
 
 # user configuration ##################################
 # You may need to manually set your language environment
@@ -153,7 +158,8 @@ export LANG=en_US.UTF-8
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
-# bat,  Dracula, gruvbox-dark
+# export BAT_CONFIG_PATH="${HOME}/dotfiles/bat.conf"
+# --list-theme
 export BAT_THEME="OneHalfDark"
 
 # ostype ##############################################
