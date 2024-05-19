@@ -1,0 +1,11 @@
+# ctrl-d pgdown
+# ctrl-u pgup
+
+git:
+  paging:
+    colorArg: always
+    pager: delta --dark --paging=never
+
+gui:
+  skipUnstageLineWarning: true
+

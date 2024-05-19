@@ -81,6 +81,9 @@ else
     install_from_repo "${plugins[*]}"
 fi
 
+__current_status "linking lazygit config"
+link_file ~/dotfiles/lazygit.yml ~/Library/Application\ Support/lazygit/config.yml
+
 ########### 3. Essential Fonts
 brew tap homebrew/cask-fonts
 brew install font-ubuntu

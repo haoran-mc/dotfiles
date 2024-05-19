@@ -162,6 +162,9 @@ export LANG=en_US.UTF-8
 # --list-theme
 export BAT_THEME="OneHalfDark"
 
+# add less' arg -X for delta pager
+export DELTA_PAGER="less -X $LESS"
+
 # ostype ##############################################
 if [[ "$OSTYPE" = darwin* ]]; then
     undelfile()
