@@ -192,6 +192,7 @@ elif [[ "$OSTYPE" = linux-gnu* ]]; then
 
 	alias v=vim
 	alias open=dolphin
+	alias copy='xclip -selection clipboard'
 else
     echo "unknow os"
 fi
