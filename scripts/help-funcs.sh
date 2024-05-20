@@ -14,11 +14,19 @@ function __tldr_git {
 	local opt=$1
 
 	case $opt in
-		'branch')
+		'branch' | 'br')
 			printf 'List, create, or delete branches.\n'
 			printf $NEXTLINE
 
-			printf '%s \033[36mgit br\033[0m                   \033[32mgit branch\033[0m \n' $SPACE
+			# printf '%s \033[36mgit br\033[0m                   \033[32mgit branch\033[0m \n' $SPACE
+			# printf $NEXTLINE
+
+			printf '%s - \033[34mgit br --all\033[0m                                 List all branches (local and remote; the current branch is highlighted by `*`).\n' $SPACE
+			printf '%s - \033[34mgit br -d <branch-name>\033[0m                      Delete a local branch (must not have it checked out to do this).\n' $SPACE
+			printf '%s - \033[34mgit br -D <branch-name>\033[0m                      Forced Deletion of Local Branches.\n' $SPACE
+			printf '%s - \033[34mgit br -m <old-br-name> <new-br-name>\033[0m        Delete a local branch (must not have it checked out to do this).\n' $SPACE
+			printf '%s - \033[34mgit br --set-upstream-to origin/<branch-name>\033[0m\n' $SPACE
+			printf '                                                   Set or change the upstream branch for a given branch.\n'
 			;;
 		'clone')
 			printf 'Clone a repository into a new directory.\n'
@@ -57,6 +65,20 @@ function __tldr_git {
 			printf '\n%s -------------->\n' $SPACE
 			printf '%s ➢\033[33m --reverse \033[0m             Output the commits chosen to be shown (see Commit Limiting section above) in reverse order.\n' $SPACE
 			printf '%s ➢\033[33m --author \033[0m              Limit the commits output to ones with author/committer header lines that match the specified pattern (regular expression).\n' $SPACE
+			;;
+		'switch')
+			printf 'usage: git switch [<options>] [--no-guess] <branch>\n'
+			printf '       git switch [<options>] --detach [<start-point>]\n'
+			printf '       git switch [<options>] (-c|-C) <new-branch> [<start-point>]\n'
+			printf '       git switch [<options>] --orphan <new-branch>\n'
+			printf $NEXTLINE
+
+			printf '%s - \033[34mgit switch <branch-name>\033[0m                     Switch to an existing branch.\n' $SPACE
+			printf '%s - \033[34mgit switch -c <branch-name>\033[0m                  Create a new branch and switch to it.\n' $SPACE
+			printf '%s - \033[34mgit switch --detach 83a6f0a\033[0m                  Switching to a commit without creating a new branch.\n' $SPACE
+			printf '%s - \033[34mgit switch -\033[0m                                 Switch to the previous branch.\n' $SPACE
+			printf '%s - \033[34mgit switch --orphan <branch-name>\033[0m            Create a branch without any commit history.\n' $SPACE
+			printf '%s - \033[34mgit switch --merge branch_name\033[0m               Switch to a branch and automatically merge the current branch and any uncommitted changes into it.\n' $SPACE
 			;;
 	esac
 }
@@ -100,9 +122,10 @@ function __help_tldr {
 				printf '%s - \033[34mgit log --help\033[0m\n' $SPACE
 				printf $NEXTLINE
 
-				printf '%s ➢\033[33m branch \033[0m      List, create, or delete branches.\n' $SPACE
+				printf '%s ➢\033[33m branch(br) \033[0m  List, create, or delete branches.\n' $SPACE
 				printf '%s ➢\033[33m clone \033[0m       Clone a repository into a new directory.\n' $SPACE
 				printf '%s ➢\033[33m log \033[0m         Show commit logs.\n' $SPACE
+				printf '%s ➢\033[33m switch \033[0m      Switch between Git branches. Requires Git version 2.23+.\n' $SPACE
 			else
 				__tldr_git $opt
 			fi
