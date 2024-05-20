@@ -330,7 +330,7 @@
     # available attributes are: 'blink', 'bold', 'dim', 'hidden', 'italic', 'reverse', 'strike', 'overline', and 'ul' (or 'underline')
     dark = true
     line-numbers = true
-    side-by-side = true
+    side-by-side = false
     syntax-theme = none
 	# file
     file-style = "#434C5E" bold
