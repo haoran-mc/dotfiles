@@ -326,7 +326,8 @@
     whitespace-error-style = "#aaaaaa"
 
 [delta "mytheme"]
-    #author: https://github.com/AirOnSkin
+    # 4 special color name: 'auto', 'normal', 'raw', and 'syntax'
+    # available attributes are: 'blink', 'bold', 'dim', 'hidden', 'italic', 'reverse', 'strike', 'overline', and 'ul' (or 'underline')
     dark = true
     line-numbers = true
     side-by-side = true
@@ -357,10 +358,17 @@
     plus-emph-style = bold "#202020" "#90A959"
     plus-non-emph-style = bold
     zero-style = syntax
-	# blame
+    # moved blocks
+    map-styles = \
+       bold purple => raw "#AF5FD7", \
+       bold cyan => raw "#5EAFAF", \
+       bold blue => raw "#e5dff6", \
+       bold yellow => raw "#f4ffe0"
+    # blame
     blame-code-style = syntax
     blame-format = "{author:<18} ({commit:>9}) {timestamp:^16}"
     blame-palette = "#2E3440" "#3B4252" "#434C5E" "#4C566A"
+    # merge
     merge-conflict-begin-symbol = ~
     merge-conflict-end-symbol = ~
     merge-conflict-ours-diff-header-style = "#F1FA8C" bold
