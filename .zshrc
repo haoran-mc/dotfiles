@@ -2,7 +2,7 @@
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+	source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
 # env prompt plugins user-configuration alias
@@ -119,9 +119,9 @@ setopt HIST_IGNORE_DUPS
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-    vi-mode
-    zsh-autosuggestions
-    zsh-syntax-highlighting
+	vi-mode
+	zsh-autosuggestions
+	zsh-syntax-highlighting
 	copypath
 	you-should-use
 )
@@ -167,14 +167,14 @@ export DELTA_PAGER="less -X $LESS"
 
 # ostype ##############################################
 if [[ "$OSTYPE" = darwin* ]]; then
-    undelfile()
-    {
-        mv -i ~/.Trash/$@ ./
-    }
+	undelfile()
+	{
+		mv -i ~/.Trash/$@ ./
+	}
 
-    alias rm=trash
-    alias rl='ls ~/.Trash'
-    alias ur=undelfile
+	alias rm=trash
+	alias rl='ls ~/.Trash'
+	alias ur=undelfile
 	alias vim='nvim'
 
 	vimedit()
@@ -183,19 +183,19 @@ if [[ "$OSTYPE" = darwin* ]]; then
 		open -a MacVim $1
 	}
 
-    alias v=vimedit
+	alias v=vimedit
 	alias copy=pbcopy
 elif [[ "$OSTYPE" = linux-gnu* ]]; then
-    # echo "I'm Linux"
-    export GTK_IM_MODULE=ibus
-    export XMODIFIERS=@im=ibus
-    export QT_IM_MODULE=ibus
+	# echo "I'm Linux"
+	export GTK_IM_MODULE=ibus
+	export XMODIFIERS=@im=ibus
+	export QT_IM_MODULE=ibus
 
 	alias v=vim
 	alias open=dolphin
 	alias copy='xclip -selection clipboard'
 else
-    echo "unknow os"
+	echo "unknow os"
 fi
 
 # highlight man page ##################################
