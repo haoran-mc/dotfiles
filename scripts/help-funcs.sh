@@ -66,6 +66,18 @@ function __tldr_git {
 			printf '%s ➢\033[33m --reverse \033[0m             Output the commits chosen to be shown (see Commit Limiting section above) in reverse order.\n' $SPACE
 			printf '%s ➢\033[33m --author \033[0m              Limit the commits output to ones with author/committer header lines that match the specified pattern (regular expression).\n' $SPACE
 			;;
+		'stash')
+			printf 'Stash local Git changes in a temporary area.\n'
+			printf $NEXTLINE
+
+			printf '%s - \033[34mgit stash save "save message"\033[0m\n' $SPACE
+			printf '%s - \033[34mgit stash list\033[0m\n' $SPACE
+			printf '%s - \033[34mgit stash show stash@{0} -p\033[0m\n' $SPACE
+			printf '%s - \033[34mgit stash apply stash@{0}\033[0m\n' $SPACE
+			printf '%s - \033[34mgit stash pop\033[0m\n' $SPACE
+			printf '%s - \033[34mgit stash drop stash@{0}\033[0m\n' $SPACE
+			printf '%s - \033[34mgit stash clear\033[0m\n' $SPACE
+			;;
 		'switch')
 			printf 'usage: git switch [<options>] [--no-guess] <branch>\n'
 			printf '       git switch [<options>] --detach [<start-point>]\n'
@@ -126,6 +138,7 @@ function __help_tldr {
 				printf '%s ➢\033[33m clone \033[0m       Clone a repository into a new directory.\n' $SPACE
 				printf '%s ➢\033[33m log \033[0m         Show commit logs.\n' $SPACE
 				printf '%s ➢\033[33m switch \033[0m      Switch between Git branches. Requires Git version 2.23+.\n' $SPACE
+				printf '%s ➢\033[33m stash \033[0m       Stash local Git changes in a temporary area.\n' $SPACE
 			else
 				__tldr_git $opt
 			fi
