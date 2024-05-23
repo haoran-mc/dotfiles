@@ -63,8 +63,9 @@ function __tldr_git {
 			printf $NEXTLINE
 
 			printf '\n%s -------------->\n' $SPACE
-			printf '%s ➢\033[33m --reverse \033[0m             Output the commits chosen to be shown (see Commit Limiting section above) in reverse order.\n' $SPACE
 			printf '%s ➢\033[33m --author \033[0m              Limit the commits output to ones with author/committer header lines that match the specified pattern (regular expression).\n' $SPACE
+			printf '%s ➢\033[33m --graph  \033[0m              Draw a text-based graphical representation of the commit history on the left hand side of the output.\n' $SPACE
+			printf '%s ➢\033[33m --reverse \033[0m             Output the commits chosen to be shown (see Commit Limiting section above) in reverse order.\n' $SPACE
 			;;
 		'stash')
 			printf 'Stash local Git changes in a temporary area.\n'

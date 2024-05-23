@@ -175,7 +175,6 @@ if [[ "$OSTYPE" = darwin* ]]; then
 	alias rm=trash
 	alias rl='ls ~/.Trash'
 	alias ur=undelfile
-	alias vim='nvim'
 
 	vimedit()
 	{
@@ -191,8 +190,8 @@ elif [[ "$OSTYPE" = linux-gnu* ]]; then
 	export XMODIFIERS=@im=ibus
 	export QT_IM_MODULE=ibus
 
-	alias v=vim
 	alias open=dolphin
+	alias v=vim
 	alias copy='xclip -selection clipboard'
 else
 	echo "unknow os"
@@ -221,7 +220,6 @@ alias la='eza -l -U --icons --octal-permissions -b -h -i --time-style long-iso -
 alias c='clear'
 alias gg='git clone'
 alias lg='lazygit'
-alias n='nvim'
 alias e='emacsclient -n'
 alias q='exit'
 alias so='source ~/.zshrc'
