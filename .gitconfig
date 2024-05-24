@@ -7,7 +7,7 @@
 	editor = vim
 	# pager = git-split-diffs --color | less -RFX
 	pager = delta --features mytheme --navigate --side-by-side  # 设置分页工具为delta
-	excludesfile = /Users/haoran/.gitignore_global              # 全局 .gitignore 文件的位置
+	excludesfile = ~/dotfiles/.gitignore_global                 # 全局 .gitignore 文件的位置
 	quotepath = false                                           # 显示文件名时禁用引号
 [init]
 	defaultBranch = main
