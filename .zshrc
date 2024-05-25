@@ -238,6 +238,7 @@ alias godebug='dlv exec _exe'
 
 source ~/dotfiles/scripts/help-funcs.sh
 alias ran=__help_tldr
+alias r=__help_tldr
 
 alias cat='bat'
 # alias man='tldr'
