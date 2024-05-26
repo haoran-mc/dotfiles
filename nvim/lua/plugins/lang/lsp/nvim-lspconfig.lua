@@ -198,10 +198,57 @@ return {
 			capabilities = my_capabilities,
 			on_attach = my_attach,
 		})
-		require("lspconfig").pylsp.setup({
-			capabilities = my_capabilities,
-			on_attach = my_attach,
-		})
+
+		if utils.executable("pylsp") then
+			local venv_path = os.getenv("VIRTUAL_ENV")
+			local py_path = nil
+			-- decide which python executable to use for mypy
+			if venv_path ~= nil then
+				py_path = venv_path .. "/bin/python3"
+			else
+				-- py_path = vim.g.python3_host_prog
+				py_path = "/Users/haoran/.pyenv/shims/python3"
+			end
+			require("lspconfig").pylsp.setup({
+				capabilities = my_capabilities,
+				on_attach = my_attach,
+				settings = {
+					-- https://github.com/python-lsp/python-lsp-server/blob/develop/CONFIGURATION.md
+					pylsp = {
+						plugins = {
+							-- formatter options, format by conform.nvim
+							black = { enabled = false },
+							autopep8 = { enabled = false },
+							yapf = { enabled = false },
+							-- import sorting, sort imports by conform.nvim
+							isort = { enabled = false },
+							-- linter options
+							pylint = {
+								enabled = true,
+								executable = "pylint", -- manual download, on your PATH pip install pylint/pylint-venv
+							},
+							ruff = { enabled = false }, -- ruff can format and lint
+							pyflakes = { enabled = false },
+							pycodestyle = { enabled = false },
+							-- type checker
+							pylsp_mypy = {
+								enabled = true,
+								overrides = { "--python-executable", py_path, true },
+								report_progress = true,
+								live_mode = false,
+							},
+							-- auto-completion options
+							jedi_completion = { fuzzy = true },
+						},
+					},
+				},
+				flags = {
+					debounce_text_changes = 200,
+				},
+			})
+		else
+			vim.notify("pylsp not found!", vim.log.levels.WARN, { title = "nvim-config" })
+		end
 		require("lspconfig").clangd.setup({
 			capabilities = my_capabilities,
 			on_attach = my_attach,

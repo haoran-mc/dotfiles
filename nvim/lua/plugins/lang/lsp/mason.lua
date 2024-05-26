@@ -27,7 +27,8 @@ return {
 				"lua_ls",
 				"bashls",
 				"sqlls",
-				"clangd"
+				"clangd",
+				"pylsp",
 			},
 			automatic_installation = true,
 		})

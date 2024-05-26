@@ -25,6 +25,7 @@ export GOPROXY=https://goproxy.io,direct
 
 # python
 export PYTHONPATH=/usr/bin/python3
+export PYTHONPATH=$PYTHONPATH:/Users/haoran/.pyenv/versions/3.9.16/lib/python3.9/site-packages
 export PYENV_ROOT=/Users/haoran/.pyenv
 
 # java
