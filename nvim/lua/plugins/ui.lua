@@ -35,14 +35,14 @@ return {
 		end,
 	},
 	{
-		'haoran-mc/beacon.nvim',
-		branch = 'zz',
+		"haoran-mc/beacon.nvim",
+		branch = "zz",
 		event = "VeryLazy",
 		config = function()
-			require('beacon').setup({
+			require("beacon").setup({
 				timeout = 200,
 				ignore_buffers = {},
-				ignore_filetypes = {"neo-tree"},
+				ignore_filetypes = { "neo-tree" },
 			})
 		end,
 	},

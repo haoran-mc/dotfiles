@@ -4,7 +4,7 @@ return {
 	lazy = true,
 	tag = "legacy",
 	dependencies = {
-		"neovim/nvim-lspconfig"
+		"neovim/nvim-lspconfig",
 	},
 	config = function()
 		require("fidget").setup({

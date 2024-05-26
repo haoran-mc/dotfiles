@@ -10,13 +10,13 @@ return {
 			"<leader>ag",
 			function()
 				require("toggleterm.terminal").Terminal
-				:new({
-					cmd = "lazygit",
-					hidden = true,
-					dir = "git_dir",
-					direction = "float",
-				})
-				:toggle()
+					:new({
+						cmd = "lazygit",
+						hidden = true,
+						dir = "git_dir",
+						direction = "float",
+					})
+					:toggle()
 			end,
 			{ noremap = true, silent = true },
 		},

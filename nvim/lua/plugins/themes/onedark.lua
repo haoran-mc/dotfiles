@@ -1,6 +1,6 @@
 return {
 	"navarasu/onedark.nvim",
-	enabled = function ()
+	enabled = function()
 		if Variants.Theme == "onedark" then
 			return true
 		end

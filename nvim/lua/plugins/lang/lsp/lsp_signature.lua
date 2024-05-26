@@ -6,8 +6,7 @@ return {
 	dependenies = "hrsh7th/nvim-cmp",
 	opts = {},
 	config = function()
-		require("lsp_signature").setup(
-		{
+		require("lsp_signature").setup({
 			log_path = vim.fn.stdpath("cache") .. "/lsp_signature.log", -- log dir when debug is on
 			-- default is  ~/.cache/nvim/lsp_signature.log
 			doc_lines = 0, -- will show two lines of comment/doc(if there are more than two lines in doc, will be truncated);
@@ -21,15 +20,14 @@ return {
 
 			close_timeout = 4000, -- close floating window after ms when laster parameter is entered
 			hint_enable = false, -- virtual hint enable
-			hint_prefix = "» ",  -- Panda for parameter, NOTE: for the terminal not support emoji, might crash
+			hint_prefix = "» ", -- Panda for parameter, NOTE: for the terminal not support emoji, might crash
 			handler_opts = {
-				border = "single"   -- double, rounded, single, shadow, none, String
+				border = "single", -- double, rounded, single, shadow, none, String
 			},
 
 			transparency = 0, -- disabled by default, allow floating win transparent value 1~100
 			shadow_blend = 0, -- if you using shadow as border use this set the opacity
-			shadow_guibg = 'none', -- if you using shadow as border use this set the color e.g. 'Green' or '#121315'
-		}
-		)
-	end
+			shadow_guibg = "none", -- if you using shadow as border use this set the color e.g. 'Green' or '#121315'
+		})
+	end,
 }

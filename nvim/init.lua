@@ -23,7 +23,7 @@ require("autocmd")
 require("lazy").setup({
 	root = vim.fn.stdpath("data") .. "/lazy", -- ~/.local/share/nvim/lazy
 	defaults = {
-		lazy = false,                           -- should plugins be lazy-loaded?
+		lazy = false, -- should plugins be lazy-loaded?
 		version = nil,
 	},
 	spec = {
@@ -40,7 +40,7 @@ require("lazy").setup({
 		-- defaults for the `Lazy log` command
 		-- log = { "-10" }, -- show the last 10 commits
 		log = { "--since=3 days ago" }, -- show commits from the last 3 days
-		timeout = 120,                  -- kill processes that take more than 2 minutes
+		timeout = 120, -- kill processes that take more than 2 minutes
 		url_format = "https://github.com/%s.git",
 	},
 	install = {
@@ -62,7 +62,7 @@ require("lazy").setup({
 		-- automatically check for plugin updates
 		enabled = false,
 		concurrency = 10, ---@type number? set to 1 to check for updates very slowly
-		notify = true,    -- get a notification when new updates are found
+		notify = true, -- get a notification when new updates are found
 		frequency = 3600, -- check for updates every hour
 	},
 	change_detection = {

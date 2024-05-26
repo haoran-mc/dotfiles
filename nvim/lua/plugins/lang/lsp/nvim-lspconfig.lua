@@ -1,24 +1,26 @@
--- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
--- https://github.com/neovim/nvim-lspconfig/wiki/UI-Customization
+--[[ https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
+https://github.com/neovim/nvim-lspconfig/wiki/UI-Customization
 
--- To instead override float border setting globally
--- local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
--- function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
---   local border = {
---     { "┌", "FloatBorder" },
---     { "─", "FloatBorder" },
---     { "┐", "FloatBorder" },
---     { "│", "FloatBorder" },
---     { "┘", "FloatBorder" },
---     { "─", "FloatBorder" },
---     { "└", "FloatBorder" },
---     { "│", "FloatBorder" },
---   }
---   opts = opts or {}
---   opts.border = opts.border or border
+To instead override float border setting globally
+local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
+function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
+	local border = {
+		{ "┌", "FloatBorder" },
+		{ "─", "FloatBorder" },
+		{ "┐", "FloatBorder" },
+		{ "│", "FloatBorder" },
+		{ "┘", "FloatBorder" },
+		{ "─", "FloatBorder" },
+		{ "└", "FloatBorder" },
+		{ "│", "FloatBorder" },
+	}
+	opts = opts or {}
+	opts.border = opts.border or border
 
---   return orig_util_open_floating_preview(contents, syntax, opts, ...)
--- end
+	return orig_util_open_floating_preview(contents, syntax, opts, ...)
+end ]]
+
+local utils = require("utils")
 
 vim.diagnostic.config({
 	virtual_text = { prefix = "", source = "always" }, -- prefix：'●', '▎', 'x'
@@ -53,7 +55,7 @@ function LspJumpBack()
 		return
 	end
 	local position = table.remove(PositionStack)
-	vim.cmd('buffer ' .. position.bufnr)
+	vim.cmd("buffer " .. position.bufnr)
 	vim.fn.winrestview(position)
 end
 
@@ -89,14 +91,26 @@ return {
 			},
 		}
 
-		vim.keymap.set("n", "gf", vim.diagnostic.open_float,
-		{ noremap = true, silent = true, desc = "diagnostic open float" })
+		vim.keymap.set(
+			"n",
+			"gf",
+			vim.diagnostic.open_float,
+			{ noremap = true, silent = true, desc = "diagnostic open float" }
+		)
 
-		vim.keymap.set("n", "g[", vim.diagnostic.goto_prev,
-		{ noremap = true, silent = true, desc = "diagnostic goto prev" })
+		vim.keymap.set(
+			"n",
+			"g[",
+			vim.diagnostic.goto_prev,
+			{ noremap = true, silent = true, desc = "diagnostic goto prev" }
+		)
 
-		vim.keymap.set("n", "g]", vim.diagnostic.goto_next,
-		{ noremap = true, silent = true, desc = "diagnostic goto next" })
+		vim.keymap.set(
+			"n",
+			"g]",
+			vim.diagnostic.goto_next,
+			{ noremap = true, silent = true, desc = "diagnostic goto next" }
+		)
 
 		-- custom on_attach
 		local my_attach = function(_, bufnr)
@@ -104,20 +118,26 @@ return {
 			-- lsp_signature.on_attach(client, bufnr)
 			-- Mappings.
 			-- See `:help vim.lsp.*` for documentation on any of the below functions
-			vim.keymap.set("n", "gd", LspJump,
-			{ noremap = true, silent = true })
+			vim.keymap.set("n", "gd", LspJump, { noremap = true, silent = true })
 
-			vim.keymap.set("n", "gb", LspJumpBack,
-			{ noremap = true, silent = true })
+			vim.keymap.set("n", "gb", LspJumpBack, { noremap = true, silent = true })
 
 			-- vim.keymap.set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<cr>",
 			-- { noremap = true, silent = true })
 
-			vim.keymap.set("n", "gi", "<cmd>Telescope lsp_implementations<cr>", -- vim.lsp.buf.implementation
-			{ noremap = true, silent = true, buffer = true, desc = "goto implementation" })
+			vim.keymap.set(
+				"n",
+				"gi",
+				"<cmd>Telescope lsp_implementations<cr>", -- vim.lsp.buf.implementation
+				{ noremap = true, silent = true, buffer = true, desc = "goto implementation" }
+			)
 
-			vim.keymap.set("n", "gl", "<cmd>Telescope diagnostics<cr>",
-			{ noremap = true, silent = true, buffer = true, desc = "diagnostics" })
+			vim.keymap.set(
+				"n",
+				"gl",
+				"<cmd>Telescope diagnostics<cr>",
+				{ noremap = true, silent = true, buffer = true, desc = "diagnostics" }
+			)
 
 			vim.keymap.set("n", "gp", function()
 				local params = vim.lsp.util.make_position_params()
@@ -129,24 +149,47 @@ return {
 				end)
 			end, { noremap = true, silent = true, buffer = bufnr, desc = "preview definition" })
 
-			vim.keymap.set("n", "gD", vim.lsp.buf.type_definition,
-			{ noremap = true, silent = true, buffer = bufnr, desc = "type definition" })
+			vim.keymap.set(
+				"n",
+				"gD",
+				vim.lsp.buf.type_definition,
+				{ noremap = true, silent = true, buffer = bufnr, desc = "type definition" }
+			)
 
-			vim.keymap.set("n", "gr", "<cmd>Telescope lsp_references <cr>",
-			{ noremap = true, silent = true, buffer = bufnr, desc = "lsp_references" })
+			vim.keymap.set(
+				"n",
+				"gr",
+				"<cmd>Telescope lsp_references <cr>",
+				{ noremap = true, silent = true, buffer = bufnr, desc = "lsp_references" }
+			)
 
-			vim.keymap.set("n", "K", vim.lsp.buf.hover,
-			{ noremap = true, silent = true, buffer = bufnr, desc = "hover doc" })
+			vim.keymap.set(
+				"n",
+				"K",
+				vim.lsp.buf.hover,
+				{ noremap = true, silent = true, buffer = bufnr, desc = "hover doc" }
+			)
 
-			vim.keymap.set("n", "<leader>cr", vim.lsp.buf.rename,
-			{ noremap = true, silent = true, buffer = bufnr, desc = "rename" })
+			vim.keymap.set(
+				"n",
+				"<leader>cr",
+				vim.lsp.buf.rename,
+				{ noremap = true, silent = true, buffer = bufnr, desc = "rename" }
+			)
 
-			vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action,
-			{ noremap = true, silent = true, buffer = bufnr, desc = "code action" })
+			vim.keymap.set(
+				"n",
+				"<leader>ca",
+				vim.lsp.buf.code_action,
+				{ noremap = true, silent = true, buffer = bufnr, desc = "code action" }
+			)
 
-			vim.keymap.set("n", "<leader>cf",
-			"<cmd>lua vim.lsp.buf.format { async = true }<cr>",
-			{ noremap = true, silent = true, buffer = bufnr, desc = "format" })
+			vim.keymap.set(
+				"n",
+				"<leader>cf",
+				"<cmd>lua vim.lsp.buf.format { async = true }<cr>",
+				{ noremap = true, silent = true, buffer = bufnr, desc = "format" }
+			)
 		end
 
 		-- require("neodev").setup()
@@ -249,6 +292,7 @@ return {
 		else
 			vim.notify("pylsp not found!", vim.log.levels.WARN, { title = "nvim-config" })
 		end
+
 		require("lspconfig").clangd.setup({
 			capabilities = my_capabilities,
 			on_attach = my_attach,

@@ -1,7 +1,7 @@
 return {
 	"shaunsingh/moonlight.nvim",
 
-	enabled = function ()
+	enabled = function()
 		if Variants.Theme == "moonlight" then
 			return true
 		end
@@ -10,5 +10,5 @@ return {
 
 	init = function()
 		vim.cmd("colorscheme moonlight")
-	end
+	end,
 }
