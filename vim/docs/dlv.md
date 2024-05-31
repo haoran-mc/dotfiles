@@ -50,7 +50,7 @@ $ dlv exec -r stdin:input.txt _exe         # 重定向输入
 	toggle            toggle 2 关闭断点 2
 
 参数：
-	args  
+	args
 	display
 			display -a n      添加变量 n 到 display
 			display -a n+1    添加表达式到 display

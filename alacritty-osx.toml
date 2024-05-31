@@ -75,7 +75,7 @@ multiplier = 3
 [mouse]
 # cursor remains hidden after moving the mouse
 hide_when_typing = false
-  
+
 
 # [colors.primary]
 # foreground = '0xeeeeec'
