@@ -22,6 +22,7 @@ function __tldr_git {
 			# printf $NEXTLINE
 
 			printf '%s - \033[34mgit br --all\033[0m                                 List all branches (local and remote; the current branch is highlighted by `*`).\n' $SPACE
+			printf '%s - \033[34mgit br -r\033[0m                                    List or delete (if used with -d) the remote-tracking branches.\n' $SPACE
 			printf '%s - \033[34mgit br -d <branch-name>\033[0m                      Delete a local branch (must not have it checked out to do this).\n' $SPACE
 			printf '%s - \033[34mgit br -D <branch-name>\033[0m                      Forced Deletion of Local Branches.\n' $SPACE
 			printf '%s - \033[34mgit br -m <old-br-name> <new-br-name>\033[0m        Delete a local branch (must not have it checked out to do this).\n' $SPACE
@@ -66,6 +67,14 @@ function __tldr_git {
 			printf '%s ➢\033[33m --author \033[0m              Limit the commits output to ones with author/committer header lines that match the specified pattern (regular expression).\n' $SPACE
 			printf '%s ➢\033[33m --graph  \033[0m              Draw a text-based graphical representation of the commit history on the left hand side of the output.\n' $SPACE
 			printf '%s ➢\033[33m --reverse \033[0m             Output the commits chosen to be shown (see Commit Limiting section above) in reverse order.\n' $SPACE
+			;;
+		'remote')
+			printf 'Manage set of tracked repositories.\n'
+			printf $NEXTLINE
+
+			printf '%s - \033[34mgit remote add origin git@github.com:haoran-mc/remote.git\033[0m\n' $SPACE
+			printf '%s - \033[34mgit remote -v\033[0m\n' $SPACE
+			printf '%s - \033[34mgit remote update origin -p\033[0m                  Fetch updates for remotes or remote groups in the repository as defined by remotes.<group>.\n' $SPACE
 			;;
 		'stash')
 			printf 'Stash local Git changes in a temporary area.\n'
@@ -138,6 +147,7 @@ function __help_tldr {
 				printf '%s ➢\033[33m branch(br) \033[0m  List, create, or delete branches.\n' $SPACE
 				printf '%s ➢\033[33m clone \033[0m       Clone a repository into a new directory.\n' $SPACE
 				printf '%s ➢\033[33m log \033[0m         Show commit logs.\n' $SPACE
+				printf '%s ➢\033[33m remote \033[0m      Manage set of tracked repositories.\n' $SPACE
 				printf '%s ➢\033[33m switch \033[0m      Switch between Git branches. Requires Git version 2.23+.\n' $SPACE
 				printf '%s ➢\033[33m stash \033[0m       Stash local Git changes in a temporary area.\n' $SPACE
 			else
