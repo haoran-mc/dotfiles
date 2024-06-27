@@ -123,8 +123,8 @@ plugins=(
 	vi-mode
 	zsh-autosuggestions
 	zsh-syntax-highlighting
-	copypath
 	you-should-use
+	z
 )
 # git support git aliases
 # autojump quick jump with j
