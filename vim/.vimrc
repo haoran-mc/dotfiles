@@ -54,7 +54,7 @@ set splitbelow          " 在下面分屏
 set backupext=.bak      " 备份文件扩展名
 set backupdir=~/.vim/.backup//  " 结尾的//表示生成的文件名带有绝对路径，路径中用%替换目录分隔符，这样可以防止文件重名。
 set directory=~/.vim/.swp//
-set undodir=~/.vim/.undo// 
+set undodir=~/.vim/.undo//
 set hidden              " 切换 buffer 时，前一个编辑的文件保留在后台
 " Having longer updatetime (default is 4000 ms = 4s) leads to noticeable
 " delays and poor user experience
