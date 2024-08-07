@@ -1,34 +1,36 @@
-**Modern Unix:**
+#+STARTUP: showall noindent
 
-<!-- https://github.com/ibraheemdev/modern-unix -->
 
-| tool       | intro                         |
-|------------|-------------------------------|
-| bat        | `cat` with highlight          |
-| exa        | A modern replacement for `ls` |
-| delta      | batter `diff`                 |
-| fd         | `find` file                   |
-| ripgrep    | `grep` line                   |
-| jq         | `sed` for JSON data           |
-| cheat/tldr | `man`                         |
-| gping      | `ping`                          |
-|------------|-------------------------------|
-| dust       | du                            |
-| duf        | df                            |
-| broot      | tree                          |
 
-```
+| tool       | intro                        |
+|------------+------------------------------|
+| bat        | ~cat~ with highlight           |
+| exa        | A modern replacement for ~ls~  |
+| delta      | batter ~diff~                  |
+| fd         | ~find~ file                    |
+| ripgrep    | ~grep~ line                    |
+| jq         | ~sed~ for JSON data            |
+| cheat/tldr | ~man~                          |
+| gping      | ~ping~                         |
+| mos        | mouse wheel scrolls smoothly |
+|------------+------------------------------|
+| dust       | du                           |
+| duf        | df                           |
+| broot      | tree                         |
+
+
+#+begin_example
 ❯ pfetch
        .:'      haoran@ran-macbook-air.local
     _ :'_       os     macOS 14.0
- .'`_`-'_``.    host   Mac14,2
+ .'~_~-'_~~.    host   Mac14,2
 :________.-'    kernel 23.0.0
 :_______:       uptime 16d 17h 41m
- :_______`-;    pkgs   4
-  `._.-._.'     memory 2361M / 16384M
-```
+ :_______~-;    pkgs   4
+  ~._.-._.'     memory 2361M / 16384M
+~~~
 
-```
+~~~
 ❯ neofetch
                     'c.          haoran@ran-macbook-air.local
                  ,xNMM.          ----------------------------
@@ -47,7 +49,7 @@
     kMMMMMMMMMMMMMMMMMMMMMMd     Memory: 2382MiB / 16384MiB
      ;KMMMMMMMWXXWMMMMMMMk.
        .cooc,.    .,coo:.
-```
+#+end_example
 
 
 Yet another cross-platform graphical process/system monitor:
@@ -56,4 +58,3 @@ Yet another cross-platform graphical process/system monitor:
 - gtop
 - asitop
 - glances
-
