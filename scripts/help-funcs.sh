@@ -109,7 +109,7 @@ function __tldr_git {
 function __help_tldr {
 	local cmd=$1 opt=$2
 	if [ -z $cmd ]; then
-		printf " | fd | fzf | git | help(h) | printf | rg | \n"
+		printf " | fd | fzf | git | help(h) | printf | rg | tree | \n"
 		return
 	fi
 
@@ -203,5 +203,12 @@ function __help_tldr {
 			printf '%s ➢\033[33m -i \033[0m                        case-insensitive.\n' $SPACE
 			printf '%s ➢\033[33m -S \033[0m                        smartcase.\n' $SPACE
 			;;
+        'tree')
+            printf 'Show the contents of the current directory as a tree.\n'
+			printf $NEXTLINE
+
+			printf '%s -------------->\n' $SPACE
+			printf '%s ➢\033[33m -L \033[0m                        levels of depth.\n' $SPACE
+			printf '%s ➢\033[33m -d \033[0m                        directories only.\n' $SPACE
 	esac
 }
