@@ -10,9 +10,24 @@ fi
 # 为了环境变量不被 .zprofile 覆盖，使用 .zshrc 存放环境变量
 
 # env ##############################################
+export PATH=$HOME/.local/bin:$PATH
+export PATH=$HOME/.vector/bin:$PATH
+
 # nvim
 export NVIM_PATH=/usr/local/nvim-macos
-export PATH=$PATH:$NVIM_PATH/bin
+export PATH=$NVIM_PATH/bin:$PATH
+
+# java
+# export JAVA_HOME=/usr/local/java/jdk1.8.0_201
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk-17.0.5.jdk/Contents/Home
+export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
+export PATH=$JAVA_HOME/bin:$PATH
+
+# python
+export PYTHONPATH=/usr/bin/python3
+export PYTHONPATH=$PYTHONPATH:$HOME/.pyenv/versions/3.9.16/lib/python3.9/site-packages
+export PYENV_ROOT=$HOME/.pyenv
+export PATH=$HOME/.pyenv/shims:$PATH
 
 # golang
 export GOROOT=/usr/local/go
@@ -23,24 +38,15 @@ export GO111MODULE=on
 export GOPROXY=https://goproxy.io,direct
 # export GOPROXY=https://goproxy.cn
 
-# python
-export PYTHONPATH=/usr/bin/python3
-export PYTHONPATH=$PYTHONPATH:/Users/haoran/.pyenv/versions/3.9.16/lib/python3.9/site-packages
-export PYENV_ROOT=/Users/haoran/.pyenv
-
-# java
-# export JAVA_HOME=/usr/local/java/jdk1.8.0_201
-export JAVA_HOME=/opt/homebrew/Cellar/openjdk/21.0.2/bin
-export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
-export PATH=$JAVA_HOME/bin:$PATH
+# rust
+export PATH=$HOME/.cargo/bin:$PATH
 
 # lua
 export LUA_PATH="./?.lua;;"
 
-export PATH=$PATH:/Users/haoran/.local/bin
-
 # 安装 emacs 时，需要 pyenv 依赖
-export PATH=$HOME/.pyenv/shims:$PATH
+export EMACS_PATH=/Applications/Emacs.app/Contents/MacOS
+export PATH=$EMACS_PATH:$EMACS_PATH/bin:$PATH
 
 # 取消 tldr 自动更新
 export TLDR_AUTO_UPDATE_DISABLED=true
