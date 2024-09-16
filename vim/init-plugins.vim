@@ -6,7 +6,7 @@ Plug 'ianva/vim-youdao-translater'
 Plug 'easymotion/vim-easymotion'
 " Plug 'terryma/vim-expand-region'
 " Plug 'Raimondi/delimitMate'  " 配对括号和引号自动补全
-Plug 'terryma/vim-multiple-cursors'
+" Plug 'terryma/vim-multiple-cursors'
 " --- search
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
@@ -16,10 +16,10 @@ Plug 'lfv89/vim-interestingwords' " <leader>k
 " Plug 'itchyny/vim-cursorword' " 单词下划线
 " --- markdown
 Plug 'dhruvasagar/vim-table-mode', { 'for': ['markdown'] }
-Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug'] }
-Plug 'vimwiki/vimwiki'
+" Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug'] }
+" Plug 'vimwiki/vimwiki'
 " --- coc
-Plug 'asins/vim-dict'
+" Plug 'asins/vim-dict'
 " Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 " Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 " Plug 'honza/vim-snippets'

@@ -1,22 +1,18 @@
-# ctrl-d pgdown
-# ctrl-u pgup
-
 # yaml-language-server: $schema=https://json.schemastore.org/lazygit.json
 gui:
-  skipDiscardChangeWarning: true
-  skipUnstageLineWarning: true
-  expandFocusedSidePanel: true
-  nerdFontsVersion: '3'
-  border: 'rounded'
-  theme:
-    selectedLineBgColor:
-      - black
-      - bold
-    selectedRangeBgColor:
-      - green
-      - bold
-
+    # skipDiscardChangeWarning: true
+    skipDiscardChangeWarning: true
+    expandFocusedSidePanel: true
+    nerdFontsVersion: '3'
+    border: 'rounded'
+    theme:
+        selectedLineBgColor:
+            - black
+            - bold
+        selectedRangeBgColor:
+            - green
+            - bold
 git:
-  paging:
-    colorArg: always
-    pager: delta --dark --paging=never
+    paging:
+        colorArg: always
+        pager: delta --dark --paging=never

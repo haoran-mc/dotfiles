@@ -1,67 +1,61 @@
 #!/bin/bash
-
 set -e
-
-source ./scripts/script-funcs.sh
+source ~/dotfiles/scripts/script-funcs.sh
 
 ### install softwares
-yay -S repgrep fzf
+yay -S --needed repgrep fzf fd tmux vim \
+  alacritty lazygit git-delta eza \
+  ttf-jetbrains-mono-nerd nerd-fonts-sf-mono
 # go nvm nodejs
 
 
-### dotfiles
+### dotfiles #########################
 __current_status "linking dotfiles"
 dotfiles=(.ctags .bashrc .zshrc .gitconfig .xprofile .xinitrc)
-
 for file in ${dotfiles[@]}; do
     __current_status "linking ${file}"
     __link_file ~/dotfiles/$file ~/$file
 done
 
-### fontconfig
-if [ ! -d ~/.config/fontconfig ]; then
-    mkdir ~/.config/fontconfig
-fi
-__link_file ~/dotfiles/.fonts.conf ~/.config/fontconfig/fonts.conf
-
-
-### vim
+### vim #########################
 __current_status "linking vim config"
 __link_file ~/dotfiles/vim/.vimrc ~/.vimrc
+cp -r ~/dotfiles/vim/colors ~/.vim/colors
 
+### alacritty #########################
+__link_file ~/dotfiles/alacritty-linux.toml ~/.config/alacritty/alacritty.toml
 
-### neovim
-__current_status "linking neovim config"
-__link_file ~/dotfiles/nvim ~/.config/nvim
-# neovim mason lazy sync
-
-
-### zsh
-__current_status "installing ohmyzsh"
-if [ -d ~/.oh-my-zsh ]; then
-    __current_status "found ~/.oh-my-zsh - skipping this step"
-else
-    sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
-
-    __current_status "installing zsh plugins"
-    plugins=(autojump zsh-autosuggestions zsh-syntax-highlighting)
-    __install_from_repo "${plugins[*]}"
-fi
-
-
-### rime
-# __current_status "installing rime"
-
-
-### i3wm
-source ./i3/setup.sh
-
-__link_file ~/dotfiles/ranger ~/.config/ranger
-
-
-### lazygit
+### lazygit #########################
 __current_status "linking lazygit config"
-link_file ~/dotfiles/lazygit.yml ~/.config/lazygit/config.yml
+__link_file ~/dotfiles/lazygit.yml ~/.config/lazygit/config.yml
 
-### end here
 __current_status "installation successful 🚀"
+
+
+
+##########################################
+#### fontconfig
+# if [ ! -d ~/.config/fontconfig ]; then
+#     mkdir ~/.config/fontconfig
+# fi
+# __link_file ~/dotfiles/.fonts.conf ~/.config/fontconfig/fonts.conf
+
+
+#### neovim
+# __current_status "linking neovim config"
+# __link_file ~/dotfiles/nvim ~/.config/nvim
+### neovim mason lazy sync
+
+## rime, tmux, i3wm, ranger
+
+
+##### zsh
+# 1. ohmyz.sh, install oh-my-zsh
+# 2. git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+# 3. git clone --depth=1 https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+# 4. git clone --depth=1 https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+# 5. git clone --depth=1 https://github.com/MichaelAquilina/zsh-you-should-use.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/you-should-use
+#
+# 1. cat /etc/shells, chsh -l
+# 2. yay -S zsh 
+# 3. chsh -s /usr/bin/zsh

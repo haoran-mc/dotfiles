@@ -10,7 +10,7 @@ save_to_clipboard     = true
 
 
 [window]
-opacity      = 0.9
+opacity      = 1.0
 
 # Windowed Maximized Fullscreen SimpleFullscreen
 startup_mode = "Maximized"
@@ -25,7 +25,7 @@ padding      = { x = 4, y = 9 }
 
 
 [font]
-size     = 7.2
+size     = 11
 # https://github.com/alacritty/alacritty/issues/4616#issuecomment-1236413444
 # defaults write -g AppleFontSmoothing -int 2
 # AppleFontSmoothing  = true

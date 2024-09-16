@@ -1,1 +1,11 @@
 xset r rate 250 55
+
+
+
+
+ export GTK_IM_MODULE=fcitx5
+ export QT_IM_MODULE=fcitx5
+ export XMODIFIERS=@im=fcitx
+
+
+ fcitx5 &

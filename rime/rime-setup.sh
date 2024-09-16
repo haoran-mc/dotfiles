@@ -53,20 +53,22 @@ elif [[ `uname` == 'Linux' ]]; then
     # __link_file ~/dotfiles/rime/dict_hupy.dict.yaml ~/.config/ibus/rime/dict_hupy.dict.yaml
 
     # fcitx5 ##################
-    __link_file ~/dotfiles/rime/default.custom.yaml ~/.local/share/fcitx5/rime/default.custom.yaml
-    __link_file ~/dotfiles/rime/symbols.yaml ~/.local/share/fcitx5/rime/symbols.yaml
-    __link_file ~/dotfiles/rime/custom_phrase.txt ~/.local/share/fcitx5/rime/custom_phrase.txt
-    __link_file ~/dotfiles/rime/opencc ~/.local/share/fcitx5/rime/opencc
+    __link_file /home/haoran/dotfiles/rime/default.custom.yaml /usr/share/rime-data/default.custom.yaml
+    # ↑ ~/.local/share/rime/.
 
-    __link_file ~/dotfiles/rime/lua ~/.local/share/fcitx5/rime/lua
-    __link_file ~/dotfiles/rime/rime.lua ~/.local/share/fcitx5/rime/rime.lua
+    __link_file /home/haoran/dotfiles/rime/symbols.yaml /usr/share/rime-data/symbols.yaml
+    __link_file /home/haoran/dotfiles/rime/custom_phrase.txt /usr/share/rime-data/custom_phrase.txt
+    __link_file /home/haoran/dotfiles/rime/opencc /usr/share/rime-data/opencc
 
-    __link_file ~/dotfiles/rime/cn_dicts ~/.local/share/fcitx5/rime/cn_dicts
+    __link_file /home/haoran/dotfiles/rime/lua /usr/share/rime-data/lua
+    __link_file /home/haoran/dotfiles/rime/rime.lua /usr/share/rime-data/rime.lua
 
-    __link_file ~/dotfiles/rime/huma.schema.yaml ~/.local/share/fcitx5/rime/huma.schema.yaml
-    __link_file ~/dotfiles/rime/dict_hu.dict.yaml ~/.local/share/fcitx5/rime/dict_hu.dict.yaml
-    __link_file ~/dotfiles/rime/hupy.schema.yaml ~/.local/share/fcitx5/rime/hupy.schema.yaml
-    __link_file ~/dotfiles/rime/dict_hupy.dict.yaml ~/.local/share/fcitx5/rime/dict_hupy.dict.yaml
+    __link_file /home/haoran/dotfiles/rime/cn_dicts /usr/share/rime-data/cn_dicts
+
+    __link_file /home/haoran/dotfiles/rime/huma.schema.yaml /usr/share/rime-data/huma.schema.yaml
+    __link_file /home/haoran/dotfiles/rime/dict_hu.dict.yaml /usr/share/rime-data/dict_hu.dict.yaml
+    __link_file /home/haoran/dotfiles/rime/hupy.schema.yaml /usr/share/rime-data/hupy.schema.yaml
+    __link_file /home/haoran/dotfiles/rime/dict_hupy.dict.yaml /usr/share/rime-data/dict_hupy.dict.yaml
 
     # just for the first testing
     # __link_file ~/dotfiles/rime/pinyin.schema.yaml ~/.local/share/fcitx5/rime/pinyin.schema.yaml
