@@ -266,11 +266,8 @@ return {
 							-- import sorting, sort imports by conform.nvim
 							isort = { enabled = false },
 							-- linter options
-							pylint = {
-								enabled = true,
-								executable = "pylint", -- manual download, on your PATH pip install pylint/pylint-venv
-							},
-							ruff = { enabled = false }, -- ruff can format and lint
+							pylint = { enabled = true, executable = "pylint" }, -- pylint/pylint-venv
+							ruff = { enabled = false, executable = "ruff" }, -- ruff can format and lint
 							pyflakes = { enabled = false },
 							pycodestyle = { enabled = false },
 							-- type checker
@@ -281,7 +278,7 @@ return {
 								live_mode = false,
 							},
 							-- auto-completion options
-							jedi_completion = { fuzzy = true },
+							jedi_completion = { fuzzy = false },
 						},
 					},
 				},

@@ -16,6 +16,8 @@ return {
 
 		require("nvim-treesitter.configs").setup({
 			parser_install_dir = vim.fn.stdpath("data") .. "/lazy/nvim-treesitter",
+			auto_install = true,
+			sync_install = false,
 			ensure_installed = {
 				"lua",
 				"python",
@@ -29,7 +31,7 @@ return {
 				"cpp",
 				"python",
 			},
-			sync_install = false,
+			ignore_install = {},
 			highlight = {
 				enable = true,
 

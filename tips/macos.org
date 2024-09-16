@@ -1,6 +1,13 @@
 #+STARTUP: showall noindent
 
 
+- brew upgrade
+- brew search
+- brew list
+- brew pin
+- brew cleanup
+
+
 
 | tool       | intro                        |
 |------------+------------------------------|
@@ -58,3 +65,9 @@ Yet another cross-platform graphical process/system monitor:
 - gtop
 - asitop
 - glances
+
+
+
+
+
+

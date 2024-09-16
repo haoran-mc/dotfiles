@@ -8,7 +8,7 @@ schema:
 
 switches:
   - name: ascii_mode
-    states: [ "中文", "A" ] 
+    states: [ "中文", "A" ]
     reset: 1                    # 默认英文
   - name: full_shape
     states: [ "半角", "全角" ]
@@ -17,7 +17,7 @@ switches:
     states: [ "𡆶", "囿" ]
     reset: 1                    # 默认开启 emoji -- follow letter
   - name: chaifen
-    states: [ "拆隐", "拆显" ]  
+    states: [ "拆隐", "拆显" ]
     reset: 0                    # 默认不显示拆字
   # - name: simplification
   #   states: [ "简", "繁" ]
@@ -131,10 +131,10 @@ reverse_lookup:
 chaifen:
   opencc_config: hu_cf.json
   option_name: chaifen
-  show_in_comment: true 
-  comment_format:     
+  show_in_comment: true
+  comment_format:
     - "xform/&nbsp;/ /"
-  # tags:     
+  # tags:
   #   - abc
   #   - huma
   #   - tigress
