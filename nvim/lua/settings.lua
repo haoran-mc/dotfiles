@@ -52,7 +52,7 @@ vim.o.fileencoding = "utf-8"                  -- 文件默认编码
                                               -- 打开文件时自动尝试下面顺序的编码
 vim.o.fileencodings = "utf-8,gb18030,gbk,gb2312,utf-16,cp936,usc-bom,euc-jp"
                                               -- 终端使用的编码方式
-vim.o.termencodings = "utf-8,gb18030,gbk,gb2312,utf-16,cp936,usc-bom,euc-jp"
+-- vim.o.termencodings = "utf-8,gb18030,gbk,gb2312,utf-16,cp936,usc-bom,euc-jp"
 
 -- code
 vim.o.completeopt = "menuone,noselect"        -- mostly just for cmp

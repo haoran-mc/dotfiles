@@ -5,6 +5,7 @@ source ~/dotfiles/scripts/script-funcs.sh
 ### install softwares
 yay -S --needed repgrep fzf fd tmux vim \
   alacritty lazygit git-delta eza \
+  bat gping tldr \
   ttf-jetbrains-mono-nerd nerd-fonts-sf-mono
 # go nvm nodejs
 
@@ -58,4 +59,4 @@ __current_status "installation successful 🚀"
 #
 # 1. cat /etc/shells, chsh -l
 # 2. yay -S zsh 
-# 3. chsh -s /usr/bin/zsh
+# 3. chsh -s /usr/bin/zsh, then logout

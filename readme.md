@@ -26,10 +26,6 @@ chmod +x ./osx-setup.sh
 
 - always use Tabs for line indentation
 
-```
-❯ fc-list
-```
-
 <!--
 - iterm2 color: https://iterm2colorschemes.com/
 - bat --list-themes
