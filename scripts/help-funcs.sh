@@ -109,7 +109,7 @@ function __tldr_git {
 function __help_tldr {
 	local cmd=$1 opt=$2
 	if [ -z $cmd ]; then
-		printf " | fd | fzf | git | help(h) | printf | rg | tree | \n"
+		printf " | fd | fzf | git | help(h) | pacman | printf | rg | tree | \n"
 		return
 	fi
 
@@ -172,6 +172,53 @@ function __help_tldr {
 			printf '%s     4.\033[34m info \033[0m             Reads documentation stored in the info format.\n' $SPACE
 			printf '%s     5.\033[34m /usr/share/doc \033[0m\n' $SPACE
 			;;
+        'pacman')
+			printf 'package manager utility.\n'
+			printf $NEXTLINE
+
+            printf '安装软件\n'
+			printf '%s - \033[34mpacman -S <software>\033[0m                  安装软件，若有多个软件包，空格分隔\n' $SPACE
+			printf '%s - \033[34mpacman -S --needed <software>\033[0m         安装软件，若存在，不重新安装最新的软件\n' $SPACE
+			printf '%s - \033[34mpacman -Sv <software>\033[0m                 输出操作信息后安装\n' $SPACE
+			printf '%s - \033[34mpacman -U <software.pkg.tar.gz>\033[0m       安装本地软件包\n' $SPACE
+			printf $NEXTLINE
+
+            printf '卸载软件\n'
+			printf '%s - \033[34mpacman -R <software>\033[0m                  只卸载软件包不卸载依赖的软件\n' $SPACE
+			printf '%s - \033[34mpacman -Rv <software>\033[0m                 卸载软件，并输出卸载信息\n' $SPACE
+			printf '%s - \033[34mpacman -Rs <software>\033[0m                 卸载软件，并同时卸载该软件的依赖软件\n' $SPACE
+			printf '%s - \033[34mpacman -Rsc <software>\033[0m                卸载软件，并卸载依赖该软件的程序\n' $SPACE
+			printf $NEXTLINE
+
+            printf '搜索软件\n'
+			printf '%s - \033[34mpacman -Ss <keyword>\033[0m                  在仓库搜索包含关键字的软件包\n' $SPACE
+			printf '%s - \033[34mpacman -Sl\033[0m                            显示软件仓库所有软件的列表\n' $SPACE
+			printf '%s - \033[34mpacman -Q <software>\033[0m                  查看软件是否已安装\n' $SPACE
+			printf '%s - \033[34mpacman -Qs <keyword>\033[0m                  搜索已安装的软件包\n' $SPACE
+			printf '%s - \033[34mpacman -Qi <software>\033[0m                 查看软件包详细信息\n' $SPACE
+			printf '%s - \033[34mpacman -Ql <software>\033[0m                 列出软件包所有文件安装路径\n' $SPACE
+			printf '%s - \033[34mpacman -Qu\033[0m                            列出可升级的软件包\n' $SPACE
+			printf '%s - \033[34mpacman -Qt\033[0m                            列出不被任何软件要求的软件包\n' $SPACE
+			printf $NEXTLINE
+
+            printf '软件包组\n'
+			printf '%s - \033[34mpacman -Sg\033[0m                            列出软件仓库上所有软件包组\n' $SPACE
+			printf '%s - \033[34mpacman -Qg\033[0m                            列出本地已经安装的软件包组和子软件包\n' $SPACE
+			printf '%s - \033[34mpacman -Sg <groups>\033[0m                   查进软件包组所包含的软件包\n' $SPACE
+			printf '%s - \033[34mpacman -Qg <groups>\033[0m                   查看软件包组所包含的软件包\n' $SPACE
+			printf $NEXTLINE
+
+            printf '更新系统\n'
+			printf '%s - \033[34mpacman -Sy\033[0m                            从服务器下载最新的软件包数据库到本地\n' $SPACE
+			printf '%s - \033[34mpacman -Su\033[0m                            升级所有已安装的软件包\n' $SPACE
+			printf '%s - \033[34mpacman -Syu\033[0m                           升级整个系统\n' $SPACE
+			printf $NEXTLINE
+
+            printf '清理缓存\n'
+			printf '%s - \033[34mpacman -Sc\033[0m                            清理未安装的软件包文件\n' $SPACE
+			printf '%s - \033[34mpacman -Scc\033[0m                           清理所有的缓存文件\n' $SPACE
+			printf $NEXTLINE
+            ;;
 		'printf')
 			printf 'Format and print text. If you want to use ${myvar} to view variables, use \033[31m"\033[0m, otherwise use \033[31m'\''\033[0m at all times.\n'
 			printf $NEXTLINE
@@ -212,3 +259,24 @@ function __help_tldr {
 			printf '%s ➢\033[33m -d \033[0m                        directories only.\n' $SPACE
 	esac
 }
+
+
+
+#################################################################
+# An alternative to `find`. Aims to be faster and easier to use than `find`.
+#
+#     - fd -t directory <pattern>
+#         ➢ -t, --type         Filetype.
+#
+#     -------------->
+#     ➢ -i                case-insensitive.
+#     ➢ -s                smartcase.
+#     ➢ -l                Use a detailed listing format like 'ls -l'.
+#################################################################
+
+# 1. short description
+# 2. - example
+# 3.     ➢ the arg used in example
+#
+# -------------->
+# ➢ other args
