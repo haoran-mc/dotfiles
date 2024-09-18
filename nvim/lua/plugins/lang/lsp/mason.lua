@@ -25,17 +25,10 @@ return {
 			ensure_installed = {
 				"gopls",
 				"lua_ls",
-				"bashls",
-				"sqlls",
 				"clangd",
 				"pylsp",
 			},
 			automatic_installation = true,
 		})
-
-		--[[ require("mason-null-ls").setup({
-			ensure_installed = { "stylua", "jq" },
-			automatic_installation = true,
-		}) ]]
 	end,
 }

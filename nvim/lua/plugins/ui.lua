@@ -2,7 +2,7 @@ return {
 	{
 		"utilyre/sentiment.nvim", -- 高亮最近的括号
 		version = "*",
-		event = "VeryLazy", -- keep for lazy loading
+		event = "VeryLazy",     -- keep for lazy loading
 		opts = {},
 		init = function()
 			-- `matchparen.vim` needs to be disabled manually in case of lazy loading

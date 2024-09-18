@@ -4,16 +4,16 @@
 end ]]
 
 return {
-	"hrsh7th/nvim-cmp", -- complete engine
+	"hrsh7th/nvim-cmp",                       -- complete engine
 	event = { "InsertEnter", "CmdlineEnter" }, -- some times insert lazy than filetype
 	dependencies = {
-		"onsails/lspkind.nvim", -- adds vscode-like pictograms
-		"hrsh7th/cmp-nvim-lsp", -- lsp completions
-		"hrsh7th/cmp-buffer", -- buffer completions
-		"hrsh7th/cmp-path", -- path completions
-		"hrsh7th/cmp-cmdline", -- cmdline completions
-		"hrsh7th/cmp-nvim-lua", -- nvim lua api completions
-		"saadparwaiz1/cmp_luasnip", -- snippet engine
+		"onsails/lspkind.nvim",                 -- adds vscode-like pictograms
+		"hrsh7th/cmp-nvim-lsp",                 -- lsp completions
+		"hrsh7th/cmp-buffer",                   -- buffer completions
+		"hrsh7th/cmp-path",                     -- path completions
+		"hrsh7th/cmp-cmdline",                  -- cmdline completions
+		"hrsh7th/cmp-nvim-lua",                 -- nvim lua api completions
+		"saadparwaiz1/cmp_luasnip",             -- snippet engine
 		-- "rafamadriz/friendly-snippets",   -- additions to snippets
 		{
 			"L3MON4D3/LuaSnip", -- snippet completions
@@ -59,8 +59,8 @@ return {
 				local context = require("cmp.config.context")
 				-- keep command mode completion enabled when cursor is in a comment
 				if
-					not vim.api.nvim_get_mode().mode == "c"
-					and (context.in_treesitter_capture("comment") or context.in_syntax_group("Comment"))
+						not vim.api.nvim_get_mode().mode == "c"
+						and (context.in_treesitter_capture("comment") or context.in_syntax_group("Comment"))
 				then
 					return false
 				end
@@ -82,7 +82,7 @@ return {
 				completeopt = "menu,menuone,noselect",
 			},
 			experimental = {
-				ghost_text = true, -- this feature conflict with copilot.vim's preview.
+				ghost_text = true,
 			},
 			snippet = {
 				expand = function(args)
@@ -95,7 +95,7 @@ return {
 				["<Tab>"] = cmp.mapping(function(fallback)
 					if luasnip.expand_or_jumpable() then -- 先进行扩展
 						luasnip.expand_or_jump()
-					elseif cmp.visible() then -- 如果存在补全窗口
+					elseif cmp.visible() then       -- 如果存在补全窗口
 						cmp.select_next_item()
 					else
 						fallback()
@@ -116,7 +116,6 @@ return {
 				}), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
 			}),
 			sources = cmp.config.sources({
-				{ name = "copilot" },
 				{ name = "nvim_lsp" },
 				{ name = "luasnip" },
 			}, {
@@ -130,9 +129,6 @@ return {
 					maxwidth = 50,
 					before = function(entry, vim_item)
 						vim_item.menu = "[" .. string.upper(entry.source.name) .. "]"
-						if string.upper(entry.source.name) == "COPILOT" then
-							vim_item.kind = " Copilot"
-						end
 						return vim_item
 					end,
 				}),
@@ -140,7 +136,6 @@ return {
 			sorting = {
 				priority_weight = 2,
 				comparators = {
-					require("copilot_cmp.comparators").prioritize,
 					cmp.config.compare.offset,
 					cmp.config.compare.exact,
 					-- cmp.config.compare.scopes,

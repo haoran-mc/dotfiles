@@ -13,7 +13,7 @@ return {
 				ts_config = {
 					lua = { "string" }, -- it will not add a pair on that treesitter node
 					javascript = { "template_string" },
-					java = false, -- don't check treesitter on java
+					java = false,  -- don't check treesitter on java
 				},
 				fast_wrap = {
 					-- not in effect
@@ -48,9 +48,9 @@ return {
 		"phaazon/hop.nvim",
 		branch = "v2",
 		keys = {
-			{ "<leader>fj", "<cmd>HopLine<cr>", "n", { noremap = true, silent = true } },
-			{ "<leader>fk", "<cmd>HopLine<cr>", "n", { noremap = true, silent = true } },
-			{ "<leader>fw", "<cmd>HopWord<cr>", "n", { noremap = true, silent = true } },
+			{ "<leader>fj", "<cmd>HopLine<cr>",   "n", { noremap = true, silent = true } },
+			{ "<leader>fk", "<cmd>HopLine<cr>",   "n", { noremap = true, silent = true } },
+			{ "<leader>fw", "<cmd>HopWord<cr>",   "n", { noremap = true, silent = true } },
 			{ "<leader>fa", "<cmd>HopWordMW<cr>", "n", { noremap = true, silent = true } },
 		},
 		opts = {

@@ -2,21 +2,21 @@ return {
 	"akinsho/toggleterm.nvim",
 	event = "VeryLazy",
 	keys = {
-		{ "<leader>ot", "<cmd>ToggleTerm direction=tab<cr>", "n", { noremap = true, silent = true } },
-		{ "<leader>of", "<cmd>ToggleTerm direction=float<cr>", "n", { noremap = true, silent = true } },
-		{ "<leader>ol", "<cmd>ToggleTerm direction=vertical<cr>", "n", { noremap = true, silent = true } },
+		{ "<leader>ot", "<cmd>ToggleTerm direction=tab<cr>",        "n", { noremap = true, silent = true } },
+		{ "<leader>of", "<cmd>ToggleTerm direction=float<cr>",      "n", { noremap = true, silent = true } },
+		{ "<leader>ol", "<cmd>ToggleTerm direction=vertical<cr>",   "n", { noremap = true, silent = true } },
 		{ "<leader>oj", "<cmd>ToggleTerm direction=horizontal<cr>", "n", { noremap = true, silent = true } },
 		{
 			"<leader>ag",
 			function()
 				require("toggleterm.terminal").Terminal
-					:new({
-						cmd = "lazygit",
-						hidden = true,
-						dir = "git_dir",
-						direction = "float",
-					})
-					:toggle()
+						:new({
+							cmd = "lazygit",
+							hidden = true,
+							dir = "git_dir",
+							direction = "float",
+						})
+						:toggle()
 			end,
 			{ noremap = true, silent = true },
 		},

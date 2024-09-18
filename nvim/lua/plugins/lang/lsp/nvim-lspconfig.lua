@@ -192,8 +192,6 @@ return {
 			)
 		end
 
-		-- require("neodev").setup()
-
 		-- lua_ls(offcial) or sumneko_lua(communal)
 		require("lspconfig").lua_ls.setup({
 			capabilities = my_capabilities,
@@ -233,13 +231,14 @@ return {
 			capabilities = my_capabilities,
 			on_attach = my_attach,
 		})
-		require("lspconfig").bashls.setup({
+		require("lspconfig").clangd.setup({
 			capabilities = my_capabilities,
 			on_attach = my_attach,
-		})
-		require("lspconfig").sqlls.setup({
-			capabilities = my_capabilities,
-			on_attach = my_attach,
+			-- https://www.reddit.com/r/neovim/comments/12qbcua/comment/jgpqxsp
+			cmd = {
+				"clangd",
+				"--offset-encoding=utf-16",
+			},
 		})
 
 		if utils.executable("pylsp") then
@@ -289,35 +288,5 @@ return {
 		else
 			vim.notify("pylsp not found!", vim.log.levels.WARN, { title = "nvim-config" })
 		end
-
-		require("lspconfig").clangd.setup({
-			capabilities = my_capabilities,
-			on_attach = my_attach,
-			-- https://www.reddit.com/r/neovim/comments/12qbcua/comment/jgpqxsp
-			cmd = {
-				"clangd",
-				"--offset-encoding=utf-16",
-			},
-		})
-		require("lspconfig").cmake.setup({
-			capabilities = my_capabilities,
-			on_attach = my_attach,
-		})
-		require("lspconfig").jsonls.setup({
-			on_attach = my_attach,
-			capabilities = my_capabilities,
-		})
-		require("lspconfig").html.setup({
-			on_attach = my_attach,
-			capabilities = my_capabilities,
-		})
-		require("lspconfig").cssls.setup({
-			on_attach = my_attach,
-			capabilities = my_capabilities,
-		})
-		require("lspconfig").eslint.setup({
-			on_attach = my_attach,
-			capabilities = my_capabilities,
-		})
 	end,
 }

@@ -5,8 +5,6 @@ Variants.CodeFileTypeList = {
 	"go",
 	"lua",
 	"python", -- → python-lsp-server
-	"sh",
-	"sql",
 	"c",
 	"cpp",
 }
