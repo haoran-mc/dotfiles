@@ -192,13 +192,11 @@ if [[ "$OSTYPE" = darwin* ]]; then
 	alias v=vimedit
 	alias copy=pbcopy
 elif [[ "$OSTYPE" = linux-gnu* ]]; then
-	# echo "I'm Linux"
-	export GTK_IM_MODULE=ibus
-	export XMODIFIERS=@im=ibus
-	export QT_IM_MODULE=ibus
+	# export GTK_IM_MODULE=fcitx5
+	# export QT_IM_MODULE=fcitx5
+	# export XMODIFIERS=@im=fcitx
 
 	alias open=dolphin
-	alias v=vim
 	alias copy='xclip -selection clipboard'
 else
 	echo "unknow os"
@@ -248,10 +246,7 @@ alias ran=__help_tldr
 alias r=__help_tldr
 
 alias cat='bat'
-# alias man='tldr'
 alias ping='gping'
-# alias ps='procs'
-# alias tree='broot'
 
 
 # Generated for envman. Do not edit.

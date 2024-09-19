@@ -2,6 +2,8 @@
 
 source ../scripts/script-funcs.sh
 
+# sudo pacman -S fcitx5 fcitx5-qt fcitx5-gtk fcitx5-configtool fcitx5-rime
+
 
 if [[ `uname` == 'Darwin' ]]; then
     __link_file ~/dotfiles/rime/squirrel.custom.yaml ~/Library/Rime/squirrel.custom.yaml

@@ -18,3 +18,25 @@
   - u 代表系统更新
 
 - `pacman -Qdtq | pacman -Rs -` 如果需要这个依赖的包已经被删除了，这条命令可以删除所有不再需要的依赖项
+
+
+
+sudo pacman -S sof-firmware alsa-firmware alsa-ucm-conf # 声音固件
+sudo pacman -S ntfs-3g # 使系统可以识别 NTFS 格式的硬盘
+sudo pacman -S adobe-source-han-serif-cn-fonts wqy-zenhei # 安装几个开源中文字体。
+sudo pacman -S noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra # 安装谷歌开源字体及表情
+sudo pacman -S chromium # 安装chromium 浏览器
+sudo pacman -S ark unzip # 压缩软件。在 dolphin 中可用右键解压压缩包
+sudo pacman -S packagekit-qt5 packagekit appstream-qt appstream # 确保 Discover（软件中心）可用，需重启
+sudo pacman -S gwenview # 图片查看器
+sudo pacman -S xf86-input-libinput libinput # 触摸板驱动
+sudo pacman -S archlinuxcn-keyring # cn 源中的签名（archlinuxcn-keyring 在 archlinuxcn）
+sudo pacman -S yay # yay 命令可以让用户安装 AUR 中的软件（yay 在 archlinuxcn）
+
+
+sudo pacman -S fcitx5-im # 输入法基础包组
+sudo pacman -S fcitx5-chinese-addons # 官方中文输入引擎
+sudo pacman -S fcitx5-anthy # 日文输入引擎
+sudo pacman -S fcitx5-pinyin-moegirl # 萌娘百科词库。二刺猿必备（archlinuxcn）
+sudo pacman -S fcitx5-material-color # 输入法主题
+sudo pacman -S fcitx5-rime # Rime 输入法
