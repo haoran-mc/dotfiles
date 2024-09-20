@@ -109,7 +109,7 @@ function __tldr_git {
 function __help_tldr {
 	local cmd=$1 opt=$2
 	if [ -z $cmd ]; then
-		printf " | brew | fd | fzf | git | help(h) | pacman | printf | rg | tree | \n"
+		printf " | brew | fd | fzf | git | help(h) | pacman | printf | rg | shutdown | tree | \n"
 		return
 	fi
 
@@ -286,6 +286,16 @@ function __help_tldr {
 			printf '%s ➢\033[33m -i \033[0m                        case-insensitive.\n' $SPACE
 			printf '%s ➢\033[33m -S \033[0m                        smartcase.\n' $SPACE
 			;;
+        'shutdown')
+			printf 'Shutdown and reboot the system.\n'
+			printf $NEXTLINE
+
+			printf '%s - \033[34mshutdown -h now\033[0m                  Power off ([h]alt) immediately.\n' $SPACE
+			printf '%s - \033[34mshutdown -r now\033[0m                  [r]eboot immediately.\n' $SPACE
+			printf '%s - \033[34mshutdown -r +5 &\033[0m                 [r]eboot in 5 minutes.\n' $SPACE
+			printf '%s - \033[34mshutdown -h 13:00\033[0m                Shutdown at 1:00 pm (Uses 24[h] clock).\n' $SPACE
+			printf '%s - \033[34mshutdown -c\033[0m                      [c]ancel a pending shutdown/reboot operation.\n' $SPACE
+            ;;
         'tree')
             printf 'Show the contents of the current directory as a tree.\n'
 			printf $NEXTLINE
