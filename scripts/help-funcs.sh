@@ -109,11 +109,47 @@ function __tldr_git {
 function __help_tldr {
 	local cmd=$1 opt=$2
 	if [ -z $cmd ]; then
-		printf " | fd | fzf | git | help(h) | pacman | printf | rg | tree | \n"
+		printf " | brew | fd | fzf | git | help(h) | pacman | printf | rg | tree | \n"
 		return
 	fi
 
 	case $cmd in
+        'brew')
+            printf 'Homebrew - a package manager for macOS and Linux.\n'
+			printf $NEXTLINE
+
+            printf '安装与更新\n'
+			printf '%s - \033[34mbrew install FORMULA|CASK...\033[0m          安装软件\n' $SPACE
+			printf '%s - \033[34mbrew upgrade [FORMULA|CASK...]\033[0m        安装新版本的包，但是旧版本依然会保留\n' $SPACE
+			printf '%s - \033[34mbrew upgrade\033[0m                          brew自身更新\n' $SPACE
+			printf '%s - \033[34mbrew outdated\033[0m                         查看哪些包可以更新\n' $SPACE
+			printf '%s - \033[34mbrew pin [FORMULA...]\033[0m                 锁定某个包，不更新\n' $SPACE
+			printf '%s - \033[34mbrew unpin [FORMULA...]\033[0m               取消锁定\n' $SPACE
+			printf $NEXTLINE
+
+            printf '卸载软件\n'
+			printf '%s - \033[34mbrew uninstall FORMULA|CASK...\033[0m        卸载软件\n' $SPACE
+			printf $NEXTLINE
+
+            printf '搜索软件\n'
+			printf '%s - \033[34mbrew search TEXT|/REGEX/\033[0m              在仓库搜索包含关键字的软件包\n' $SPACE
+			printf '%s - \033[34mbrew info [FORMULA|CASK...]\033[0m           查看已安装包信息\n' $SPACE
+			printf $NEXTLINE
+
+            printf '清理缓存\n'
+			printf '%s - \033[34mbrew cleanup\033[0m                          清理所有包的旧版本\n' $SPACE
+			printf '%s - \033[34mbrew cleanup [FORMULA...]\033[0m             清理指定包的旧版本\n' $SPACE
+			printf '%s - \033[34mbrew cleanup -n\033[0m                       查看可清理的旧版本包，不执行实际操作\n' $SPACE
+			printf $NEXTLINE
+
+            printf '软件服务管理\n'
+			printf '%s - \033[34mbrew services list\033[0m                    查看使用brew安装的服务列表\n' $SPACE
+			printf '%s - \033[34mbrew services run formula|--all\033[0m       启动服务（仅启动不注册）\n' $SPACE
+			printf '%s - \033[34mbrew services start formula|--all\033[0m     启动服务，并注册\n' $SPACE
+			printf '%s - \033[34mbrew services stop formula|--all\033[0m      停止服务，并注册\n' $SPACE
+			printf '%s - \033[34mbrew services restart formula|--all\033[0m   重启服务，并注册\n' $SPACE
+			printf $NEXTLINE
+            ;;
 		'fd')
 			printf 'An alternative to `find`. Aims to be faster and easier to use than `find`.\n'
 			printf $NEXTLINE
