@@ -1,10 +1,17 @@
-# not work
-xset r rate 250 55
+# .xprofile 使用gdm等图形登录时读取里面的设置
+# .xinitrc 每次startx等启动X界面时读取里面的设置
+# .xsession 应该和 .xinitrc 的设置相同
+# ln -s ~/dotfiles/.xinitrc ~/.xsession
+# https://newtoypia.blogspot.com/2012/06/xinitrc-xsession-xprofile.html
+(echo -n "$0 is called at " ; date) >> ~/startup.log
+
+
+# not work, set in .zshrc
+(sleep 5 && xset r rate 250 55) &
 
 
 export GTK_IM_MODULE=fcitx5
 export QT_IM_MODULE=fcitx5
 export XMODIFIERS=@im=fcitx
-
-# repeat running
 # fcitx5 &
+

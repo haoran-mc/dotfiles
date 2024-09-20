@@ -12,11 +12,14 @@ yay -S --needed repgrep fzf fd tmux vim \
 
 ### dotfiles #########################
 __current_status "linking dotfiles"
-dotfiles=(.ctags .bashrc .zshrc .gitconfig .xprofile .xinitrc)
+dotfiles=(.ctags .bashrc .zshrc .gitconfig)
 for file in ${dotfiles[@]}; do
     __current_status "linking ${file}"
     __link_file ~/dotfiles/$file ~/$file
 done
+
+### Xorg #########################
+__link_file ~/dotfiles/.xprofile ~/.xprofile
 
 ### vim #########################
 __current_status "linking vim config"
@@ -31,7 +34,6 @@ __current_status "linking lazygit config"
 __link_file ~/dotfiles/lazygit.yml ~/.config/lazygit/config.yml
 
 __current_status "installation successful 🚀"
-
 
 
 ##########################################

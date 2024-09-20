@@ -198,6 +198,7 @@ elif [[ "$OSTYPE" = linux-gnu* ]]; then
 
 	alias open=dolphin
 	alias copy='xclip -selection clipboard'
+	xset r rate 250 55
 else
 	echo "unknow os"
 fi
