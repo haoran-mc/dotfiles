@@ -2,7 +2,8 @@ set background=dark
 
 " color pablo
 " color jellybeans
-color molokai
+" color molokai
+color lunaperche
 
 set guifont=JetBrainsMono\ Nerd\ Font:h11
 set guifontwide=仓耳今楷03-6763:h12.5

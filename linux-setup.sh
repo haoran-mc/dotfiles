@@ -21,10 +21,14 @@ done
 ### Xorg #########################
 __link_file ~/dotfiles/.xprofile ~/.xprofile
 
+### fontconfig #########################
+mkdir -p ~/.config/fontconfig
+__link_file ~/dotfiles/.fonts.conf ~/.config/fontconfig/fonts.conf
+
 ### vim #########################
 __current_status "linking vim config"
 __link_file ~/dotfiles/vim/.vimrc ~/.vimrc
-cp -r ~/dotfiles/vim/colors ~/.vim/colors
+__link_file ~/dotfiles/vim/colors ~/.vim/colors
 
 ### alacritty #########################
 __link_file ~/dotfiles/alacritty-linux.toml ~/.config/alacritty/alacritty.toml
@@ -37,13 +41,6 @@ __current_status "installation successful 🚀"
 
 
 ##########################################
-#### fontconfig
-# if [ ! -d ~/.config/fontconfig ]; then
-#     mkdir ~/.config/fontconfig
-# fi
-# __link_file ~/dotfiles/.fonts.conf ~/.config/fontconfig/fonts.conf
-
-
 #### neovim
 # __current_status "linking neovim config"
 # __link_file ~/dotfiles/nvim ~/.config/nvim
