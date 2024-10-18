@@ -72,8 +72,10 @@ function __tldr_git {
 			printf 'Manage set of tracked repositories.\n'
 			printf $NEXTLINE
 
-			printf '%s - \033[34mgit remote add origin git@github.com:haoran-mc/remote.git\033[0m\n' $SPACE
 			printf '%s - \033[34mgit remote -v\033[0m\n' $SPACE
+			printf '%s - \033[34mgit remote add origin git@github.com:haoran-mc/remote.git\033[0m\n' $SPACE
+			printf '%s - \033[34mgit remote set-url origin git@github.com:haoran-mc/remote.git\033[0m\n' $SPACE
+			printf '%s - \033[34mgit remote remove origin\033[0m\n' $SPACE
 			printf '%s - \033[34mgit remote update origin -p\033[0m                  Fetch updates for remotes or remote groups in the repository as defined by remotes.<group>.\n' $SPACE
 			;;
 		'stash')
