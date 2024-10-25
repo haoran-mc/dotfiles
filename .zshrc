@@ -55,7 +55,7 @@ export TLDR_AUTO_UPDATE_DISABLED=true
 export RANGER_LOAD_DEFAULT_RC=false
 
 # ripgrep configuration file
-export RIPGREP_CONFIG_PATH=/Users/haoran/dotfiles/.ripgreprc
+export RIPGREP_CONFIG_PATH=$HOME/dotfiles/.ripgreprc
 
 # nvm: curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.39.0/install.sh | bash
 export NVM_DIR="$HOME/.nvm"
