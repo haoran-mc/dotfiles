@@ -1,6 +1,5 @@
 #!/bin/bash
 
-
 if test "$(whoami)" != "ran"; then
   printf "\n";
   printf "ERROR! this script must run as user 'ran'.\n"
@@ -33,7 +32,7 @@ function check_command {
   fi
 }
 
-__current_status "installing must-have tools"
+__current_status "must-have tools"
 must_have_tools=(vim git wget)
 for tool in "${must_have_tools[@]}"; do
   __current_status "check ${tool}"
@@ -50,10 +49,9 @@ done
 
 
 source ~/.bashrc
-__current_status "installation successful 🚀"
+__current_status "successfully install 🚀"
 
 
 printf "\n"
 printf "1. now you can source ~/.bashrc\n"
 printf "2. change yum.repos.d"
-

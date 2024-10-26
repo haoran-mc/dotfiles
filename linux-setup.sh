@@ -10,6 +10,14 @@ yay -S --needed repgrep fzf fd tmux vim \
 # go nvm nodejs
 
 
+### Xorg #########################
+__current_status "linking Xorg"
+__link_file ~/dotfiles/.xprofile ~/.xprofile
+
+### fontconfig #########################
+__current_status "linking fontconfig"
+__link_file ~/dotfiles/.fonts.conf ~/.config/fontconfig/fonts.conf
+
 ### dotfiles #########################
 __current_status "linking dotfiles"
 dotfiles=(.ctags .bashrc .zshrc .gitconfig)
@@ -18,33 +26,28 @@ for file in ${dotfiles[@]}; do
     __link_file ~/dotfiles/$file ~/$file
 done
 
-### Xorg #########################
-__link_file ~/dotfiles/.xprofile ~/.xprofile
-
-### fontconfig #########################
-mkdir -p ~/.config/fontconfig
-__link_file ~/dotfiles/.fonts.conf ~/.config/fontconfig/fonts.conf
+### alacritty #########################
+__current_status "linking alacritty"
+__link_file ~/dotfiles/alacritty-linux.toml ~/.config/alacritty/alacritty.toml
 
 ### vim #########################
-__current_status "linking vim config"
+__current_status "linking vim"
 __link_file ~/dotfiles/vim/.vimrc ~/.vimrc
 __link_file ~/dotfiles/vim/colors ~/.vim/colors
 
-### alacritty #########################
-__link_file ~/dotfiles/alacritty-linux.toml ~/.config/alacritty/alacritty.toml
+### neovim #########################
+__current_status "linking neovim"
+__link_file ~/dotfiles/nvim ~/.config/nvim
+## neovim mason lazy sync
 
 ### lazygit #########################
-__current_status "linking lazygit config"
+__current_status "linking lazygit"
 __link_file ~/dotfiles/lazygit.yml ~/.config/lazygit/config.yml
 
-__current_status "installation successful 🚀"
+__current_status "successfully install 🚀"
 
 
 ##########################################
-#### neovim
-# __current_status "linking neovim config"
-# __link_file ~/dotfiles/nvim ~/.config/nvim
-### neovim mason lazy sync
 
 ## rime, tmux, i3wm, ranger
 

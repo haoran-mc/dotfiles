@@ -1,103 +1,110 @@
 #!/bin/bash
-
-########### 1. Download softwares
-
 # https://github.com/nithinbekal/setup-scripts
-
-# install homebrew - this will also install xcode command line tools
-ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-
-brew install ctags git htop zsh vim macvim elixir
-brew install -q tmux reattach-to-user-namespace
-
-# use cask for installing GUI apps
-brew cask install iterm2 sublime-text --cask
-
-# git
-git config --global user.name "haoran"
-git config --global user.email "haoran.mc@outlook.com"
-
-# configure zsh
-touch ~/.env.local
-chsh -s /bin/zsh
-curl -L http://install.ohmyz.sh | sh
-
-# install RVM
-curl -sSL https://get.rvm.io | bash -s stable
-rvm install ruby
-
-# setup node.js
-curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.1/install.sh | bash
-nvm install 6.2
-
-# generate ssh keys
-mkdir -p ~/.ssh
-ssh-keygen -t rsa -C "haoran.mc@outlook.com"
-
-# set up postgresql
-brew install postgresql
-brew services start postgresql
-initdb --locale=C -E UTF-8 /opt/homebrew/var/postgresql
-# /opt/homebrew/opt/postgresql@14/bin/createuser -s postgres
-
-# Snipaste WhatPluse
-# Tencent Lemon
-# vimac -> homerow
-
-
-########### 2. Think you've already downloaded the softwares.
-
 set -e
-
 source ./scripts/script-funcs.sh
+source ./scripts/proxy.sh
 
-__current_status "linking dotfiles"
-dotfiles=(.ctags .bashrc .zshrc .gitconfig)
-
-for file in ${dotfiles[@]}; do
-    __current_status "linking ${file}"
-    rm -f ~/$file
-    link_file ~/dotfiles/$file ~/$file
+### origin commands #########################
+origin_commands=(vim git zsh)
+__current_status "check origin commands..."
+for cmd in "${origin_commands[@]}"; do
+	__current_status "check command: ${cmd}"
+	if ! command -v ${cmd} >/dev/null 2>&1; then
+		echo "install ${cmd} first!" >&2
+		exit 1
+	fi
 done
 
-__current_status "linking vim config"
-link_file ~/dotfiles/vim/.vimrc ~/.vimrc
+### must-have tools #########################
+__current_status "install must-have tools..."
+must_have_tools=(macvim htop ripgrep fzf fd
+	tmux alacritty lazygit git-delta eza
+	bat gping tldr fontconfig)
+for tool in "${must_have_tools[@]}"; do
+	__current_status "install tool: ${tool}"
+	if ! command -v ${tool} >/dev/null 2>&1; then
+		sleep 3
+		brew install ${tool}
+	fi
+done
 
-__current_status "linking neovim config"
-link_file ~/dotfiles/nvim ~/.config/nvim
-
-__current_status "installing neovim tools"
-install_from_repo (ripgrep fzf)
-# mason lazy sync
-
-__current_status "installing ohmyzsh"
-if [ -d ~/.oh-my-zsh ]; then
-    __current_status "found ~/.oh-my-zsh - skipping this step"
-else
-    sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
-
-    __current_status "installing zsh plugins"
-    plugins=(autojump zsh-autosuggestions zsh-syntax-highlighting)
-    install_from_repo "${plugins[*]}"
+### base font #########################
+__current_status "install base font: SFMono-Nerd-Font-Ligaturized"
+if ! fc-list | grep "LigaSFMonoNerdFont" >/dev/null 2>&1; then
+	sleep 3
+	brew tap shaunsingh/SFMono-Nerd-Font-Ligaturized
+	brew install --cask font-sf-mono-nerd-font-ligaturized
 fi
 
-__current_status "linking lazygit config"
-link_file ~/dotfiles/lazygit.yml ~/Library/Application\ Support/lazygit/config.yml
+### zsh #########################
+__current_status "install oh-my-zsh..."
+if [ ! -d "$HOME/.oh-my-zsh" ]; then
+	sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+	git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+	git clone --depth=1 https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+	git clone --depth=1 https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+	git clone --depth=1 https://github.com/MichaelAquilina/zsh-you-should-use.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/you-should-use
+fi
 
-########### 3. Essential Fonts
-brew tap homebrew/cask-fonts
-brew install font-ubuntu
-brew install font-fontawesome
-brew install font-hack-nerd-font
-brew install font-fira-code-nerd-font
+### link files #########################
+__current_status "linking dotfiles"
+dotfiles=(.ctags .bashrc .zshrc .gitconfig)
+for file in ${dotfiles[@]}; do
+	__current_status "linking ${file}"
+	__link_file ~/dotfiles/$file ~/$file
+done
+
+##### alacritty
+__current_status "linking alacritty"
+__link_file ~/dotfiles/alacritty-osx.toml ~/.config/alacritty/alacritty.toml
+
+##### vim
+__current_status "linking vim"
+__link_file ~/dotfiles/vim/.vimrc ~/.vimrc
+__link_file ~/dotfiles/vim/colors ~/colors
+
+##### nvim
+__current_status "linking neovim"
+__link_file ~/dotfiles/nvim ~/.config/nvim
+
+##### lazygit
+__current_status "linking lazygit"
+__link_file ~/dotfiles/lazygit.yml ~/.config/lazygit/config.yml
+
+__current_status "successfully install 🚀"
 
 
-__current_status "installation successful 🚀"
+printf "\n"
+printf "1. now you can source ~/.zshrc\n"
+printf "2. diff ~/.zshrc and ~/.zshrc.pre-oh-my-zsh\n"
+printf "3. sync vim, nvim plugins\n"
+printf "4. tmux and reattach-to-user-namespace\n"
 
 
-########### 4. Record the data to be migrated
+##########################################
+##### Fonts
+# brew tap homebrew/cask-fonts
+# brew install font-ubuntu
+# brew install font-fontawesome
+# brew install font-hack-nerd-font
+# brew install font-fira-code-nerd-font
 
-# push repository commit
-# rime data
 
+##########################################
+##### tmux
+# brew install -q tmux reattach-to-user-namespace
+
+##### setup RVM
+# curl -sSL https://get.rvm.io | bash -s stable
+# rvm install ruby
+
+##### setup node.js
+# curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.1/install.sh | bash
+# nvm install 6.2
+
+##### setup postgresql
+# brew install postgresql
+# brew services start postgresql
+# initdb --locale=C -E UTF-8 /opt/homebrew/var/postgresql
+# /opt/homebrew/opt/postgresql@14/bin/createuser -s postgres
 

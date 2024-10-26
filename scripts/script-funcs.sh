@@ -2,6 +2,7 @@
 
 function __current_status {
 	printf "\e[33m⭑\e[0m %s\n" "$1"
+	sleep 1
 }
 
 function __link_file {

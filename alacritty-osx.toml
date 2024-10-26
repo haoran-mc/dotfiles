@@ -4,6 +4,7 @@
 # ]
 
 # https://alacritty.org/config-alacritty.html
+[general]
 live_config_reload = true # 自动刷新
 
 [env]
@@ -18,7 +19,7 @@ save_to_clipboard     = true
 opacity      = 0.85
 
 # Windowed Maximized Fullscreen SimpleFullscreen
-startup_mode = "Windowed"
+startup_mode = "Maximized"
 
 # Values for `decorations`:
 #     - full: Borders and title bar
@@ -47,22 +48,22 @@ size     = 12
 # family   = "SauceCodePro Nerd Font"
 # family   = "Menlo"
 # family   = "DejaVuSansMono Nerd Font"
-family   = "SFMono Nerd Font"
+family   = "Liga SFMono Nerd Font"
 # family   = "Roboto Mono"
 style    = "Regular"
 
 [font.italic]
-family   = "SFMono Nerd Font"
+family   = "Liga SFMono Nerd Font"
 # style    = "Italic"
 style    = "Regular"
 
 [font.bold]
-family   = "SFMono Nerd Font"
+family   = "Liga SFMono Nerd Font"
 # style    = "Bold"
 style    = "Regular"
 
 [font.bold_italic]
-family   = "SFMono Nerd Font"
+family   = "Liga SFMono Nerd Font"
 # style    = "Bold Italic"
 style    = "Regular"
 
