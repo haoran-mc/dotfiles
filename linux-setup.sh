@@ -16,7 +16,7 @@ __link_file ~/dotfiles/.xprofile ~/.xprofile
 
 ### fontconfig #########################
 __current_status "linking fontconfig"
-__link_file ~/dotfiles/.fonts.conf ~/.config/fontconfig/fonts.conf
+__link_file ~/dotfiles/fontconfig/fonts.conf ~/.config/fontconfig/fonts.conf
 
 ### dotfiles #########################
 __current_status "linking dotfiles"

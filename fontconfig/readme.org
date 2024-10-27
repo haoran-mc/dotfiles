@@ -1,0 +1,82 @@
+#+STARTUP: showall noindent
+
+1. 用户自定义的字体配置，使用强绑定覆盖系统端配置；
+2. 对于自己特定的程序，仍然指定具体的字体。其它程序使用 fontconfig 中的通用字体族
+   名（Generic Font Family）；
+3. 由于使用霞鸳文楷，而霞鸳文楷不支持异形字，所以这份 fontconfig 也就不支持异形字！
+4. 最后的使用方案：
+
+   - 无衬线：西文 SFMono Nerd Font Mono，中文 LXGW WenKai Screen
+   - 衬线：西文 SFMono Nerd Font Mono，中文 LXGW WenKai Screen
+   - 等宽：西文 SFMono Nerd Font Mono，中文 LXGW WenKai Screen
+   - Emoji：apple-emoji-linux 的表情效果更好
+
+   yay -S nerd-fonts-sf-mono ttf-lxgw-wenkai-screen apple-emoji-linux
+
+   # 不让程序使用某个具体的字体，而是使用通用字体族名（Generic Font Family）
+
+
+* 字体收录
+1. 思源字体，yay -S noto-fonts noto-fonts-cjk
+
+   - 软件包 noto-fonts 提供了西文无衬字体 Noto Sans 和西文衬线字体 Noto Serif；
+   - 软件包 noto-fonts-cjk 提供了中文无衬字体 Noto Sans CJK 和中文衬线字体 Noto Serif CJK；
+   - 软件包 noto-fonts-emoji 提供表情符号字体；
+   - 软件包 noto-fonts-extra 提供额外的字重和宽度变种；
+
+   # backup.org::noto-fonts
+
+2. 一些 emoji 字体：
+
+   - ↑ 上面思源字体中提到的 noto-fonts-emoji，没用过；
+   - yay -S ttf-twemoji twitter开源的表情符号字体；
+   - yay -S apple-emoji-linux 苹果的表情符号字体，这个字体的表情效果更好，也是我现在在用的表情符号字体；
+
+3. ttf-nerd-fonts-symbols 不下载这个，使用指定的 ↓ SFMono Nerd Font Ligaturized
+
+
+- 霞鸳文楷
+  - brew install font-lxgw-wenkai
+  - yay -S ttf-lxgw-wenkai-screen 这个阅读版好像一般般？或者手动下载字体，然后安装？
+- SFMono-Nerd-Font-Ligaturized
+  - yay -S nerd-fonts-sf-mono
+
+[[https://haoran-mc.github.io/230914-fonts.html][→ 这里展示了一些编程字体的图片]]
+
+* Arch 安装字体
+1. 系统字体目录：/usr/share/fonts/，可以在这个目录下创建子目录存放字体
+
+   sudo mkdir /usr/share/fonts/myfonts
+   sudo fc-cache -f -v
+   安装完字体后，需要更新字体缓存，以便系统能够识别并使用这些字体
+
+2. 个人字体目录：~/.local/share/fonts/，放在个人字体目录后，也需要执行
+   fc-cache 来更新字体缓存
+
+* fontconfig 字体命令
+- fc-list 列出字体
+- fc-cache 刷新缓存 -f 强制扫描 -v 显示过程
+- fc-match 查找与指定模式的最佳字体
+- fc-query 查询字体样式的详细信息
+
+* 概念介绍
+** 1. 异形字
+异形字是指“在相同的 Unicode 码位下，不同的语言会使用不同的字形”（不是「卫」和「衛」的区别）。
+# file:异形字.png backup.org::异形字
+
+** 2. system-ui, -apple-system
+system-ui 和 -apple-system 都是在 CSS 中使用的字体系列名称。
+
+1. system-ui：是指系统的默认字体：
+
+   - 在 Windows 下，将采用Segoe UI字体
+   - 在 macOS 和 iOS 下，将采用San Francisco字体
+   - 在 Android 和 Chrome OS 下，将采用Roboto字体
+   - 在 Ubuntu 下，将采用Ubuntu字体
+   - 在其他操作系统和浏览器中，可能会有所不同，但原理是一样的：它们都会尝试使用该系统的默认用户界面字体。
+
+2.  -apple-system：是 MacOS 和 iOS 系统的通用字体
+
+   主要用于 Safari 浏览器，在 iOS 和 MacOS 系统中，会使用 San Francisco 字体；在较早的 MacOS 版本中，则会使用 Helvetica Neue 字体。
+
+system-ui 和 -apple-system 主要作用是让开发者能够轻松地在不同的系统中使用系统默认的用户界面字体，从而保持界面的一致性和用户的使用习惯。
