@@ -1,3 +1,5 @@
+使用 ranger 作为文件管理器。
+
 ```
 sudo pacman -S ranger
 ranger --copy-config=all
