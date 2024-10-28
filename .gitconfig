@@ -20,8 +20,8 @@
 	lo = log --oneline --graph
 	lp = log --patch
 	la = log --format='%an <%ae>'
-[commit]
-	template = /Users/haoran/.stCommitMsg    # 指定提交消息的模板文件位置
+# [commit]
+# 	template = /Users/haoran/.stCommitMsg    # 指定提交消息的模板文件位置
 [http]
 	postBuffer = 1048576000                  # 设置HTTP请求缓冲区大小为1GB，适用于处理大文件
 	# 配置HTTP请求的低速限制，避免超时问题
