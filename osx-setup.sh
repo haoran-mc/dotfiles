@@ -61,7 +61,7 @@ __link_file ~/dotfiles/alacritty-osx.toml ~/.config/alacritty/alacritty.toml
 ##### vim
 __current_status "linking vim"
 __link_file ~/dotfiles/vim/.vimrc ~/.vimrc
-__link_file ~/dotfiles/vim/colors ~/colors
+__link_file ~/dotfiles/vim/colors ~/.vim/colors
 
 ##### nvim
 __current_status "linking neovim"

@@ -1,0 +1,14 @@
+1. clash
+2. micorsoft edge
+   - 整体缩放90%
+   - github.com 缩放80%
+3. brew.sh
+4. drive.google.com .ssh
+   - chmod 700 ~/.ssh
+   - chmod 600 ~/.ssh/*
+5. dotfiles, sudo xattr -r -d com.apple.quarantine /Applications/Alacritty.app
+6. AppStore: WeChat, WeRead, Tencent Lemon, ColorSlurp, Magnet
+             Dynamic Wallpaper Engine, Slack for Desktop, Tencent meeting
+7. zh.snipaste.com, whatpulse.org
+
+
