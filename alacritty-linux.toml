@@ -31,19 +31,19 @@ size     = 9.4
 # AppleFontSmoothing  = true
 
 [font.normal]
-family   = "JetBrainsMono Nerd Font"
+family   = "monospace"
 style    = "Regular"
 
 [font.italic]
-family   = "JetBrainsMono Nerd Font"
+family   = "monospace"
 style    = "Italic"
 
 [font.bold]
-family   = "JetBrainsMono Nerd Font"
+family   = "monospace"
 style    = "Bold"
 
 [font.bold_italic]
-family   = "JetBrainsMono Nerd Font"
+family   = "monospace"
 style    = "Bold Italic"
 
 [cursor.style]

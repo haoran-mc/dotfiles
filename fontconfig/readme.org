@@ -1,20 +1,23 @@
 #+STARTUP: showall noindent
 
 1. 用户自定义的字体配置，使用强绑定覆盖系统端配置；
-2. 对于自己特定的程序，仍然指定具体的字体。其它程序使用 fontconfig 中的通用字体族
-   名（Generic Font Family）；
+2. 不让程序使用某使具体的字体，而是使用通过字体族名（Generic Font Family）；
 3. 由于使用霞鸳文楷，而霞鸳文楷不支持异形字，所以这份 fontconfig 也就不支持异形字！
 4. 最后的使用方案：
 
-   - 无衬线：西文 SFMono Nerd Font Mono，中文 LXGW WenKai Screen
-   - 衬线：西文 SFMono Nerd Font Mono，中文 LXGW WenKai Screen
-   - 等宽：西文 SFMono Nerd Font Mono，中文 LXGW WenKai Screen
+   - 无衬线：西文 SFMono Nerd Font Mono，中文 LXGW WenKai
+   - 衬线：西文 SFMono Nerd Font Mono，中文 LXGW WenKai
+   - 等宽：西文 SFMono Nerd Font Mono，中文 LXGW WenKai
    - Emoji：apple-emoji-linux 的表情效果更好
 
    yay -S nerd-fonts-sf-mono ttf-lxgw-wenkai-screen apple-emoji-linux
+   # LXGW 需要手动下载？
 
-   # 不让程序使用某个具体的字体，而是使用通用字体族名（Generic Font Family）
-
+#+begin_comment
+- 西文：SFMono Nerd Font Mono
+- 中文：LXGW WenKai
+- 编程字体：SFMono Nerd Font Mono
+#+end_comment
 
 * 字体收录
 1. 思源字体，yay -S noto-fonts noto-fonts-cjk
@@ -38,8 +41,8 @@
 - 霞鸳文楷
   - brew install font-lxgw-wenkai
   - yay -S ttf-lxgw-wenkai-screen 这个阅读版好像一般般？或者手动下载字体，然后安装？
-- SFMono-Nerd-Font-Ligaturized
-  - yay -S nerd-fonts-sf-mono
+- SFMono-Nerd-Font-Ligaturized: yay -S nerd-fonts-sf-mono
+- JetBrains Mono: yay -S ttf-jetbrains-mono-nerd
 
 [[https://haoran-mc.github.io/230914-fonts.html][→ 这里展示了一些编程字体的图片]]
 
