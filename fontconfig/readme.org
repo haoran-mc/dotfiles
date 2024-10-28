@@ -19,6 +19,9 @@
 - 编程字体：SFMono Nerd Font Mono
 #+end_comment
 
+- TODO 找一个非等宽纯英文字体，替换 sans-serif、serif 中的 SFMono Nerd Font Mono；
+- TODO 并将这个非等宽纯英文字体排在 LXGW 的上面（霞鸳文楷的英文字体不好看），这样也就不用最后一条英文字体替换 LXGW 的规则了；
+
 * 字体收录
 1. 思源字体，yay -S noto-fonts noto-fonts-cjk
 
