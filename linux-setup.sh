@@ -6,7 +6,7 @@ source ~/dotfiles/scripts/script-funcs.sh
 yay -S --needed repgrep fzf fd tmux vim \
   alacritty lazygit git-delta eza \
   bat gping tldr \
-  ttf-jetbrains-mono-nerd nerd-fonts-sf-mono
+  apple-fonts nerd-fonts-sf-mono apple-emoji-linux
 # go nvm nodejs
 
 
