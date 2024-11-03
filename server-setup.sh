@@ -22,7 +22,7 @@ fi
 
 
 set -e
-source ./scripts/script-funcs.sh
+source ./scripts/func-util.sh
 
 
 function check_command {

@@ -242,7 +242,7 @@ gobuild()
 }
 alias godebug='dlv exec _exe'
 
-source ~/dotfiles/scripts/help-funcs.sh
+source ~/dotfiles/scripts/func-tldr.sh
 alias ran=__help_tldr
 alias r=__help_tldr
 

@@ -1,7 +1,7 @@
 #!/bin/bash
 # https://github.com/nithinbekal/setup-scripts
 set -e
-source ./scripts/script-funcs.sh
+source ./scripts/func-util.sh
 source ./scripts/proxy.sh
 
 ### origin commands #########################
@@ -17,7 +17,7 @@ done
 
 ### must-have tools #########################
 __current_status "install must-have tools..."
-must_have_tools=(macvim htop ripgrep fzf fd
+must_have_tools=(htop ripgrep fzf fd
 	tmux alacritty lazygit git-delta eza
 	bat gping tldr fontconfig)
 for tool in "${must_have_tools[@]}"; do
@@ -54,22 +54,25 @@ for file in ${dotfiles[@]}; do
 	__link_file ~/dotfiles/$file ~/$file
 done
 
-##### alacritty
+# alacritty
 __current_status "linking alacritty"
 __link_file ~/dotfiles/alacritty-osx.toml ~/.config/alacritty/alacritty.toml
 
-##### vim
+# vim
 __current_status "linking vim"
 __link_file ~/dotfiles/vim/.vimrc ~/.vimrc
 __link_file ~/dotfiles/vim/colors ~/.vim/colors
 
-##### nvim
+# nvim
 __current_status "linking neovim"
 __link_file ~/dotfiles/nvim ~/.config/nvim
 
-##### lazygit
+# lazygit
 __current_status "linking lazygit"
 __link_file ~/dotfiles/lazygit.yml ~/.config/lazygit/config.yml
+
+### link files #########################
+source ./scripts/setup-home.sh
 
 __current_status "successfully install 🚀"
 
@@ -107,4 +110,3 @@ printf "4. tmux and reattach-to-user-namespace\n"
 # brew services start postgresql
 # initdb --locale=C -E UTF-8 /opt/homebrew/var/postgresql
 # /opt/homebrew/opt/postgresql@14/bin/createuser -s postgres
-
