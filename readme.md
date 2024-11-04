@@ -1,10 +1,8 @@
 **quick start:**
 
 ```
-git clone --depth 1 git@github.com:haoran-mc/dotfiles.git ~/dotfiles
-cd ~/dotfiles
-chmod +x ./osx-setup.sh
-./osx-setup.sh
+git clone --depth 1 git@github.com:haoran-mc/dotfiles.git $HOME/dotfiles
+cd $HOME/dotfiles && ./osx-setup.sh
 ```
 
 - code with neovim
@@ -24,7 +22,7 @@ chmod +x ./osx-setup.sh
 
 **tips:**
 
-- always use Tabs for line indentation
+- always use Spaces for line indentation instead Tabs
 
 <!--
 - iterm2 color: https://iterm2colorschemes.com/

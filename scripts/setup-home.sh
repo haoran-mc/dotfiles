@@ -41,7 +41,7 @@ fi
 if [ ! -d "$HOME/haoran/no" ]; then
     __current_status "git pull note(no) directory"
     git clone git@github.com:haoran-mc/note.git "$HOME/haoran/no"
-	source "$HOME/haoran/no/setup.sh"
+    source "$HOME/haoran/no/setup.sh"
 fi
 
 if [ ! -d "$HOME/haoran/code" ]; then
