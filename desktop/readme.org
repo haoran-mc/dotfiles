@@ -1,0 +1,45 @@
+#+TITLE: Desktop Environment
+
+- DM: Display-Manager
+- DE: Desktop-Environment
+- WM: Window-Manager
+
+# 请不要把时间花在窗口管理上
+
+| 桌面环境/窗口管理器   | X11支持 | Wayland支持 | 主要应用                  |
+|-------------------+--------+------------+-------------------------|
+| GNOME + Mutter    | 是      | 是          | 桌面环境（GNOME）          |
+| KDE Plasma + KWin | 是      | 是          | 桌面环境（KDE）            |
+| XFCE + Xfwm       | 是      | 部分        | 轻量级桌面环境             |
+| Cinnamon + Muffin | 是      | 否          | Linux Mint 桌面环境       |
+| MATE + Marco      | 是      | 否          | 经典桌面环境               |
+| Pantheon + Gala   | 是      | 否          | elementary OS           |
+| i3                | 是      | 否          | 平铺式窗口管理器（X11）     |
+| Sway              | 否      | 是          | 平铺式窗口管理器（Wayland） |
+| Openbox           | 是      | 否          | 轻量级窗口管理器           |
+| Fluxbox           | 是      | 否          | 轻量级窗口管理器           |
+| Awesome           | 是      | 否          | 动态窗口管理器             |
+| bspwm             | 是      | 否          | 平铺式窗口管理器           |
+
+* xrandr
+: yay -S xorg-xrandr
+
+#+begin_example
+  查看扩展显示器的设备接口名称以及可显示的分辨率
+  xrandr
+
+  设置外接显示器在笔记本左侧
+  xrandr --output HDMI-1 --auto --left-of eDP-1
+
+  设置外接显示器在笔记本右侧
+  xrandr --output HDMI-1 --auto --right-of eDP-1
+
+  设置主显示器
+  xrandr --output HDMI-1 --auto --primary
+
+  关闭笔记本显示器
+  xrandr --output eDP-1 --off
+
+  关闭扩展显示器
+  xrandr --output HDMI-1 --off
+#+end_example

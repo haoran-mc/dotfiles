@@ -10,12 +10,12 @@ yay -S --needed repgrep fzf fd tmux vim \
 
 ### Xorg #########################
 __current_status "linking Xorg"
-__link_file ~/dotfiles/.xprofile ~/.xprofile
+__link_file ~/dotfiles/desktop/.xprofile ~/.xprofile
 
 ### base font #########################
 yay -S --needed apple-fonts nerd-fonts-sf-mono apple-emoji-linux
 __current_status "base font and fontconfig"
-__link_file ~/dotfiles/.config/fontconfig/fonts.conf ~/.config/fontconfig/fonts.conf
+__link_file ~/dotfiles/.config/fontconfig ~/.config/fontconfig
 
 ### zsh #########################
 __current_status "install oh-my-zsh..."
