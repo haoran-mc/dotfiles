@@ -1,6 +1,6 @@
 #!/bin/bash
 set -e
-source ./scripts/func-util.sh
+source $HOME/dotfiles/scripts/func-util.sh
 
 ### must-have tools #########################
 yay -S --needed repgrep fzf fd tmux vim \
@@ -15,7 +15,7 @@ __link_file ~/dotfiles/.xprofile ~/.xprofile
 ### base font #########################
 yay -S --needed apple-fonts nerd-fonts-sf-mono apple-emoji-linux
 __current_status "base font and fontconfig"
-__link_file ~/dotfiles/fontconfig/fonts.conf ~/.config/fontconfig/fonts.conf
+__link_file ~/dotfiles/.config/fontconfig/fonts.conf ~/.config/fontconfig/fonts.conf
 
 ### zsh #########################
 __current_status "install oh-my-zsh..."
@@ -27,34 +27,36 @@ if [ ! -d "$HOME/.oh-my-zsh" ]; then
     git clone --depth=1 https://github.com/MichaelAquilina/zsh-you-should-use.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/you-should-use
 fi
 
-### link files #########################
+### link dotfiles #########################
 __current_status "linking dotfiles"
-dotfiles=(.ctags .bashrc .zshrc .gitconfig)
+dotfiles=(.ctags .bashrc .zshrc)
 for file in ${dotfiles[@]}; do
     __current_status "linking ${file}"
     __link_file ~/dotfiles/$file ~/$file
 done
 
-# alacritty
-__current_status "linking alacritty"
-__link_file ~/dotfiles/alacritty-linux.toml ~/.config/alacritty/alacritty.toml
+# git
+__current_status "linking git"
+__link_file ~/dotfiles/git/.gitconfig ~/.gitconfig
+__link_file ~/dotfiles/git/lazygit.yml ~/.config/lazygit/config.yml
 
 # vim
 __current_status "linking vim"
 __link_file ~/dotfiles/vim/.vimrc ~/.vimrc
 __link_file ~/dotfiles/vim/colors ~/.vim/colors
 
-# neovim
-__current_status "linking neovim"
-__link_file ~/dotfiles/nvim ~/.config/nvim
+### link .config #########################
+# alacritty
+__current_status "linking alacritty"
+__link_file ~/dotfiles/.config/alacritty/alacritty-linux.toml ~/.config/alacritty/alacritty.toml
+
+# nvim
+__current_status "linking nvim"
+__link_file ~/dotfiles/.config/nvim ~/.config/nvim
 # neovim mason lazy sync
 
-# lazygit
-__current_status "linking lazygit"
-__link_file ~/dotfiles/lazygit.yml ~/.config/lazygit/config.yml
-
-### home directory #########################
-source ./scripts/setup-home.sh
+### init home directory #########################
+source $HOME/dotfiles/scripts/setup-home.sh
 
 __current_status "successfully install 🚀"
 

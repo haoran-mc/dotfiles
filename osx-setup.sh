@@ -1,8 +1,8 @@
 #!/bin/bash
 # https://github.com/nithinbekal/setup-scripts
 set -e
-source ./scripts/func-util.sh
-source ./scripts/proxy.sh
+source $HOME/dotfiles/scripts/func-util.sh
+source $HOME/dotfiles/scripts/proxy.sh
 
 ### origin commands #########################
 origin_commands=(vim git zsh)
@@ -10,7 +10,7 @@ __current_status "check origin commands..."
 for cmd in "${origin_commands[@]}"; do
     __current_status "check command: ${cmd}"
     if ! command -v ${cmd} >/dev/null 2>&1; then
-        echo "install ${cmd} first!" >&2
+        printf "install ${cmd} first!" >&2
         exit 1
     fi
 done
@@ -46,33 +46,35 @@ if [ ! -d "$HOME/.oh-my-zsh" ]; then
     git clone --depth=1 https://github.com/MichaelAquilina/zsh-you-should-use.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/you-should-use
 fi
 
-### link files #########################
+### link dotfiles #########################
 __current_status "linking dotfiles"
-dotfiles=(.ctags .bashrc .zshrc .gitconfig)
+dotfiles=(.ctags .bashrc .zshrc)
 for file in ${dotfiles[@]}; do
     __current_status "linking ${file}"
     __link_file ~/dotfiles/$file ~/$file
 done
 
-# alacritty
-__current_status "linking alacritty"
-__link_file ~/dotfiles/alacritty-osx.toml ~/.config/alacritty/alacritty.toml
+# git
+__current_status "linking git"
+__link_file ~/dotfiles/git/.gitconfig ~/.gitconfig
+__link_file ~/dotfiles/git/lazygit.yml ~/.config/lazygit/config.yml
 
 # vim
 __current_status "linking vim"
 __link_file ~/dotfiles/vim/.vimrc ~/.vimrc
 __link_file ~/dotfiles/vim/colors ~/.vim/colors
 
+### link .config #########################
+# alacritty
+__current_status "linking alacritty"
+__link_file ~/dotfiles/.config/alacritty/alacritty-osx.toml ~/.config/alacritty/alacritty.toml
+
 # nvim
-__current_status "linking neovim"
-__link_file ~/dotfiles/nvim ~/.config/nvim
+__current_status "linking nvim"
+__link_file ~/dotfiles/.config/nvim ~/.config/nvim
 
-# lazygit
-__current_status "linking lazygit"
-__link_file ~/dotfiles/lazygit.yml ~/.config/lazygit/config.yml
-
-### link files #########################
-source ./scripts/setup-home.sh
+### init home directory #########################
+source $HOME/dotfiles/scripts/setup-home.sh
 
 __current_status "successfully install 🚀"
 
@@ -82,6 +84,7 @@ printf "1. now you can source ~/.zshrc\n"
 printf "2. diff ~/.zshrc and ~/.zshrc.pre-oh-my-zsh\n"
 printf "3. sync vim, nvim plugins\n"
 printf "4. tmux and reattach-to-user-namespace\n"
+printf "5. sketchybar\n"
 
 
 ##########################################

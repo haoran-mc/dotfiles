@@ -10,5 +10,13 @@
 6. AppStore: WeChat, WeRead, Tencent Lemon, ColorSlurp, Magnet
              Dynamic Wallpaper Engine, Slack for Desktop, Tencent meeting
 7. zh.snipaste.com, whatpulse.org
+8. brew install --cask macvim
+9. golang
+10. emacs
+11. brew install syncthing
+12. orbstack.dev
+    - brew install buildkit
 
+
+macos has built-in python3
 

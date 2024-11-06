@@ -1,6 +1,6 @@
 #!/bin/bash
 set -e
-source ./func-util.sh
+source $HOME/dotfiles/scripts/func-util.sh
 
 
 if [ ! -d "$HOME/haoran/disk" ]; then
