@@ -1,0 +1,6 @@
+[Unit]
+Description=Run syncthing-log script
+
+[Service]
+Type=simple
+ExecStart=/home/haoran/dotfiles/etc/systemd/syncthing-log/syncthing-log.sh

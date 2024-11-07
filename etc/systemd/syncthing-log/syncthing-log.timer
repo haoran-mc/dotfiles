@@ -1,0 +1,9 @@
+[Unit]
+Description=Timer to run syncthing-log script every 10 minutes
+
+[Timer]
+OnBootSec=10sec
+OnUnitActiveSec=10min
+
+[Install]
+WantedBy=timers.target
