@@ -51,6 +51,9 @@ export PATH=$EMACS_PATH:$EMACS_PATH/bin:$PATH
 # 取消 tldr 自动更新
 export TLDR_AUTO_UPDATE_DISABLED=true
 
+# 取消 brew 自动更新
+export HOMEBREW_NO_AUTO_UPDATE=true
+
 # 使用自己的 ranger 配置
 export RANGER_LOAD_DEFAULT_RC=false
 
