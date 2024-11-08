@@ -182,7 +182,8 @@ if [[ "$OSTYPE" = darwin* ]]; then
 		mv -i ~/.Trash/$@ ./
 	}
 
-	alias rm=trash
+	# alias rm=trash
+	alias 'rm -rf'=trash
 	alias rl='ls ~/.Trash'
 	alias ur=undelfile
 
@@ -246,8 +247,8 @@ gobuild()
 alias godebug='dlv exec _exe'
 
 source ~/dotfiles/scripts/func-tldr.sh
-alias ran=__help_tldr
 alias r=__help_tldr
+alias ran.server='ssh ran.server'
 
 alias cat='bat'
 alias ping='gping'
@@ -259,6 +260,5 @@ alias ping='gping'
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-# git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf && ~/.fzf/install
 # ^r fuzzy search
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
