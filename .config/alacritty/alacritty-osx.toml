@@ -29,7 +29,7 @@ startup_mode = "Maximized"
 #     window will only controled by magnet after using the below two values
 #     - transparent: Title bar, transparent background and title bar buttons
 #     - buttonless: Title bar, transparent background, but no title bar buttons
-decorations  = "buttonless"
+decorations  = "full"
 
 # 窗口内边距
 padding      = { x = 4, y = 9 }
