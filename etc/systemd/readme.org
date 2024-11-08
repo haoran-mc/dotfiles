@@ -1,0 +1,164 @@
+#+STARTUP: showall
+
+* 一、init 进程
+历史上，Linux 的启动一直采用 init 进程。
+
+#+begin_src shell
+  $ sudo /etc/init.d/apache2 start
+  # 或者
+  $ service apache2 start
+#+end_src
+
+这种方法有两个缺点。
+
+一是启动时间长。init进程是串行启动，只有前一个进程启动完，才会启动下一个进程。
+
+二是启动脚本复杂。init进程只是执行启动脚本，不管其他事情。脚本需要自己处理各种情况，这往往使得脚本变得很长。
+
+* 二、Systemd
+# Systemd 就是为了解决这些问题而诞生的。它的设计目标是，为系统的启动和管理提供一套完整的解决方案。
+
+# 根据 Linux 惯例，字母d是守护进程（daemon）的缩写。 Systemd 这个名字的含义，就是它要守护整个系统。
+
+为解决这些问题，Systemd 被设计出来。
+
+Systemd 取代了 initd，成为系统的第一个进程（PID 等于 1），其他进程都是它的子进程。
+
+Systemd 的优点是功能强大，使用方便，缺点是体系庞大，非常复杂。很多人反对使用 Systemd，理由就是它过于复杂，与操作系统的其他部分强耦合，违反"keep simple, keep stupid"的 Unix 哲学。
+
+* 三、Service unit
+Systemd 可以管理所有系统资源。不同的资源统称为 Unit（单位），这里只记录常用的 Service unit（系统服务）。
+
+** 3.1 Unit 管理
+#+begin_src shell
+  # 立即启动一个服务
+  $ sudo systemctl start apache.service
+
+  # 立即停止一个服务
+  $ sudo systemctl stop apache.service
+
+  # 重启一个服务
+  $ sudo systemctl restart apache.service
+
+  # 杀死一个服务的所有子进程
+  $ sudo systemctl kill apache.service
+
+  # 重新加载一个服务的配置文件
+  $ sudo systemctl reload apache.service
+
+  # 重载所有修改过的配置文件
+  $ sudo systemctl daemon-reload
+
+  # 显示某个 Unit 的所有底层参数
+  $ systemctl show httpd.service
+
+  # 显示某个 Unit 的指定属性的值
+  $ systemctl show -p CPUShares httpd.service
+
+  # 设置某个 Unit 的指定属性
+  $ sudo systemctl set-property httpd.service CPUShares=500
+#+end_src
+
+** 3.2 Unit 状态
+systemctl status 命令用于查看系统状态和单个 Unit 的状态。
+
+#+begin_src shell
+  # 显示系统状态
+  $ systemctl status
+
+  # 显示单个 Unit 的状态
+  $ sysystemctl status bluetooth.service
+
+  # 显示远程主机的某个 Unit 的状态
+  $ systemctl -H root@rhel7.example.com status httpd.service
+
+  # 除了status命令，systemctl还提供了三个查询状态的简单方法，主要供脚本内部的判断语句使用。
+  # 显示某个 Unit 是否正在运行
+  $ systemctl is-active application.service
+
+  # 显示某个 Unit 是否处于启动失败状态
+  $ systemctl is-failed application.service
+
+  # 显示某个 Unit 服务是否建立了启动链接
+  $ systemctl is-enabled application.service
+#+end_src
+
+** 3.3 Unit 依赖关系
+Unit 之间存在依赖关系：A 依赖于 B，就意味着 Systemd 在启动 A 的时候，同时会去启动 B。
+
+~systemctl list-dependencies~ 命令可以列出一个 Unit 的所有依赖。
+
+#+begin_src shell
+  # --all 参数展开 Target
+  $ systemctl list-dependencies --all nginx.service
+#+end_src
+
+** 3.3 Unit 配置文件
+配置文件是普通的文本文件，可以用文本编辑器打开。
+
+~systemctl cat~ 命令可以查看配置文件的内容。
+
+#+begin_example
+  $ systemctl cat atd.service
+
+  [Unit]
+  Description=ATD daemon
+
+  [Service]
+  Type=forking
+  ExecStart=/usr/bin/atd
+
+  [Install]
+  WantedBy=multi-user.target
+#+end_example
+
+~[Unit]~ 区块通常是配置文件的第一个区块，用来定义 Unit 的元数据，以及配置与其他 Unit 的关系。它的主要字段如下。
+
+#+begin_example
+  Description：简短描述
+  Documentation：文档地址
+  Requires：当前 Unit 依赖的其他 Unit，如果它们没有运行，当前 Unit 会启动失败
+  Wants：与当前 Unit 配合的其他 Unit，如果它们没有运行，当前 Unit 不会启动失败
+  BindsTo：与Requires类似，它指定的 Unit 如果退出，会导致当前 Unit 停止运行
+  Before：如果该字段指定的 Unit 也要启动，那么必须在当前 Unit 之后启动
+  After：如果该字段指定的 Unit 也要启动，那么必须在当前 Unit 之前启动
+  Conflicts：这里指定的 Unit 不能与当前 Unit 同时运行
+  Condition...：当前 Unit 运行必须满足的条件，否则不会运行
+  Assert...：当前 Unit 运行必须满足的条件，否则会报启动失败
+#+end_example
+
+~[Install]~ 通常是配置文件的最后一个区块，用来定义如何启动，以及是否开机启动。它的主要字段如下。
+
+#+begin_example
+  WantedBy：它的值是一个或多个 Target，当前 Unit 激活时（enable）符号链接会放入/etc/systemd/system目录下面以 Target 名 + .wants后缀构成的子目录中
+  RequiredBy：它的值是一个或多个 Target，当前 Unit 激活时，符号链接会放入/etc/systemd/system目录下面以 Target 名 + .required后缀构成的子目录中
+  Alias：当前 Unit 可用于启动的别名
+  Also：当前 Unit 激活（enable）时，会被同时激活的其他 Unit
+#+end_example
+
+~[Service]~ 区块用来 Service 的配置，只有 Service 类型的 Unit 才有这个区块。它的主要字段如下。
+
+#+begin_example
+  Type：定义启动时的进程行为。它有以下几种值。
+  Type=simple：默认值，执行ExecStart指定的命令，启动主进程
+  Type=forking：以 fork 方式从父进程创建子进程，创建后父进程会立即退出
+  Type=oneshot：一次性进程，Systemd 会等当前服务退出，再继续往下执行
+  Type=dbus：当前服务通过D-Bus启动
+  Type=notify：当前服务启动完毕，会通知Systemd，再继续往下执行
+  Type=idle：若有其他任务执行完毕，当前服务才会运行
+  ExecStart：启动当前服务的命令
+  ExecStartPre：启动当前服务之前执行的命令
+  ExecStartPost：启动当前服务之后执行的命令
+  ExecReload：重启当前服务时执行的命令
+  ExecStop：停止当前服务时执行的命令
+  ExecStopPost：停止当其服务之后执行的命令
+  RestartSec：自动重启当前服务间隔的秒数
+  Restart：定义何种情况 Systemd 会自动重启当前服务，可能的值包括always（总是重启）、on-success、on-failure、on-abnormal、on-abort、on-watchdog
+  TimeoutSec：定义 Systemd 停止当前服务之前等待的秒数
+  Environment：指定环境变量
+#+end_example
+
+Unit 配置文件的完整字段清单，请参考[[https://www.freedesktop.org/software/systemd/man/latest/systemd.unit.html][官方文档]]。
+
+* 四、日志管理
+Systemd 统一管理所有 Unit 的启动日志。带来的好处就是，可以只用journalctl一个命令，查看所有日志（内核日志和应用日志）。日志的配置文件是/etc/systemd/journald.conf。

@@ -1,0 +1,162 @@
+#+STARTUP: showall
+
+* 一、launch 命令
+- launchctl list 列出所有 launchd 管理的服务
+- launchctl load ~/Library/LaunchAgents/com.example.app.plist 加载一个服务
+- launchctl unload ~/Library/LaunchAgents/com.example.app.plist 移除一个服务
+- launchctl start com.example.app 启动一个服务
+- launchctl stop com.example.app 停止一个服务
+
+* 二、launch 配置项说明
+** 2.1 Label 指定名字
+#+begin_src xml
+  <key>Label</key>
+  <string>com.example.app</string>
+#+end_src
+
+** 2.2 Program、ProgramArguments 指定要执行的程序
+这两个二选一，如果不需要指定参数，用 Program。如果需要指定参数，那么使用 ProgramArguments。
+
+#+begin_src xml
+  <key>Program</key>
+  <string>/path/to/program</string>
+#+end_src
+
+#+begin_src xml
+  <key>ProgramArguments</key>
+  <array>
+    <string>/usr/bin/rsync</string>
+    <string>--archive</string>
+    <string>--compress-level=9</string>
+    <string>/Volumes/Macintosh HD</string>
+    <string>/Volumes/Backup</string>
+  </array>
+#+end_src
+
+** 2.3 EnvironmentVariables 环境变量
+#+begin_src xml
+  <key>EnvironmentVariables</key>
+  <dict>
+    <key>PATH</key>
+    <string>/bin:/usr/bin:/usr/local/bin</string>
+  </dict>
+#+end_src
+
+** 2.4 StandardInPath、StandardOutPath、StandardErrorPath 重定向输入输出
+#+begin_src xml
+  <key>StandardInPath</key>
+  <string>/tmp/test.stdin</string>
+  <key>StandardOutPath</key>
+  <string>/tmp/test.stdout</string>
+  <key>StandardErrorPath</key>
+  <string>/tmp/test.stderr</string>
+#+end_src
+
+- StandardInPath 标准输入的路径；
+- StandardOutPath 标准输出的路径；
+- StandardErrorPath 标准错误输出的路径。
+
+** 2.5 WorkingDirectory 指定工作目录
+#+begin_src xml
+  <key>WorkingDirectory</key>
+  <string>/tmp</string>
+#+end_src
+
+这样可以在程序运行的时候，直接使用相对路径。
+
+** 2.6 RunAtLoad、StartInterval、StartCalendarInterval 指定什么时候启动
+在配置中选择一个来配置：
+
+- RunAtLoad：如果设置为 true，那么 Program 会在系统启动的时候执行。(对于 Daemons 来说就是系统启动的时候启动，对于 Agents 来说就是用户登录的时候启动)；
+- StartInterval：指定启动的时间间隔，单位是秒。也就是每隔多少秒执行一次；
+- StartCalendarInterval：指定启动的时间，可以指定每天的某个时间启动。（类似定时任务），可以指定多个时间。
+
+#+begin_src xml
+  <!-- 在系统启动或者用户登进的时候执行命令 -->
+  <key>RunAtLoad</key>
+  <true/>
+#+end_src
+
+#+begin_src xml
+  <!-- 每隔 3600 秒执行一次 -->
+  <key>StartInterval</key>
+  <integer>3600</integer>
+#+end_src
+
+#+begin_src xml
+  <!-- 每天的 3 点执行一次 -->
+  <key>StartCalendarInterval</key>
+  <dict>
+    <key>Hour</key>
+    <integer>3</integer>
+    <key>Minute</key>
+    <integer>0</integer>
+  </dict>
+#+end_src
+
+还有些不太常用的选项：StartOnMount、WatchPaths、QueueDirectories，通过这几个配置也可以指定命令执行的时机。
+
+** 2.7 KeepAlive 指定是否保持运行
+KeepAlive 的默认选项是 true。
+
+可以测试一下：kill 掉 launchd 启动的进程，会发现那个进程马上又会被启动。
+
+其他选项不做介绍。
+
+** 2.8 AbandonProcessGroup 进程被终止的时候是否终止其子进程
+当给 launchd 启动的进程发送 SIGTERM 信号的时候，这个 SIGTERM 信号也会同时被发送给它的子进程。
+
+可以将 AbandonProcessGroup 设置为 true 来禁止这种行为：
+
+#+begin_src xml
+  <key>AbandonProcessGroup</key>
+  <true/>
+#+end_src
+
+** 2.9 ExitTimeOut 优雅终止
+在停止 launchd 启动的进程的时候，会先发送一个 SIGTERM 信号，进程可以在接收到这个信号后做一些清理操作。
+
+直到 ExitTimeOut 秒后，如果进程还没退出，那么就会发送一个 SIGKILL 信号来强行终止进程的运行：
+
+#+begin_src xml
+  <key>ExitTimeOut</key>
+  <integer>30</integer>
+#+end_src
+
+** 2.10 ThrottleInterval 命令调用的时间间隔
+可与 KeepAlive 配合使用，在进程异常退出之后，间隔 ThrottleInterval 秒后再尝试启动。
+
+* 三、homebrew
+文件 ~/Library/LaunchAgents/homebrew.mxcl.mysql@5.7.plist：
+
+#+begin_src xml
+  <?xml version="1.0" encoding="UTF-8"?>
+  <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+  <plist version="1.0">
+    <dict>
+      <key>KeepAlive</key>
+      <true/>
+      <key>Label</key>
+      <string>homebrew.mxcl.mysql@5.7</string>
+      <key>ProgramArguments</key>
+      <array>
+        <string>/usr/local/opt/mysql@5.7/bin/mysqld_safe</string>
+        <string>--datadir=/usr/local/var/mysql</string>
+      </array>
+      <key>RunAtLoad</key>
+      <true/>
+      <key>WorkingDirectory</key>
+      <string>/usr/local/var/mysql</string>
+    </dict>
+  </plist>
+#+end_src
+
+mac 中的 homebrew 也是通过 launchd 来管理服务的。可以通过 brew services list 来查看当前启动的服务。
+
+brew 管理的服务的配置文件也会被放在 ~/Library/LaunchAgents 目录中。
+
+- KeepAlive - 设置为 true，那么当进程退出的时候，launchd 会自动重启这个进程；
+- Label - 这个配置文件的唯一标识，可以通过 brew services list 可以查看到 MySQL 服务，也可以通过 launchctl list | grep mysql 来看到这个进程的状态；
+- ProgramArguments - 指定要执行的命令，这里的完整命令是 /usr/local/opt/mysql@5.7/bin/mysqld_safe --datadir=/usr/local/var/mysql；
+- RunAtLoad - 设置为 true，那么当用户进入系统的时候，会自动启动这个进程；
+- WorkingDirectory - 指定 MySQL 进程的工作目录。
