@@ -84,3 +84,5 @@ function extract () {
 		echo "'$1' is not a valid file"
 	fi
 }
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
