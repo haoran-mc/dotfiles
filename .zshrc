@@ -195,6 +195,7 @@ if [[ "$OSTYPE" = darwin* ]]; then
 
 	alias v=vimedit
 	alias copy=pbcopy
+    alias dropbox='cd /Users/haoran/Library/CloudStorage/Dropbox'
 elif [[ "$OSTYPE" = linux-gnu* ]]; then
 	# export GTK_IM_MODULE=fcitx5
 	# export QT_IM_MODULE=fcitx5
@@ -202,6 +203,7 @@ elif [[ "$OSTYPE" = linux-gnu* ]]; then
 
 	alias open=dolphin
 	alias copy='xclip -selection clipboard'
+    alias dropbox='cd /home/haoran/Dropbox'
 	xset r rate 250 55
 else
 	echo "unknow os"
