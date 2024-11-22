@@ -2,6 +2,7 @@
 
 * Dotfiles
 - [[https://github.com/haoran-mc/dotfiles]]
+- [[https://github.com/haoran-mc/tldr]]
 
 * Github Action
 - [[https://github.com/haoran-mc/haoran-mc]]
