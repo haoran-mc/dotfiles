@@ -248,8 +248,8 @@ gobuild()
 }
 alias godebug='dlv exec _exe'
 
-source ~/dotfiles/scripts/func-tldr.sh
-alias r=__help_tldr
+# build ran-tldr command first
+alias r='~/haoran/gr/tldr/bin/ran-tldr'
 alias ran.server='ssh ran.server'
 
 alias cat='bat'
