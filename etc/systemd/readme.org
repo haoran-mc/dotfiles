@@ -1,5 +1,13 @@
 #+STARTUP: showall
 
+*命令记录：*
+
+- systemctl --user status syncthing-log.timer
+- systemctl --user enable syncthing-log.timer 允许开机启动
+- systemctl --user disable syncthing-log.timer 不允许开机启动
+- systemctl --user restart syncthing-log.timer
+- systemctl --user stop syncthing-log.timer
+
 * 一、init 进程
 历史上，Linux 的启动一直采用 init 进程。
 
