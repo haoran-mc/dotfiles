@@ -13,12 +13,12 @@ save_to_clipboard     = true
 opacity      = 1.0
 
 # Windowed Maximized Fullscreen SimpleFullscreen
-startup_mode = "Maximized"
+startup_mode = "Windowed"
 
 # Values for `decorations`:
 #     - full: Borders and title bar
 #     - none: Neither borders nor title bar
-decorations  = "None"
+decorations  = "Full"
 
 # 窗口内边距
 padding      = { x = 4, y = 9 }
