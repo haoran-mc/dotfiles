@@ -1,0 +1,7 @@
+1. 阅读「[[https://github.com/haoran-mc/dotfiles/tree/main/rime/docs/hu/01.%E8%AE%A4%E8%AF%86%E8%99%8E%E7%A0%81][认识虎码]]」①②③；
+2. 学习字根「[[https://github.com/haoran-mc/dotfiles/tree/main/rime/docs/hu/02.%E8%99%8E%E7%A0%81%E5%AD%97%E6%A0%B9][虎码字根]]」（使用官网练习教程）；
+3. 练习[[https://www.tiger-code.com/practisePro.html][虎码必拆字]]；
+4. 使用[[https://typer.owenyang.top/][木易跟打器]]练习「常用单字前500」中的虎码二简；
+5. 使用跟打器练习「常用单字前500」；
+6. 使用跟打器练习「常用单字前1500」；
+7. 虎码必打25篇。

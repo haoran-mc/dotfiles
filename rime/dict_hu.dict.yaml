@@ -9,6 +9,6 @@
 name: dict_hu
 version: "2024.01"
 import_tables:
-  - cn_dicts/tiger/tiger       # 虎 单字
-  # - cn_dicts/tiger/tigers    # 虎 词组
+  # - cn_dicts/hu/hu     # 单字（已删除）
+  - cn_dicts/hu/hu_simp  # 简单单字
 ...

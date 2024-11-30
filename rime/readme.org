@@ -51,7 +51,7 @@
    1. [[https://github.com/lxgw/LxgwWenKai][霞鸳文楷]]
    2. [[https://github.com/Fitzgerald-Porthmouth-Koenigsegg/Plangothic-Project][遍黑体]]
 
-[[file:resources/tiger-code.png]]
+[[file:resources/hu.png]]
 
 -----
 

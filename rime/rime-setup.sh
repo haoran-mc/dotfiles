@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source ../scripts/script-funcs.sh
+source ../scripts/func-util.sh
 
 # sudo pacman -S fcitx5 fcitx5-qt fcitx5-gtk fcitx5-configtool fcitx5-rime
 
@@ -24,7 +24,7 @@ if [[ `uname` == 'Darwin' ]]; then
     # __link_file ~/dotfiles/rime/easy_english.dict.yaml ~/Library/Rime/easy_english.dict.yaml
     # __link_file ~/dotfiles/rime/easy_english.schema.yaml ~/Library/Rime/easy_english.schema.yaml
 
-    __link_file ~/dotfiles/rime/huma.schema.yaml ~/Library/Rime/huma.schema.yaml
+    __link_file ~/dotfiles/rime/hu.schema.yaml ~/Library/Rime/hu.schema.yaml
     __link_file ~/dotfiles/rime/dict_hu.dict.yaml ~/Library/Rime/dict_hu.dict.yaml
     __link_file ~/dotfiles/rime/hupy.schema.yaml ~/Library/Rime/hupy.schema.yaml
     __link_file ~/dotfiles/rime/dict_hupy.dict.yaml ~/Library/Rime/dict_hupy.dict.yaml
@@ -46,10 +46,10 @@ elif [[ `uname` == 'Linux' ]]; then
     # __link_file ~/dotfiles/rime/rime.lua ~/.config/ibus/rime/rime.lua
 
     # # __link_file ~/dotfiles/rime/flypy.schema.yaml ~/.config/ibus/rime/flypy.schema.yaml
- 
+
     # __link_file ~/dotfiles/rime/cn_dicts ~/.config/ibus/rime/cn_dicts
 
-    # __link_file ~/dotfiles/rime/huma.schema.yaml ~/.config/ibus/rime/huma.schema.yaml
+    # __link_file ~/dotfiles/rime/hu.schema.yaml ~/.config/ibus/rime/hu.schema.yaml
     # __link_file ~/dotfiles/rime/dict_hu.dict.yaml ~/.config/ibus/rime/dict_hu.dict.yaml
     # __link_file ~/dotfiles/rime/hupy.schema.yaml ~/.config/ibus/rime/hupy.schema.yaml
     # __link_file ~/dotfiles/rime/dict_hupy.dict.yaml ~/.config/ibus/rime/dict_hupy.dict.yaml
@@ -67,7 +67,7 @@ elif [[ `uname` == 'Linux' ]]; then
 
     __link_file /home/haoran/dotfiles/rime/cn_dicts /usr/share/rime-data/cn_dicts
 
-    __link_file /home/haoran/dotfiles/rime/huma.schema.yaml /usr/share/rime-data/huma.schema.yaml
+    __link_file /home/haoran/dotfiles/rime/hu.schema.yaml /usr/share/rime-data/hu.schema.yaml
     __link_file /home/haoran/dotfiles/rime/dict_hu.dict.yaml /usr/share/rime-data/dict_hu.dict.yaml
     __link_file /home/haoran/dotfiles/rime/hupy.schema.yaml /usr/share/rime-data/hupy.schema.yaml
     __link_file /home/haoran/dotfiles/rime/dict_hupy.dict.yaml /usr/share/rime-data/dict_hupy.dict.yaml

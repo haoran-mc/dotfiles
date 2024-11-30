@@ -1,7 +1,7 @@
 schema:
   author: "haoran"
   name: "虎码单字"
-  schema_id: huma
+  schema_id: hu
   dependencies:
     - dict_hupy  # 拼音反查
   version: 0.9
