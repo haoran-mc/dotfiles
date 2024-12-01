@@ -8,13 +8,13 @@ schema:
 
 switches:
   - name: ascii_mode
-    states: [ "中文", "A" ]
+    states: [ "中", "A" ]
     reset: 1                    # 默认英文
   - name: full_shape
     states: [ "半角", "全角" ]
     reset: 0                    # 默认半角
   - name: emoji_cn
-    states: [ "𡆶", "囿" ]
+    states: [ "无", "有" ]
     reset: 1                    # 默认开启 emoji -- follow letter
   - name: chaifen
     states: [ "拆隐", "拆显" ]
@@ -57,7 +57,6 @@ translator:
   enable_charset_filter: false
   enable_encoder: false
   enable_sentence: false
-  # max_phrase_length: 4
   enable_user_dict: false
   enable_completion: false  # 编码提示
   comment_format:           # 提示码自定义
@@ -111,11 +110,6 @@ chaifen:
   show_in_comment: true
   comment_format:
     - "xform/&nbsp;/ /"
-  # tags:
-  #   - abc
-  #   - huma
-  #   - tigress
-  #   - reverse_lookup
   tips: all # 如只想给单字加注释，可改为 char
 
 

@@ -3,58 +3,32 @@
 
 #+begin_example
   .
+  ├── cn_dicts/                        # 中文字表、词典
   ├── opencc/                          # 自定义短语
   ├── custom_phrase.txt                # 自定义短语
   ├── default.custom.yaml              # 入口配置
   ├── dict_*.dict.yaml                 # 码表文件
-  ├── flypy.schema.yaml                # 小鹤双拼
-  ├── huma.schema.yaml                 # 虎码单字
-  ├── pinyin.schema.yaml               # 简单全拼
-  ├── rime-setup.sh                    # 布置脚本
+  ├── hu.schema.yaml                   # 虎码单字
+  ├── setup.sh                         # 布置脚本
   ├── rime.lua                         # lua 脚本
   ├── squirrel.custom.yaml             # 鼠须管客制化
-  └── symbols.yaml                     # emojis
+  └── symbols.yaml                     # symbols, emojis
 #+end_example
 
 
-*特性：*
+- ☑ ~/~ 开启 symbols 前缀，使用空格上屏，回车输入原始输入；
+- ☑ Emacs 快捷键：C-n C-p 翻页、C-b C-f 移动光标；
+- ☑ custom_phrase.txt 自定义短语，通过拼音检索（最高的权重）；
+- ☑ OpenCC 通过已有词汇联想，自定义 emoji；
+- ☑ 鼠须管皮肤；
+- ☑ lua 扩展（日期、时间）；
+- ☑ 直接 schema，不 custom；
+- ☒ 使用形码单字不需要考虑下面情况：
+  - Rime自带的「明月拼音·简化字」方案是繁体词库加上一个由OpenCC繁转简的设定，用户词典中保存的输入历史是繁体（形码打单的词库唯一且不变）；
+  - 同步用户词库（形码打单的词库唯一且不变）；
+  - 中文中的英文输入，或者不需要（不过度配置）；
+  - 删词、降权（打单不需要权重）；
+- Arch 中输入法主题通过 fcitx5 的配置更改；
 
-- ☑ symbols：双拼使用 ~/~ 开头，使用空格 Space 上屏而不是回车 Enter，回车输入原始输入；
-- ☑ emacs 快捷键：C-n C-p 翻页、C-b C-f 移动光标；
-- ☑ custom_phrase.txt 自定义短语，通过拼音检索（最高的权重）
-- ☑ opencc 自定义短语，通过已有词汇联想（有时候联想失败）
-- ☑ 添加字典，使用简体词库，而不是Rime自带的「明月拼音·简化字」方案（是繁体词库加上一个自动繁转简的设定，由OpenCC转换，用户词典中保存的输入历史还是繁体的）
-- ☑ 皮肤
-- ☑ lua 扩展
-- ☑ 直接schema，不custom
-- ☑ 同步用户词库：「同步用户词库」→ 词库文件：sync/hashid/dict_*.userdb.txt → 将词库文件复制新机器的 sync/hashid/ 下面 → 「同步用户词库」
-- ☒ 中文中的英文输入，或者不需要（不过度配置）
-- ☐ 删词、降权（手动操作即可）
-- ☐ Arch 中输入法主题通过 fcitx5 的配置更改
-
-
-*设计输入法理念:*
-- 快速、简洁、易理解、易扩展！
-- 不过度配置；
-- 输入是一件快乐的事情，不要让繁琐的输入规则打断敲击思绪；
-
-# -----
-# 逸码
-# 1. 不能中英混输
-# 2. 不能打词
-
------
-
-虎码：
-
-- 需要预备安装更大字集的字体：
-   1. [[https://github.com/lxgw/LxgwWenKai][霞鸳文楷]]
-   2. [[https://github.com/Fitzgerald-Porthmouth-Koenigsegg/Plangothic-Project][遍黑体]]
 
 [[file:resources/hu.png]]
-
------
-
-小鹤双拼：
-
-[[file:resources/flypy.jpeg]]
