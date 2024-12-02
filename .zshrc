@@ -177,15 +177,7 @@ export DELTA_PAGER="less -X $LESS"
 
 # ostype ##############################################
 if [[ "$OSTYPE" = darwin* ]]; then
-	undelfile()
-	{
-		mv -i ~/.Trash/$@ ./
-	}
-
-	# alias rm=trash
-	alias 'rm -rf'=trash
-	alias rl='ls ~/.Trash'
-	alias ur=undelfile
+    alias rm=rmtrash
 
 	vimedit()
 	{

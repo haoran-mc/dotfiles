@@ -20,3 +20,6 @@
 
 macos has built-in python3
 
+brew install dropbox
+brew install tbxark/repo/rmtrash
+
