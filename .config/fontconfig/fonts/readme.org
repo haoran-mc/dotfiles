@@ -1,0 +1,56 @@
+# 字体收录
+
+
+* 编程字体（等宽字体）
+- [[https://en.wikipedia.org/wiki/San_Francisco_(sans-serif_typeface)][San Francisco]]
+  - SF Pro, SF Pro Display, SF Pro Text, SF Pro Rounded: yay -S apple-fonts
+  - SF Compact, SF Mono
+  - SFMono-Nerd-Font-Ligaturized: yay -S nerd-fonts-sf-mono
+  #+begin_quote
+  There are millions of fonts out there. Only a select few would ever be "highly regarded". I think your real question is "what's the difference?"
+  "Display" generally means that the typographer planned for this typeface to be used in headlines and headers. "Text" means the typographer planned for the typeface to be used for the body copy.
+  A "display" font is usually bolder, blockier, and can be difficult to read for too long. "text" is probably thinner and lighter and won't stand out as a headline but is easier on the eyes for longer blocks of copy.
+  https://www.reddit.com/r/UI_Design/comments/60itsp
+  #+end_quote
+- JetBrains Mono: yay -S ttf-jetbrains-mono-nerd
+- Fira Code
+- Source Code Pro → SauceCodePro Nerd Font
+- DejaVu Sans Mono
+- Ubuntu Mono
+
+[[https://haoran-mc.github.io/230914-fonts.html][→ 这里展示了一些编程字体的图片]]
+
+* 英文非等宽字体
+- Roboto
+
+* 中文字体
+- 霞鸳文楷
+
+  # 用于 rime、linux 全局字体
+  # brew install font-lxgw-wenkai
+  # yay -S ttf-lxgw-wenkai-screen 这个阅读版好像一般般？或者手动下载字体，然后安装？
+
+- 仓耳今楷
+
+  介于楷体和黑体之间，专为屏幕显示开发的新型正文字体，更适合海报、广告及手机端正文小字号的屏幕显示。
+
+  仓耳今楷 01-05 粗细区别不大，主要是字体骨架的区别，由01的更接近黑体到05的更接近楷体。
+
+  # 用于博客
+  # 这里存储的 jinkai.ttf 字体名字是「仓耳今楷03-6763」
+
+- 思源字体
+
+  # yay -S noto-fonts noto-fonts-cjk
+  # 软件包 noto-fonts 提供了西文无衬字体 Noto Sans 和西文衬线字体 Noto Serif；
+  # 软件包 noto-fonts-cjk 提供了中文无衬字体 Noto Sans CJK 和中文衬线字体 Noto Serif CJK；
+  # 软件包 noto-fonts-emoji 提供表情符号字体；
+  # 软件包 noto-fonts-extra 提供额外的字重和宽度变种；
+  # backup.org::noto-fonts
+
+* Emoji
+- noto-fonts-emoji
+
+- ttf-twemoji: twitter 开源的表情符号字体
+
+- apple-emoji-linux: 苹果的表情符号字体，这个字体的表情效果更好，也是我现在在用的表情符号字体。

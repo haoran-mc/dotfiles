@@ -24,39 +24,7 @@ yay -S apple-fonts ttf-lxgw-wenkai-screen nerd-fonts-sf-mono apple-emoji-linux
 *下载这些字体以得到更好的网页展示效果，roboto(reddit)、...*
 yay -S ttf-roboto
 
-* 字体收录
-- 思源字体，yay -S noto-fonts noto-fonts-cjk
-  - 软件包 noto-fonts 提供了西文无衬字体 Noto Sans 和西文衬线字体 Noto Serif；
-  - 软件包 noto-fonts-cjk 提供了中文无衬字体 Noto Sans CJK 和中文衬线字体 Noto Serif CJK；
-  - 软件包 noto-fonts-emoji 提供表情符号字体；
-  - 软件包 noto-fonts-extra 提供额外的字重和宽度变种；
-  # backup.org::noto-fonts
-- 一些 emoji 字体：
-  - ↑ 上面思源字体中提到的 noto-fonts-emoji，没用过；
-  - yay -S ttf-twemoji twitter开源的表情符号字体；
-  - yay -S apple-emoji-linux 苹果的表情符号字体，这个字体的表情效果更好，也是我现在在用的表情符号字体；
-- ttf-nerd-fonts-symbols 不下载这个，使用指定的 ↓ SFMono Nerd Font Ligaturized
-- 霞鸳文楷
-  - brew install font-lxgw-wenkai
-  - yay -S ttf-lxgw-wenkai-screen 这个阅读版好像一般般？或者手动下载字体，然后安装？
-- [[https://en.wikipedia.org/wiki/San_Francisco_(sans-serif_typeface)][San Francisco]]
-  - SF Pro, SF Pro Display, SF Pro Text, SF Pro Rounded: yay -S apple-fonts
-  - SF Compact, SF Mono
-  - SFMono-Nerd-Font-Ligaturized: yay -S nerd-fonts-sf-mono
-  #+begin_quote
-  There are millions of fonts out there. Only a select few would ever be "highly regarded". I think your real question is "what's the difference?"
-  "Display" generally means that the typographer planned for this typeface to be used in headlines and headers. "Text" means the typographer planned for the typeface to be used for the body copy.
-  A "display" font is usually bolder, blockier, and can be difficult to read for too long. "text" is probably thinner and lighter and won't stand out as a headline but is easier on the eyes for longer blocks of copy.
-  https://www.reddit.com/r/UI_Design/comments/60itsp
-  #+end_quote
-- JetBrains Mono: yay -S ttf-jetbrains-mono-nerd
-- Fira Code
-- Source Code Pro → SauceCodePro Nerd Font
-- DejaVu Sans Mono
-- Ubuntu Mono
-- Roboto
-
-[[https://haoran-mc.github.io/230914-fonts.html][→ 这里展示了一些编程字体的图片]]
+# ttf-nerd-fonts-symbols 不下载这个，使用指定的 ↑ SFMono Nerd Font Ligaturized
 
 * Arch 安装字体
 1. 系统字体目录：/usr/share/fonts/，可以在这个目录下创建子目录存放字体
