@@ -1,0 +1,100 @@
+* 网页 font-family 常见字体
+- Helvetica
+
+  苹果系统支持的一种西文无衬线字体，是苹果生态中最常用的一套西文字体。Helvetica Neue 是 Helvetica 字体改善版本，增加了更多不同粗细与宽度的字形。
+
+- Arial
+
+  是为了与 Helvetica 竞争而设计的无衬线西文字体，表现形式和 Helvetica 类似，在不同系统的浏览器都支持，兼容性非常好。
+
+- Tahoma
+
+  一种无衬线字体，间距较小，在不同系统的浏览器都支持，兼容性良好，可以解决 Helvetica 和 Arial 所为人诟病的缺点，比如大写的 I 和小写的 L 难以分辨。
+
+- San Francisco
+
+  苹果于 2017 年推出一种无衬线字体，也是目前苹果系统的默认西文字体，相比于 Helvetica 字体，San Francisco 的字体风格更加简洁，减少了一些修饰的细节，支持符号的整体居中，比如时间显示，之前的 Helvetica 的冒号是不居中的。
+
+- PingFang SC（苹方-简）
+
+  苹果专为中国用户打造的一个中文无衬线字体，在 2017 年和 San Francisco 一起推出，SC 代表简体，同时还有台湾繁体和香港繁体，整体造型简洁美观，是苹果系统默认的中文字体。
+
+- Hiragino Sans GB（冬青黑体）、Heiti SC（黑体）
+
+  苹果系统中较早的中文无衬线字体，为了兼容旧版 macOS 系统，我们一般用它们作为苹方字体的 fallback。
+
+- Segoe UI
+
+  Windows 系统下的一种无衬线西文字体，也是 Windows 系统的默认西文字体。
+
+- Microsoft YaHei（微软雅黑）
+
+  Windows 系统默认的中文字体，也是一套无衬线字体。macOS 上的浏览器大都预装微软雅黑，但不包括 Safari 浏览器。
+
+  iOS 和 Android 系统不支持微软雅黑，所以设置移动端字体时可以忽略微软雅黑。
+
+- 宋体
+
+  一种中文衬线字体，Windows 和 macOS 都有支持，字体偏瘦，风格明显。
+
+  宋体也是 Windows XP 及更早系统的默认中文字体。
+
+- WenQuanYi Micro Hei（文泉驿微米黑）
+
+  Linux 系统下默认中文字体，一般为了兼容 Linux 系统才会设置这个字体。
+
+- Roboto
+
+  Android 系统的默认西文字体，也是一种无衬线字体
+
+- Noto Sans（思源黑体）
+
+  Android 系统的默认中文无衬线字体，由 Google 推出的一款开源字体。
+
+- Apple Color Emoji
+
+  苹果产品的文字表情，在 Mac 和 iOS 系统中到处都可以看到，也是我们接触的最多的 Emoji 表情。
+
+- Segoe UI Emoji
+
+  Windows10 系统中的 Emoji 表情，黑描边风格，没有苹果的圆润和质感。
+
+- Noto Color Emoji
+
+  Google 推出的表情，和苹果的较为类似，更加扁平。
+
+* system-ui
+system-ui 是一种通用字体 =系列= ，它选择当前操作系统下的默认系统字体，它的优势在于和当前系统使用的字体相匹配，可以让Web页面和App风格看起来更统一。
+
+- -apple-system
+
+  -apple-system 是 system-ui 的兼容写法，只在 iOS 和 macOS 上的 Safari、Firefox、webview 等环境下支持。
+
+- BlinkMacSystemFont
+
+  也是 system-ui 的兼容写法，只在 macOS Chrome 下支持，主要针对 Chrome 53-55版本。
+
+在 iOS 和 macOS 上，system-ui 指向的中文字体为苹方，西文字体为 San Francisco。Android 系统下中文通常为 Noto Sans（思源黑体），西文字体为 Roboto。Windows 系统上一般为微软雅黑，但是在部分 Windows 系统上的字体会出现问题，所以 Windows 上不建议使用 system-ui。
+
+* 字体书写规则
+1. 西文在前，中文在后
+2. 优先使用 system-ui
+3. 兼顾不同的操作系统
+
+   - 苹果系统中使用更优雅的苹方字体, 对于不支持苹方的低版本 macOS，使用 Hiragino Sans GB（冬青黑体）字体做兜底；
+   - 兼容 Linux 系统，需要添加 WenQuanYi Micro Hei（文泉驿微米黑）字体；
+   - 兼容不同平台的表情符号，一般在 sans-serif 后添加 "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" 等字体；
+
+4. 以 serif 或 sans-serif 字体族结尾
+5. 简洁实用
+
+* 字体推荐设置
+#+begin_src css
+  font-family: "Helvetica Neue",Arial,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","WenQuanYi Micro Hei",sans-serif;
+#+end_src
+
+不使用 system-ui，[[https://infinnie.github.io/blog/2017/systemui.html][Never, ever use system-ui as the value of font-family]]。
+
+优先使用 Helvetica Neue 做西文字体，Helvetica Neue 比 Arial 更饱满，结构清晰、阅读辨识容易，所以作为首选字体，如果系统没有预装 Helvetica Neue 则使用 Arial 替代。
+
+中文字体优先使用苹果的苹方字体，对于不支持苹方的低版本macOS，使用 Hiragino Sans GB（冬青黑体）字体做兜底。Windows 中文字体优先使用 MicroSoft YaHei（微软雅黑）。兼容 Linux 系统，中文体字使用 WenQuanYi Micro Hei（文泉驿微米黑）。最后放 sans-serif，非衬线字体在显示器中的显示效果更好。

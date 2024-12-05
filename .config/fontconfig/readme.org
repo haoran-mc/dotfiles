@@ -1,4 +1,4 @@
-#+STARTUP: showall noindent
+#+STARTUP: showall
 
 方案：
 - 无衬线：西文 SF Pro Text，中文 LXGW WenKai
