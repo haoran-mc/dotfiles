@@ -32,3 +32,14 @@
 
 
 [[file:resources/hu.png]]
+
+
+#+begin_comment
+*自定义符号：*
+
+- custom_phrase.txt :: 根据音联想，line ─────；
+- opencc/follow_letter.txt :: 根据形联想，对 ✓；
+- symbols.yaml :: 一个系列，/xk 😂️ 🤣。
+
+基本都在 follow_letter.txt 文件里新增自定义字符。
+#+end_comment
