@@ -101,7 +101,19 @@ function IsLeap(y)
 end
 
 local function translator(input, seg)
-  if input == "/date" then
+  if (input == "/dt" or input == "/datetime") then
+    num_year = "[" .. os.date("%j/") .. IsLeap(os.date("%Y")) .. "]"
+
+    date = os.date("%y%m%d")
+    time = string.gsub(os.date("%H:%M"), "", "")
+    weekday = os.date("%a")
+
+    -- 241220 11:46 Fri
+    datetime = string.format("%s %s %s", date, time, weekday)
+    candidate = Candidate("datetime", seg.start, seg._end, datetime, num_year)
+    yield(candidate)
+
+  elseif input == "/date" then
     num_year = os.date("%j/") .. IsLeap(os.date("%Y"))
 
     -- 240219
