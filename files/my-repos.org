@@ -39,6 +39,7 @@
 - [[https://github.com/haoran-mc/todo-be]]
 
 ** front
+- [[https://github.com/haoran-mc/font-slice]]
 - [[https://github.com/haoran-mc/oh-my-css]]
 - [[https://github.com/haoran-mc/simplewebtheme]]
 
@@ -55,6 +56,7 @@
 - [[https://github.com/haoran-mc/vue-e-commerce-management]]
 
 * Others
+- [[https://github.com/haoran-mc/minimalist-web-notepad]]
 - [[https://github.com/haoran-mc/demos]]
 - [[https://github.com/haoran-mc/bigdata-learning]]
 - [[https://github.com/haoran-mc/Mathjax]]
