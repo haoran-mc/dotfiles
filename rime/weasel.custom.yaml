@@ -1,0 +1,50 @@
+# Weasel settings
+# encoding: utf-8
+
+patch:
+  # 主题方案
+  style/color_scheme: cleanwhite
+  style/color_scheme_dark: cleanwhite
+
+  # 候选词字体
+  style/font_face: "Segoe UI Emoji, Microsoft YaHei, SF Pro, Noto Color Emoji"
+  style/font_point: 10
+  # 注释字体
+  style/comment_font_face: "Microsoft YaHei"
+  style/comment_font_point: 10
+  # 候选编号字体
+  style/label_font_face: "Microsoft YaHei"
+  style/label_font_point: 10
+
+  # 预设选项
+  style/horizontal: false
+  style/text_orientation: horizontal     # 文字排列方向 horizontal | vertical
+  style/inline_preedit: true             # 嵌入编码模式，拼音位于：候选框 false | 行内 true
+  # 主题的预设
+  style/candidate_format: '%c %@'
+  style/corner_radius: 6                # 窗口圆角
+  style/hilited_corner_radius: 5        # 高亮圆角
+  style/border_height: 0                # 外边框 高
+  style/border_width: 0                 # 外边框 宽
+  style/spacing: 0                      # 拼音与候选项之间的距离 （inline_preedit: false）
+  style/candidate_list_layout: stacked  # 候选项排列方向 stacked | linear
+
+  preset_color_schemes:
+    cleanwhite:
+      name: Clean White
+      candidate_format: '%c %@'
+      border_height: 0                # 外边框 高
+      border_width: 0                 # 外边框 宽
+      spacing: 0                      # 拼音与候选项之间的距离 （inline_preedit: false）
+      candidate_list_layout: stacked  # 候选项排列方向 stacked | linear
+      label_color: 0x888888          # 候选编号字色
+      text_color: 0x808080           # 文本字色
+      back_color: 0xeeeeee           # 背景色
+      border_color: 0xeeeeee         # 候选框框色
+      comment_text_color: 0x808080   # 注释字色
+      candidate_text_color: 0x000000
+      hilited_text_color: 0x000000   # 选中的字色
+      hilited_candidate_label_color: 0xa0c98915
+      hilited_candidate_text_color: 0xc98915
+      hilited_candidate_back_color: 0xeeeeee
+
