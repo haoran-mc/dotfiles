@@ -36,7 +36,8 @@ export GOBIN=$GOPATH/bin
 export PATH=$GOBIN:$GOROOT/bin:$PATH
 export GO111MODULE=on
 export GOPROXY=https://goproxy.io,direct
-# export GOPROXY=https://goproxy.cn
+#export GOPROXY=https://mirrors.aliyun.com/goproxy
+#export GOPROXY=https://goproxy.cn
 
 # rust
 export PATH=$HOME/.cargo/bin:$PATH
