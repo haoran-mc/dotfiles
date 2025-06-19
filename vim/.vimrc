@@ -130,7 +130,7 @@ set listchars=trail:■
 " set listchars=tab:»■,trail:■  " 显示行尾空格
 " set list                 " 显示非可见字符 ^I
 " set signcolumn=yes
-color lunaperche
+color habamax
 " let g:SnazzyTransparent = 1
 set background=dark             " 设置背景颜色黑色
 set t_Co=256                    " 终端 256 色
