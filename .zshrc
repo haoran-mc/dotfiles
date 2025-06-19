@@ -66,6 +66,10 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # T
 
+if [ -f ~/dotfiles/secret.zsh ]; then
+    source ~/dotfiles/secret.zsh
+fi
+
 if [ -f ~/servicewall/secret.zsh ]; then
 	source ~/servicewall/secret.zsh
 fi
