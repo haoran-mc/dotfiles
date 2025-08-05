@@ -2,7 +2,7 @@
 	insteadOf = https://github.com/          # 重写URL，简化和统一Git操作
 [user]
 	name = haoran
-	email = haoran.mc@outlook.com
+	email = haoran.mc@foxmail.com
 [core]
 	editor = vim
 	# pager = git-split-diffs --color | less -RFX
