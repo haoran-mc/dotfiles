@@ -21,19 +21,10 @@ Squirrel	rime	1
 ；	--	1
 
 	apple
-OS X	osx
-─────	line
-
 
 郧	dot	3
 ◦	dot	2
 •	dot	1
-
-okk	okk	5
-🆗️	okk	4
-👌	okk	3
-😎️	okk	2
-贂	okk	1
 
 哈哈哈哈哈	hhhhh
 哈哈哈哈哈哈	hhhhhh
@@ -50,6 +41,18 @@ okk	okk	5
 哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈	hhhhhhhhhhhhhhhhh
 哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈	hhhhhhhhhhhhhhhhhh
 哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈	hhhhhhhhhhhhhhhhhhh
+
+
+桀	jie
+
+─────	line
+
+okk	okk	5
+🆗️	okk	4
+👌	okk	3
+😎️	okk	2
+贂	okk	1
+OS X	osx
 
 
 # 啊	a
