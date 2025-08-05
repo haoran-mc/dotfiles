@@ -251,6 +251,7 @@ alias ran.server='ssh ran.server'
 
 alias cat='bat'
 alias ping='gping'
+alias dockerformat='docker ps -a --format "table {{.Names}}\t{{.Status}}"'
 
 
 # Generated for envman. Do not edit.
