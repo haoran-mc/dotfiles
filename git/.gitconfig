@@ -6,7 +6,6 @@
 [core]
 	editor = vim
 	# pager = git-split-diffs --color | less -RFX
-	pager = delta --features mytheme --navigate --side-by-side  # 设置分页工具为delta
 	excludesfile = ~/dotfiles/.gitignore_global                 # 全局 .gitignore 文件的位置
 	quotepath = false                                           # 显示文件名时禁用引号
 [init]
@@ -40,14 +39,3 @@
 	colorMoved = default                     # 为移动代码行启用默认的颜色显示
 [merge]
 	conflictstyle = diff3                    # 在合并冲突时的显示风格，merge、diff3、zdiff3
-
-# delta
-[include]
-    path = ~/dotfiles/themes.gitconfig
-[delta]
-	# delta --show-themes
-	# core.pager 不是 delta，这里的配置不生效
-	features = mytheme
-	navigate = true    # use n and N to move between diff sections
-[interactive]
-	diffFilter = delta --color-only --pager  # 在交互式模式下使用 delta 作为差异过滤器，并仅显示颜色差异
