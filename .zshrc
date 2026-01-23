@@ -42,6 +42,9 @@ export GOPROXY=https://goproxy.io,direct
 # rust
 export PATH=$HOME/.cargo/bin:$PATH
 
+# llvm
+export PATH=/opt/homebrew/opt/llvm/bin:$PATH
+
 # lua
 export LUA_PATH="./?.lua;;"
 
@@ -250,8 +253,6 @@ alias r='~/haoran/gr/tldr/bin/ran-tldr'
 alias ran.server='ssh ran.server'
 
 alias cat='bat'
-alias ping='gping'
-alias dockerformat='docker ps -a --format "table {{.Names}}\t{{.Status}}"'
 
 
 # Generated for envman. Do not edit.
