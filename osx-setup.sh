@@ -19,7 +19,7 @@ done
 __current_status "install must-have tools..."
 must_have_tools=(htop ripgrep fzf fd
     tmux alacritty lazygit git-delta eza
-    bat gping tldr fontconfig)
+    bat tldr fontconfig)
 for tool in "${must_have_tools[@]}"; do
     __current_status "install tool: ${tool}"
     if ! command -v ${tool} >/dev/null 2>&1; then

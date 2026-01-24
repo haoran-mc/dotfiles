@@ -34,17 +34,17 @@ fi
 # clone from remote repository
 if [ ! -d "$HOME/haoran/gr/haoran-mc.github.io" ]; then
     __current_status "git pull site(haoran-mc.github.io) directory"
-    git clone git@github.com:haoran-mc/haoran-mc.github.io.git "$HOME/haoran/gr/haoran-mc.github.io"
+    git clone --depth 1 git@github.com:haoran-mc/haoran-mc.github.io.git "$HOME/haoran/gr/haoran-mc.github.io"
 fi
 
 # after site, note link style files from site
 if [ ! -d "$HOME/haoran/no" ]; then
     __current_status "git pull note(no) directory"
-    git clone git@github.com:haoran-mc/note.git "$HOME/haoran/no"
+    git clone --depth 1 git@github.com:haoran-mc/note.git "$HOME/haoran/no"
     source "$HOME/haoran/no/setup.sh"
 fi
 
 if [ ! -d "$HOME/haoran/code" ]; then
     __current_status "git pull code directory"
-    git clone git@github.com:haoran-mc/code.git "$HOME/haoran/code"
+    git clone --depth 1 git@github.com:haoran-mc/code.git "$HOME/haoran/code"
 fi

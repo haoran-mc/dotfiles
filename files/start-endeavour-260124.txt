@@ -1,0 +1,8 @@
+1. yay -Ss flclash, yay -S flclashx-git 宿主机开启网卡虚拟模式也可以
+2. yay -S microsoft-edge-stable-bin
+3. yay -S vim emacs
+4. google-drive .ssh
+5. git clone dotfiles, linux-setup.sh
+6. vim :PlugInstall
+7. yay -S git-delta
+
