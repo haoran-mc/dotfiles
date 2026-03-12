@@ -65,9 +65,6 @@ export RANGER_LOAD_DEFAULT_RC=false
 export RIPGREP_CONFIG_PATH=$HOME/dotfiles/.ripgreprc
 
 # nvm: curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.39.0/install.sh | bash
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # T
 
 if [ -f ~/dotfiles/secret.zsh ]; then
     source ~/dotfiles/secret.zsh
@@ -148,6 +145,8 @@ plugins=(
 # zsh-history-substring-search
 # copyfile
 
+# 放在source $ZSH/oh-my-zsh.sh后，禁止 oh-my-zsh 自己调用 compinit
+skip_global_compinit=1
 # after plugins and before plugin.zsh
 source $ZSH/oh-my-zsh.sh
 
@@ -261,3 +260,6 @@ alias cat='bat'
 
 # ^r fuzzy search
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# opencode
+export PATH=/Users/haoran/.opencode/bin:$PATH
