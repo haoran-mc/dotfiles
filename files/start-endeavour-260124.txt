@@ -1,3 +1,4 @@
+
 1. yay -Ss flclash, yay -S flclashx-git 宿主机开启网卡虚拟模式也可以
 2. yay -S microsoft-edge-stable-bin
 3. yay -S vim emacs
@@ -5,4 +6,28 @@
 5. git clone dotfiles, linux-setup.sh
 6. vim :PlugInstall
 7. yay -S git-delta
+
+8. rime
+    
+    sudo pacman -S fcitx5-im
+    sudo pacman -S fcitx5-chinese-addons fcitx5-rime
+
+    在环境变量配置文件 /etc/environment 中添加以下内容：
+
+    # /etc/environment
+    GTK_IM_MODULE=fcitx
+    QT_IM_MODULE=fcitx
+    XMODIFIERS=@im=fcitx
+    SDL_IM_MODULE=fcitx
+
+    然后配置自动启动，有下面三种方法，第一个不行，试第二个、第三个
+
+    1. 如果支持 XDG 桌面环境，例如 KDE、GNOME、Xfce 默认重启后即可
+    2. 在 ~/.config/autostart 目录下添加 fcitx-autostart.desktop 文件，可以从目录 etc/xdg/autostart 中复制
+    3. 对于 i3-wm，可以在配置文件 ~/.config/i3/config 中添加如下代码
+
+    exec_always --no-startup-id fcitx5
+
+    系统设置 → 键盘 → 虚拟键盘，选 fcitx5，注销重登。KDE Wayland 下 fcitx5 需要在 KDE 自己的设置里注册为"虚拟键盘"。
+
 
