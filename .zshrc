@@ -175,10 +175,6 @@ export LANG=en_US.UTF-8
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
-# export BAT_CONFIG_PATH="${HOME}/dotfiles/bat.conf"
-# --list-theme
-export BAT_THEME="OneHalfDark"
-
 # add less' arg -X for delta pager
 export DELTA_PAGER="less -X $LESS"
 
@@ -248,8 +244,6 @@ alias godebug='dlv exec _exe'
 # build ran-tldr command first
 alias r='~/haoran/gr/tldr/bin/ran-tldr'
 alias ran.server='ssh ran.server'
-
-alias cat='bat'
 
 
 # Generated for envman. Do not edit.

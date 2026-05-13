@@ -4,7 +4,7 @@ source $HOME/dotfiles/scripts/func-util.sh
 
 ### must-have tools #########################
 yay -S --needed repgrep fzf fd tmux vim \
-  alacritty lazygit eza bat tldr git-delta
+  alacritty lazygit eza tldr git-delta
 # go nvm nodejs
 
 ### Xorg #########################
