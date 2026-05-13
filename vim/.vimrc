@@ -171,21 +171,6 @@ source ~/dotfiles/vim/init-style.vim
 " keys
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 inoremap {<cr> {<cr>}<esc>O
-inoremap <c-a> <home>
-inoremap <c-e> <end>
-inoremap <c-d> <del>
-inoremap <c-n> <down>
-inoremap <c-p> <up>
-inoremap <c-_> <c-k>
-
-cnoremap <c-a> <home>
-cnoremap <c-e> <end>
-cnoremap <c-f> <right>
-cnoremap <c-b> <left>
-cnoremap <c-d> <del>
-inoremap <c-n> <down>
-inoremap <c-p> <up>
-cnoremap <c-_> <c-k>
 
 nmap <leader>0 i<Space><C-c>la<Space><C-c>h
 nmap <leader>rc :e ~/dotfiles/vim/.vimrc<cr>
@@ -194,19 +179,6 @@ nmap <leader>us :so ~/.vimrc<cr>
 nmap <leader>1 :nohlsearch<cr>
 nmap <leader><tab> :e#<cr>
 " nmap <leader><leader> <esc>/<++><cr>:nohlsearch<cr>c4l
-
-nmap <leader>wc :q<cr>
-nmap <leader>wv :vsp<cr>
-nmap <leader>ws :sp<cr>
-nmap <leader>wm :only<cr>
-nmap <leader>wh <c-w><c-h>
-nmap <leader>wj <c-w><c-j>
-nmap <leader>wk <c-w><c-k>
-nmap <leader>wl <c-w><c-l>
-nmap <leader>wx <c-w><c-x>
-nmap <leader>w= <c-w>=
-nmap <leader>wH <c-w>H
-nmap <leader>wK <c-w>K
 
 nmap <c-h> :vertical resize -2<cr>
 nmap <c-l> :vertical resize +2<cr>

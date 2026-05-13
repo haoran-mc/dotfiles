@@ -19,6 +19,7 @@
 	lo = log --oneline --graph
 	lp = log --patch
 	la = log --format='%an <%ae>'
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 # [commit]
 # 	template = /Users/haoran/.stCommitMsg    # 指定提交消息的模板文件位置
 [http]

@@ -2,16 +2,18 @@
 
 
 #+begin_example
-  .
   ├── cn_dicts/                        # 中文字表、词典
   ├── opencc/                          # 自定义短语
+  │    ├──follow_letter.txt            # 单字 follow，因为形码本来就是保证编码输入单字，所以这里可以迁移到 custom_phrase.txt
+  │    └──hu_cf.txt                    # dockerhub 开源社区提供的镜像
   ├── custom_phrase.txt                # 自定义短语
   ├── default.custom.yaml              # 入口配置
   ├── dict_*.dict.yaml                 # 码表文件
-  ├── hu.schema.yaml                   # 虎码单字
+  ├── hu.schema.yaml                   # 配置文件：虎码单字
+  ├── hupy.schema.yaml                 # 配置文件：虎码反查
   ├── setup.sh                         # 布置脚本
-  ├── rime.lua                         # lua 脚本
-  ├── squirrel.custom.yaml             # 鼠须管客制化
+  ├── rime.lua                         # lua 脚本，计算器、当前时间
+  ├── squirrel.custom.yaml             # 鼠须管主题
   └── symbols.yaml                     # symbols, emojis
 #+end_example
 
